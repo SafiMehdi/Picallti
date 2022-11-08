@@ -4,7 +4,7 @@
 
 # **Picallti  🚲**
 
-Mobile App for **bicycle rental**, since they are the most ecological, motivating and easy way to move from one place to another. Our virtual market gives the possibility to the owner to rent out his vehicle, and to the applicant to easily find the one he wants to have for the period he wants.
+Mobile App for **bicycle rental**, since they are the most ecological, motivating and easy way to move from one place to another. Our virtual market gives the possibility to the owner to rent out his vehicle, and to the applicant to easily find the one he wants to have for the period he wants. test
 ## **Authors :**
 
 - [@SafiMehdi](https://www.github.com/SafiMehdi)

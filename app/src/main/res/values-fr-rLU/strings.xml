@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Picallti</string>
+    <string name="signUp">Créer un nouveau compte</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prenom</string>
+    <string name="email">Email</string>
+    <string name="emailConfirm">Confirmer votre email</string>
+    <string name="phone">Numéro de Téléphone</string>
+    <string name="password">Mot de passe</string>
+    <string name="passwordConfirm">Confirmer votre mot de passe</string>
+    <string name="city">Ville</string>
+    <string name="politiqueDeConfidentialité">J\'accepte la politique de confidentialité de Picallti.</string>
+    <string name="buttonCreerCompte">CREER MON COMPTE</string>
+
+</resources>

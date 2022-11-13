@@ -10,4 +10,5 @@
     <color name="bleu_ciel">#00DFFF</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#A9A9A9</color>
 </resources>

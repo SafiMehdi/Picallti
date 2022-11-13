@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Picallti</string>
+    <string name="ContactTitle">Contact us</string>
+    <string name="ContactSend">Send Message</string>
 </resources>

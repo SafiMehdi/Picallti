@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Picallti" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/bleu_marine</item>
+        <item name="colorPrimary">@color/bleu</item>
         <item name="colorPrimaryVariant">@color/bleu</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->

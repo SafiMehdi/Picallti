@@ -31,11 +31,6 @@ public class BottomBarFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //setHasOptionsMenu(true);
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        int w = (int) displayMetrics.widthPixels / 4;
-        //home.setHeight(30);
-        //home.setWidth(w);
         return inflater.inflate(R.layout.bottom_bar_fragment, container, false);
     }
 
@@ -54,8 +49,6 @@ public class BottomBarFragment extends Fragment {
         Log.d("Yay", "Tesst");
         System.out.println(homee);
         homee.setMinimumWidth(w);
-        //homee.setHeight(30);
-        //homee.setWidth(w);
         profile.setMinimumWidth(w);
         favorits.setMinimumWidth(w);
         notification.setMinimumWidth(w);
@@ -65,10 +58,10 @@ public class BottomBarFragment extends Fragment {
         System.out.println("---------------------------------");
         switch (currentActivity) {
             case "MainActivity":
-                homee.setColorFilter(Color.rgb(0, 223, 255));
+                homee.setColorFilter(Color.rgb(1, 30, 254));
                 break;
             case "NotificationsHistory":
-                notification.setColorFilter(Color.rgb(0, 223, 255));
+                notification.setColorFilter(Color.rgb(1, 30, 254));
                 break;
 
         }
@@ -103,48 +96,5 @@ public class BottomBarFragment extends Fragment {
 
     }
 
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
-        Log.d("Yay", "Tesst");
-        menuInflater.inflate(R.menu.bottom_menu, menu);
-
-        MenuItem pinMenuItem = menu.findItem(R.id.home);
-        System.out.println("------------------------------");
-        System.out.println(pinMenuItem);
-        System.out.println("------------------------------");
-        /*pinMenuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.home:
-                        System.out.println("Heere");
-                        return true;
-                    case R.id.profil:
-                        Intent home = new Intent(getActivity(),MainActivity.class);
-                        startActivity(home);
-
-                    default:
-                        System.out.println("Heere");
-                }
-                return false;
-            }
-        });*/
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        System.out.println("Heere");
-        switch (item.getItemId()) {
-            case R.id.home:
-                System.out.println("Heere");
-                Intent home = new Intent(getActivity(), MainActivity.class);
-                startActivity(home);
-        }
-        return true;
-    }
-
-    public void homee() {
-        System.out.println("Homee");
-    }
 
 }

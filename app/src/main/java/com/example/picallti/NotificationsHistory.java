@@ -59,13 +59,5 @@ public class NotificationsHistory extends AppCompatActivity {
         overridePendingTransition(0, 0);
         //this.recreate();
     }
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return false;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return false;
-    }*/
 }

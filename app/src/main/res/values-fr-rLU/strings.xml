@@ -12,5 +12,19 @@
     <string name="city">Ville</string>
     <string name="politiqueDeConfidentialité">J\'accepte la politique de confidentialité de Picallti.</string>
     <string name="buttonCreerCompte">CREER MON COMPTE</string>
+    <string name="settings">Paramètres</string>
+    <string name="accountSettings">Compte</string>
+    <string name="notificationSettings">Notifications</string>
+    <string name="darkMode">Mode Sombre</string>
+    <string name="languageSetting">Langues</string>
+    <string name="security">Sécurité &amp; Confidentialité</string>
+    <string name="help">Aide</string>
+    <string name="about">À propos</string>
+    <string name="logOut">Se Deconnecter</string>
+    <string name="deleteAccount">Supprimer Votre Compte</string>
+    <string name="deleteAccountMessage">La suppression de votre compte est permanante.</string>
+    <string name="deleteAccountMessage2">Elle entrainera la suppression de toutes vos données enregistrées.</string>
+    <string name="deleteAccountMessage3">Êtes-vous sûr de bien vouloir continuer ?</string>
+    <string name="deleteAccountButton">SUPPRIMER MON COMPTE</string>
 
 </resources>

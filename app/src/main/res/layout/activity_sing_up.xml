@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/back"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"/>
 
     <TextView
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:textSize="30dp"
         android:textColor="@color/blue"
         android:textStyle="bold"
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/pageTitle"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         android:textColor="@color/black"
         android:layout_marginStart="20dp"
         android:text="@string/nom" />
@@ -53,18 +53,18 @@
         android:layout_below="@+id/nameLabel"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:drawablePadding="20dp"
+        android:layout_marginBottom="5dp"
+        android:drawablePadding="10dp"
         android:hint="Ghoslin"
         android:drawableLeft="@drawable/nom"
         android:inputType="text"
-        android:padding="15dp" />
+        android:padding="10dp" />
     <TextView
         android:id="@+id/prenomLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:textColor="@color/black"
         android:layout_marginStart="20dp"
         android:text="@string/prenom" />
@@ -76,18 +76,18 @@
         android:layout_below="@+id/prenomLabel"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:drawablePadding="20dp"
+        android:layout_marginBottom="5dp"
+        android:drawablePadding="10dp"
         android:hint="Jamal"
         android:drawableLeft="@drawable/nom"
         android:inputType="text"
-        android:padding="15dp" />
+        android:padding="10dp" />
     <TextView
         android:id="@+id/emailLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/prenom"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:textColor="@color/black"
         android:layout_marginStart="20dp"
         android:text="@string/email" />
@@ -99,18 +99,18 @@
         android:layout_below="@+id/emailLabel"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:drawablePadding="20dp"
+        android:layout_marginBottom="5dp"
+        android:drawablePadding="10dp"
         android:hint="jamal@mail.com"
         android:drawableLeft="@drawable/email"
         android:inputType="textEmailAddress"
-        android:padding="15dp" />
+        android:padding="10dp" />
     <TextView
         android:id="@+id/emailVerifLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/email"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:textColor="@color/black"
         android:layout_marginStart="20dp"
         android:text="@string/emailConfirm" />
@@ -122,19 +122,19 @@
         android:layout_below="@+id/emailVerifLabel"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:drawablePadding="20dp"
+        android:layout_marginBottom="5dp"
+        android:drawablePadding="10dp"
         android:hint="jamal@mail.com"
         android:drawableLeft="@drawable/valid_mail"
         android:inputType="textEmailAddress"
-        android:padding="15dp" />
+        android:padding="10dp" />
 
     <TextView
         android:id="@+id/phoneNumberLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/emailVerif"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:textColor="@color/black"
         android:layout_marginStart="20dp"
         android:text="@string/phone" />
@@ -147,19 +147,19 @@
         android:layout_below="@+id/phoneNumberLabel"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:drawablePadding="20dp"
+        android:layout_marginBottom="5dp"
+        android:drawablePadding="10dp"
         android:hint="0660606060"
         android:drawableLeft="@drawable/phone"
         android:inputType="phone"
-        android:padding="15dp" />
+        android:padding="10dp" />
 
     <TextView
         android:id="@+id/passwordLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/phoneNumber"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:textColor="@color/black"
         android:layout_marginStart="20dp"
         android:text="@string/password" />
@@ -172,12 +172,12 @@
         android:layout_below="@+id/passwordLabel"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:drawablePadding="20dp"
+        android:layout_marginBottom="5dp"
+        android:drawablePadding="10dp"
         android:hint="@string/password"
         android:drawableLeft="@drawable/open_lock"
         android:inputType="textPassword"
-        android:padding="15dp"/>
+        android:padding="10dp"/>
 
 
     <TextView
@@ -185,7 +185,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:textColor="@color/black"
         android:layout_marginStart="20dp"
         android:text="@string/passwordConfirm" />
@@ -198,19 +198,19 @@
         android:layout_below="@+id/passwordVerifLabel"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:drawablePadding="20dp"
+        android:layout_marginBottom="5dp"
+        android:drawablePadding="10dp"
         android:hint="@string/passwordConfirm"
         android:drawableLeft="@drawable/lock"
         android:inputType="textPassword"
-        android:padding="15dp"/>
+        android:padding="10dp"/>
 
     <TextView
         android:id="@+id/villeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/passwordVerif"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="2dp"
         android:textColor="@color/black"
         android:layout_marginStart="20dp"
         android:text="@string/city"/>
@@ -218,7 +218,7 @@
     <Spinner
         android:id="@+id/cities_spinner"
         android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_height="35dp"
         android:layout_below="@+id/villeLabel"
         android:layout_marginStart="20dp" />
     <CheckBox
@@ -227,7 +227,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:text="@string/politiqueDeConfidentialité"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="30dp"
         android:layout_below="@+id/cities_spinner" />
 
@@ -236,7 +236,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/conditions"
+        android:backgroundTint="@color/blue"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
         android:text="@string/buttonCreerCompte"/>
 
 </RelativeLayout>

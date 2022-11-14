@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeleteAccount">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/pageTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="30dp"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:text="@string/deleteAccount" />
+
+        <TextView
+            android:id="@+id/deleteMessage1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/pageTitle"
+            android:text="@string/deleteAccountMessage" />
+        <TextView
+            android:id="@+id/deleteMessage2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_below="@+id/deleteMessage1"
+            android:text="@string/deleteAccountMessage2" />
+        <TextView
+            android:id="@+id/deleteMessage3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/deleteMessage2"
+            android:textStyle="bold"
+            android:text="@string/deleteAccountMessage3" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/userImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp"
+            android:padding="5dp"
+            android:src="@drawable/nom"
+            android:layout_marginStart="40dp"
+            android:layout_below="@+id/deleteMessage3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:shapeAppearanceOverlay="@style/Circular"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp" />
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/deleteMessage3"
+            android:layout_toRightOf="@+id/userImage"
+            android:layout_marginTop="64dp"
+            android:layout_marginStart="20dp"
+            android:text="Username"/>
+
+        <Button
+            android:id="@+id/createAccountButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+            android:backgroundTint="@color/blue"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:padding="20dp"
+            android:text="@string/deleteAccountButton"/>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

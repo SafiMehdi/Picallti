@@ -1,5 +1,31 @@
 <resources>
-    <string name="app_name">Picallti</string>
-    <string name="ContactTitle">Contact us</string>
-    <string name="ContactSend">Send Message</string>
+    <string name="app_name" translatable="false">Picallti</string>
+    <string name="ContactTitle" translatable="false">Contact us</string>
+    <string name="ContactSend" translatable="false">Send Message</string>
+
+    <string name="LikesTitle" translatable="false">My favourites</string>
+    <string name="title_activity_likes" translatable="false">LikesActivity</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="action_settings" translatable="false">Settings</string>
+
+    <string name="menu_transform" translatable="false">Transform</string>
+    <string name="menu_reflow" translatable="false">Reflow</string>
+    <string name="menu_slideshow" translatable="false">Slideshow</string>
+    <string name="menu_settings" translatable="false">Settings</string>
+
+    <string name="lorem_ipsum_title" translatable="false">Lorem Ipsum"</string>
+    <string name="lorem_ipsum" translatable="false">Lorem Ipsum is simply placeholder text of the printing and
+        typesetting industry. Lorem Ipsum has been the industry\'s standard placeholder text ever
+        since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+        type specimen book"
+    </string>
+    <string name="fab_content_description" translatable="false">Represents a view to invoke an action</string>
+    <string name="image_view_item_transform_content_description" translatable="false">Represents an image view in the
+        item
+    </string>
+
 </resources>

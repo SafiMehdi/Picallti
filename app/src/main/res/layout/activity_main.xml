@@ -24,13 +24,7 @@
             android:paddingTop="60dp"
             android:paddingRight="30dp">
 
-            <ListView
-                android:id="@+id/notification_list_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:divider="@null"
-                android:dividerHeight="0dp"
-                />
+
             <Button
                 android:id="@+id/btn"
                 android:layout_width="wrap_content"
@@ -38,6 +32,16 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:text="contact us"
+                android:drawableTint="@color/white"
+                />
+
+            <Button
+                android:id="@+id/btnl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="likes"
                 android:drawableTint="@color/white"
                 />
 

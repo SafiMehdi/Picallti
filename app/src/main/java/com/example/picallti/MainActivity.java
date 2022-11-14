@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.btn)
     Button btn;
+    @BindView(R.id.btnl)
+    Button btnl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,16 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), ContactUsActivity.class));
+                startActivity(new Intent(getApplicationContext(), ContactActivity.class));
             }
         });
+
+        btnl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), FavorisActivity.class));
+            }
+        });
+
     }
 }

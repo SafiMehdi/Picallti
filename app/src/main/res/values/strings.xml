@@ -12,4 +12,5 @@
     <string name="mesAnnonacesTextView">Mes Annonces</string>
     <string name="ajouterAnnoncesButton">Ajouter Annonces</string>
     <string name="ajouterAnnoncesText">Ajouter Annonces</string>
+    <string name="modifierProfileTextView">Modifier Profile</string>
 </resources>

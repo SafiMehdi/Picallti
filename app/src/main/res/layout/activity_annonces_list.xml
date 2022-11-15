@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="140dp"
+        android:layout_height="120dp"
+        android:padding="15dp" />
+
+    <RelativeLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/titreAnnonces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ttire de l'offre"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#4d4d4d"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="110dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_baseline_more_vert_24"
+            android:layout_toRightOf="@id/titreAnnonces"/>
+
+        <TextView
+            android:id="@+id/descriptionAnnonces"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titreAnnonces"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:text="madjalka dalmsjd masljd masjd masjd asd lajsldj a madjalka dalmsjd masljd masjd masjd " />
+
+        <TextView
+            android:id="@+id/localisationAnnonces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rabat, Ville"
+            android:layout_below="@id/descriptionAnnonces"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp" />
+
+        <TextView
+            android:id="@+id/prixAnnonces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:text="12DH/Jours"
+            android:layout_below="@id/descriptionAnnonces"
+            android:layout_toRightOf="@id/localisationAnnonces"/>
+
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+            android:layout_toRightOf="@id/prixAnnonces"
+            android:layout_below="@id/descriptionAnnonces"
+            android:layout_marginTop="8dp"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
+

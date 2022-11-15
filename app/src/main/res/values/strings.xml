@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Picallti</string>
+    <string name="usernameTextView">Username</string>
+    <string name="villeTextView">Ville :</string>
+    <string name="villeValue">Rabat</string>
+    <string name="emailTextView">Email :</string>
+    <string name="emailValue">meydi.safi@gmail.com</string>
+    <string name="telephoneTextView">Tél :</string>
+    <string name="telephoneValue">0664401684</string>
+    <string name="bioTextView">Bio :</string>
+    <string name="bioValue">lorem ipsum chi haja zwina</string>
+    <string name="mesAnnonacesTextView">Mes Annonces</string>
+    <string name="ajouterAnnoncesButton">Ajouter Annonces</string>
+    <string name="ajouterAnnoncesText">Ajouter Annonces</string>
 </resources>

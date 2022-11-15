@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Picallti</string>
+    <string name="titre">Connexion</string>
+    <string name="image_holder">ImageHolder</string>
+    <string name="user_placeholder">Nom d\'utilisateur</string>
+    <string name="pass_placeholder">Mot de passe</string>
+    <string name="rememberme">Se souvenir de moi</string>
+    <string name="connect">Se connecter</string>
+    <string name="forgotpass">Mot de passe oublié ?</string>
+    <string name="register">S\'inscrire gratuitement</string>
+    <string name="connectsocial">Se connecter avec les réseaux sociaux</string>
+    <string name="forgotpasstitle">Mot de passe oublié ?</string>
+    <string name="forgotpasstext">Veuillez saisir votre email de connexion afin de recevoir le lien de réinitialisation de mot de passe.</string>
+    <string name="forgotpassmail">Adresse mail</string>
+    <string name="forgotpasslientext">Recevoir un lien</string>
+    <string name="forgotpassback">Retourner à la page de connexion</string>
 </resources>

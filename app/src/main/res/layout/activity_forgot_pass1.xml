@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".forgot_pass1">
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgotpasstitle"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/fontnew2bold"
+        android:textColor="#011EFE"
+        android:textSize="30sp"
+        android:layout_marginTop="35dp"
+        />
+
+    <TextView
+        android:id="@+id/contenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:text="@string/forgotpasstext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="100dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:fontFamily="@font/fontnew2bold"
+        android:lineSpacingExtra="20sp"
+        android:textColor="@color/black"
+        />
+
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contenu"
+        android:layout_marginTop="100dp"
+        android:hint="@string/forgotpassmail"
+        android:layout_centerHorizontal="true"
+        android:width="300dp"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawablePadding="10dp"
+        android:paddingBottom="17dp"
+        android:inputType="textEmailAddress" />
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgotpasslientext"
+        android:layout_below="@+id/edit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:width="300dp"
+        android:fontFamily="@font/fontnew2bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn"
+        android:text="@string/forgotpassback"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/fontnew2bold"
+        android:textSize="15sp"/>
+
+
+</RelativeLayout>

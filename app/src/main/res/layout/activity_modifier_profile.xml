@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <ImageButton
+        android:background="@color/white"
+        android:id="@+id/backArrowButton"
         android:layout_width="35dp"
         android:layout_height="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,51 +23,141 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/modifierProfileTextView"
+        android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0"
-        android:textColor="@color/black"/>
+        app:layout_constraintTop_toBottomOf="@+id/backArrowButton"
+        app:layout_constraintVertical_bias="0.0" />
 
-
-    <EditText
-        android:id="@+id/photoInputValue"
+    <LinearLayout
+        android:id="@+id/modifierProfilForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Photo"
-        android:inputType="textPersonName"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/modifierProfileTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/modifierProfileTextView"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp">
 
-    <EditText
-        android:id="@+id/usernameValue"
+        <EditText
+            android:id="@+id/photoInputValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Photo"
+            android:inputType="textPersonName"/>
+
+        <EditText
+            android:id="@+id/usernameInputValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Modifier votre username"
+            android:inputType="textPersonName"/>
+
+        <EditText
+            android:id="@+id/villeInputValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Modifier votre ville"
+            android:inputType="textPersonName"/>
+
+        <EditText
+            android:id="@+id/emailInputValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Modifier votre email"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/telephoneInputValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Modifier votre numero de telephone"
+            android:inputType="phone"/>
+
+        <EditText
+            android:id="@+id/bioInputValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Modifier votre Bio"
+            android:inputType="text|textMultiLine"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hidingMailAndPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:hint="Entrez votre username"
-        android:inputType="textPersonName"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photoInputValue" />
+        app:layout_constraintTop_toBottomOf="@id/modifierProfilForm">
 
-    <EditText
-        android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/hidePhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <Switch
+                android:id="@+id/switchHidePhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/hidePhoneTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cacher mon numéro de téléphone"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hideMailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <Switch
+                android:id="@+id/switchHideMailAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/hideMailAddressTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cacher mon addresse mail"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:hint="Entrez un nouveau email"
+        android:drawableLeft="@drawable/ic_baseline_save_24"
+        android:text="Sauvegarder"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameValue" />
+        app:layout_constraintTop_toBottomOf="@+id/hidingMailAndPhone"
+        app:layout_constraintVertical_bias="0.398" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

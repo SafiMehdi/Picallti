@@ -16,10 +16,11 @@ public class AnnoncesListAdapter extends ArrayAdapter<String> {
     private final String[] description;
     private final String[] localisation;
     private final String[] prix;
+    private final String[] temps;
     private final Integer[] imgid;
 
-    public MyListAdapter(Activity context, String[] maintitle,String[] description,String[] localisation, String[] prix, Integer[] imgid) {
-        super(context, R.layout.activity_listcomp, maintitle);
+    public AnnoncesListAdapter(Activity context, String[] maintitle,String[] description,String[] localisation, String[] prix, String[] temps, Integer[] imgid) {
+        super(context, R.layout.activity_annonces_list, maintitle);
         // TODO Auto-generated constructor stub
 
         this.context=context;
@@ -27,6 +28,7 @@ public class AnnoncesListAdapter extends ArrayAdapter<String> {
         this.description=description;
         this.localisation=localisation;
         this.prix=prix;
+        this.temps=temps;
         this.imgid=imgid;
 
     }
@@ -39,13 +41,16 @@ public class AnnoncesListAdapter extends ArrayAdapter<String> {
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
         TextView desc = (TextView) rowView.findViewById(R.id.descriptionAnnonces);
         TextView price = (TextView) rowView.findViewById(R.id.prixAnnonces);
-        TextView location = (TextView) rowView.findViewById(R.id.localisationAnnonces);
+        TextView location = (TextView) rowView.findViewById(R.id.localisationTextView);
+        TextView time = (TextView) rowView.findViewById(R.id.tempsAnnonces);
 
         titleText.setText(maintitle[position]);
         imageView.setImageResource(imgid[position]);
         desc.setText(description[position]);
         price.setText(prix[position]);
         location.setText(localisation[position]);
+        time.setText(temps[position]);
+
 
         return rowView;
 

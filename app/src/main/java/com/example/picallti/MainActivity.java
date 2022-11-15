@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
             "12DH/Jours", "10DH/Jours",
     };
 
+    String[] temps ={
+            "17 minutes", "2 Heures",
+    };
+
     Integer[] imgid={
             R.drawable.profile_circle,R.drawable.profile_circle,
     };
@@ -39,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        MyListAdapter adapter=new MyListAdapter(this, maintitle, description, localisation, prix, imgid);
+        AnnoncesListAdapter adapter=new AnnoncesListAdapter(this, maintitle, description, localisation, prix, temps, imgid);
         list=(ListView)findViewById(R.id.list);
         list.setAdapter(adapter);
     }

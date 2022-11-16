@@ -60,7 +60,7 @@ public class OffrePageActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent OffrePageActivity = new Intent(getApplicationContext(), DetailsActivity.class);
                 OffrePageActivity.putExtra("titre", titre[position]);
-                //OffrePageActivity.putExtra("imageId", imageId[position]);
+                OffrePageActivity.putExtra("imageId", imageId[position]);
                 OffrePageActivity.putExtra("description", description[position]);
                 OffrePageActivity.putExtra("localisation", localisation[position]);
                 OffrePageActivity.putExtra("prix", prix[position]);

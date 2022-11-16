@@ -23,7 +23,8 @@ public class DetailsActivity extends AppCompatActivity {
         TextView description = findViewById(R.id.textView14);
 
         titre.setText(extras.getString("titre"));
-        //imageId.setImageDrawable(extras.get("imageId"));
+        int imId = extras.getInt("imageId");
+        imageId.setImageResource(imId);
         localisation.setText(extras.getString("localisation"));
         time.setText(extras.getString("time"));
         prix.setText(extras.getString("prix"));

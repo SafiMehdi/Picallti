@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Picallti</string>
-    <string name="textView">\t\t\tYou want to go for a ride\n\t\t\t\t\t\tbut have no bike?\n\t\tPicollti came with the solution\nrent a bike or a scooter with one click</string>
+    <string name="textView">\t\t\tYou want to go for a ride\n\t\t\t\tbut have no bike?\n\t\tPicollti came with the solution\n\trent a bike or a scooter with one click</string>
     <string name="button">SEE OFFERS</string>
     <string name="textView2">PICALLTI.2022</string>
 </resources>

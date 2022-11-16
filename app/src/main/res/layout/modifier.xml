@@ -147,72 +147,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.632" />
 
-    <LinearLayout
-        android:id="@+id/sauvbutton"
-        android:layout_width="118dp"
-        android:layout_height="59dp"
-        android:layout_marginBottom="28dp"
-        android:background="@color/blue"
-        android:clickable="true"
-        android:orientation="horizontal"
-        android:paddingLeft="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/supprimebutton"
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:drawableLeft="@drawable/edit"
+        android:text="Edit "
+        android:backgroundTint="@color/bleu_dark"
+        app:layout_constraintBottom_toTopOf="@+id/delete"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent" />
 
-
-        <ImageView
-            android:id="@+id/sauving"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/edit" />
-
-        <TextView
-            android:id="@+id/sauvgarde"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="5dp"
-            android:text="Modifier"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/supprimebutton"
-        android:layout_width="118dp"
-        android:layout_height="57dp"
-        android:layout_marginBottom="60dp"
-        android:background="@color/blue"
-        android:clickable="true"
-        android:orientation="horizontal"
-        android:paddingLeft="5dp"
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="140dp"
+        android:backgroundTint="@color/bleu_dark"
+        android:drawableLeft="@drawable/dell"
+        android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent">
-
-
-        <ImageView
-            android:id="@+id/supprimeimg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/dell" />
-
-        <TextView
-            android:id="@+id/supprimetext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="5dp"
-            android:text="Supprimer"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

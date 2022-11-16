@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Ville">
+        <item>Agadir</item>
+        <item>Al Hoceima</item>
+        <item>Azilal</item>
+        <item>Beni Mellal</item>
+        <item>Ben Slimane</item>
+        <item>Boulemane</item>
+        <item>Casablanca</item>
+        <item>Chaouen</item>
+        <item>El Jadida</item>
+        <item>El Kelaa des Sraghna</item>
+        <item>Er Rachidia</item>
+        <item>Essaouira</item>
+        <item>Fes</item>
+        <item>Figuig</item>
+        <item>Guelmim</item>
+        <item>Ifrane</item>
+        <item>Kenitra</item>
+        <item>Khemisset</item>
+        <item>Khenifra</item>
+        <item>Khouribga</item>
+        <item>Laayoune</item>
+        <item>Larache</item>
+        <item>Marrakech</item>
+        <item>Meknes</item>
+        <item>Nador</item>
+        <item>Ouarzazate</item>
+        <item>Oujda</item>
+        <item>Rabat-Sale</item>
+        <item>Safi</item>
+        <item>Settat</item>
+        <item>Sidi Kacem</item>
+        <item>Tangier</item>
+        <item>Tan-Tan</item>
+        <item>Taounate</item>
+        <item>Taroudannt</item>
+        <item>Tata</item>
+        <item>Taza</item>
+        <item>Tetouan</item>
+        <item>Tiznit</item>
+    </string-array>
+</resources>

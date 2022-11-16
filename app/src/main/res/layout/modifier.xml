@@ -23,7 +23,7 @@
         android:id="@+id/Title"
         android:layout_width="243dp"
         android:layout_height="48dp"
-        android:text="Ajouter Anonce"
+        android:text="Modifier Anonce"
         android:textColor="@color/blue"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -97,7 +97,7 @@
         android:layout_height="44dp"
         android:layout_marginTop="13dp"
         android:ems="10"
-        android:hint="Titre de l'offre"
+        android:text="Bicyclette à Louer"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +111,7 @@
         android:layout_height="78dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Description de l'offre"
+        android:text="Byciclette à etat neuf a louer "
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -164,7 +164,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/save" />
+            android:src="@drawable/edit" />
 
         <TextView
             android:id="@+id/sauvgarde"
@@ -172,7 +172,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
-            android:text="Sauvegarder"
+            android:text="Modifier"
             android:textColor="@color/white"
             android:textStyle="bold"/>
     </LinearLayout>

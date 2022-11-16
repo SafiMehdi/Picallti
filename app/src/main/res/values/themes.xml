@@ -3,6 +3,8 @@
     <style name="Theme.Picallti" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/bleu</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorPrimaryVariant">@color/bleu_marine</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -13,9 +15,14 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
     <style name="darkModeSwitch" parent="Theme.AppCompat.Light">
         <item name="colorControlActivated">@color/dark_Blue</item>
         <item name="colorSwitchThumbNormal">#99FFFFFF</item>
 
     </style>
+
 </resources>

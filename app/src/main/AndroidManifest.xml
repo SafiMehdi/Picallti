@@ -13,41 +13,29 @@
         android:theme="@style/Theme.Picallti"
         tools:targetApi="31">
         <activity
-            android:name="com.example.picallti.DetailsActivity"
+            android:name=".DetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.picallti.OffrePageActivity"
+            android:name=".OffrePageActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name="com.example.picallti.HomePageActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
-            android:name="com.example.picallti.forgot_pass2"
+            android:name=".forgot_pass2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.picallti.NotificationsHistory"
+            android:name=".NotificationsHistory"
             android:exported="true" />
         <activity
             android:name=".forgot_pass1"
@@ -85,20 +73,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".DetailsActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".OffrePageActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".AjouterAnnonceActivity"
             android:exported="true">
@@ -108,27 +83,13 @@
         </activity>
         <activity
             android:name=".FavorisActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".OffrePageActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".AjouterAnnonceActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".FavorisActivity"
+            android:name=".ContactActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"

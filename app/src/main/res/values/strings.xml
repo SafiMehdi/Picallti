@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Picallti</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
@@ -28,4 +27,30 @@
     <string name="forgotpassmail">Email address</string>
     <string name="forgotpasslientext">Receive a link</string>
     <string name="forgotpassback">Go back to login page</string>
+    <string name="app_name">Picallti</string>
+    <string name="signUp">Sign Up</string>
+    <string name="nom">Surname</string>
+    <string name="prenom">Name</string>
+    <string name="email">Email</string>
+    <string name="emailConfirm">Confirm your email</string>
+    <string name="phone">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="passwordConfirm">Confirm your password</string>
+    <string name="city">City</string>
+    <string name="politiqueDeConfidentialité">I accept the terms and conditions of Picallti.</string>
+    <string name="buttonCreerCompte">CREATE ACCOUNT</string>
+    <string name="settings">Settings</string>
+    <string name="accountSettings">Account</string>
+    <string name="notificationSettings">Notifications</string>
+    <string name="darkMode">Dark Mode</string>
+    <string name="languageSetting">Language</string>
+    <string name="security">Privacy &amp; Security</string>
+    <string name="help">Help and Support</string>
+    <string name="about">About</string>
+    <string name="logOut">Log Out</string>
+    <string name="deleteAccount">Delete Account</string>
+    <string name="deleteAccountMessage">The deletion of your account is permanent.</string>
+    <string name="deleteAccountMessage2">It will delete all the data saved.</string>
+    <string name="deleteAccountMessage3">Are you sure you want to continue ?</string>
+    <string name="deleteAccountButton">DELETE MY ACCOUNT</string>
 </resources>

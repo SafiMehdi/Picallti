@@ -4,5 +4,6 @@
     <string name="ContactTitle" translatable="false">Contact us</string>
     <string name="ContactSend" translatable="false">Send Message</string>
     <string name="LikesTitle" translatable="false">My favourites</string>
-    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="Price" translatable="false">Price</string>
+    <string name="LikedPst" translatable="false">Liked post</string>
 </resources>

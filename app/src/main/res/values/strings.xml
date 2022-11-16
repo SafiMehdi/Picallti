@@ -17,6 +17,9 @@
     <string name="menu_slideshow" translatable="false">Slideshow</string>
     <string name="menu_settings" translatable="false">Settings</string>
 
+    <string name="Price" translatable="false">Price</string>
+    <string name="LikedPst" translatable="false">Liked post title</string>
+
     <string name="lorem_ipsum_title" translatable="false">Lorem Ipsum"</string>
     <string name="lorem_ipsum" translatable="false">Lorem Ipsum is simply placeholder text of the printing and
         typesetting industry. Lorem Ipsum has been the industry\'s standard placeholder text ever

@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:divider="@null"
+    android:dividerHeight="0dp"
     android:layout_marginTop="16dp">
 
     <androidx.cardview.widget.CardView
@@ -41,7 +43,7 @@
                         android:id="@+id/PostTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Title of liked post"
+                        android:text="@string/LikedPst"
                         android:textSize="20dp"
                         android:textStyle="bold"
                         android:textColor="@color/bleu_marine"/>
@@ -50,7 +52,7 @@
                         android:id="@+id/PostPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="44dp"
-                        android:text="Price "
+                        android:text="@string/Price"
                         android:textColor="@color/black"
                         android:textStyle="normal" />
                 </LinearLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".AjouterAnnonceActivity">
 
 
     <ImageView
@@ -49,20 +49,20 @@
         android:id="@+id/vello2"
         android:layout_width="114dp"
         android:layout_height="70dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/vello1"
         app:layout_constraintTop_toBottomOf="@+id/Title"
-        app:layout_constraintVertical_bias="0.005"
+        app:layout_constraintVertical_bias="0.02"
         app:srcCompat="@drawable/vello1" />
 
     <ImageView
         android:id="@+id/add"
         android:layout_width="46dp"
         android:layout_height="37dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Title"
         app:srcCompat="@drawable/ic_baseline_add_24" />
@@ -75,6 +75,7 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/vello2"
         app:layout_constraintTop_toBottomOf="@+id/add"
         app:layout_constraintVertical_bias="0.0" />
@@ -147,72 +148,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.632" />
 
-    <LinearLayout
-        android:id="@+id/sauvbutton"
-        android:layout_width="118dp"
-        android:layout_height="59dp"
-        android:layout_marginBottom="28dp"
-        android:background="@color/blue"
-        android:clickable="true"
-        android:orientation="horizontal"
-        android:paddingLeft="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/supprimebutton"
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:drawableLeft="@drawable/edit"
+        android:text="Edit "
+        android:backgroundTint="@color/bleu_dark"
+        app:layout_constraintBottom_toTopOf="@+id/delete"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent" />
 
-
-        <ImageView
-            android:id="@+id/sauving"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/edit" />
-
-        <TextView
-            android:id="@+id/sauvgarde"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="5dp"
-            android:text="Modifier"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/supprimebutton"
-        android:layout_width="118dp"
-        android:layout_height="57dp"
-        android:layout_marginBottom="60dp"
-        android:background="@color/blue"
-        android:clickable="true"
-        android:orientation="horizontal"
-        android:paddingLeft="5dp"
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="140dp"
+        android:backgroundTint="@color/bleu_dark"
+        android:drawableLeft="@drawable/dell"
+        android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent">
-
-
-        <ImageView
-            android:id="@+id/supprimeimg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/dell" />
-
-        <TextView
-            android:id="@+id/supprimetext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="5dp"
-            android:text="Supprimer"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

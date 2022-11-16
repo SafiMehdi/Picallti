@@ -23,7 +23,7 @@
         android:id="@+id/Title"
         android:layout_width="243dp"
         android:layout_height="48dp"
-        android:text="Ajouter Anonce"
+        android:text="Ajouter Annonce"
         android:textColor="@color/blue"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -148,14 +148,14 @@
         android:id="@+id/sauvbutton"
         android:layout_width="118dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="36dp"
         android:background="@color/blue"
         android:clickable="true"
         android:orientation="horizontal"
         android:paddingLeft="5dp"
         app:layout_constraintBottom_toTopOf="@+id/supprimebutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent">
 
 
@@ -174,21 +174,21 @@
             android:layout_margin="5dp"
             android:text="Sauvegarder"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/supprimebutton"
         android:layout_width="118dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="56dp"
         android:background="@color/blue"
         android:clickable="true"
         android:orientation="horizontal"
         android:paddingLeft="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent">
 
 

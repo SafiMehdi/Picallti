@@ -20,4 +20,6 @@
     <string name="hidePhoneTextView">Cacher mon numéro de téléphone</string>
     <string name="hideMailTextView">Cacher mon addresse mail</string>
     <string name="saveButtonText">Sauvegarder</string>
+    <string name="informationsPersonellesTextView">Informations personelles</string>
+    <string name="changePasswordTextView">Modifier Votre mot de passe</string>
 </resources>

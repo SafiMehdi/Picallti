@@ -58,15 +58,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Modifier votre username"
+            android:hint="@string/modifierUsernameHint"
             android:inputType="textPersonName"/>
 
-        <EditText
+        <Spinner
             android:id="@+id/villeInputValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Modifier votre ville"
+            android:Text="Modifier votre ville"
             android:inputType="textPersonName"/>
 
         <EditText
@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Modifier votre email"
+            android:hint="@string/modifierEmailHint"
             android:inputType="textEmailAddress"/>
 
         <EditText
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Modifier votre numero de telephone"
+            android:hint="@string/modifierPhoneHint"
             android:inputType="phone"/>
 
         <EditText
@@ -90,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Modifier votre Bio"
+            android:hint="@string/modifierBioHint"
             android:inputType="text|textMultiLine"/>
 
     </LinearLayout>
@@ -122,7 +122,7 @@
                 android:id="@+id/hidePhoneTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cacher mon numéro de téléphone"/>
+                android:text="@string/hidePhoneTextView"/>
 
         </LinearLayout>
 
@@ -141,7 +141,7 @@
                 android:id="@+id/hideMailAddressTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cacher mon addresse mail"/>
+                android:text="@string/hideMailTextView"/>
 
         </LinearLayout>
 
@@ -151,7 +151,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_baseline_save_24"
-        android:text="Sauvegarder"
+        android:text="@string/saveButtonText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

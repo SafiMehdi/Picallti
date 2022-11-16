@@ -22,8 +22,8 @@
 
     <ImageView
         android:id="@+id/profilePicture"
-        android:layout_width="91dp"
-        android:layout_height="88dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.428"

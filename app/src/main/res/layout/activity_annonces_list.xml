@@ -28,9 +28,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="110dp"/>
 
-        <ImageView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@null"
             app:srcCompat="@drawable/ic_baseline_more_vert_24"
             android:layout_toRightOf="@id/titreAnnonces"/>
 
@@ -69,16 +70,28 @@
 
         </LinearLayout>
 
-
-        <TextView
-            android:id="@+id/prixAnnonces"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:text="12DH/Jours"
-            android:layout_below="@id/descriptionAnnonces"
-            android:layout_toRightOf="@id/localisationAnnonces"/>
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/localisationAnnonces"
+            android:layout_below="@id/descriptionAnnonces">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/ic_baseline_attach_money_24" />
+
+            <TextView
+                android:id="@+id/prixAnnonces"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:text="12DH/Jours" />
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -107,9 +120,10 @@
 
 
 
-        <ImageView
-            android:layout_width="15dp"
+        <ImageButton
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@null"
             app:srcCompat="@drawable/ic_baseline_favorite_border_24"
             android:layout_below="@id/localisationAnnonces"
             android:layout_marginTop="2dp"

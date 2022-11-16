@@ -1,6 +1,18 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.3'
+    }
+}
+
 plugins {
     id 'com.android.application'
 }
+
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     namespace 'com.example.picallti'
@@ -8,7 +20,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.picallti"
-        minSdk 23
+        minSdk 21
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -36,4 +48,9 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.google.android.material:material:1.8.0-alpha02'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.google.code.gson:gson:2.10'
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 }

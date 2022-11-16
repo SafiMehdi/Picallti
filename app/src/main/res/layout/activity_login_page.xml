@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="25dp"
         android:text="@string/titre"
         android:textSize="35sp"
         android:textColor="#131349"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/back"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="35dp"
         android:layout_marginStart="20dp"
         android:contentDescription="@string/image_holder"/>
 
@@ -36,8 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/loginTitre"
-        android:layout_marginTop="45dp"
-        android:src="@drawable/logo2"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/picallti_finallogo"
         android:adjustViewBounds="true"
         android:maxWidth="200dp"
         android:maxHeight="200dp"
@@ -56,7 +56,7 @@
         android:textSize="20sp"
         android:paddingBottom="17dp"
         android:drawableStart="@drawable/userlogo"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:fontFamily="@font/fontnew2"
         android:drawablePadding="10dp"
         />
@@ -85,17 +85,17 @@
         android:fontFamily="@font/fontnew2"
         android:layout_alignStart="@id/password"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="80dp"
         android:textColor="#131349"
+        android:layout_marginStart="35dp"
         />
 
     <CheckBox
-
+        android:id="@+id/checkboxrememberme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
-        android:layout_alignEnd="@id/rememberme"
-        android:layout_marginEnd="-40dp"
+        android:layout_alignStart="@id/password"
+        android:layout_marginStart="-10dp"
         android:minWidth="48dp"
         android:minHeight="48dp" />
 
@@ -113,15 +113,19 @@
         android:fontFamily="@font/fontnew2bold"
         android:clickable="true"
         />
+
     <TextView
+        android:id="@+id/forgotbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/forgotpass"
         android:layout_below="@+id/btnConnect"
         android:layout_alignStart="@+id/btnConnect"
         android:layout_marginTop="15dp"
-        android:textColor="#131349"
-        android:fontFamily="@font/fontnew2"/>
+        android:clickable="true"
+        android:fontFamily="@font/fontnew2"
+        android:minHeight="48dp"
+        android:text="@string/forgotpass"
+        android:textColor="#131349" />
     <TextView
         android:id="@+id/inscription"
         android:layout_width="wrap_content"
@@ -138,7 +142,7 @@
         android:layout_height="wrap_content"
         android:text="@string/connectsocial"
         android:layout_below="@id/inscription"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
         android:fontFamily="@font/fontnew2"
@@ -148,11 +152,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/connectwith"
-        android:layout_alignStart="@id/connectwith"
+        android:layout_alignStart="@id/btnConnect"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/image_holder"
         android:src="@drawable/fblogo"
-        tools:ignore="ImageContrastCheck" />
+        tools:ignore="ImageContrastCheck"
+        />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -161,17 +166,19 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/googlelogo"
         android:contentDescription="@string/image_holder"
+
         />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/connectwith"
-        android:layout_alignEnd="@id/connectwith"
+        android:layout_alignEnd="@id/btnConnect"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/image_holder"
         android:src="@drawable/logotwitter"
-        tools:ignore="ImageContrastCheck" />
+        tools:ignore="ImageContrastCheck"
+        />
 
 
 

@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/contenu"
         android:layout_marginTop="100dp"
-        android:hint="@string/forgotpassmail"
+        android:hint="@string/user_placeholder"
         android:layout_centerHorizontal="true"
         android:width="300dp"
         android:drawableStart="@drawable/ic_baseline_email_24"
@@ -57,6 +57,7 @@
         android:width="300dp"
         android:fontFamily="@font/fontnew2bold"/>
     <TextView
+        android:id="@+id/txtbacklogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn"
@@ -64,7 +65,8 @@
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/fontnew2bold"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        android:clickable="true"/>
 
 
 </RelativeLayout>

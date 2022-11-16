@@ -1,9 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".forgot_pass2">
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgotpasstitle2"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/fontnew2bold"
+        android:textColor="#011EFE"
+        android:textSize="30sp"
+        android:layout_marginTop="35dp"/>
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="100dp"
+        android:hint="@string/currentpass_placeholder"
+        android:layout_centerHorizontal="true"
+        android:width="300dp"
+        android:drawableStart="@drawable/mdpico"
+        android:drawablePadding="10dp"
+        android:paddingBottom="17dp"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:id="@+id/edit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit"
+        android:layout_marginTop="30dp"
+        android:hint="@string/newpass_placeholder"
+        android:layout_centerHorizontal="true"
+        android:width="300dp"
+        android:drawableStart="@drawable/mdpico"
+        android:drawablePadding="10dp"
+        android:paddingBottom="17dp"
+        android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/edit3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit2"
+        android:layout_marginTop="30dp"
+        android:hint="@string/confirmnewpass_placeholder"
+        android:layout_centerHorizontal="true"
+        android:width="300dp"
+        android:drawableStart="@drawable/mdpico"
+        android:drawablePadding="10dp"
+        android:paddingBottom="17dp"
+        android:inputType="textPassword" />
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnchangepass"
+        android:layout_below="@+id/edit3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:width="300dp"
+        android:fontFamily="@font/fontnew2bold"/>
+    <TextView
+        android:id="@+id/txtbacklogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn"
+        android:text="@string/forgotpassback"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/fontnew2bold"
+        android:textSize="15sp"
+        android:clickable="true"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

@@ -53,7 +53,9 @@
     <string name="deleteAccountMessage2">It will delete all the data saved.</string>
     <string name="deleteAccountMessage3">Are you sure you want to continue ?</string>
     <string name="deleteAccountButton">DELETE MY ACCOUNT</string>
-
+    <string name="textView">\t\t\tYou want to go for a ride\n\t\t\t\tbut have no bike?\n\t\tPicollti came with the solution\n\trent a bike or a scooter with one click</string>
+    <string name="button">LOG IN</string>
+    <string name="textView2">PICALLTI.2022</string>
 
 
 </resources>

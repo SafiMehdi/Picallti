@@ -52,6 +52,8 @@
     <string name="deleteAccountMessage2">Elle entrainera la suppression de toutes vos données enregistrées.</string>
     <string name="deleteAccountMessage3">Êtes-vous sûr de bien vouloir continuer ?</string>
     <string name="deleteAccountButton">SUPPRIMER MON COMPTE</string>
-
+    <string name="textView">\t\t\tYou want to go for a ride\n\t\t\t\tbut have no bike?\n\t\tPicollti came with the solution\n\trent a bike or a scooter with one click</string>
+    <string name="button">SE CONNECTER</string>
+    <string name="textView2">PICALLTI.2022</string>
 
 </resources>

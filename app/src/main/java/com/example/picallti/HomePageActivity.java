@@ -18,7 +18,7 @@ public class HomePageActivity extends AppCompatActivity {
         seeOffersBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent loginIntent = new Intent(getApplicationContext(),OffrePageActivity.class);
+                Intent loginIntent = new Intent(getApplicationContext(),login_page.class);
                 startActivity(loginIntent);
             }
         });

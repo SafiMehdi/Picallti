@@ -35,7 +35,7 @@ public class login_page extends AppCompatActivity {
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(login_page.this, MainActivity.class));
+                startActivity(new Intent(login_page.this, OffrePageActivity.class));
             }
         });
 

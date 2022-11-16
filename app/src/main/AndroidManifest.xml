@@ -114,7 +114,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ContactActivity"
+            android:name=".OffrePageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AjouterAnnonceActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".FavorisActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"

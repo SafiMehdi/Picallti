@@ -27,7 +27,6 @@
     <string name="forgotpassmail">Email address</string>
     <string name="forgotpasslientext">Receive a link</string>
     <string name="forgotpassback">Go back to login page</string>
-    <string name="app_name">Picallti</string>
     <string name="signUp">Sign Up</string>
     <string name="nom">Surname</string>
     <string name="prenom">Name</string>

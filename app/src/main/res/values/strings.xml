@@ -87,4 +87,39 @@
         item
     </string>
 
+    <string name="app_name">Picallti</string>
+    <string name="usernameTextView">Username</string>
+    <string name="villeTextView">Ville :</string>
+    <string name="villeValue">Rabat</string>
+    <string name="emailTextView">Email :</string>
+    <string name="emailValue">meydi.safi@gmail.com</string>
+    <string name="telephoneTextView">Tél :</string>
+    <string name="telephoneValue">0664401684</string>
+    <string name="bioTextView">Bio :</string>
+    <string name="bioValue">lorem ipsum chi haja zwina</string>
+    <string name="mesAnnonacesTextView">Mes Annonces</string>
+    <string name="ajouterAnnoncesText">Ajouter Annonces</string>
+    <string name="modifierProfileTextView">Modifier Profile</string>
+    <string name="modifierUsernameHint">Modifier votre username</string>
+    <string name="modifierEmailHint">Modifier votre email</string>
+    <string name="modifierPhoneHint">Modifier votre numero de telephone</string>
+    <string name="modifierBioHint">Modifier votre Bio</string>
+    <string name="hidePhoneTextView">Cacher mon numéro de téléphone</string>
+    <string name="hideMailTextView">Cacher mon addresse mail</string>
+    <string name="saveButtonText">Sauvegarder</string>
+    <string name="informationsPersonellesTextView">Informations personelles</string>
+    <string name="changePasswordTextView">Modifier Votre mot de passe</string>
+    <string name="contactUsTextView">Contactez-nous</string>
+    <string name="deleteAccountTextView">Supprimer Compte</string>
+    <string name="logout">Se déconnecter</string>
+    <string name="modifierPDPButton">Modifier photo de profile</string>
+
+    <string-array name="cities_array">
+        <item>Rabat</item>
+        <item>Casablanca</item>
+        <item>Tanger</item>
+        <item>Kenitra</item>
+        <item>Sale</item>
+    </string-array>
+
 </resources>

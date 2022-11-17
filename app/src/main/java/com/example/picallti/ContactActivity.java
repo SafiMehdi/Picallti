@@ -1,10 +1,12 @@
 package com.example.picallti;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -26,9 +28,14 @@ public class ContactActivity extends AppCompatActivity {
     @BindView(R.id.ContactBack)
     ImageButton contactBack ;
 
+    BottomBarFragment frag = new BottomBarFragment();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
+
         setContentView(R.layout.activity_contact);
         ButterKnife.bind(this);
 
@@ -49,5 +56,10 @@ public class ContactActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
+
+        ConstraintLayout contact = findViewById(R.id.contact);
+        ViewGroup.LayoutParams params = contact.getLayoutParams();
+        params.height =(int) (getResources().getDisplayMetrics().heightPixels-getResources().getDisplayMetrics().heightPixels/9) ;
+        contact.setLayoutParams(params);
     }
 }

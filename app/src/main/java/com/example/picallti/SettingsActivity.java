@@ -5,13 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import java.net.DatagramSocket;
 import java.util.ArrayList;
 
+import adapters.SettingAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import data.Setting;
 
-public class Settings extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
     @BindView(R.id.listSettings)
     ListView listSettings;
     @Override

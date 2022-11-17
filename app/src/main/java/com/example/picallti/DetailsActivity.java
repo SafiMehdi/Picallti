@@ -3,14 +3,21 @@ package com.example.picallti;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class DetailsActivity extends AppCompatActivity {
 
+
+    BottomBarFragment frag = new BottomBarFragment();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
         setContentView(R.layout.activity_details);
 
         Bundle extras = getIntent().getExtras() ;
@@ -29,6 +36,11 @@ public class DetailsActivity extends AppCompatActivity {
         time.setText(extras.getString("time"));
         prix.setText(extras.getString("prix"));
         description.setText(extras.getString("description"));
+
+        LinearLayout offre_details_page = findViewById(R.id.linearLayout);
+        ViewGroup.LayoutParams params = offre_details_page.getLayoutParams();
+        params.height =(int) (getResources().getDisplayMetrics().heightPixels-getResources().getDisplayMetrics().heightPixels/9) ;
+        offre_details_page.setLayoutParams(params);
 
     }
 }

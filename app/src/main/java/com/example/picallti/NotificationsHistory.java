@@ -36,10 +36,14 @@ public class NotificationsHistory extends AppCompatActivity {
         notifications.add(new Notification("titre","test",R.drawable.notificationicon,new Date(5,5,5)));
         notifications.add(new Notification("titre","test",R.drawable.notificationicon,new Date(5,5,5)));
         notifications.add(new Notification("titre","test",R.drawable.notificationicon,new Date(5,5,5)));
+        notifications.add(new Notification("titre","androidx.appcompat.widget.AppCompatImageButton{120f22 VFED..C.. ......ID 0,0-0,0 #7f0800de app:id/homee}",R.drawable.notificationicon,new Date(5,5,5)));
+        notifications.add(new Notification("titre","test",R.drawable.notificationicon,new Date(5,5,5)));
+        notifications.add(new Notification("titre","test",R.drawable.notificationicon,new Date(5,5,5)));
+        notifications.add(new Notification("titre","test",R.drawable.notificationicon,new Date(5,5,5)));
         NotificationAdapter notificationAdapter = new NotificationAdapter(getBaseContext(),R.layout.notification_list_element,notifications);
         listView.setAdapter(notificationAdapter);
         ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height =(int) (getResources().getDisplayMetrics().heightPixels/1.7) ;
+        params.height =(int) (getResources().getDisplayMetrics().heightPixels-getResources().getDisplayMetrics().heightPixels/3.5) ;
         listView.setLayoutParams(params);
     }
 

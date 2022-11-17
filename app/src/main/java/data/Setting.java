@@ -1,4 +1,4 @@
-package com.example.picallti;
+package data;
 
 public class Setting {
     Integer imageID;

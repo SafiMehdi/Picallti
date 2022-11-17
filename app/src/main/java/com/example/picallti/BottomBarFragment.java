@@ -38,7 +38,7 @@ public class BottomBarFragment extends Fragment {
     public void onStart() {
         super.onStart();
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        int w = (int) displayMetrics.widthPixels / 4;
+        int w = (int)( displayMetrics.widthPixels /4);
         //home.setHeight(30);
         //home.setWidth(w);
         ImageButton homee = getView().findViewById(R.id.homee);
@@ -57,11 +57,14 @@ public class BottomBarFragment extends Fragment {
         System.out.println(currentActivity);
         System.out.println("---------------------------------");
         switch (currentActivity) {
-            case "MainActivity":
+            case "OffrePageActivity":
                 homee.setColorFilter(Color.rgb(1, 30, 254));
                 break;
             case "NotificationsHistory":
                 notification.setColorFilter(Color.rgb(1, 30, 254));
+                break;
+            case "FavorisActivity":
+                favorits.setColorFilter(Color.rgb(1, 30, 254));
                 break;
 
         }
@@ -69,7 +72,7 @@ public class BottomBarFragment extends Fragment {
         homee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), OffrePageActivity.class);
                 startActivity(intent);
             }
         });
@@ -84,6 +87,8 @@ public class BottomBarFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 System.out.println("Homee");
+                Intent intent = new Intent(getActivity(), FavorisActivity.class);
+                startActivity(intent);
             }
         });
         notification.setOnClickListener(new View.OnClickListener() {

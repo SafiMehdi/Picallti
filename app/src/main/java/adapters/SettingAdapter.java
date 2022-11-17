@@ -1,4 +1,4 @@
-package com.example.picallti;
+package adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.example.picallti.R;
+import data.Setting;
 
 import java.util.ArrayList;
 

@@ -24,11 +24,14 @@ public class OffrePageActivity extends AppCompatActivity {
 
     @BindView(R.id.offre_list)
     ListView offre_list;
+    BottomBarFragment frag = new BottomBarFragment();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offre_page);
+        getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
         ButterKnife.bind(this);
 
         ArrayList <Offre> offres = new ArrayList<Offre>();
@@ -69,6 +72,10 @@ public class OffrePageActivity extends AppCompatActivity {
 
             }
         });
+
+        ViewGroup.LayoutParams params = offre_list.getLayoutParams();
+        params.height =(int) (getResources().getDisplayMetrics().heightPixels-getResources().getDisplayMetrics().heightPixels/3.2) ;
+        offre_list.setLayoutParams(params);
 }
 
 class OffreAdapter extends ArrayAdapter <Offre> {

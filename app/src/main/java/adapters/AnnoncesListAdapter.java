@@ -40,9 +40,9 @@ public class AnnoncesListAdapter extends ArrayAdapter<String> {
         TextView titleText = (TextView) rowView.findViewById(R.id.titreAnnonces);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
         TextView desc = (TextView) rowView.findViewById(R.id.descriptionAnnonces);
-        TextView price = (TextView) rowView.findViewById(R.id.prixAnnonces);
+        TextView price = (TextView) rowView.findViewById(R.id.prixAnnoncesTextView);
         TextView location = (TextView) rowView.findViewById(R.id.localisationTextView);
-        TextView time = (TextView) rowView.findViewById(R.id.tempsAnnonces);
+        TextView time = (TextView) rowView.findViewById(R.id.tempsAnnoncesTextView);
 
         titleText.setText(maintitle[position]);
         imageView.setImageResource(imgid[position]);

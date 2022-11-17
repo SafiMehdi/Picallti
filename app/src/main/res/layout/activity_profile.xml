@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Profile">
 
 
     <ImageView
@@ -80,7 +80,8 @@
                 android:layout_height="wrap_content"
                 android:text="Modifier Profile"
                 android:textSize="8dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:backgroundTint="@color/picallti_131349"/>
 
         </LinearLayout>
 
@@ -197,7 +198,8 @@
             android:layout_height="wrap_content"
             android:text="@string/ajouterAnnoncesText"
             android:textSize="8dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:backgroundTint="@color/picallti_131349"/>
     </LinearLayout>
 
     <ListView
@@ -206,11 +208,12 @@
         android:layout_height="wrap_content"
         android:divider="@null"
         android:dividerHeight="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/annoncesBanner"
-        app:layout_constraintVertical_bias="0.375"
-        tools:layout_editor_absoluteX="-1dp">
-
+        app:layout_constraintVertical_bias="0.546"
+        android:scrollbarAlwaysDrawVerticalTrack="true">
     </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

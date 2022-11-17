@@ -3,16 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:layout_margin="10dp">
+    android:orientation="horizontal">
 
     <ImageView
+        android:layout_marginTop="10dp"
         android:id="@+id/icon"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:padding="15dp" />
+        android:layout_width="110dp"
+        android:layout_height="110dp" />
 
-    <RelativeLayout android:layout_width="wrap_content"
+    <RelativeLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp">
@@ -29,20 +28,23 @@
             android:layout_marginEnd="110dp"/>
 
         <ImageButton
+            android:id="@+id/moreButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
             app:srcCompat="@drawable/ic_baseline_more_vert_24"
-            android:layout_toRightOf="@id/titreAnnonces"/>
+            android:layout_toRightOf="@id/titreAnnonces"
+            android:layout_marginLeft="60dp"
+            />
 
         <TextView
             android:id="@+id/descriptionAnnonces"
-            android:layout_width="215dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/titreAnnonces"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="madjalka dalmsjd masljd masjd masjd asd lajsldj a madjalka dalmsjd masljd masjd masjd " />
+            android:text="madjalka dalmsjd masljd masjd masjd madjalka dalmsjd masljd masjd masjd  " />
 
         <LinearLayout
             android:id="@+id/localisationAnnonces"
@@ -56,14 +58,14 @@
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 app:srcCompat="@drawable/ic_baseline_pin_drop_24"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="5dp"/>
 
             <TextView
                 android:id="@+id/localisationTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rabat, Ville"
-                android:layout_below="@id/descriptionAnnonces"
+                android:textSize="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="10dp" />
@@ -71,6 +73,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/prixAnnonces"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -80,13 +83,14 @@
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="5dp"
                 app:srcCompat="@drawable/ic_baseline_attach_money_24" />
 
             <TextView
-                android:id="@+id/prixAnnonces"
+                android:id="@+id/prixAnnoncesTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
                 android:text="12DH/Jours" />
@@ -94,6 +98,7 @@
 
 
         <LinearLayout
+            android:id="@+id/tempsAnnonces"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/localisationAnnonces"
@@ -104,30 +109,31 @@
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 app:srcCompat="@drawable/ic_baseline_access_time_24"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"/>
 
             <TextView
-                android:id="@+id/tempsAnnonces"
+                android:id="@+id/tempsAnnoncesTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
-                android:text="17 minutes"
-                android:layout_below="@id/localisationAnnonces" />
+                android:textSize="10dp"
+                android:text="17 minutes"/>
 
         </LinearLayout>
 
 
-
         <ImageButton
+            android:id="@+id/favoriteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/prixAnnonces"
+            android:layout_marginLeft="165dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toRightOf="@id/tempsAnnonces"
             android:background="@null"
-            app:srcCompat="@drawable/ic_baseline_favorite_border_24"
-            android:layout_below="@id/localisationAnnonces"
-            android:layout_marginTop="2dp"
-            android:layout_marginStart="230dp"/>
+            app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
 
     </RelativeLayout>
 

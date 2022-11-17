@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/modifierProfileTextView"
-        android:textColor="@color/black"
+        android:textColor="@color/picallti_131349"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,36 +44,37 @@
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp">
 
-        <EditText
+        <Button
             android:id="@+id/photoInputValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/picallti_131349"
             android:ems="10"
-            android:hint="Photo"
-            android:inputType="textPersonName"/>
+            android:text="@string/modifierPDPButton" />
 
         <EditText
             android:id="@+id/usernameInputValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:autofillHints="username"
             android:hint="@string/modifierUsernameHint"
             android:inputType="textPersonName"/>
 
         <Spinner
-            android:id="@+id/villeInputValue"
+            android:id="@+id/cities_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:Text="Modifier votre ville"
-            android:inputType="textPersonName"/>
+            android:spinnerMode="dropdown"/>
 
         <EditText
             android:id="@+id/emailInputValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:autofillHints="emailAddress"
             android:hint="@string/modifierEmailHint"
             android:inputType="textEmailAddress"/>
 
@@ -82,6 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:autofillHints="phone"
             android:hint="@string/modifierPhoneHint"
             android:inputType="phone"/>
 
@@ -90,6 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:autofillHints="name"
             android:hint="@string/modifierBioHint"
             android:inputType="text|textMultiLine"/>
 
@@ -99,11 +102,12 @@
         android:id="@+id/hidingMailAndPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/modifierProfilForm">
 
@@ -116,13 +120,13 @@
             <Switch
                 android:id="@+id/switchHidePhone"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/hidePhoneTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/hidePhoneTextView"/>
+                android:text="@string/hidePhoneTextView" />
 
         </LinearLayout>
 
@@ -135,13 +139,13 @@
             <Switch
                 android:id="@+id/switchHideMailAddress"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/hideMailAddressTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/hideMailTextView"/>
+                android:text="@string/hideMailTextView" />
 
         </LinearLayout>
 
@@ -150,6 +154,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/picallti_131349"
         android:drawableLeft="@drawable/ic_baseline_save_24"
         android:text="@string/saveButtonText"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -157,7 +162,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hidingMailAndPhone"
-        app:layout_constraintVertical_bias="0.398" />
+        app:layout_constraintVertical_bias="0.072" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

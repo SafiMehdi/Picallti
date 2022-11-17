@@ -10,7 +10,6 @@
     <string name="bioTextView">Bio :</string>
     <string name="bioValue">lorem ipsum chi haja zwina</string>
     <string name="mesAnnonacesTextView">Mes Annonces</string>
-    <string name="ajouterAnnoncesButton">Ajouter Annonces</string>
     <string name="ajouterAnnoncesText">Ajouter Annonces</string>
     <string name="modifierProfileTextView">Modifier Profile</string>
     <string name="modifierUsernameHint">Modifier votre username</string>
@@ -22,4 +21,17 @@
     <string name="saveButtonText">Sauvegarder</string>
     <string name="informationsPersonellesTextView">Informations personelles</string>
     <string name="changePasswordTextView">Modifier Votre mot de passe</string>
+    <string name="contactUsTextView">Contactez-nous</string>
+    <string name="deleteAccountTextView">Supprimer Compte</string>
+    <string name="logout">Se déconnecter</string>
+    <string name="modifierPDPButton">Modifier photo de profile</string>
+
+    <string-array name="cities_array">
+        <item>Rabat</item>
+        <item>Casablanca</item>
+        <item>Tanger</item>
+        <item>Kenitra</item>
+        <item>Sale</item>
+    </string-array>
+
 </resources>

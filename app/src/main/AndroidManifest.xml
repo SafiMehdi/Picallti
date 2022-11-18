@@ -95,8 +95,16 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".ModifierProfile"></activity>
-        <activity android:name=".ParametresCompte"></activity>
+        <activity android:name=".ModifierProfile"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" /></activity>
+        <activity android:name=".ParametresCompte"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" /></activity>
         <activity
             android:name=".Profile"
             android:exported="true">

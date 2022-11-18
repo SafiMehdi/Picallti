@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -52,11 +53,16 @@ public class SettingsActivity extends AppCompatActivity {
     @OnItemClick(R.id.listSettings)
     public void onListSettingsItemClicked(int position){
         if (position == 0 ){
-            Intent intent  = new Intent(SettingsActivity.this, Profile.class);
+            Intent intent  = new Intent(SettingsActivity.this, ParametresCompte.class);
             startActivity(intent);
 
         }else if (position == 1){
             Intent intent  = new Intent(SettingsActivity.this, NotificationsHistory.class);
+            startActivity(intent);
+        }
+        else if (position == 6){
+            Toast.makeText( SettingsActivity.this, "You have been disconnected!",Toast.LENGTH_SHORT).show();
+            Intent intent  = new Intent(SettingsActivity.this, login_page.class);
             startActivity(intent);
         }
     }

@@ -16,27 +16,27 @@ public class Profile extends AppCompatActivity {
     BottomBarFragment frag = new BottomBarFragment();
 
     String[] maintitle ={
-            "Velo BMX","Velo VTT","Chi pikala zwina"
+            "Velo BMX","Velo VTT"
     };
 
     String[] description ={
-            "sqldkqsd qlskd qlsd qsd qslkdjqslk jdqsdia mlda q","sqldkqsd qlskd qlsd qsd qslkdjqslk jdqsdia mlda q","sqldkqsd qlskd qlsd qsd qslkdjqslk jdqsdia mlda q"
+            "sqldkqsd qlskd qlsd qsd qslkdjqslk jdqsdia mlda q","sqldkqsd qlskd qlsd qsd qslkdjqslk jdqsdia mlda q"
     };
 
     String[] localisation ={
-            "Rabat, Maroc", "Casablanca, Maroc","Kenitra, Maroc"
+            "Rabat, Maroc", "Casablanca, Maroc"
     };
 
     String[] prix ={
-            "12DH/Jours", "10DH/Jours","8DH/Jours"
+            "12DH/Jours", "10DH/Jours"
     };
 
     String[] temps ={
-            "17 minutes", "2 Heures","2 Jours"
+            "17 minutes", "2 Heures"
     };
 
     Integer[] imgid={
-            R.drawable.profile_circle,R.drawable.profile_circle,R.drawable.profile_circle
+            R.drawable.profile_circle,R.drawable.profile_circle
     };
 
 
@@ -58,5 +58,15 @@ public class Profile extends AppCompatActivity {
                 Profile.this.startActivity(activityChangeIntent);
             }
         });
+
+        Button ajoutAnnonce = (Button)findViewById(R.id.ajouterAnnoncesButton);
+        ajoutAnnonce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Profile.this, AjouterAnnonceActivity.class));
+            }
+        });
+
+
     }
 }

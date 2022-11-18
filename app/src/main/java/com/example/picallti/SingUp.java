@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SingUp extends AppCompatActivity {
 
@@ -23,6 +25,15 @@ public class SingUp extends AppCompatActivity {
                 startActivity(new Intent(SingUp.this, login_page.class));
             }
         });
+        Button signup = (Button) findViewById(R.id.createAccountButton);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText( SingUp.this, "Account Created !",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(SingUp.this, login_page.class));
+            }
+        });
+
         Spinner spinner = (Spinner) findViewById(R.id.cities_spinner);
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,

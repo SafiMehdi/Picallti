@@ -74,7 +74,7 @@ public class OffrePageActivity extends AppCompatActivity {
         });
 
         ViewGroup.LayoutParams params = offre_list.getLayoutParams();
-        params.height =(int) (getResources().getDisplayMetrics().heightPixels-getResources().getDisplayMetrics().heightPixels/3.2) ;
+        params.height =(int) (getResources().getDisplayMetrics().heightPixels-getResources().getDisplayMetrics().heightPixels/4) ;
         offre_list.setLayoutParams(params);
 }
 

@@ -10,12 +10,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <ImageView
+        android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/back"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"/>
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="10dp"
-        android:textSize="30dp"
+        android:textSize="40dp"
         android:textColor="@color/blue"
         android:textStyle="bold"
         android:text="@string/signUp" />
@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/pageTitle"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
@@ -129,21 +129,13 @@
         android:inputType="textPassword"
         android:padding="10dp"/>
 
-    <TextView
-        android:id="@+id/villeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordVerif"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/black"
-        android:layout_marginStart="20dp"
-        android:text="@string/city"/>
-
     <Spinner
         android:id="@+id/cities_spinner"
-        android:layout_width="350dp"
+        android:layout_width="150dp"
         android:layout_height="35dp"
-        android:layout_below="@+id/villeLabel"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:layout_below="@+id/passwordVerif"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="20dp" />
     <CheckBox
         android:id="@+id/conditions"
@@ -152,7 +144,7 @@
         android:textColor="@color/black"
         android:text="@string/politiqueDeConfidentialité"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="20dp"
         android:layout_below="@+id/cities_spinner" />
 
     <Button
@@ -162,8 +154,53 @@
         android:layout_below="@+id/conditions"
         android:backgroundTint="@color/blue"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/buttonCreerCompte"/>
+
+    <TextView
+        android:id="@+id/connectwith"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/connectsocial"
+        android:layout_below="@+id/createAccountButton"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/fontnew2"
+        android:textColor="#131349"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/connectwith"
+        android:contentDescription="@string/image_holder"
+        android:src="@drawable/fblogo"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        tools:ignore="ImageContrastCheck"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/connectwith"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/googlelogo"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/image_holder"
+
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/connectwith"
+        android:contentDescription="@string/image_holder"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:src="@drawable/logotwitter"
+        android:layout_marginTop="30dp"
+        tools:ignore="ImageContrastCheck"
+        />
 
 
 </RelativeLayout>

@@ -55,7 +55,6 @@
     <string name="textView">\t\t\tYou want to go for a ride\n\t\t\t\tbut have no bike?\n\t\tPicollti came with the solution\n\trent a bike or a scooter with one click</string>
     <string name="button">LOG IN</string>
     <string name="textView2">PICALLTI.2022</string>
-    <string name="app_name" translatable="false">Picallti</string>
     <string name="ContactTitle" translatable="false">Contact us</string>
     <string name="ContactSend" translatable="false">Send Message</string>
 
@@ -114,12 +113,5 @@
     <string name="logout">Se déconnecter</string>
     <string name="modifierPDPButton">Modifier photo de profile</string>
 
-    <string-array name="cities_array">
-        <item>Rabat</item>
-        <item>Casablanca</item>
-        <item>Tanger</item>
-        <item>Kenitra</item>
-        <item>Sale</item>
-    </string-array>
 
 </resources>

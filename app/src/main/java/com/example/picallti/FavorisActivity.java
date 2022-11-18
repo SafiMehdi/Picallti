@@ -52,7 +52,7 @@ public class FavorisActivity extends AppCompatActivity {
         likesListView.setAdapter(adapterFavoris);
 
         ViewGroup.LayoutParams params = likesListView.getLayoutParams();
-        params.height =(int) (getResources().getDisplayMetrics().heightPixels-getResources().getDisplayMetrics().heightPixels/4) ;
+        params.height =(int) (getResources().getDisplayMetrics().heightPixels-getResources().getDisplayMetrics().heightPixels/5.5) ;
         likesListView.setLayoutParams(params);
     }
 }

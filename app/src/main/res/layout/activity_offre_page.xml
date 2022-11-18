@@ -61,7 +61,7 @@
             android:drawableStart="@android:drawable/ic_menu_search"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Que recherchez-vous?"
+            android:hint="Que recherchez-vous?"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +78,7 @@
         android:id="@+id/bottom_bar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"/>
 
 </RelativeLayout>

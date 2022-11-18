@@ -60,12 +60,16 @@ public class BottomBarFragment extends Fragment {
             case "OffrePageActivity":
                 homee.setColorFilter(Color.rgb(1, 30, 254));
                 break;
+            case "Profile":
+                profile.setColorFilter(Color.rgb(1, 30, 254));
+                break;
             case "NotificationsHistory":
                 notification.setColorFilter(Color.rgb(1, 30, 254));
                 break;
             case "FavorisActivity":
                 favorits.setColorFilter(Color.rgb(1, 30, 254));
                 break;
+
 
         }
 
@@ -80,6 +84,8 @@ public class BottomBarFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 System.out.println("Homee");
+                Intent intent = new Intent(getActivity(), Profile.class);
+                startActivity(intent);
                 //profile.setColorFilter(Color.rgb(0, 223, 255));
             }
         });

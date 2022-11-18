@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import com.example.picallti.AnnoncesListAdapter;
 import android.widget.Toast;
 
 public class Profile extends AppCompatActivity {
     ListView list;
     Button modifierProfileButton;
+    BottomBarFragment frag = new BottomBarFragment();
 
     String[] maintitle ={
             "Velo BMX","Velo VTT","Chi pikala zwina"
@@ -43,7 +45,7 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+        getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
         AnnoncesListAdapter adapter=new AnnoncesListAdapter(this, maintitle, description, localisation, prix, temps, imgid);
         list=(ListView)findViewById(R.id.list);
         list.setAdapter(adapter);

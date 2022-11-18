@@ -19,23 +19,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022"
         app:srcCompat="@drawable/ic_baseline_menu_24"/>
-
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profilePicture"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:src="@drawable/nom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toEndOf="@+id/burgerButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.062"
-        app:srcCompat="@drawable/profile_circle" />
+        app:shapeAppearanceOverlay="@style/Circular"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp"/>
 
     <TextView
         android:id="@+id/usernameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="25dp"
         android:text="@string/usernameTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +85,7 @@
                 android:text="Modifier Profile"
                 android:textSize="8dp"
                 android:textStyle="bold"
-                android:backgroundTint="@color/picallti_131349"/>
+                android:backgroundTint="@color/blue"/>
 
         </LinearLayout>
 
@@ -199,7 +203,7 @@
             android:text="@string/ajouterAnnoncesText"
             android:textSize="8dp"
             android:textStyle="bold"
-            android:backgroundTint="@color/picallti_131349"/>
+            android:backgroundTint="@color/blue"/>
     </LinearLayout>
 
     <ListView
@@ -215,6 +219,14 @@
         app:layout_constraintVertical_bias="0.546"
         android:scrollbarAlwaysDrawVerticalTrack="true">
     </ListView>
+    <LinearLayout
+        android:id="@+id/bottom_bar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

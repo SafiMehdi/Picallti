@@ -43,7 +43,7 @@ public class NotificationsHistory extends AppCompatActivity {
         NotificationAdapter notificationAdapter = new NotificationAdapter(getBaseContext(),R.layout.notification_list_element,notifications);
         listView.setAdapter(notificationAdapter);
         ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height =(int) (getResources().getDisplayMetrics().heightPixels-getResources().getDisplayMetrics().heightPixels/3.5) ;
+        params.height =(int) (getResources().getDisplayMetrics().heightPixels-getResources().getDisplayMetrics().heightPixels/4.5) ;
         listView.setLayoutParams(params);
     }
 

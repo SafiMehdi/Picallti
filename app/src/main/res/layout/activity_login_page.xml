@@ -10,17 +10,6 @@
     >
 
 
-    <TextView
-        android:id="@+id/loginTitre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:text="@string/titre"
-        android:textSize="35sp"
-        android:textColor="#131349"
-        android:fontFamily="@font/fontnew2"
-        />
     <ImageView
         android:id="@+id/back"
         android:layout_width="wrap_content"
@@ -35,8 +24,8 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loginTitre"
-        android:layout_marginTop="35dp"
+        android:layout_below="@id/back"
+        android:layout_marginTop="5dp"
         android:src="@drawable/picallti_finallogo"
         android:adjustViewBounds="true"
         android:maxWidth="200dp"

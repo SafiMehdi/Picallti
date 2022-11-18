@@ -2,7 +2,10 @@ package com.example.picallti;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -10,6 +13,7 @@ import java.util.ArrayList;
 import adapters.SettingAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 import data.Setting;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -33,5 +37,27 @@ public class SettingsActivity extends AppCompatActivity {
 
         listSettings.setAdapter(adapter);
         listSettings.setClickable(true);
+
+        ImageView back = (ImageView)findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SettingsActivity.this, OffrePageActivity.class));
+            }
+        });
+
+    }
+
+
+    @OnItemClick(R.id.listSettings)
+    public void onListSettingsItemClicked(int position){
+        if (position == 0 ){
+            Intent intent  = new Intent(SettingsActivity.this, Profile.class);
+            startActivity(intent);
+
+        }else if (position == 1){
+            Intent intent  = new Intent(SettingsActivity.this, NotificationsHistory.class);
+            startActivity(intent);
+        }
     }
 }

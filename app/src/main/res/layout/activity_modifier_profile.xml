@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/modifierProfileTextView"
-        android:textColor="@color/picallti_131349"
+        android:textColor="@color/blue"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/picallti_131349"
+            android:backgroundTint="@color/blue"
             android:ems="10"
             android:text="@string/modifierPDPButton" />
 
@@ -154,7 +154,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/picallti_131349"
+        android:backgroundTint="@color/blue"
         android:drawableLeft="@drawable/ic_baseline_save_24"
         android:text="@string/saveButtonText"
         app:layout_constraintBottom_toBottomOf="parent"

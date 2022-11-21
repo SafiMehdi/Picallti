@@ -84,7 +84,7 @@ public class BottomBarFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 System.out.println("Homee");
-                Intent intent = new Intent(getActivity(), Profile.class);
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
                 //profile.setColorFilter(Color.rgb(0, 223, 255));
             }

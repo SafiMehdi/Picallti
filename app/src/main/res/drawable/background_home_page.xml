@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <stroke android:color="@color/picallti_011EFE" android:width="1dp"/>
+            <gradient
+                android:type="radial"
+                android:centerX="40%"
+                android:centerY="50%"
+                android:startColor="#FFAF1A"
+                android:endColor="#FFFDFE"
+                android:gradientRadius="100%"
+                />
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/picallti_logo"
+        android:width="148dp"
+        android:height="148dp">
+    </item>
+</layer-list>

@@ -33,4 +33,11 @@
         <item name="cornerFamilyBottomLeft">rounded</item>
     </style>
 
+    <style name="profileBackground">
+        <item name="cornerSizeTopLeft">50%</item>
+        <item name="cornerSizeTopRight">50%</item>
+        <item name="cornerSizeBottomRight">30dp</item>
+        <item name="cornerSizeBottomLeft">30dp</item>
+    </style>
+
 </resources>

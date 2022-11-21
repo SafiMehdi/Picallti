@@ -10,7 +10,7 @@
     tools:context=".ProfileActivity">
 
     <ImageView
-        android:id="@+id/imageView19"
+        android:id="@+id/background_profile"
         style="@style/Circular"
         android:layout_width="match_parent"
         android:layout_height="350dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView18"
+        android:id="@+id/profile_picture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -30,29 +30,29 @@
         tools:src="@drawable/background_profile_picutre" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/usernameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Mehdi Safi"
+        android:text="@string/usernameTemplate"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_picture" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/bioTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Chi bio tkun lekher asahbi"
+        android:text="@string/bioTemplate"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameTextView" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -82,7 +82,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/OffresBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -91,13 +91,12 @@
                     android:src="@drawable/bicycle_icon" />
 
                 <TextView
-                    android:id="@+id/textView15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Offers"
+                    android:text="@string/offersTextView"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
@@ -113,7 +112,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/notifBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -122,13 +121,12 @@
                     android:src="@drawable/notifications_icon" />
 
                 <TextView
-                    android:id="@+id/textView15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Notifications"
+                    android:text="@string/notificationsTextView"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
@@ -144,7 +142,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/settingsBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -153,13 +151,12 @@
                     android:src="@drawable/settings_icon" />
 
                 <TextView
-                    android:id="@+id/textView15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Settings"
+                    android:text="@string/settingsTextView"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
@@ -176,7 +173,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -186,7 +182,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/changePasswordTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -214,7 +210,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -224,11 +219,11 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/phoneNumberTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="06-64-40-16-84"
+                android:text="@string/phoneNumberTemplate"
                 android:textAlignment="viewEnd"
                 android:textColor="#585858"
                 android:textSize="16sp" />
@@ -251,7 +246,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -261,7 +255,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/cityTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -288,7 +282,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -298,11 +291,11 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/emailTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="meydi.safi@gmail.com"
+                android:text="@string/emailTemplate"
                 android:textAlignment="viewEnd"
                 android:textColor="#585858"
                 android:textSize="16sp" />
@@ -311,7 +304,7 @@
     </LinearLayout>
 
     <android.widget.Button
-        android:id="@+id/button3"
+        android:id="@+id/editProfileBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -319,7 +312,7 @@
         android:layout_marginEnd="24dp"
         android:textColor="@color/white"
         android:background="@drawable/background_btn2"
-        android:text="Edit Profile"
+        android:text="@string/editProfileBtnText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />

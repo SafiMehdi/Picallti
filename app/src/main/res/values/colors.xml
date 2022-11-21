@@ -23,6 +23,9 @@
     <color name="yellow">#E6A326</color>
     <color name="tanAccent">#e3cdb3</color>
     <color name="picallti_011EFE">#011EFE</color>
-    <color name="picallti_00DFFF">#00DFFF</color>
-    <color name="picallti_131349">#131349</color>
+    <color name="picallti_ef3a5b">#EF3A5B</color>
+    <color name="picallti_ffaf1a">#FFAF1A</color>
+    <color name="picallti_fffdfe">#FFFDFE</color>
+    <color name="picallti_0100001">#010001</color>
+    <color name="kitten_white">#F8F8FF</color>
 </resources>

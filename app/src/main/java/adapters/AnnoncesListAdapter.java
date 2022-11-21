@@ -1,5 +1,5 @@
-package com.example.picallti;
-
+package adapters;
+import com.example.picallti.R;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;

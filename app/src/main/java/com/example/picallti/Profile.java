@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import com.example.picallti.AnnoncesListAdapter;
+import adapters.AnnoncesListAdapter;
 import android.widget.Toast;
 
 public class Profile extends AppCompatActivity {

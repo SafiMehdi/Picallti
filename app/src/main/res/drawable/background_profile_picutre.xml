@@ -7,7 +7,7 @@
         </shape>
     </item>
     <item
-        android:drawable="@drawable/profile_circle"
+        android:drawable="@drawable/user"
         android:width="148dp"
         android:height="148dp">
     </item>

@@ -102,6 +102,8 @@
     <string name="hidePhoneTextView">Hide my phone number</string>
     <string name="hideEmailTextView">Hide my email address</string>
     <string name="saveEditText">Save edit</string>
+    <string name="hiUsernameText">Hi Username</string>
+    <string name="welcomeBackText">Welcome Back!</string>
 
 
 </resources>

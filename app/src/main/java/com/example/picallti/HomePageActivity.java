@@ -20,16 +20,6 @@ public class HomePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        VideoView videoView = (VideoView) findViewById(R.id.videoView);
-        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.logo_reveal);
-
-        MediaController mediaController = new MediaController(this);
-        //link mediaController to videoView  
-        mediaController.setAnchorView(videoView);
-        //allow mediaController to control our videoView  
-        videoView.setMediaController(mediaController);
-        videoView.start();
-
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override

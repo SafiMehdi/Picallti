@@ -3,7 +3,7 @@ package com.example.picallti;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ParametresCompte extends AppCompatActivity {
+public class ParametresCompteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

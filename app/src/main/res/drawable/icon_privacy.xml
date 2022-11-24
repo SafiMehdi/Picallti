@@ -7,8 +7,12 @@
         </shape>
     </item>
     <item
-        android:drawable="@drawable/user"
-        android:width="148dp"
-        android:height="148dp">
+        android:drawable="@drawable/privacy"
+        android:bottom="10dp"
+        android:left="10dp"
+        android:right="10dp"
+        android:top="10dp"
+        android:width="28dp"
+        android:height="28dp">
     </item>
 </layer-list>

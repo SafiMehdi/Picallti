@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/background3">
 
-
     <ImageButton
         android:id="@+id/sideBarBtn"
         android:layout_width="wrap_content"
@@ -24,8 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Edit Profile"
+        android:textAllCaps="true"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/sideBarBtn"
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/background_input"
+            android:background="@drawable/background_input_outline_black"
             android:ems="10"
             android:hint="@string/usernameHint"
             android:inputType="textPersonName" />
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/background_input"
+            android:background="@drawable/background_input_outline_black"
             android:ems="10"
             android:inputType="textPersonName"
             android:padding="28dp" />
@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/background_input"
+            android:background="@drawable/background_input_outline_black"
             android:ems="10"
             android:hint="@string/emailHint"
             android:inputType="textPersonName" />
@@ -88,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/background_input"
+            android:background="@drawable/background_input_outline_black"
             android:ems="10"
             android:hint="@string/phoneHint"
             android:inputType="textPersonName" />
@@ -98,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/background_input"
+            android:background="@drawable/background_input_outline_black"
             android:ems="10"
             android:hint="@string/bioHint"
             android:inputType="textPersonName" />
@@ -131,11 +131,12 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/hidePhoneSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                app:switchMinWidth="50dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -153,11 +154,12 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/hideEmailSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                app:switchMinWidth="50dp"/>
         </LinearLayout>
     </LinearLayout>
 

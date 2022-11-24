@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-public class ParametresCompte extends AppCompatActivity {
+public class ParametresCompteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

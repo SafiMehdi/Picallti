@@ -35,9 +35,9 @@ public class OffrePageActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         ArrayList <Offre> offres = new ArrayList<Offre>();
-        offres.add(new Offre(R.drawable.imagea, "VELO VILLE ELOPS 520 CADRE BAS MINT B'TWIN", "Conçu pour faire du vélo en ville pour femme, et y prendre du plaisir !", "Rabat, Morocco", "12DH/DAY", "17min"));
-        offres.add(new Offre(R.drawable.imageb, "VTT 340 GRIS 26 ROCKRIDER", "Conçu pour vous évader lors de vos randonnées VTT, dépensez-vous et amusez vous face à de petits obstacles, en ville ou en pleine nature", "Rabat, Morocco", "12DH/DAY", "17min"));
-        offres.add(new Offre(R.drawable.imagec, "VTT ROCKRIDER 300", "VTT Conçu pour les jeunes aventuriers...", "Beni-Mellal,Morocco", "25DH/DAY", "20min"));
+        //offres.add(new Offre(R.drawable.imagea, "VELO VILLE ELOPS 520 CADRE BAS MINT B'TWIN", "Conçu pour faire du vélo en ville pour femme, et y prendre du plaisir !", "Rabat, Morocco", "12DH/DAY", "17min"));
+        //offres.add(new Offre(R.drawable.imageb, "VTT 340 GRIS 26 ROCKRIDER", "Conçu pour vous évader lors de vos randonnées VTT, dépensez-vous et amusez vous face à de petits obstacles, en ville ou en pleine nature", "Rabat, Morocco", "12DH/DAY", "17min"));
+        //offres.add(new Offre(R.drawable.imagec, "VTT ROCKRIDER 300", "VTT Conçu pour les jeunes aventuriers...", "Beni-Mellal,Morocco", "25DH/DAY", "20min"));
 
         OffreAdapter adapter = new OffreAdapter(getApplicationContext(), R.layout.activity_cellule_offre_page, offres);
         offre_list.setAdapter(adapter);
@@ -54,8 +54,8 @@ public class OffrePageActivity extends AppCompatActivity {
         ArrayList<Offre> offreArrayList = new ArrayList<>();
 
         for(int i = 0; i < titre.length; i++){
-            Offre offre = new Offre(titre[i], imageId[i], description[i], localisation[i], prix[i], time[i]);
-            offreArrayList.add(offre);
+            //Offre offre = new Offre(titre[i], imageId[i], description[i], localisation[i], prix[i], time[i]);
+            //offreArrayList.add(offre);
         }
 
         offre_list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -102,7 +102,7 @@ class OffreAdapter extends ArrayAdapter <Offre> {
         TextView viewLocalisation = (TextView) convertView.findViewById(R.id.textView6);
         viewLocalisation.setText(offres.get(position).getLocalisation());
         TextView viewPrice = (TextView) convertView.findViewById(R.id.textView7);
-        viewPrice.setText(offres.get(position).getPrix());
+        //viewPrice.setText(offres.get(position).getPrix());
         TextView viewTime = (TextView) convertView.findViewById(R.id.textView8);
         viewTime.setText(offres.get(position).getTime());
 

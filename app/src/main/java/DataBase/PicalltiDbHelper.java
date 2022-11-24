@@ -1,18 +1,54 @@
 package DataBase;
 
-public class PicalltiDbHelper {
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "picallti";
-    public static final String ID = "id";
-    public static final String IMAGE = "image_id";
-    public static final String TITLE = "title";
-    public static final String MONTANT = "montant";
-    public static final String DATE = "date";
-    public static final String NUMERO_COMPTE = "num_compte";
-    public static final String NUMERO_REF = "num_ref";
-    public static final String DESCRIPTION = "description";
-    public static final String DATE_OPERATION = "date_operation";
-    public static final String DATE_VALIDITE = "date_validite";
-    public static final String SOLDE = "solde";
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
+import androidx.annotation.Nullable;
+
+public class PicalltiDbHelper extends SQLiteOpenHelper {
+    public static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "picallti14";
+    //public Context context;
+    public UserDbHelper userDbHelper ;
+    public OffreDbHelper offreDbHelper;
+    public CommentaireDbHelper commentaireDbHelper;
+    public FavorisDbHelper favorisDbHelper;
+    public NoteDbHelper noteDbHelper;
+
+
+    public PicalltiDbHelper(@Nullable Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        //this.context=context;
+        this.offreDbHelper = new OffreDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
+        this.userDbHelper = new UserDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
+        this.commentaireDbHelper = new CommentaireDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
+        this.favorisDbHelper = new FavorisDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
+        this.noteDbHelper = new NoteDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
+
+
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        /*Log.d("cons", "consssss");
+        //
+        db.execSQL(UserDbHelper.CREATE_USER_TABLE);
+        System.out.println("---------------------------");
+        System.out.println(OffreDbHelper.CREATE_OFFRE_TABLE);
+        System.out.println("---------------------------");
+
+        try {
+            db.execSQL(OffreDbHelper.CREATE_OFFRE_TABLE);
+        }catch (Exception e){
+            System.out.println("offre table not created");
+            System.out.println(e.getMessage());
+        }*/
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
 }

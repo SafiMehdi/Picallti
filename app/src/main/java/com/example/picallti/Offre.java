@@ -1,31 +1,40 @@
 package com.example.picallti;
 
+import data.User;
+
 public class Offre {
 
-    Integer id;
-    Integer imageId;
-    String titre;
-    String description;
-    String localisation;
-    String prix;
-    String time;
+    private Integer id;
+    private Integer imageId;
+    private String titre;
+    private String description;
+    private String localisation;
+    private float prix;
+    private String time;
+    private String operation;
+    private User user;
 
-    public Offre(Integer imageId, String titre, String description, String localisation, String prix, String time) {
+    public Offre(Integer id, Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user) {
+        this.id = id;
         this.imageId = imageId;
         this.titre = titre;
         this.description = description;
         this.localisation = localisation;
         this.prix = prix;
         this.time = time;
+        this.operation = operation;
+        this.user = user;
     }
-
-    public Offre(String titre, Integer imageId, String description, String localisation, String prix, String time) {
-        this.titre = titre;
+    public Offre( Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user) {
+        this.id = id;
         this.imageId = imageId;
+        this.titre = titre;
         this.description = description;
         this.localisation = localisation;
         this.prix = prix;
         this.time = time;
+        this.operation = operation;
+        this.user = user;
     }
 
     public Integer getId() {
@@ -48,7 +57,7 @@ public class Offre {
         return localisation;
     }
 
-    public String getPrix() {
+    public float getPrix() {
         return prix;
     }
 
@@ -72,12 +81,32 @@ public class Offre {
         this.localisation = localisation;
     }
 
-    public void setPrix(String prix) {
+    public void setPrix(float prix) {
         this.prix = prix;
     }
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

@@ -6,14 +6,14 @@ public class User {
     private String prenom;
     private String genre;
     private String email;
-    private long phone;
+    private int phone;
     private String password;
-    private String photo;
+    private int photo;
     private String bio;
     private String role;
 
 
-    public User(int id, String nom, String prenom, String genre, String email, long phone, String password, String photo, String bio, String role) {
+    public User(int id, String nom, String prenom, String genre, String email, int phone, String password, int photo, String bio, String role) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -25,7 +25,7 @@ public class User {
         this.bio = bio;
         this.role = role;
     }
-    public User(String nom, String prenom, String genre, String email, long phone, String password, String photo, String bio, String role) {
+    public User(String nom, String prenom, String genre, String email, int phone, String password, int photo, String bio, String role) {
         this.nom = nom;
         this.prenom = prenom;
         this.genre = genre;
@@ -37,7 +37,7 @@ public class User {
         this.role = role;
     }
 
-    public User(String nom, String prenom, String genre, String email, long phone, String password, String photo, String role) {
+    public User(String nom, String prenom, String genre, String email, int phone, String password, int photo, String role) {
         this.nom = nom;
         this.prenom = prenom;
         this.genre = genre;
@@ -88,11 +88,11 @@ public class User {
         this.email = email;
     }
 
-    public long getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
@@ -104,11 +104,11 @@ public class User {
         this.password = password;
     }
 
-    public String getPhoto() {
+    public int getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public void setPhoto(int photo) {
         this.photo = photo;
     }
 

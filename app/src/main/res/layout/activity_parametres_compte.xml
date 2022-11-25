@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background5">
+    android:background="@drawable/background3">
 
     <ImageButton
         android:id="@+id/menuBtn"
@@ -16,26 +16,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/profile_picture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuBtn"
-        tools:src="@drawable/background_profile_picutre" />
-
     <TextView
         android:id="@+id/usernameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/usernameTemplate"
-        android:textColor="@color/kitten_white"
+        android:text="@string/settings"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_picture" />
+        app:layout_constraintTop_toBottomOf="@+id/menuBtn" />
 
     <LinearLayout
         android:id="@+id/firstSectionParameter"
@@ -133,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/icon_nightmode" />
+                android:background="@drawable/icon_private_account" />
 
             <TextView
                 android:layout_width="wrap_content"

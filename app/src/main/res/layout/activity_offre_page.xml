@@ -46,7 +46,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/background_input_outline_white"
+        android:background="@drawable/background_outline_white"
         android:drawableLeft="@drawable/search_icon"
         android:ems="10"
         android:hint="search for ..."

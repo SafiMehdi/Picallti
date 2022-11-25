@@ -47,7 +47,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:srcCompat="@drawable/electric_bike" />
+        app:srcCompat="@drawable/electric_bike"
+        android:elevation="5dp"/>
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -88,7 +89,8 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageButton5" >
+        app:layout_constraintTop_toBottomOf="@id/imageButton5"
+        android:elevation="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -219,7 +221,8 @@
         android:background="@drawable/wave_offre2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/offreInfo" />
+        app:layout_constraintTop_toBottomOf="@id/offreInfo"
+        />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -233,7 +236,8 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/offreInfo">
+        app:layout_constraintTop_toBottomOf="@id/offreInfo"
+        android:elevation="5dp">
 
 
         <LinearLayout

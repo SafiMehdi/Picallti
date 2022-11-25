@@ -16,14 +16,16 @@
     <string name="currentpass_placeholder">Current password</string>
     <string name="newpass_placeholder">New password</string>
     <string name="confirmnewpass_placeholder">Confirm new password</string>
-    <string name="btnchangepass">Change your password</string>
+    <string name="btnchangepass">Change password</string>
     <string name="rememberme">Remember me</string>
     <string name="connect">Login</string>
     <string name="forgotpass">Forgot your password ?</string>
     <string name="register">Register here</string>
     <string name="connectsocial">Or connect with</string>
-    <string name="forgotpasstitle">Forgot your password ?</string>
-    <string name="forgotpasstitle2">Change your password</string>
+    <string name="titlepass">Forgot</string>
+    <string name="titlepass2">Password?</string>
+    <string name="resetpasstitle">Change</string>
+    <string name="resetpasstitle2">Password</string>
     <string name="forgotpasstext">Please enter your email address to receive the password reset link.</string>
     <string name="forgotpassmail">Email address</string>
     <string name="forgotpasslientext">Receive a link</string>
@@ -104,6 +106,11 @@
     <string name="saveEditText">Save edit</string>
     <string name="hiUsernameText">Hi Username</string>
     <string name="welcomeBackText">Welcome Back!</string>
-
+    <string name="titreAjouterOffre">Ajouter Annonce</string>
+    <string name="ajouterPhotoOffre">Ajouter une photo</string>
+    <string name="titreOffreHint">Titre Offre</string>
+    <string name="descriptionOffreHint">Description Offre</string>
+    <string name="prixOffreHint">Prix</string>
+    <string name="boutonAjouterOffre">Ajouter</string>
 
 </resources>

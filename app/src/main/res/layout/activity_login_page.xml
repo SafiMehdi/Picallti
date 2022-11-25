@@ -48,6 +48,7 @@
         android:inputType="textEmailAddress"
         android:fontFamily="@font/fontnew2"
         android:drawablePadding="10dp"
+
         />
     <EditText
         android:id="@+id/password"

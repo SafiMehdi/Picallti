@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import java.util.regex.Pattern;
 
-import MailAPI.JavaMailAPI;
+
 import MailAPI2.GMailSender;
 
 public class forgot_pass1 extends AppCompatActivity {

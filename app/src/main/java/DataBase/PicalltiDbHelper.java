@@ -16,13 +16,17 @@ public class PicalltiDbHelper extends SQLiteOpenHelper {
     public CommentaireDbHelper commentaireDbHelper;
     public FavorisDbHelper favorisDbHelper;
     public NoteDbHelper noteDbHelper;
+    public VehiculeTypeDbHelper vehiculeTypeDbHelper;
+    public VehiculeDbHelper vehiculeDbHelper;
 
 
     public PicalltiDbHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         //this.context=context;
-        this.offreDbHelper = new OffreDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
         this.userDbHelper = new UserDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
+        this.vehiculeTypeDbHelper = new VehiculeTypeDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
+        this.vehiculeDbHelper = new VehiculeDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
+        this.offreDbHelper = new OffreDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
         this.commentaireDbHelper = new CommentaireDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
         this.favorisDbHelper = new FavorisDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
         this.noteDbHelper = new NoteDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);

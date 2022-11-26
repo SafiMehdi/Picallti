@@ -7,11 +7,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.picallti.Offre;
+import data.Offre;
 
 import java.text.ParseException;
-
-import data.User;
 
 public class OffreDbHelper extends SQLiteOpenHelper {
     public static final String TABLE_OFFRE = "Offre_table";
@@ -24,6 +22,8 @@ public class OffreDbHelper extends SQLiteOpenHelper {
     public static final String TIME = "time";
     private static final String OPERATION = "operation";
     public static final String USER = "user";
+    public static final String VEHICULE = "vehicule";
+
     public static final String CREATE_OFFRE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_OFFRE + " (" +
             ID + " INTEGER PRIMARY KEY," +
             IMAGE_ID + " INTEGER," +
@@ -34,7 +34,9 @@ public class OffreDbHelper extends SQLiteOpenHelper {
             OPERATION + " TEXT," +
             DESCRIPTION + " TEXT," +
             USER + " INT," +
-            "FOREIGN KEY("+USER+") REFERENCES "+USER+"("+ID+"))";
+            VEHICULE + " INT," +
+            "FOREIGN KEY("+VEHICULE+") REFERENCES "+VehiculeDbHelper.TABLE_VEHICULE+"("+ID+")," +
+            "FOREIGN KEY("+USER+") REFERENCES "+UserDbHelper.TABLE_USER+"("+ID+"))";
 
     public OffreDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

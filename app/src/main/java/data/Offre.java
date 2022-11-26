@@ -1,63 +1,97 @@
 package data;
 
+import data.User;
+
 public class Offre {
-    private int id;
+
+    private Integer id;
+    private Integer imageId;
     private String titre;
     private String description;
+    private String localisation;
+    private float prix;
+    private String time;
     private String operation;
-    private double prix;
-    private User owner;
+    private User user;
     private Vehicule vehicule;
 
-    public Offre(int id, String titre, String description, String operation, double prix, User owner, Vehicule vehicule) {
+    public Offre(Integer id, Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule) {
         this.id = id;
+        this.imageId = imageId;
         this.titre = titre;
         this.description = description;
-        this.operation = operation;
+        this.localisation = localisation;
         this.prix = prix;
-        this.owner = owner;
-        this.vehicule = vehicule;
+        this.time = time;
+        this.operation = operation;
+        this.user = user;
+    }
+    public Offre( Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule) {
+        this.id = id;
+        this.imageId = imageId;
+        this.titre = titre;
+        this.description = description;
+        this.localisation = localisation;
+        this.prix = prix;
+        this.time = time;
+        this.operation = operation;
+        this.user = user;
     }
 
-    public Offre(String titre, String description, String operation, double prix, User owner, Vehicule vehicule) {
-        this.titre = titre;
-        this.description = description;
-        this.operation = operation;
-        this.prix = prix;
-        this.owner = owner;
-        this.vehicule = vehicule;
-    }
-    public Offre(String titre, String operation, double prix, User owner, Vehicule vehicule) {
-        this.titre = titre;
-        this.description = description;
-        this.operation = operation;
-        this.prix = prix;
-        this.owner = owner;
-        this.vehicule = vehicule;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Integer getImageId() {
+        return imageId;
     }
 
     public String getTitre() {
         return titre;
     }
 
-    public void setTitre(String titre) {
-        this.titre = titre;
-    }
-
     public String getDescription() {
         return description;
     }
 
+    public String getLocalisation() {
+        return localisation;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setImageId(Integer imageId) {
+        this.imageId = imageId;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setLocalisation(String localisation) {
+        this.localisation = localisation;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getOperation() {
@@ -68,27 +102,24 @@ public class Offre {
         this.operation = operation;
     }
 
-    public double getPrix() {
-        return prix;
+    public User getUser() {
+        return user;
     }
 
-    public void setPrix(double prix) {
-        this.prix = prix;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public User getOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
-
-    public Vehicule getVehicule() {
-        return vehicule;
-    }
-
-    public void setVehicule(Vehicule vehicule) {
-        this.vehicule = vehicule;
+    @Override
+    public String toString() {
+        return "Offre{" +
+                "id=" + id +
+                ", imageId=" + imageId +
+                ", titre='" + titre + '\'' +
+                ", description='" + description + '\'' +
+                ", localisation='" + localisation + '\'' +
+                ", prix='" + prix + '\'' +
+                ", time='" + time + '\'' +
+                '}';
     }
 }

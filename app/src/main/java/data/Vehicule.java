@@ -6,13 +6,15 @@ public class Vehicule {
     private String marque;
     private String description;
 
-    public Vehicule(int id, String nom, String marque, String description) {
+
+
+    public Vehicule(int id, String nom, String marque, String description,VehiculeType vehiculeType) {
         this.id = id;
         this.nom = nom;
         this.marque = marque;
         this.description = description;
     }
-    public Vehicule(String nom, String marque, String description) {
+    public Vehicule(String nom, String marque, String description,VehiculeType vehiculeType) {
         this.nom = nom;
         this.marque = marque;
         this.description = description;
@@ -53,4 +55,6 @@ public class Vehicule {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }

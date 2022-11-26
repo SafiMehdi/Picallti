@@ -20,8 +20,8 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
             COMMENTAIRE + " TEXT," +
             OFFRE + " INT," +
             USER + " INT," +
-            "FOREIGN KEY("+USER+") REFERENCES "+USER+"("+ID+")," +
-            "FOREIGN KEY("+OFFRE+") REFERENCES "+OFFRE+"("+ID+")" +
+            "FOREIGN KEY("+USER+") REFERENCES "+ UserDbHelper.TABLE_USER +"("+ID+")," +
+            "FOREIGN KEY("+OFFRE+") REFERENCES "+OffreDbHelper.TABLE_OFFRE+"("+ID+")" +
             ")";
 
     public CommentaireDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {

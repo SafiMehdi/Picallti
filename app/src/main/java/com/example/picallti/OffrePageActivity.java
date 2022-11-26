@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import data.Offre;
 
 public class OffrePageActivity extends AppCompatActivity {
 

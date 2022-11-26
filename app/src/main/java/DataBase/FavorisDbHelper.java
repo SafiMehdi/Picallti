@@ -15,8 +15,8 @@ public class FavorisDbHelper extends SQLiteOpenHelper {
             ID + " INTEGER PRIMARY KEY," +
             OFFRE + " INT," +
             USER + " INT," +
-            "FOREIGN KEY("+USER+") REFERENCES "+USER+"("+ID+")," +
-            "FOREIGN KEY("+OFFRE+") REFERENCES "+OFFRE+"("+ID+")" +
+            "FOREIGN KEY("+USER+") REFERENCES "+UserDbHelper.TABLE_USER+"("+ID+")," +
+            "FOREIGN KEY("+OFFRE+") REFERENCES "+OffreDbHelper.TABLE_OFFRE+"("+ID+")" +
             ")";
 
     public FavorisDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {

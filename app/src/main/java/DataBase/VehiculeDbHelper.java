@@ -12,11 +12,14 @@ public class VehiculeDbHelper extends SQLiteOpenHelper {
     public static final String NOM = "nom";
     public static final String MARQUE = "marque";
     public static final String DESCRIPTION = "description";
+    public static final String TYPE = "Vehicule_type";
     static final String CREATE_VEHICULE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_VEHICULE + " (" +
             ID + " INTEGER PRIMARY KEY," +
             NOM + " TEXT," +
             MARQUE + " TEXT," +
-            DESCRIPTION + " TEXT )";
+            TYPE + " INT," +
+            DESCRIPTION + " TEXT," +
+            "FOREIGN KEY("+TYPE+") REFERENCES "+VehiculeTypeDbHelper.TABLE_VEHICULE_TYPE+"("+ID+"))";
 
     public VehiculeDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

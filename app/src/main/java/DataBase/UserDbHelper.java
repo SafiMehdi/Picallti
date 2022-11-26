@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.picallti.Offre;
-
 import java.text.ParseException;
 
 import data.User;

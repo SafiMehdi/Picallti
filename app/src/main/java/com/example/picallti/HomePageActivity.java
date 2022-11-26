@@ -10,6 +10,7 @@ import android.widget.Button;
 import java.text.ParseException;
 
 import DataBase.PicalltiDbHelper;
+import data.Offre;
 import data.User;
 
 public class HomePageActivity extends AppCompatActivity {
@@ -26,12 +27,12 @@ public class HomePageActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Offre offre = new Offre(34,"title","decriiiiiiption","localisation",67,"time","vente",user);
+        /*Offre offre = new Offre(34,"title","decriiiiiiption","localisation",67,"time","vente",user);
         try {
             db.offreDbHelper.insertOffre(offre);
         } catch (ParseException e) {
             e.printStackTrace();
-        }
+        }*/
 
         Button seeOffersBtn = (Button) findViewById(R.id.button);
         seeOffersBtn.setOnClickListener(new View.OnClickListener() {

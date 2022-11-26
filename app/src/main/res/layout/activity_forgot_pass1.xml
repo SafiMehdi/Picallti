@@ -65,7 +65,8 @@
         android:drawableStart="@drawable/ic_baseline_email_24"
         android:drawablePadding="10dp"
         android:paddingBottom="17dp"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        />
     <android.widget.Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"

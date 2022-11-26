@@ -1,21 +1,26 @@
 package data;
 
+import java.time.LocalDateTime;
+
 public class Note {
     private int id;
     private int note;
     private User user;
     private Offre offre;
+    private LocalDateTime LocalDateTime;
 
-    public Note(int id, int note, User user, Offre offre) {
+    public Note(int id, int note, User user, Offre offre,LocalDateTime LocalDateTime) {
         this.id = id;
         this.note = note;
         this.user = user;
         this.offre = offre;
+        this.LocalDateTime = LocalDateTime;
     }
-    public Note(int note, User user, Offre offre) {
+    public Note(int note, User user, Offre offre,LocalDateTime LocalDateTime) {
         this.note = note;
         this.user = user;
         this.offre = offre;
+        this.LocalDateTime = LocalDateTime;
     }
 
     public int getId() {
@@ -48,5 +53,13 @@ public class Note {
 
     public void setOffre(Offre offre) {
         this.offre = offre;
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        return LocalDateTime;
+    }
+
+    public void setLocalDateTime(LocalDateTime LocalDateTime) {
+        this.LocalDateTime = LocalDateTime;
     }
 }

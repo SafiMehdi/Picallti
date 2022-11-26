@@ -1,10 +1,16 @@
 package DataBase;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.text.ParseException;
+
+import data.User;
+import data.Vehicule;
 
 public class VehiculeDbHelper extends SQLiteOpenHelper {
     public static final String TABLE_VEHICULE = "Vehicule_table";
@@ -35,5 +41,16 @@ public class VehiculeDbHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    public void insertVehicule(Vehicule vehicule) throws ParseException {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(NOM, vehicule.getNom());
+        values.put(MARQUE, vehicule.getMarque());
+        values.put(DESCRIPTION, vehicule.getDescription());
+        values.put(TYPE, vehicule.getVehiculeType().getId());
+        db.insert(TABLE_VEHICULE, null, values);
+        System.out.println("vehicule inserted");
     }
 }

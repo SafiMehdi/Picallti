@@ -1,22 +1,27 @@
 package data;
 
+import java.time.LocalDateTime;
+
 public class Commentaire {
     private int id;
     private String commentaire;
     private User user;
     private Offre offre;
+    private LocalDateTime LocalDateTime;
 
-    public Commentaire(int id, String commentaire, User user, Offre offre) {
+    public Commentaire(int id, String commentaire, User user, Offre offre,LocalDateTime LocalDateTime) {
         this.id = id;
         this.commentaire = commentaire;
         this.user = user;
         this.offre = offre;
+        this.LocalDateTime = LocalDateTime;
     }
 
-    public Commentaire( String commentaire, User user, Offre offre) {
+    public Commentaire( String commentaire, User user, Offre offre,LocalDateTime LocalDateTime) {
         this.commentaire = commentaire;
         this.user = user;
         this.offre = offre;
+        this.LocalDateTime = LocalDateTime;
     }
 
     public int getId() {
@@ -49,5 +54,13 @@ public class Commentaire {
 
     public void setOffre(Offre offre) {
         this.offre = offre;
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        return LocalDateTime;
+    }
+
+    public void setLocalDateTime(LocalDateTime LocalDateTime) {
+        this.LocalDateTime = LocalDateTime;
     }
 }

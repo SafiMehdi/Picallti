@@ -8,10 +8,17 @@ import android.view.View;
 import android.widget.Button;
 
 import java.text.ParseException;
+import java.time.LocalDateTime;
+import java.time.Month;
 
 import DataBase.PicalltiDbHelper;
+import data.Commentaire;
+import data.Favoris;
+import data.Note;
 import data.Offre;
 import data.User;
+import data.Vehicule;
+import data.VehiculeType;
 
 public class HomePageActivity extends AppCompatActivity {
 
@@ -26,13 +33,26 @@ public class HomePageActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-        /*Offre offre = new Offre(34,"title","decriiiiiiption","localisation",67,"time","vente",user);
         try {
+
+
+            VehiculeType vehiculeType = new VehiculeType("typeV");
+            db.vehiculeTypeDbHelper.insertVehiculeType(vehiculeType);
+            Vehicule vehicule = new Vehicule("nomV","marque","description",vehiculeType);
+            db.vehiculeDbHelper.insertVehicule(vehicule);
+            Offre offre = new Offre(34,"title","decriiiiiiption","localisation",67,"time","vente",user,vehicule, LocalDateTime.now());
             db.offreDbHelper.insertOffre(offre);
+            Commentaire commentaire = new Commentaire("commentaire text",user,offre,LocalDateTime.now());
+            db.commentaireDbHelper.insertCommentaire(commentaire);
+            Favoris favoris = new Favoris(user,offre,LocalDateTime.now());
+            db.favorisDbHelper.insertFavoris(favoris);
+            Note note = new Note(4,user,offre,LocalDateTime.now());
+            db.noteDbHelper.insertNote(note);
+
+
         } catch (ParseException e) {
             e.printStackTrace();
-        }*/
+        }
 
         Button seeOffersBtn = (Button) findViewById(R.id.button);
         seeOffersBtn.setOnClickListener(new View.OnClickListener() {

@@ -5,6 +5,7 @@ public class Vehicule {
     private String nom;
     private String marque;
     private String description;
+    private VehiculeType vehiculeType;
 
 
 
@@ -13,11 +14,13 @@ public class Vehicule {
         this.nom = nom;
         this.marque = marque;
         this.description = description;
+        this.vehiculeType = vehiculeType;
     }
     public Vehicule(String nom, String marque, String description,VehiculeType vehiculeType) {
         this.nom = nom;
         this.marque = marque;
         this.description = description;
+        this.vehiculeType = vehiculeType;
     }
     public Vehicule(String nom, String marque) {
         this.nom = nom;
@@ -56,5 +59,11 @@ public class Vehicule {
         this.description = description;
     }
 
+    public VehiculeType getVehiculeType() {
+        return vehiculeType;
+    }
 
+    public void setVehiculeType(VehiculeType vehiculeType) {
+        this.vehiculeType = vehiculeType;
+    }
 }

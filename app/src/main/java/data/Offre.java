@@ -1,5 +1,7 @@
 package data;
 
+import java.time.LocalDateTime;
+
 import data.User;
 
 public class Offre {
@@ -14,8 +16,9 @@ public class Offre {
     private String operation;
     private User user;
     private Vehicule vehicule;
+    private LocalDateTime LocalDateTime;
 
-    public Offre(Integer id, Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule) {
+    public Offre(Integer id, Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule,LocalDateTime LocalDateTime) {
         this.id = id;
         this.imageId = imageId;
         this.titre = titre;
@@ -25,9 +28,10 @@ public class Offre {
         this.time = time;
         this.operation = operation;
         this.user = user;
+        this.LocalDateTime = LocalDateTime;
+        this.vehicule = vehicule;
     }
-    public Offre( Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule) {
-        this.id = id;
+    public Offre( Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule,LocalDateTime LocalDateTime) {
         this.imageId = imageId;
         this.titre = titre;
         this.description = description;
@@ -36,6 +40,8 @@ public class Offre {
         this.time = time;
         this.operation = operation;
         this.user = user;
+        this.vehicule = vehicule;
+        this.LocalDateTime = LocalDateTime;
     }
 
     public Integer getId() {
@@ -108,6 +114,22 @@ public class Offre {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Vehicule getVehicule() {
+        return vehicule;
+    }
+
+    public void setVehicule(Vehicule vehicule) {
+        this.vehicule = vehicule;
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        return LocalDateTime;
+    }
+
+    public void setLocalDateTime(LocalDateTime LocalDateTime) {
+        this.LocalDateTime = LocalDateTime;
     }
 
     @Override

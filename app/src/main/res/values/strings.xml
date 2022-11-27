@@ -1,5 +1,6 @@
 <resources>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Picallti</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
     <string name="profil">Profil</string>
@@ -85,33 +86,24 @@
     <string name="image_view_item_transform_content_description" translatable="false">Represents an image view in the
         item
     </string>
-
-    <string name="app_name">Picallti</string>
-    <string name="usernameTextView">Username</string>
-    <string name="villeTextView">Ville :</string>
-    <string name="villeValue">Rabat</string>
-    <string name="emailTextView">Email :</string>
-    <string name="emailValue">meydi.safi@gmail.com</string>
-    <string name="telephoneTextView">Tél :</string>
-    <string name="telephoneValue">0664401684</string>
-    <string name="bioTextView">Bio :</string>
-    <string name="bioValue">lorem ipsum chi haja zwina</string>
-    <string name="mesAnnonacesTextView">Mes Annonces</string>
-    <string name="ajouterAnnoncesText">Ajouter Annonces</string>
-    <string name="modifierProfileTextView">Modifier Profile</string>
-    <string name="modifierUsernameHint">Modifier votre username</string>
-    <string name="modifierEmailHint">Modifier votre email</string>
-    <string name="modifierPhoneHint">Modifier votre numero de telephone</string>
-    <string name="modifierBioHint">Modifier votre Bio</string>
-    <string name="hidePhoneTextView">Cacher mon numéro de téléphone</string>
-    <string name="hideMailTextView">Cacher mon addresse mail</string>
-    <string name="saveButtonText">Sauvegarder</string>
-    <string name="informationsPersonellesTextView">Informations personelles</string>
-    <string name="changePasswordTextView">Modifier Votre mot de passe</string>
-    <string name="contactUsTextView">Contactez-nous</string>
-    <string name="deleteAccountTextView">Supprimer Compte</string>
-    <string name="logout">Se déconnecter</string>
-    <string name="modifierPDPButton">Modifier photo de profile</string>
+    <string name="bioTemplate">This is a bio template don\'t mind me</string>
+    <string name="usernameTemplate">Username</string>
+    <string name="offersTextView">Offers</string>
+    <string name="notificationsTextView">Notifications</string>
+    <string name="settingsTextView">Settings</string>
+    <string name="phoneNumberTemplate">06-64-40-16-84</string>
+    <string name="emailTemplate">meydi.safi@gmail.com</string>
+    <string name="editProfileBtnText">Edit Profile</string>
+    <string name="changePDPTextView">Change profile picture</string>
+    <string name="usernameHint">Change your username</string>
+    <string name="emailHint">Change your email</string>
+    <string name="phoneHint">Change your phone number</string>
+    <string name="bioHint">Change your bio</string>
+    <string name="hidePhoneTextView">Hide my phone number</string>
+    <string name="hideEmailTextView">Hide my email address</string>
+    <string name="saveEditText">Save edit</string>
+    <string name="hiUsernameText">Hi Username</string>
+    <string name="welcomeBackText">Welcome Back!</string>
 
 
 </resources>

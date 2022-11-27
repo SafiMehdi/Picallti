@@ -18,6 +18,7 @@ public class Offre {
     private String operation;
     private User user;
     private Vehicule vehicule;
+    private String url;
     private LocalDate LocalDateTime;
 
     public Offre(Integer id, Integer imageId, String titre, String description, String localisation, float prix, LocalTime time, String operation, User user,Vehicule vehicule,LocalDate LocalDateTime) {
@@ -33,6 +34,8 @@ public class Offre {
         this.LocalDateTime = LocalDateTime;
         this.vehicule = vehicule;
     }
+
+    public Offre(String titre, String description, String operation, double prix, String url, User owner, Vehicule vehicule) {
     public Offre( Integer imageId, String titre, String description, String localisation, float prix, LocalTime time, String operation, User user,Vehicule vehicule,LocalDate LocalDateTime) {
         this.imageId = imageId;
         this.titre = titre;
@@ -145,5 +148,13 @@ public class Offre {
                 ", prix='" + prix + '\'' +
                 ", time='" + time + '\'' +
                 '}';
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

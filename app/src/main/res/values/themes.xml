@@ -12,7 +12,7 @@
         <item name="colorSecondaryVariant">@color/bleu_ciel</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
         <!-- Customize your theme here. -->
     </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">

@@ -9,18 +9,18 @@ public class Note {
     private Offre offre;
     private LocalDateTime LocalDateTime;
 
-    public Note(int id, int note, User user, Offre offre,LocalDateTime LocalDateTime) {
+    public Note(int id, int note, User user, Offre offre) {
         this.id = id;
         this.note = note;
         this.user = user;
         this.offre = offre;
-        this.LocalDateTime = LocalDateTime;
+        //this.LocalDateTime = LocalDateTime;
     }
-    public Note(int note, User user, Offre offre,LocalDateTime LocalDateTime) {
+    public Note(int note, User user, Offre offre) {
         this.note = note;
         this.user = user;
         this.offre = offre;
-        this.LocalDateTime = LocalDateTime;
+        //this.LocalDateTime = LocalDateTime;
     }
 
     public int getId() {

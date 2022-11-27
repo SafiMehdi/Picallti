@@ -2,13 +2,17 @@ package DataBase;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 
+import data.User;
 import data.Vehicule;
 import data.VehiculeType;
 
@@ -44,5 +48,55 @@ public class VehiculeTypeDbHelper extends SQLiteOpenHelper {
         values.put(NOM, vehiculeType.getNom());
         db.insert(TABLE_VEHICULE_TYPE, null, values);
         System.out.println("vehicule type inserted");
+    }
+
+    public ArrayList<VehiculeType> readVehiculeTypes() throws ParseException {
+        Log.d("ensak", "invoke read user");
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.query(
+                TABLE_VEHICULE_TYPE,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+        //ArrayList<String> itemTitles = new ArrayList<String>();
+        ArrayList<VehiculeType> types = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            String nom = cursor.getString(
+                    cursor.getColumnIndexOrThrow(NOM)
+            );
+            int id = cursor.getInt(cursor.getColumnIndexOrThrow(ID));
+            //SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            types.add(new VehiculeType(id,nom));
+        }
+        cursor.close();
+        //String items[] = itemTitles.toArray(new String[itemTitles.size()]);
+        return types;
+
+    }
+
+    public VehiculeType selectVehiculeTypeById(int id){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.query(
+                TABLE_VEHICULE_TYPE,
+                null,
+                ID + "="+id,
+                null,
+                null,
+                null,
+                null
+        );
+        if (cursor.moveToFirst()){
+            String nom = cursor.getString(
+                    cursor.getColumnIndexOrThrow(NOM)
+            );
+            return new VehiculeType(id,nom);
+
+        }cursor.close();
+        return  null;
+
     }
 }

@@ -105,7 +105,7 @@ class OffreAdapter extends ArrayAdapter <Offre> {
         TextView viewPrice = (TextView) convertView.findViewById(R.id.textView7);
         //viewPrice.setText(offres.get(position).getPrix());
         TextView viewTime = (TextView) convertView.findViewById(R.id.textView8);
-        viewTime.setText(offres.get(position).getTime());
+        viewTime.setText(offres.get(position).getTime().toString());
 
         return convertView;
     }

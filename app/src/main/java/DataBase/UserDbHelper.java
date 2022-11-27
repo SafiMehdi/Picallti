@@ -2,12 +2,16 @@ package DataBase;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.view.SurfaceControl;
 
 import androidx.annotation.Nullable;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 
 import data.User;
 
@@ -40,7 +44,6 @@ public class UserDbHelper extends SQLiteOpenHelper {
         super(context, name, factory, version);
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL(CREATE_USER_TABLE);
-
         System.out.println(CREATE_USER_TABLE);
 
     }
@@ -70,5 +73,85 @@ public class UserDbHelper extends SQLiteOpenHelper {
         values.put(ROLE, user.getRole());
         db.insert(TABLE_USER, null, values);
         System.out.println("inserted");
+    }
+
+    public ArrayList<User> readUsers() throws ParseException {
+        Log.d("ensak", "invoke read user");
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.query(
+                TABLE_USER,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+        System.out.println("JJJJJJJJJJJJJJJJJJJ");
+        System.out.println(cursor.getCount());
+        System.out.println("JJJJJJJJJJJJJJJJJJJ");
+
+        //ArrayList<String> itemTitles = new ArrayList<String>();
+        ArrayList<User> users = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            String nom = cursor.getString(
+                    cursor.getColumnIndexOrThrow(NOM)
+            );
+            String prenom = cursor.getString(cursor.getColumnIndexOrThrow(PRENOM));
+            int image = cursor.getInt(cursor.getColumnIndexOrThrow(PHOTO));
+            String genre = cursor.getString(cursor.getColumnIndexOrThrow(GENRE));
+            String email = cursor.getString(cursor.getColumnIndexOrThrow(EMAIL));
+            int phone = cursor.getInt(cursor.getColumnIndexOrThrow(PHONE));
+            String bio = cursor.getString(cursor.getColumnIndexOrThrow(BIO));
+            String password = cursor.getString(cursor.getColumnIndexOrThrow(PASSWORD));
+            String role = cursor.getString(cursor.getColumnIndexOrThrow(ROLE));
+            int id = cursor.getInt(cursor.getColumnIndexOrThrow(ID));
+            //SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+            User user = new User(id,nom,prenom,genre,email,phone,password,image,bio,role);
+            users.add(user);
+        }
+        cursor.close();
+        //String items[] = itemTitles.toArray(new String[itemTitles.size()]);
+        return users;
+
+    }
+
+    public User selectUserById(int id){
+        SQLiteDatabase db = getReadableDatabase();
+        /*Cursor cursor = db.query(
+                TABLE_USER,
+                null,
+                ID  + "=?",
+                new String[]{Integer.toString(id)},
+                null,
+                null,
+                null
+        );*/
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_USER+" WHERE id="+id+"", null);
+
+
+        if (cursor.moveToFirst()){
+            String nom = cursor.getString(
+                    cursor.getColumnIndexOrThrow(NOM)
+            );
+            System.out.println("Hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+            String prenom = cursor.getString(cursor.getColumnIndexOrThrow(PRENOM));
+            int image = cursor.getInt(cursor.getColumnIndexOrThrow(PHOTO));
+            String genre = cursor.getString(cursor.getColumnIndexOrThrow(GENRE));
+            String email = cursor.getString(cursor.getColumnIndexOrThrow(EMAIL));
+            int phone = cursor.getInt(cursor.getColumnIndexOrThrow(PHONE));
+            String bio = cursor.getString(cursor.getColumnIndexOrThrow(BIO));
+            String password = cursor.getString(cursor.getColumnIndexOrThrow(PASSWORD));
+            String role = cursor.getString(cursor.getColumnIndexOrThrow(ROLE));
+            //int id = cursor.getInt(cursor.getColumnIndexOrThrow(ID));
+            //SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+            User user = new User(id,nom,prenom,genre,email,phone,password,image,bio,role);
+            return  user;
+        }cursor.close();
+        return  null;
+
     }
 }

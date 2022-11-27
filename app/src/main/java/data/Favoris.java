@@ -9,16 +9,14 @@ public class Favoris {
     private Offre offre;
     private LocalDateTime localDateTime;
 
-    public Favoris(int id, User user, Offre offre,LocalDateTime LocalLocalDateTime) {
+    public Favoris(int id, User user, Offre offre) {
         this.id = id;
         this.user = user;
         this.offre = offre;
-        this.localDateTime = LocalLocalDateTime;
     }
-    public Favoris( User user, Offre offre,LocalDateTime LocalLocalDateTime) {
+    public Favoris( User user, Offre offre) {
         this.user = user;
         this.offre = offre;
-        this.localDateTime = LocalLocalDateTime;
     }
 
     public int getId() {

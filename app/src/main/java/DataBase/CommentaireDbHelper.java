@@ -2,12 +2,18 @@ package DataBase;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 
 import data.Commentaire;
 import data.Offre;
@@ -19,13 +25,16 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
     public static final String COMMENTAIRE = "commentaire";
     public static final String OFFRE = "offre";
     public static final String USER = "user";
-    public static final String LocalDateTime = "date_time";
+    public static final String TIME = "time";
+    public static final String DATE = "date";
+    public Context context;
     public static final String CREATE_COMMENTAIRE_TABLE = "CREATE TABLE IF NOT EXISTS " + COMMENTAIRE_TABLE + " (" +
             ID + " INTEGER PRIMARY KEY," +
             COMMENTAIRE + " TEXT," +
             OFFRE + " INT," +
             USER + " INT," +
-            LocalDateTime + " TEXT,"+
+            DATE + " TEXT,"+
+            TIME + " TEXT,"+
             "FOREIGN KEY("+USER+") REFERENCES "+ UserDbHelper.TABLE_USER +"("+ID+")," +
             "FOREIGN KEY("+OFFRE+") REFERENCES "+OffreDbHelper.TABLE_OFFRE+"("+ID+")" +
             ")";
@@ -35,6 +44,7 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
         //System.out.println(CREATE_COMMENTAIRE_TABLE);
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL(CREATE_COMMENTAIRE_TABLE);
+        this.context = context;
     }
 
     @Override
@@ -52,10 +62,76 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COMMENTAIRE, commentaire.getCommentaire());
-        values.put(LocalDateTime, commentaire.getLocalDateTime().toString());
+        values.put(DATE, commentaire.getLocalDateTime().toString());
+        values.put(TIME,commentaire.getTime().toString());
         values.put(USER, commentaire.getUser().getId());
         values.put(OFFRE, commentaire.getOffre().getId());
         db.insert(COMMENTAIRE_TABLE, null, values);
-        System.out.println("offer inserted");
+        System.out.println("Comment inserted");
+    }
+
+
+    public ArrayList<Commentaire> readComments() throws ParseException {
+        Log.d("ensak", "invoke read Offre");
+        SQLiteDatabase db = getReadableDatabase();
+        UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
+        OffreDbHelper offreDbHelper = new OffreDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
+        Cursor cursor = db.query(
+                COMMENTAIRE_TABLE,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+        //ArrayList<String> itemTitles = new ArrayList<String>();
+        ArrayList<Commentaire> commentaires = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            String commentaire = cursor.getString(
+                    cursor.getColumnIndexOrThrow(COMMENTAIRE)
+            );
+            int user = cursor.getInt(cursor.getColumnIndexOrThrow(USER));
+            int offre = cursor.getInt(cursor.getColumnIndexOrThrow(OFFRE));
+            int id = cursor.getInt(cursor.getColumnIndexOrThrow(ID));
+            String time = cursor.getString(cursor.getColumnIndexOrThrow(TIME));
+            String date = cursor.getString(cursor.getColumnIndexOrThrow(DATE));
+
+            Commentaire comment = new Commentaire(id,commentaire,userDbHelper.selectUserById(user),offreDbHelper.selectOfferById(offre),LocalDate.parse(date),LocalTime.parse(time));
+            commentaires.add(comment);
+        }
+        cursor.close();
+        //String items[] = itemTitles.toArray(new String[itemTitles.size()]);
+        return commentaires;
+
+    }
+
+    public Commentaire selectCommentById(int id){
+        SQLiteDatabase db = getReadableDatabase();
+        UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
+        OffreDbHelper offreDbHelper = new OffreDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
+        Cursor cursor = db.query(
+                COMMENTAIRE_TABLE,
+                null,
+                ID + "="+id,
+                null,
+                null,
+                null,
+                null
+        );
+        if (cursor.moveToFirst()){
+            String commentaire = cursor.getString(
+                    cursor.getColumnIndexOrThrow(COMMENTAIRE)
+            );
+            int user = cursor.getInt(cursor.getColumnIndexOrThrow(USER));
+            int offre = cursor.getInt(cursor.getColumnIndexOrThrow(OFFRE));
+            String time = cursor.getString(cursor.getColumnIndexOrThrow(TIME));
+            String date = cursor.getString(cursor.getColumnIndexOrThrow(DATE));
+
+            return new Commentaire(id,commentaire,userDbHelper.selectUserById(user),offreDbHelper.selectOfferById(offre),LocalDate.parse(date),LocalTime.parse(time));
+
+        }cursor.close();
+        return  null;
+
     }
 }

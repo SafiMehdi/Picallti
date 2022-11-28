@@ -17,7 +17,7 @@ public class ParametresCompte extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parametres_compte);
 
-        TextView deleteAccount = (TextView)findViewById(R.id.deleteAccount);
+        /*TextView deleteAccount = (TextView)findViewById(R.id.deleteAccount);
         deleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,7 +40,7 @@ public class ParametresCompte extends AppCompatActivity {
                 Toast.makeText( ParametresCompte.this, "You have been disconnected!",Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(ParametresCompte.this, login_page.class));
             }
-        });
+        });*/
 
 
     }

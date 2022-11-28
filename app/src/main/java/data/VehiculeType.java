@@ -13,6 +13,15 @@ public class VehiculeType {
         this.url = url;
     }
 
+
+    public VehiculeType(int id, String nom) {
+        this.id = id;
+        this.nom = nom;
+    }
+    public VehiculeType(String nom) {
+        this.nom = nom;
+    }
+
     public VehiculeType(String nom, String url) {
         this.nom = nom;
         this.url = url;

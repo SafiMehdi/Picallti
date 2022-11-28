@@ -35,7 +35,6 @@ public class Offre {
         this.vehicule = vehicule;
     }
 
-    public Offre(String titre, String description, String operation, double prix, String url, User owner, Vehicule vehicule) {
     public Offre( Integer imageId, String titre, String description, String localisation, float prix, LocalTime time, String operation, User user,Vehicule vehicule,LocalDate LocalDateTime) {
         this.imageId = imageId;
         this.titre = titre;
@@ -49,6 +48,41 @@ public class Offre {
         this.LocalDateTime = LocalDateTime;
     }
 
+    public Offre(int id, String titre, String description, String operation, float prix, String url, User owner, Vehicule vehicule) {
+        this.id = id;
+        this.titre = titre;
+        this.description = description;
+        this.operation = operation;
+        this.prix = prix;
+        this.user = owner;
+        this.vehicule = vehicule;
+        this.url = url;
+    }
+
+    public Offre(String titre, String description, String operation, float prix, String url, User owner, Vehicule vehicule) {
+        this.titre = titre;
+        this.description = description;
+        this.operation = operation;
+        this.prix = prix;
+        this.user = owner;
+        this.vehicule = vehicule;
+        this.url = url;
+    }
+    public Offre(String titre, String operation,float prix,String description,  String url, User owner, Vehicule vehicule) {
+        this.titre = titre;
+        this.description = description;
+        this.operation = operation;
+        this.prix = prix;
+        this.user = owner;
+        this.vehicule = vehicule;
+        this.url = url;
+    }
+    public Offre(String titre, String description, float prix, String url ){
+        this.titre = titre;
+        this.description = description;
+        this.prix = prix;
+        this.url = url;
+    }
     public Integer getId() {
         return id;
     }

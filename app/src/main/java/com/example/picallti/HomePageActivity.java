@@ -58,7 +58,7 @@ public class HomePageActivity extends AppCompatActivity {
             db.commentaireDbHelper.insertCommentaire(commentaire);
             Favoris favoris = new Favoris(db.userDbHelper.readUsers().get(46),offre);
             db.favorisDbHelper.insertFavoris(favoris);
-            Note note = new Note(4,db.userDbHelper.readUsers().get(46),offre,LocalDateTime.now());
+            Note note = new Note(4,4,db.userDbHelper.readUsers().get(46),offre);
             db.noteDbHelper.insertNote(note);
 
 

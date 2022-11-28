@@ -6,11 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import adapters.OffresAdapter;
 import adapters.VehiculeTypesAdapter;
 import data.Offre;
+import data.User;
+import data.Vehicule;
 import data.VehiculeType;
 
 public class OffrePageActivity extends AppCompatActivity {
@@ -44,13 +49,21 @@ public class OffrePageActivity extends AppCompatActivity {
         recyclerViewCat.setAdapter(adapter2);
 
 
-        ArrayList<Offre> offres =new ArrayList<>();
-        offres.add(new Offre("Pikala VTT Lekher", "Katmchi finma bghiti gha rkeb u zid asahbi wayli", 12, "bicycle"));
-        offres.add(new Offre("Motor lahuma barik", "Swinga jaya mn asfi chi haja lahuma barik akhay diali", 50, "motorcycle"));
-        offres.add(new Offre("Boukchlita lhrba", "Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi", 10, "bicycle"));
-        offres.add(new Offre("Motor makaynch fhalu juj", "Had lmotor dor so9 kaml la l9iti bhalu aji dfl elia", 60, "motorcycle"));
 
-        adapter=new OffresAdapter(offres);
+        VehiculeType vehiculeType = new VehiculeType("typeV");
+       // db.vehiculeTypeDbHelper.insertVehiculeType(vehiculeType);
+        Vehicule vehicule = new Vehicule("nomV","marque","description",vehiculeType);
+        User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+        ArrayList<Offre> offres =new ArrayList<>();
+        offres.add(  new Offre(R.drawable.avatar_2,"title46","decriiiiiiption","localisation",67, LocalTime.now(),"vente",user,vehicule,  LocalDate.of(2020, 1, 8)));
+        offres.add(new Offre("Pikala VTT Lekher", "Vente",12,"Katmchi finma bghiti gha rkeb u zid asahbi wayli",  "bicycle",user,vehicule));
+        offres.add(new Offre("Motor lahuma barik", "Vente",50,"Swinga jaya mn asfi chi haja lahuma barik akhay diali",  "motorcycle",user,vehicule));
+        offres.add(new Offre("Boukchlita lhrba", "Vente",10,"Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi",  "bicycle",user,vehicule));
+        offres.add(new Offre("Motor makaynch fhalu juj", "Vente",60,"Had lmotor dor so9 kaml la l9iti bhalu aji dfl elia", "motorcycle",user,vehicule));
+
+        adapter=new OffresAdapter(getApplicationContext(),offres);
         recyclerView.setAdapter(adapter);
     }
+
+
 }

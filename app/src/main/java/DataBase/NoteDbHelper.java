@@ -52,7 +52,7 @@ public class NoteDbHelper extends SQLiteOpenHelper {
     public void insertNote(Note note) throws ParseException {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(LocalDateTime, note.getLocalDateTime().toString());
+//        values.put(LocalDateTime, note.getLocalDateTime().toString());
         values.put(USER, note.getUser().getId());
         values.put(NOTE, note.getNote());
         values.put(OFFRE, note.getOffre().getId());

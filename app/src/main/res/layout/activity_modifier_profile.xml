@@ -131,11 +131,12 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/hidePhoneSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                app:switchMinWidth="50dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -153,11 +154,12 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/hideEmailSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                app:switchMinWidth="50dp"/>
         </LinearLayout>
     </LinearLayout>
 

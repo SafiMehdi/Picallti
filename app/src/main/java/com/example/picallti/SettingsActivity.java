@@ -53,7 +53,7 @@ public class SettingsActivity extends AppCompatActivity {
     @OnItemClick(R.id.listSettings)
     public void onListSettingsItemClicked(int position){
         if (position == 0 ){
-            Intent intent  = new Intent(SettingsActivity.this, ParametresCompte.class);
+            Intent intent  = new Intent(SettingsActivity.this, ParametresCompteActivity.class);
             startActivity(intent);
 
         }else if (position == 1){

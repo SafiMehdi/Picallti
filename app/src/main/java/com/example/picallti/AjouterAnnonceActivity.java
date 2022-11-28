@@ -13,12 +13,20 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajouter_annonce);
 
+        //Binding view components
+        Spinner spinner2 = (Spinner) findViewById(R.id.Categorie);
         Spinner spinner = (Spinner) findViewById(R.id.Ville);
+
+        //populating spinner 1
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.Ville, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-
+        //populating spinner 2
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+                R.array.categorie, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(adapter2);
     }
 }

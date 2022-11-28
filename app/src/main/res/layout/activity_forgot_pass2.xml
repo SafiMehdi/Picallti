@@ -5,40 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".forgot_pass2">
+    <ImageView
+        android:id="@+id/illustration"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:src="@drawable/reset_password_illustration"
+        android:layout_centerHorizontal="true"/>
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/forgotpasstitle2"
-        android:layout_centerHorizontal="true"
+        android:text="@string/resetpasstitle"
+        android:layout_below="@+id/illustration"
+        android:layout_alignStart="@+id/illustration"
         android:fontFamily="@font/fontnew2bold"
-        android:textColor="#011EFE"
-        android:textSize="30sp"
-        android:layout_marginTop="35dp"/>
-    <EditText
-        android:id="@+id/edit"
+        android:textColor="#023e8a"
+        android:textSize="35sp"
+        />
+    <TextView
+        android:id="@+id/title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
-        android:layout_marginTop="100dp"
-        android:hint="@string/currentpass_placeholder"
-        android:layout_centerHorizontal="true"
-        android:width="300dp"
-        android:drawableStart="@drawable/mdpico"
-        android:drawablePadding="10dp"
-        android:paddingBottom="17dp"
-        android:inputType="textPassword"
-        />
+        android:text="@string/resetpasstitle2"
+        android:fontFamily="@font/fontnew2bold"
+        android:textSize="35sp"
+        android:layout_alignStart="@+id/title"
+        android:textColor="#023e8a"/>
     <EditText
         android:id="@+id/edit2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit"
-        android:layout_marginTop="30dp"
+        android:layout_below="@+id/title2"
+        android:layout_marginTop="25dp"
         android:hint="@string/newpass_placeholder"
         android:layout_centerHorizontal="true"
         android:width="300dp"
-        android:drawableStart="@drawable/mdpico"
+        android:drawableStart="@drawable/icon_pass5"
         android:drawablePadding="10dp"
         android:paddingBottom="17dp"
         android:inputType="textPassword" />
@@ -47,35 +50,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit2"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/confirmnewpass_placeholder"
         android:layout_centerHorizontal="true"
         android:width="300dp"
-        android:drawableStart="@drawable/mdpico"
+        android:drawableStart="@drawable/icon_pass5"
         android:drawablePadding="10dp"
         android:paddingBottom="17dp"
         android:inputType="textPassword" />
-    <Button
+    <android.widget.Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnchangepass"
         android:layout_below="@+id/edit3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="25dp"
         android:width="300dp"
-        android:fontFamily="@font/fontnew2bold"/>
+        android:fontFamily="@font/fontnew2bold"
+        android:background="@drawable/shape_more_info_offre"
+        android:backgroundTint="#4361ee"
+        android:textColor="@color/white"/>
     <TextView
         android:id="@+id/txtbacklogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn"
         android:text="@string/forgotpassback"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/fontnew2bold"
         android:textSize="15sp"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:layout_marginBottom="20dp"/>
 
 
 </RelativeLayout>

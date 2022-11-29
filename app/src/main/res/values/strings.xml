@@ -112,5 +112,9 @@
     <string name="descriptionOffreHint">Description Offre</string>
     <string name="prixOffreHint">Prix</string>
     <string name="boutonAjouterOffre">Ajouter</string>
+    <string name="titleTooLongMessage">"Le Titre ne doit pas dépasser 100 caractére"</string>
+    <string name="noTitleMessage">"Vous devez mettre un titre"</string>
+    <string name="noPriceMessage">"Vous devez mettre un prix"</string>
+    <string name="falsePriceMessage">"Vous devez mettre un prix correcte"</string>
 
 </resources>

@@ -54,14 +54,14 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="266dp"
+        android:layout_width="170dp"
         android:layout_height="43dp"
         android:drawableStart="@drawable/copyright"
         android:fontFamily="@font/louis_george_cafe"
         android:gravity="center"
         android:text="@string/textView2"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Picallti</string>
+    <string name="ContactTitle" translatable="false">Contact us</string>
+    <string name="ContactSend" translatable="false">Send Message</string>
+    <string name="LikesTitle" translatable="false">My favourites</string>
+    <string name="Price" translatable="false">Price</string>
+    <string name="LikedPst" translatable="false">Liked post</string>
+</resources>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="657dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/top_background">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/picallti_logo" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="400dp"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginEnd="24dp"
+                            android:background="@drawable/white_background"
+                            android:elevation="3dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/textView15"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/fontnew2bold"
+                                        android:text="Date"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/colorPrimary" />
+
+                                    <com.google.android.material.chip.ChipGroup
+                                        android:id="@+id/cgSort"
+                                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp">
+
+                                        <com.google.android.material.chip.Chip
+                                            android:id="@+id/chip4"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:text="Les Plus Récents" />
+
+                                        <com.google.android.material.chip.Chip
+                                            android:id="@+id/chip5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:text="Les Plus Ancients" />
+
+                                    </com.google.android.material.chip.ChipGroup>
+
+                                    <TextView
+                                        android:id="@+id/textView12"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/fontnew2bold"
+                                        android:text="Type De Véhicule"
+                                        android:textAlignment="center"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                        android:textColor="@color/colorPrimary" />
+
+                                    <com.google.android.material.chip.ChipGroup
+                                        android:id="@+id/cgSort1"
+                                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp">
+
+                                        <com.google.android.material.chip.Chip
+                                            android:id="@+id/chip6"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:text="Bicyclette" />
+
+                                        <com.google.android.material.chip.Chip
+                                            android:id="@+id/chip7"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:text="Trottinette Électrique" />
+
+                                    </com.google.android.material.chip.ChipGroup>
+
+                                    <TextView
+                                        android:id="@+id/textView17"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/fontnew2bold"
+                                        android:text="Prix"
+                                        android:textAlignment="center"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                        android:textColor="@color/colorPrimary" />
+
+                                    <SeekBar
+                                        android:id="@+id/seekBar2"
+                                        style="@style/Widget.AppCompat.SeekBar.Discrete"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:max="10"
+                                        android:progress="3" />
+
+                                    <TextView
+                                        android:id="@+id/textView18"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/fontnew2bold"
+                                        android:text="Mieux Notés"
+                                        android:textAlignment="center"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                        android:textColor="@color/colorPrimary" />
+
+                                    <RatingBar
+                                        android:id="@+id/ratingBar2"
+                                        android:layout_width="300dp"
+                                        android:layout_height="wrap_content" />
+
+                                    <TextView
+                                        android:id="@+id/textView19"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/fontnew2bold"
+                                        android:text="Ville"
+                                        android:textAlignment="center"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                        android:textColor="@color/colorPrimary" />
+
+                                    <Spinner
+                                        android:id="@+id/cities_spinner"
+                                        style="@android:style/Widget.Holo.Light.Spinner"
+                                        android:layout_width="150dp"
+                                        android:layout_height="35dp"
+                                        android:layout_below="@+id/passwordVerif"
+                                        android:layout_marginStart="20dp"
+                                        android:layout_marginTop="10dp" />
+
+                                    <Button
+                                        android:id="@+id/button3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginRight="25dp"
+                                        android:fontFamily="@font/fontnew2bold"
+                                        android:text="APPLY" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

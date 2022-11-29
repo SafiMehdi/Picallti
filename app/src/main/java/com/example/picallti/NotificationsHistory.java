@@ -1,21 +1,17 @@
 package com.example.picallti;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.sql.Date;
-import java.sql.Time;
 import java.util.ArrayList;
 
-import adapters.NotificationAdapter;
-import butterknife.BindView;
+import com.example.picallti.adapters.NotificationAdapter;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import data.Notification;

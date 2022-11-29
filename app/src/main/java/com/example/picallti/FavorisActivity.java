@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import adapters.AdapterFavoris;
+import com.example.picallti.adapters.AdapterFavoris;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Picallti"
         tools:targetApi="31">
         <activity
+            android:name=".WhatYouNeedActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".DetailsActivity"
             android:exported="false">
             <meta-data
@@ -26,7 +33,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".forgot_pass2"
             android:exported="false">
@@ -68,12 +74,10 @@
         <activity
             android:name=".login_page"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".AjouterAnnonceActivity"
             android:exported="true">
@@ -95,16 +99,20 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".ModifierProfile"
+        <activity
+            android:name=".ModifierProfile"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" /></activity>
-        <activity android:name=".ParametresCompte"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ParametresCompte"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" /></activity>
+                android:value="" />
+        </activity>
         <activity
             android:name=".Profile"
             android:exported="true">
@@ -125,7 +133,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
     </application>
 
 </manifest>

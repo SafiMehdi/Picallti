@@ -8,9 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-import android.widget.Toast;
-
-import adapters.AnnoncesListAdapter;
+import com.example.picallti.adapters.AnnoncesListAdapter;
 
 public class Profile extends AppCompatActivity {
     ListView list;

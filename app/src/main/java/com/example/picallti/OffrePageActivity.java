@@ -34,6 +34,13 @@ public class OffrePageActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
         ButterKnife.bind(this);
 
+        ImageView img = (ImageView) findViewById(R.id.imageView6);
+        img.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                startActivity(new Intent(OffrePageActivity.this, WhatYouNeedActivity.class));
+            }
+        });
+
         ArrayList <Offre> offres = new ArrayList<Offre>();
         offres.add(new Offre(R.drawable.imagea, "VELO VILLE ELOPS 520 CADRE BAS MINT B'TWIN", "Conçu pour faire du vélo en ville pour femme, et y prendre du plaisir !", "Rabat, Morocco", "12DH/DAY", "17min"));
         offres.add(new Offre(R.drawable.imageb, "VTT 340 GRIS 26 ROCKRIDER", "Conçu pour vous évader lors de vos randonnées VTT, dépensez-vous et amusez vous face à de petits obstacles, en ville ou en pleine nature", "Rabat, Morocco", "12DH/DAY", "17min"));

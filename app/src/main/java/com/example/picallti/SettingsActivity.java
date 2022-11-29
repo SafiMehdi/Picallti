@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import adapters.SettingAdapter;
+import com.example.picallti.adapters.SettingAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnItemClick;

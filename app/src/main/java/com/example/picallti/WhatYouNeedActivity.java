@@ -2,19 +2,16 @@ package com.example.picallti;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
 
 import com.google.android.material.chip.Chip;
 
 import java.util.ArrayList;
 
-public class FilterActivity extends AppCompatActivity {
+public class WhatYouNeedActivity extends AppCompatActivity {
 
     private Chip chip4, chip5, chip6, chip7;
     private Button btnApply;
@@ -23,9 +20,9 @@ public class FilterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_filter);
+        setContentView(R.layout.activity_what_you_need);
 
-        chip4 = findViewById(R.id.chip4);
+        /*chip4 = findViewById(R.id.chip4);
         chip5 = findViewById(R.id.chip5);
         chip6 = findViewById(R.id.chip6);
         chip7 = findViewById(R.id.chip7);
@@ -49,7 +46,7 @@ public class FilterActivity extends AppCompatActivity {
         chip4.setOnCheckedChangeListener(checkedChangeListener);
         chip5.setOnCheckedChangeListener(checkedChangeListener);
         chip6.setOnCheckedChangeListener(checkedChangeListener);
-        chip7.setOnCheckedChangeListener(checkedChangeListener);
+        chip7.setOnCheckedChangeListener(checkedChangeListener);*/
 
         Spinner spinner = (Spinner) findViewById(R.id.cities_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout

@@ -18,6 +18,7 @@ public class PicalltiDbHelper extends SQLiteOpenHelper {
     public NoteDbHelper noteDbHelper;
     public VehiculeTypeDbHelper vehiculeTypeDbHelper;
     public VehiculeDbHelper vehiculeDbHelper;
+    public NotificationDbHelper notificationDbHelper;
 
 
     public PicalltiDbHelper(@Nullable Context context) {
@@ -30,8 +31,7 @@ public class PicalltiDbHelper extends SQLiteOpenHelper {
         this.commentaireDbHelper = new CommentaireDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
         this.favorisDbHelper = new FavorisDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
         this.noteDbHelper = new NoteDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
-
-
+        this.notificationDbHelper = new NotificationDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
     }
 
     @Override

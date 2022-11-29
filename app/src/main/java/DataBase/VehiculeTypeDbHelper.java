@@ -80,15 +80,8 @@ public class VehiculeTypeDbHelper extends SQLiteOpenHelper {
 
     public VehiculeType selectVehiculeTypeById(int id){
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.query(
-                TABLE_VEHICULE_TYPE,
-                null,
-                ID + "="+id,
-                null,
-                null,
-                null,
-                null
-        );
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_VEHICULE_TYPE+" WHERE id="+id+"", null);
+
         if (cursor.moveToFirst()){
             String nom = cursor.getString(
                     cursor.getColumnIndexOrThrow(NOM)

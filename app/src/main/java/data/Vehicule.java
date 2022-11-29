@@ -2,28 +2,21 @@ package data;
 
 public class Vehicule {
     private int id;
-    private String nom;
     private String marque;
-    private String description;
     private VehiculeType vehiculeType;
 
 
 
-    public Vehicule(int id, String nom, String marque, String description,VehiculeType vehiculeType) {
+    public Vehicule(int id, String marque,VehiculeType vehiculeType) {
         this.id = id;
-        this.nom = nom;
         this.marque = marque;
-        this.description = description;
         this.vehiculeType = vehiculeType;
     }
-    public Vehicule(String nom, String marque, String description,VehiculeType vehiculeType) {
-        this.nom = nom;
+    public Vehicule( String marque,VehiculeType vehiculeType) {
         this.marque = marque;
-        this.description = description;
         this.vehiculeType = vehiculeType;
     }
-    public Vehicule(String nom, String marque) {
-        this.nom = nom;
+    public Vehicule(String marque) {
         this.marque = marque;
     }
 
@@ -35,13 +28,6 @@ public class Vehicule {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
 
     public String getMarque() {
         return marque;
@@ -51,13 +37,6 @@ public class Vehicule {
         this.marque = marque;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public VehiculeType getVehiculeType() {
         return vehiculeType;

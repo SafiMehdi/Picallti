@@ -54,7 +54,6 @@ public class OffreDbHelper extends SQLiteOpenHelper {
 
     public OffreDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-        System.out.println(CREATE_OFFRE_TABLE);
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL(CREATE_OFFRE_TABLE);
         this.context = context;
@@ -63,9 +62,7 @@ public class OffreDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        System.out.println("hhhhhhhhhhhhhh");
         db.execSQL(CREATE_OFFRE_TABLE);
-        System.out.println("Offre table created");
     }
 
     @Override
@@ -87,13 +84,11 @@ public class OffreDbHelper extends SQLiteOpenHelper {
         values.put(OPERATION, offre.getOperation());
         values.put(USER, offre.getUser().getId());
         db.insert(TABLE_OFFRE, null, values);
-        System.out.println("offer inserted");
     }
 
 
 
     public ArrayList<Offre> readOffres() throws ParseException {
-        Log.d("ensak", "invoke read Offre");
         SQLiteDatabase db = getReadableDatabase();
         UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         VehiculeDbHelper vehiculeDbHelper = new VehiculeDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
@@ -160,17 +155,14 @@ public class OffreDbHelper extends SQLiteOpenHelper {
                 String time = cursor.getString(cursor.getColumnIndexOrThrow(TIME));
                 String date = cursor.getString(cursor.getColumnIndexOrThrow(DATE));
                 int user = cursor.getInt(cursor.getColumnIndexOrThrow(USER));
-                System.out.println(user);
                 int vehicule = cursor.getInt(cursor.getColumnIndexOrThrow(VEHICULE));
                 //int id = cursor.getInt(cursor.getColumnIndexOrThrow(ID));
                 //SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm");
-                SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa");
                 return new Offre(id,image,titre,description,localisation,prix, LocalTime.parse(time),operation,userDbHelper.selectUserById(user),vehiculeDbHelper.selectVehiculeById(vehicule),LocalDate.parse(date));
 
         }
         else{
-            System.out.println("NUUUUUUUUUUUUUUUUUUUUULL");
 
         }cursor.close();
         return  null;

@@ -67,12 +67,10 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
         values.put(USER, commentaire.getUser().getId());
         values.put(OFFRE, commentaire.getOffre().getId());
         db.insert(COMMENTAIRE_TABLE, null, values);
-        System.out.println("Comment inserted");
     }
 
 
     public ArrayList<Commentaire> readComments() throws ParseException {
-        Log.d("ensak", "invoke read Offre");
         SQLiteDatabase db = getReadableDatabase();
         UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         OffreDbHelper offreDbHelper = new OffreDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
@@ -110,15 +108,8 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         OffreDbHelper offreDbHelper = new OffreDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
-        Cursor cursor = db.query(
-                COMMENTAIRE_TABLE,
-                null,
-                ID + "="+id,
-                null,
-                null,
-                null,
-                null
-        );
+        Cursor cursor = db.rawQuery("SELECT * FROM "+COMMENTAIRE_TABLE+" WHERE id="+id+"", null);
+
         if (cursor.moveToFirst()){
             String commentaire = cursor.getString(
                     cursor.getColumnIndexOrThrow(COMMENTAIRE)
@@ -129,7 +120,6 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
             String date = cursor.getString(cursor.getColumnIndexOrThrow(DATE));
 
             return new Commentaire(id,commentaire,userDbHelper.selectUserById(user),offreDbHelper.selectOfferById(offre),LocalDate.parse(date),LocalTime.parse(time));
-
         }cursor.close();
         return  null;
 

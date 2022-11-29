@@ -49,7 +49,7 @@ public class HomePageActivity extends AppCompatActivity {
 
             VehiculeType vehiculeType = new VehiculeType("typeV");
             db.vehiculeTypeDbHelper.insertVehiculeType(vehiculeType);
-            Vehicule vehicule = new Vehicule("nomV","marque","description",vehiculeType);
+            Vehicule vehicule = new Vehicule("marque",vehiculeType);
             db.vehiculeDbHelper.insertVehicule(vehicule);
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
             Offre offre = new Offre(34,"title46","decriiiiiiption","localisation",67, LocalTime.now(),"vente",db.userDbHelper.readUsers().get(46),vehicule,  LocalDate.of(2020, 1, 8));

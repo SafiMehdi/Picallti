@@ -20,7 +20,6 @@ public class NoteDbHelper extends SQLiteOpenHelper {
     public static final String USER = "user";
     public static final String OFFRE = "offre";
     public static final String NOTE = "note";
-    public static final String LocalDateTime = "date_time";
     public Context context;
 
     public static final String CREATE_TABLE_NOTE = "CREATE TABLE IF NOT EXISTS " + TABLE_NOTE + " (" +
@@ -57,7 +56,6 @@ public class NoteDbHelper extends SQLiteOpenHelper {
         values.put(NOTE, note.getNote());
         values.put(OFFRE, note.getOffre().getId());
         db.insert(TABLE_NOTE, null, values);
-        System.out.println("note inserted");
     }
 
     public ArrayList<Note> readNotes() throws ParseException {
@@ -96,15 +94,8 @@ public class NoteDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         OffreDbHelper offreDbHelper = new OffreDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
-        Cursor cursor = db.query(
-                TABLE_NOTE,
-                null,
-                ID + "="+id,
-                null,
-                null,
-                null,
-                null
-        );
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_NOTE+" WHERE id="+id+"", null);
+
         if (cursor.moveToFirst()){
             int user = cursor.getInt(cursor.getColumnIndexOrThrow(USER));
             int offre = cursor.getInt(cursor.getColumnIndexOrThrow(OFFRE));

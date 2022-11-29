@@ -40,10 +40,10 @@ public class OffrePageActivity extends AppCompatActivity {
         recyclerViewCat.setLayoutManager(linearLayoutManager2);
 
         ArrayList<VehiculeType> cat = new ArrayList<>();
-        cat.add(new VehiculeType("Bike", "bicycle"));
-        cat.add(new VehiculeType("Electric Bike", "electric_bike"));
-        cat.add(new VehiculeType("Scooter", "kick_scooter"));
-        cat.add(new VehiculeType("Motorcycle", "motorcycle"));
+        cat.add(new VehiculeType("Bike"));
+        cat.add(new VehiculeType("Electric Bike"));
+        cat.add(new VehiculeType("Scooter"));
+        cat.add(new VehiculeType("Motorcycle"));
 
         adapter2 = new VehiculeTypesAdapter(cat);
         recyclerViewCat.setAdapter(adapter2);
@@ -52,7 +52,7 @@ public class OffrePageActivity extends AppCompatActivity {
 
         VehiculeType vehiculeType = new VehiculeType("typeV");
        // db.vehiculeTypeDbHelper.insertVehiculeType(vehiculeType);
-        Vehicule vehicule = new Vehicule("nomV","marque","description",vehiculeType);
+        Vehicule vehicule = new Vehicule("marque",vehiculeType);
         User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
         ArrayList<Offre> offres =new ArrayList<>();
         offres.add(  new Offre(R.drawable.avatar_2,"title46","decriiiiiiption","localisation",67, LocalTime.now(),"vente",user,vehicule,  LocalDate.of(2020, 1, 8)));

@@ -22,7 +22,6 @@ public class FavorisDbHelper extends SQLiteOpenHelper {
     public static final String ID = "id";
     public static final String USER = "user";
     public static final String OFFRE = "offre";
-    public static final String DATABASE_NAME = "picallti21";
 
     public Context context;
 
@@ -59,7 +58,6 @@ public class FavorisDbHelper extends SQLiteOpenHelper {
         values.put(USER, favoris.getUser().getId());
         values.put(OFFRE, favoris.getOffre().getId());
         db.insert(TABLE_FAVORIS, null, values);
-        System.out.println("favoris inserted");
         System.out.println();
     }
 
@@ -98,21 +96,11 @@ public class FavorisDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         OffreDbHelper offreDbHelper = new OffreDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
-        Cursor cursor = db.query(
-                TABLE_FAVORIS,
-                null,
-                ID + "="+id,
-                null,
-                null,
-                null,
-                null
-        );
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_FAVORIS+" WHERE id="+id+"", null);
+
         if (cursor.moveToFirst()){
             int user = cursor.getInt(cursor.getColumnIndexOrThrow(USER));
             int offre = cursor.getInt(cursor.getColumnIndexOrThrow(OFFRE));
-            System.out.println("------------------------");
-            System.out.println(offreDbHelper.selectOfferById(offre));
-            System.out.println("------------------------");
             return new Favoris(id,userDbHelper.selectUserById(user),offreDbHelper.selectOfferById(offre));
         }cursor.close();
         return  null;

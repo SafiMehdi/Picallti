@@ -52,7 +52,6 @@ public class UserDbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_USER_TABLE);
-        System.out.println("User table created");
     }
 
     @Override
@@ -72,11 +71,9 @@ public class UserDbHelper extends SQLiteOpenHelper {
         values.put(BIO, user.getBio());
         values.put(ROLE, user.getRole());
         db.insert(TABLE_USER, null, values);
-        System.out.println("inserted");
     }
 
     public ArrayList<User> readUsers() throws ParseException {
-        Log.d("ensak", "invoke read user");
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(
                 TABLE_USER,
@@ -87,10 +84,6 @@ public class UserDbHelper extends SQLiteOpenHelper {
                 null,
                 null
         );
-
-        System.out.println("JJJJJJJJJJJJJJJJJJJ");
-        System.out.println(cursor.getCount());
-        System.out.println("JJJJJJJJJJJJJJJJJJJ");
 
         //ArrayList<String> itemTitles = new ArrayList<String>();
         ArrayList<User> users = new ArrayList<>();
@@ -136,7 +129,6 @@ public class UserDbHelper extends SQLiteOpenHelper {
             String nom = cursor.getString(
                     cursor.getColumnIndexOrThrow(NOM)
             );
-            System.out.println("Hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
             String prenom = cursor.getString(cursor.getColumnIndexOrThrow(PRENOM));
             int image = cursor.getInt(cursor.getColumnIndexOrThrow(PHOTO));
             String genre = cursor.getString(cursor.getColumnIndexOrThrow(GENRE));
@@ -148,8 +140,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
             //int id = cursor.getInt(cursor.getColumnIndexOrThrow(ID));
             //SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
-            User user = new User(id,nom,prenom,genre,email,phone,password,image,bio,role);
-            return  user;
+            return new User(id,nom,prenom,genre,email,phone,password,image,bio,role);
         }cursor.close();
         return  null;
 

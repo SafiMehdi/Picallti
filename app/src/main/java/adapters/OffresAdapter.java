@@ -74,7 +74,7 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
                 intent.putExtra("time",time);
                 intent.putExtra("user",offre.getUser().getNom());
                 intent.putExtra("phone",offre.getUser().getPhone());
-                intent.putExtra("vehicule", offre.getVehicule().getNom());
+                intent.putExtra("vehicule", offre.getVehicule().getMarque());
                 v.getContext().startActivity(intent);
 
             }

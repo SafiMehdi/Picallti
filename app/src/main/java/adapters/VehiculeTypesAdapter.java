@@ -33,7 +33,6 @@ public class VehiculeTypesAdapter extends RecyclerView.Adapter<VehiculeTypesAdap
         holder.titleTxt.setText(String.valueOf(vehiculeTypes.get(position).getNom()));
 
         int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(vehiculeTypes.get(position).getUrl(), "drawable", holder.itemView.getContext().getPackageName());
-
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.removeItem);

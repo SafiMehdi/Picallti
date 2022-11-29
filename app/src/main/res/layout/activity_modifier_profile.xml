@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     android:background="@drawable/background3">
 
+    <ImageView
+        android:id="@+id/IVPreviewImage"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/sideBarBtn"
         android:layout_width="wrap_content"
@@ -24,7 +33,7 @@
         android:layout_marginTop="32dp"
         android:text="Edit Profile"
         android:textAllCaps="true"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

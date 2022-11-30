@@ -57,5 +57,44 @@
     <string name="button">LOG IN</string>
     <string name="textView2">PICALLTI.2022</string>
 
+    <string name="hiUsername">Hi Username</string>
+    <string name="welcomeBackText">Welcome Back!</string>
+    <string name="categoryText">Category</string>
+    <string name="MostViewedText">Most Viewed</string>
+    <string name="seeAllText">See All</string>
+    <string name="saveEditText">Save edit</string>
+    <string name="hideEmailTextView">Hide my email address</string>
+    <string name="hidePhoneTextView">Hide my phone number</string>
+    <string name="bioTemplate">This is a bio template don\'t mind me</string>
+    <string name="usernameTemplate">Username</string>
+    <string name="offersTextView">Offers</string>
+    <string name="notificationsTextView">Notifications</string>
+    <string name="settingsTextView">Settings</string>
+    <string name="phoneNumberTemplate">06-64-40-16-84</string>
+    <string name="emailTemplate">meydi.safi@gmail.com</string>
+    <string name="editProfileBtnText">Edit Profile</string>
+    <string name="changePDPTextView">Change profile picture</string>
+    <string name="usernameHint">Change your username</string>
+    <string name="emailHint">Change your email</string>
+    <string name="phoneHint">Change your phone number</string>
+    <string name="bioHint">Change your bio</string>
+    <string name="ContactTitle">Contact us</string>
+    <string name="ContactSend">Send Message</string>
+    <string name="NightMode">Night Mode</string>
+    <string name="PrivateAccount">Private Account"</string>
+    <string name="SecurityPrivacy">Security and Privacy</string>
+    <string name="Languages">Languages</string>
+    <string name="Textsize">Text size</string>
+    <string name="Sendusamessage">Send us a message</string>
+    <string name="Aboutus">About us</string>
+    <string name="phoneTxt">Phone</string>
+    <string name="City">City</string>
+    <string name="OfferTitle">Offer Title</string>
+    <string name="deleteTxt">Deleting your account is permanent and will delete all your saved data. Are you sure you want to continue ?</string>
+    <string name="titreAjouterOffre">Ajouter offre</string>
+    <string name="ajouterPhotoOffre">Ajouter Photo</string>
+    <string name="descriptionOffreHint">Description</string>
+    <string name="titlepass2">title pass 1</string>
+
 
 </resources>

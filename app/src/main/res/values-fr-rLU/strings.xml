@@ -56,4 +56,47 @@
     <string name="button">SE CONNECTER</string>
     <string name="textView2">PICALLTI.2022</string>
 
+
+
+
+    <string name="hiUsername">Salut Username</string>
+    <string name="welcomeBackText">Content de te revoir</string>
+    <string name="categoryText">Catégorie</string>
+    <string name="MostViewedText">Les plus regardé</string>
+    <string name="seeAllText">Voir tout</string>
+    <string name="ContactTitle">Contactez Nous</string>
+    <string name="saveEditText">Enregistrer modification</string>
+    <string name="hideEmailTextView">Masquer mon adresse mail</string>
+    <string name="hidePhoneTextView">Masquer mon numero de telephone</string>
+    <string name="bioHint">Changer de bio</string>
+    <string name="bioTemplate">This is a bio template don\'t mind me</string>
+    <string name="usernameTemplate">Nom d\'utilisateurs</string>
+    <string name="offersTextView">Offres</string>
+    <string name="notificationsTextView">Notifications</string>
+    <string name="settingsTextView">Réglages</string>
+    <string name="phoneNumberTemplate">06-64-40-16-84</string>
+    <string name="emailTemplate">meydi.safi@gmail.com</string>
+    <string name="editProfileBtnText">Modifier profile</string>
+    <string name="changePDPTextView">Changer photo de profile</string>
+    <string name="usernameHint">Changer nom d\'utilisateurs</string>
+    <string name="emailHint">Changer d\'email</string>
+    <string name="phoneHint">Changer de numéro de téléphone</string>
+    <string name="ContactSend">Envoyer Message</string>
+    <string name="NightMode">Mode Sombre</string>
+    <string name="PrivateAccount">Compte Privé"</string>
+    <string name="SecurityPrivacy">Sécurité et confidentialité</string>
+    <string name="Languages">Langues</string>
+    <string name="Textsize">Taille du texte</string>
+    <string name="Sendusamessage">Envoyer nous un message</string>
+    <string name="Aboutus">A propos de nous</string>
+    <string name="phoneTxt">Téléphone</string>
+    <string name="City">Ville</string>
+    <string name="OfferTitle">Titre de l\'offre</string>
+    <string name="deleteTxt">La suppression de votre compte est permanente et enrtrainera la suppression de toutes vos données enregitrées. Êtes-vous sûr de bien vouloir continuer ?</string>
+    <string name="ajouterPhotoOffre">Ajouter Photo</string>
+    <string name="titreOffreHint">tittre</string>
+    <string name="descriptionOffreHint">Description</string>
+    <string name="prixOffreHint">Prix</string>
+    <string name="boutonAjouterOffre">Ajouter offre</string>
+
 </resources>

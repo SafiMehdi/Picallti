@@ -16,6 +16,7 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
         //Binding view components
         Spinner spinner2 = (Spinner) findViewById(R.id.Categorie);
         Spinner spinner = (Spinner) findViewById(R.id.Ville);
+        Spinner spinner3 = (Spinner) findViewById(R.id.Operation);
 
         //populating spinner 1
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -28,5 +29,12 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
                 R.array.categorie, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
+
+        //populating spinner 3
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
+                R.array.operation, android.R.layout.simple_spinner_item);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner3.setAdapter(adapter3);
+
     }
 }

@@ -34,21 +34,24 @@
         android:textColor="#023e8a"/>
     <EditText
         android:id="@+id/edit2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/title2"
         android:layout_marginTop="25dp"
         android:hint="@string/newpass_placeholder"
         android:layout_centerHorizontal="true"
         android:width="300dp"
         android:drawableStart="@drawable/icon_pass5"
-        android:drawablePadding="10dp"
-        android:paddingBottom="17dp"
-        android:inputType="textPassword" />
+        android:drawablePadding="12dp"
+        android:elevation="4dp"
+        android:paddingEnd="5dp"
+        android:paddingStart="15dp"
+        android:inputType="textPassword"
+        android:background="@drawable/rounded_corners_edittext"/>
     <EditText
         android:id="@+id/edit3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/edit2"
         android:layout_marginTop="20dp"
         android:hint="@string/confirmnewpass_placeholder"
@@ -56,8 +59,11 @@
         android:width="300dp"
         android:drawableStart="@drawable/icon_pass5"
         android:drawablePadding="10dp"
-        android:paddingBottom="17dp"
-        android:inputType="textPassword" />
+        android:elevation="4dp"
+        android:paddingEnd="5dp"
+        android:paddingStart="15dp"
+        android:inputType="textPassword"
+        android:background="@drawable/rounded_corners_edittext"/>
     <android.widget.Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"

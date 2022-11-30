@@ -109,6 +109,7 @@
     <string name="titreAjouterOffre">Ajouter Annonce</string>
     <string name="ajouterPhotoOffre">Ajouter une photo</string>
     <string name="titreOffreHint">Titre Offre</string>
+    <string name="marqueOffreHint">Marque</string>
     <string name="descriptionOffreHint">Description Offre</string>
     <string name="prixOffreHint">Prix</string>
     <string name="boutonAjouterOffre">Ajouter</string>

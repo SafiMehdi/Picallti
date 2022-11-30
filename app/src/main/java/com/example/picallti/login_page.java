@@ -52,6 +52,9 @@ public class login_page extends AppCompatActivity {
                 startActivity(new Intent(login_page.this, SingUp.class));
             }
         });
+        if(remembermecheckbox.isChecked()){
+            startActivity(new Intent(login_page.this, OffrePageActivity.class));
+        }
 
         connect.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -68,7 +68,7 @@
         android:drawablePadding="12dp"
         android:inputType="textEmailAddress"
         android:background="@drawable/rounded_corners_edittext"
-        android:elevation="4dp"
+        android:elevation="3dp"
         android:paddingEnd="5dp"
         android:paddingStart="15dp"
         />

@@ -22,7 +22,8 @@ public class login_page extends AppCompatActivity {
     private TextView forgotpass;
     private EditText emailaddress;
     private EditText password;
-    private SharedPreferences Prefs;
+    public SharedPreferences Prefs;
+    public static String PREFS_NAME = "myFile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class login_page extends AppCompatActivity {
         signUp = (TextView) findViewById(R.id.inscription);
         connect = (Button)findViewById(R.id.btnConnect);
         remembermecheckbox = (CheckBox) findViewById(R.id.checkboxrememberme);
-        Prefs = getSharedPreferences("myFile", Context.MODE_PRIVATE);
+        Prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
 
         forgotpass.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +79,7 @@ public class login_page extends AppCompatActivity {
 
     }
     private void getPreferencesData() {
-        SharedPreferences myPrefs = getSharedPreferences("myFile", Context.MODE_PRIVATE);
+        SharedPreferences myPrefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         if(myPrefs.contains("emailPref")){
             String u = myPrefs.getString("emailPref","Not Found!");
             emailaddress.setText(u.toString());

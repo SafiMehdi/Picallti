@@ -20,7 +20,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ParametresCompteActivity"
+            android:name=".ParametresActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"

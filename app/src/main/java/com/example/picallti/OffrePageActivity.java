@@ -19,11 +19,13 @@ public class OffrePageActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter2;
     private RecyclerView recyclerView;
     private RecyclerView recyclerViewCat;
+    BottomBarFragment frag = new BottomBarFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offre_page);
+        getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
 
         recyclerView = findViewById(R.id.view_holder_offers);
         recyclerViewCat = findViewById(R.id.view_holder_vehicule_type);

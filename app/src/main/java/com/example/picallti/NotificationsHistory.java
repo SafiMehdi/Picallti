@@ -17,11 +17,13 @@ public class NotificationsHistory extends AppCompatActivity {
 
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerView;
+    BottomBarFragment frag = new BottomBarFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications_history);
+        getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
 
         recyclerView = findViewById(R.id.view_holder_notification);
 

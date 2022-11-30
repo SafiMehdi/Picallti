@@ -16,12 +16,16 @@ public class ModifierProfileActivity extends AppCompatActivity {
 
     public static final int PICK_IMAGE = 1;
 
+    BottomBarFragment frag = new BottomBarFragment();
     Button changeProfilePictureButton;
     ImageView IVPreviewImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modifier_profile);
+        getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
+
 
         Spinner spinner = (Spinner) findViewById(R.id.cities_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout

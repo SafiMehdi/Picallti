@@ -14,9 +14,10 @@
             android:icon="@drawable/ic_baseline_favorite_24"
             android:title="@string/menu_likes" />
         <item
-            android:id="@+id/nav_apparence"
-            android:icon="@drawable/ic_baseline_remove_red_eye_24"
-            android:title="@string/menu_apparence" />
+            android:id="@+id/nav_langues"
+            android:icon="@drawable/ic_baseline_language_24"
+            android:title="@string/menu_language" />
+
         <item
             android:id="@+id/nav_apropos"
             android:icon="@drawable/ic_baseline_info_24"
@@ -26,4 +27,5 @@
             android:icon="@drawable/ic_baseline_settings_24"
             android:title="@string/menu_parametre" />
     </group>
+
 </menu>

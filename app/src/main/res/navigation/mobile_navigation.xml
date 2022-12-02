@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/nav_apparence"
-        android:name="com.example.sidebar.ui.apparence.ApparenceFragment"
+        android:name="com.example.sidebar.ui.langues.LanguesFragment"
         android:label="@string/menu_apparence"
-        tools:layout="@layout/fragment_apparence" />
+        tools:layout="@layout/fragment_langues" />
 
     <fragment
         android:id="@+id/nav_apropos"

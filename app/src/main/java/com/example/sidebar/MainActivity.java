@@ -1,8 +1,10 @@
 package com.example.sidebar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -41,12 +43,22 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_profil, R.id.nav_likes, R.id.nav_apparence, R.id.nav_apropos)
+                R.id.nav_profil, R.id.nav_likes, R.id.nav_langues, R.id.nav_apropos)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        //Button for privacy page (to be deleted after the merge)
+        Button btn = (Button)findViewById(R.id.privacy_button);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PrivacyActivity.class));
+            }
+        });
     }
 
     @Override

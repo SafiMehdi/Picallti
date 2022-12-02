@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SideBar</string>
+    <string name="menu_mon_profil">ملفي الشخصي</string>
+    <string name="navigation_drawer_open">افتح درج التنقل</string>
+    <string name="navigation_drawer_close">أغلق درج التنقل</string>
+    <string name="nav_header_title">Picallti</string>
+    <string name="action_settings">الإعدادات</string>
+    <string name="menu_apparence">مظهر</string>
+    <string name="menu_apropos">في ما يخصنا</string>
+    <string name="menu_parametre">الإعدادات</string>
+    <string name="position">شريك مؤسس</string>
+    <string name="menu_likes">إعجاباتي</string>
+    <string name="nav_header_subtitle">تطبيق تأجير الدراجات &amp; السكوترات</string>
+    <string name="nav_header_desc">رأس التنقل</string>
+    <string name="contact_us">اتصل بنا</string>
+</resources>

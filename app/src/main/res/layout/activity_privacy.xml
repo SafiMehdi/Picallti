@@ -15,9 +15,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/app_bar_main"
-        android:text="Privacy &amp; policy"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:text="@string/privacy_title"
         android:textAlignment="center"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="113dp" />
+        tools:layout_editor_absoluteY="113dp"
+        />
+
+    <TextView
+        android:id="@+id/privacy_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/privacy_title"
+        android:textColor="@color/russian_violet"
+        android:text="@string/privacy_text"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="132dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

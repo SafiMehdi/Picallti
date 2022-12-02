@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 public class ParametresActivity extends AppCompatActivity {
 
-    BottomBarFragment frag = new BottomBarFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

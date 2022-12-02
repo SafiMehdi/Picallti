@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background3">
@@ -36,42 +34,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/menuBtn">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/changePassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/icon_change_password" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/changePassword"
-                    android:layout_weight="1"
-                    android:text="Change Password"
-                    android:textColor="@color/kitten_white"
-                    android:textStyle="bold" />
-
-                <ImageButton
-                    android:id="@+id/changePasswordForward"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_weight="1"
-                    android:background="@drawable/arrow_right"
-                    app:switchMinWidth="50dp" />
-
-            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -177,6 +139,7 @@
                     app:switchMinWidth="50dp" />
 
             </RelativeLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -192,6 +155,42 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/firstSectionParameter">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/changePassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/icon_change_password" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/changePassword"
+                    android:layout_weight="1"
+                    android:text="Change Password"
+                    android:textColor="@color/kitten_white"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/changePasswordForward"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/arrow_right"
+                    app:switchMinWidth="50dp" />
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -255,42 +254,6 @@
 
                 <ImageButton
                     android:id="@+id/languagesForward"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_weight="1"
-                    android:background="@drawable/arrow_right"
-                    app:switchMinWidth="50dp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/textSize"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/icon_text_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/textSize"
-                    android:layout_weight="1"
-                    android:text="Text size"
-                    android:textColor="@color/kitten_white"
-                    android:textStyle="bold" />
-
-                <ImageButton
-                    android:id="@+id/textSizeForward"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_alignParentEnd="true"

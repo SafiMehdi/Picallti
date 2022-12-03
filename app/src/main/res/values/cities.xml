@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="cities_array">
+        <item>Pick your City</item>
         <item>Agadir</item>
         <item>Al Hoceima</item>
         <item>Azilal</item>

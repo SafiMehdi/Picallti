@@ -5,23 +5,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.MediaController;
+import android.widget.VideoView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HomePageActivity extends AppCompatActivity {
+
+    Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        Button seeOffersBtn = (Button) findViewById(R.id.button);
-        seeOffersBtn.setOnClickListener(new View.OnClickListener() {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
             @Override
-            public void onClick(View view) {
-                Intent loginIntent = new Intent(getApplicationContext(),login_page.class);
-                startActivity(loginIntent);
+            public void run() {
+                Intent intent = new Intent(HomePageActivity.this, OffrePageActivity.class);
+                startActivity(intent);
+                finish();
             }
-        });
-
+        }, 5000);
     }
 }

@@ -26,6 +26,14 @@ public class OffrePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offre_page);
         getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
+        ButterKnife.bind(this);
+
+        ImageView img = (ImageView) findViewById(R.id.imageView6);
+        img.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                startActivity(new Intent(OffrePageActivity.this, WhatYouNeedActivity.class));
+            }
+        });
 
         recyclerView = findViewById(R.id.view_holder_offers);
         recyclerViewCat = findViewById(R.id.view_holder_vehicule_type);

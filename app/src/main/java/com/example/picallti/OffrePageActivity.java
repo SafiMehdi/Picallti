@@ -53,10 +53,10 @@ public class OffrePageActivity extends AppCompatActivity {
         recyclerViewCat.setLayoutManager(linearLayoutManager2);
 
         ArrayList<VehiculeType> cat = new ArrayList<>();
-        cat.add(new VehiculeType("Bike"));
-        cat.add(new VehiculeType("Electric Bike"));
-        cat.add(new VehiculeType("Scooter"));
-        cat.add(new VehiculeType("Motorcycle"));
+        //cat.add(new VehiculeType("Bike"));
+        //cat.add(new VehiculeType("Electric Bike"));
+        //cat.add(new VehiculeType("Scooter"));
+        //cat.add(new VehiculeType("Motorcycle"));
 
         adapter2 = new VehiculeTypesAdapter(cat);
         recyclerViewCat.setAdapter(adapter2);

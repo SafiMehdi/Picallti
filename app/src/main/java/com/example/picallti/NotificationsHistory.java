@@ -32,10 +32,10 @@ public class NotificationsHistory extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         ArrayList<Notification> notifications =new ArrayList<>();
-        notifications.add(new Notification("Pikala VTT Lekher", "Katmchi finma bghiti gha rkeb u zid asahbi wayli", Date.valueOf("2015-03-31"), "bicycle"));
-        notifications.add(new Notification("Motor lahuma barik", "Swinga jaya mn asfi chi haja lahuma barik akhay diali", Date.valueOf("2015-03-31"), "motorcycle"));
-        notifications.add(new Notification("Boukchlita lhrba", "Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi", Date.valueOf("2015-03-31"), "bicycle"));
-        notifications.add(new Notification("Motor makaynch fhalu juj", "Had lmotor dor so9 kaml la l9iti bhalu aji dfl elia", Date.valueOf("2015-03-31"), "motorcycle"));
+       // notifications.add(new Notification("Pikala VTT Lekher", "Katmchi finma bghiti gha rkeb u zid asahbi wayli", Date.valueOf("2015-03-31"), "bicycle"));
+       // notifications.add(new Notification("Motor lahuma barik", "Swinga jaya mn asfi chi haja lahuma barik akhay diali", Date.valueOf("2015-03-31"), "motorcycle"));
+        //notifications.add(new Notification("Boukchlita lhrba", "Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi", Date.valueOf("2015-03-31"), "bicycle"));
+        //notifications.add(new Notification("Motor makaynch fhalu juj", "Had lmotor dor so9 kaml la l9iti bhalu aji dfl elia", Date.valueOf("2015-03-31"), "motorcycle"));
 
         adapter=new NotificationAdapter(notifications);
         recyclerView.setAdapter(adapter);

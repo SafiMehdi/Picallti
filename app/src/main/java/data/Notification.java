@@ -13,6 +13,7 @@ public class Notification {
     private User user;
     private LocalTime time;
     private LocalDate localDate;
+    private String url;
 
 
     public Notification(int id,String title, String text, int icon, User user, LocalTime time, LocalDate localDate) {
@@ -114,5 +115,13 @@ public class Notification {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

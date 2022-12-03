@@ -119,10 +119,6 @@
     <string name="City">City</string>
     <string name="OfferTitle">Offer Title</string>
     <string name="deleteTxt">La suppression de votre compte est permanente et enrtrainera la suppression de toutes vos données enregitrées. Êtes-vous sûr de bien vouloir continuer ?</string>
-    <string name="titreAjouterOffre">Ajouter offre</string>
-    <string name="ajouterPhotoOffre">Ajouter Photo</string>
-    <string name="titreOffreHint">tittre</string>
-    <string name="descriptionOffreHint">Description</string>
     <string name="titreAjouterOffre">Ajouter Annonce</string>
     <string name="ajouterPhotoOffre">Ajouter une photo</string>
     <string name="titreOffreHint">Titre Offre</string>
@@ -134,7 +130,6 @@
     <string name="titlepass">title pqsss</string>
     <string name="resetpasstitle">reset pass</string>
     <string name="resetpasstitle2">Redzfinire le mot de passe:</string>
-    <string name="hiUsernameText">Bonjour</string>
     <string name="titleTooLongMessage">"Le Titre ne doit pas dépasser 100 caractére"</string>
     <string name="noTitleMessage">"Vous devez mettre un titre"</string>
     <string name="noPriceMessage">"Vous devez mettre un prix"</string>

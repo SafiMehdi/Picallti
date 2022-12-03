@@ -8,7 +8,7 @@
     android:background="@drawable/delete_bg">
 
     <ImageButton
-        android:id="@+id/imageButton12"
+        android:id="@+id/back"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <android.widget.Button
-        android:id="@+id/button3"
+        android:id="@+id/deleteAccountButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

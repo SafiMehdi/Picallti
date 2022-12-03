@@ -65,7 +65,7 @@
     <EditText
         android:id="@+id/email"
         android:background="@drawable/rounded_corners_edittext"
-        android:drawableLeft="@drawable/email"
+        android:drawableLeft="@drawable/email1"
         android:layout_below="@+id/name"
         android:layout_width="260dp"
         android:layout_height="50dp"

@@ -50,10 +50,10 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
 
-    @OnItemClick(R.id.listSettings)
-    public void onListSettingsItemClicked(int position){
-        if (position == 0 ){
-            Intent intent  = new Intent(SettingsActivity.this, ParametresCompte.class);
+    //@OnItemClick(R.id.listSettings)
+    //public void onListSettingsItemClicked(int position){
+    //    if (position == 0 ){
+    /*        Intent intent  = new Intent(SettingsActivity.this, ParametresCompte.class);
             startActivity(intent);
 
         }else if (position == 1){
@@ -65,5 +65,5 @@ public class SettingsActivity extends AppCompatActivity {
             Intent intent  = new Intent(SettingsActivity.this, login_page.class);
             startActivity(intent);
         }
-    }
+    }*/
 }

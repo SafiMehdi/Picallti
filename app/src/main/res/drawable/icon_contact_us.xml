@@ -7,7 +7,7 @@
         </shape>
     </item>
     <item
-        android:drawable="@drawable/email"
+        android:drawable="@drawable/email1"
         android:bottom="10dp"
         android:left="10dp"
         android:right="10dp"

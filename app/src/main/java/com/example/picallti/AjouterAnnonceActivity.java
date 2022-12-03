@@ -10,6 +10,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
+
+import DataBase.PicalltiDbHelper;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -48,6 +51,20 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
         spinner2.setAdapter(adapter2);
 
         ButterKnife.bind(this);
+
+        PicalltiDbHelper db = new PicalltiDbHelper(getApplicationContext());
+        db.noteDbHelper.deleteAll();
+        System.out.println("---------------------------------------");
+        try {
+            System.out.println(db.noteDbHelper.readNotes().size());
+            System.out.println(db.favorisDbHelper.readFavoris().size());
+            db.favorisDbHelper.deleteAll();
+            System.out.println(db.favorisDbHelper.readFavoris().size());
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("----------------------------------------");
     }
 
     @OnClick(R.id.button)
@@ -74,4 +91,6 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
     public void addImage(){
         startActivity(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI));
     }
+
+
 }

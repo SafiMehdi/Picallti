@@ -38,13 +38,18 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
             "FOREIGN KEY("+USER+") REFERENCES "+ UserDbHelper.TABLE_USER +"("+ID+")," +
             "FOREIGN KEY("+OFFRE+") REFERENCES "+OffreDbHelper.TABLE_OFFRE+"("+ID+")" +
             ")";
+   // public PicalltiDbHelper picalltiDbHelper;
+    public UserDbHelper userDbHelper;
+    public OffreDbHelper offreDbHelper;
 
-    public CommentaireDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public CommentaireDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version,PicalltiDbHelper picalltiDbHelper) {
         super(context, name, factory, version);
         //System.out.println(CREATE_COMMENTAIRE_TABLE);
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL(CREATE_COMMENTAIRE_TABLE);
         this.context = context;
+        this.userDbHelper = picalltiDbHelper.userDbHelper;
+        this.offreDbHelper = picalltiDbHelper.offreDbHelper;
     }
 
     @Override
@@ -72,8 +77,6 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
 
     public ArrayList<Commentaire> readComments() throws ParseException {
         SQLiteDatabase db = getReadableDatabase();
-        UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
-        OffreDbHelper offreDbHelper = new OffreDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         Cursor cursor = db.query(
                 COMMENTAIRE_TABLE,
                 null,
@@ -106,8 +109,6 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
 
     public Commentaire selectCommentById(int id){
         SQLiteDatabase db = getReadableDatabase();
-        UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
-        OffreDbHelper offreDbHelper = new OffreDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         Cursor cursor = db.rawQuery("SELECT * FROM "+COMMENTAIRE_TABLE+" WHERE id="+id+"", null);
 
         if (cursor.moveToFirst()){
@@ -123,5 +124,10 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
         }cursor.close();
         return  null;
 
+    }
+
+    public void deleteAll(){
+        SQLiteDatabase db = getReadableDatabase();
+        db.delete(COMMENTAIRE_TABLE, null, null);
     }
 }

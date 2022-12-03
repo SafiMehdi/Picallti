@@ -90,6 +90,9 @@ public class VehiculeTypeDbHelper extends SQLiteOpenHelper {
 
         }cursor.close();
         return  null;
-
+    }
+    public void deleteAll(){
+        SQLiteDatabase db = getReadableDatabase();
+        db.delete(TABLE_VEHICULE_TYPE, null, null);
     }
 }

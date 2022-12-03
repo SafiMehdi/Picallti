@@ -28,11 +28,16 @@ public class VehiculeDbHelper extends SQLiteOpenHelper {
             TYPE + " INT," +
             "FOREIGN KEY("+TYPE+") REFERENCES "+VehiculeTypeDbHelper.TABLE_VEHICULE_TYPE+"("+ID+"))";
 
-    public VehiculeDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public PicalltiDbHelper picalltiDbHelper;
+    public VehiculeTypeDbHelper vehiculeTypeDbHelper ;
+
+    public VehiculeDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version,PicalltiDbHelper picalltiDbHelper) {
         super(context, name, factory, version);
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL(CREATE_VEHICULE_TABLE);
         this.context = context;
+        this.picalltiDbHelper = picalltiDbHelper;
+        this.vehiculeTypeDbHelper = picalltiDbHelper.vehiculeTypeDbHelper;
     }
 
 
@@ -55,7 +60,6 @@ public class VehiculeDbHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<Vehicule> readVehicules() throws ParseException {
-        VehiculeTypeDbHelper vehiculeTypeDbHelper = new VehiculeTypeDbHelper(null,PicalltiDbHelper.DATABASE_NAME,null,1);
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(
                 TABLE_VEHICULE,
@@ -84,7 +88,6 @@ public class VehiculeDbHelper extends SQLiteOpenHelper {
 
     public Vehicule selectVehiculeById(int id){
         SQLiteDatabase db = getReadableDatabase();
-        VehiculeTypeDbHelper vehiculeTypeDbHelper = new VehiculeTypeDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_VEHICULE+" WHERE id="+id+"", null);
 
         if (cursor.moveToFirst()){
@@ -94,6 +97,9 @@ public class VehiculeDbHelper extends SQLiteOpenHelper {
             return new Vehicule(id,marque,vehiculeTypeDbHelper.selectVehiculeTypeById(type));
         }cursor.close();
         return  null;
-
+    }
+    public void deleteAll(){
+        SQLiteDatabase db = getReadableDatabase();
+        db.delete(TABLE_VEHICULE, null, null);
     }
 }

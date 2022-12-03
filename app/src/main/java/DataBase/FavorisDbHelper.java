@@ -32,13 +32,17 @@ public class FavorisDbHelper extends SQLiteOpenHelper {
             "FOREIGN KEY("+USER+") REFERENCES "+UserDbHelper.TABLE_USER+"("+ID+")," +
             "FOREIGN KEY("+OFFRE+") REFERENCES "+OffreDbHelper.TABLE_OFFRE+"("+ID+")" +
             ")";
+    public UserDbHelper userDbHelper;
+    public OffreDbHelper offreDbHelper;
 
-    public FavorisDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public FavorisDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version,PicalltiDbHelper picalltiDbHelper) {
         super(context, name, factory, version);
         //System.out.println(CREATE_TABLE_FAVORIS);
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL(CREATE_TABLE_FAVORIS);
         this.context = context;
+        this.offreDbHelper = picalltiDbHelper.offreDbHelper;
+        this.userDbHelper = picalltiDbHelper.userDbHelper;
     }
 
 
@@ -64,8 +68,6 @@ public class FavorisDbHelper extends SQLiteOpenHelper {
     public ArrayList<Favoris> readFavoris() throws ParseException {
         SQLiteDatabase db = getReadableDatabase();
 
-        UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
-        OffreDbHelper offreDbHelper = new OffreDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         Cursor cursor = db.query(
                 TABLE_FAVORIS,
                 null,
@@ -94,8 +96,6 @@ public class FavorisDbHelper extends SQLiteOpenHelper {
 
     public Favoris selectFavorisById(int id){
         SQLiteDatabase db = getReadableDatabase();
-        UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
-        OffreDbHelper offreDbHelper = new OffreDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_FAVORIS+" WHERE id="+id+"", null);
 
         if (cursor.moveToFirst()){
@@ -104,7 +104,10 @@ public class FavorisDbHelper extends SQLiteOpenHelper {
             return new Favoris(id,userDbHelper.selectUserById(user),offreDbHelper.selectOfferById(offre));
         }cursor.close();
         return  null;
-
+    }
+    public void deleteAll(){
+        SQLiteDatabase db = getReadableDatabase();
+        db.delete(TABLE_FAVORIS, null, null);
     }
 
 }

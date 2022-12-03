@@ -37,12 +37,14 @@ public class NotificationDbHelper extends SQLiteOpenHelper {
             DATE + " TEXT," +
             TIME + " TEXT," +
             "FOREIGN KEY("+USER+") REFERENCES "+UserDbHelper.TABLE_USER+"("+ID+"))";
+    public UserDbHelper userDbHelper;
 
-    public NotificationDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public NotificationDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version,PicalltiDbHelper picalltiDbHelper) {
         super(context, name, factory, version);
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL(CREATE_NOTIFICATION_TABLE);
         this.context = context;
+        this.userDbHelper = picalltiDbHelper.userDbHelper;
     }
 
 
@@ -67,7 +69,6 @@ public class NotificationDbHelper extends SQLiteOpenHelper {
 
     public ArrayList<Notification> readNotificationsByUser(User user) throws ParseException {
         SQLiteDatabase db = getReadableDatabase();
-        UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_NOTIFICATION+" WHERE user="+user.getId()+"", null);
 
         //ArrayList<String> itemTitles = new ArrayList<String>();
@@ -86,7 +87,10 @@ public class NotificationDbHelper extends SQLiteOpenHelper {
         cursor.close();
         //String items[] = itemTitles.toArray(new String[itemTitles.size()]);
         return notifications;
-
+    }
+    public void deleteAll(){
+        SQLiteDatabase db = getReadableDatabase();
+        db.delete(TABLE_NOTIFICATION, null, null);
     }
 
 }

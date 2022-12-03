@@ -44,7 +44,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
         super(context, name, factory, version);
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL(CREATE_USER_TABLE);
-        System.out.println(CREATE_USER_TABLE);
+        //System.out.println(CREATE_USER_TABLE);
 
     }
 
@@ -143,6 +143,11 @@ public class UserDbHelper extends SQLiteOpenHelper {
             return new User(id,nom,prenom,genre,email,phone,password,image,bio,role);
         }cursor.close();
         return  null;
-
     }
+
+    public void deleteAll(){
+        SQLiteDatabase db = getReadableDatabase();
+        db.delete(TABLE_USER, null, null);
+    }
+
 }

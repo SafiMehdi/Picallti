@@ -26,12 +26,12 @@ public class PicalltiDbHelper extends SQLiteOpenHelper {
         //this.context=context;
         this.userDbHelper = new UserDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
         this.vehiculeTypeDbHelper = new VehiculeTypeDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
-        this.vehiculeDbHelper = new VehiculeDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
-        this.offreDbHelper = new OffreDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
-        this.commentaireDbHelper = new CommentaireDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
-        this.favorisDbHelper = new FavorisDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
-        this.noteDbHelper = new NoteDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
-        this.notificationDbHelper = new NotificationDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION);
+        this.vehiculeDbHelper = new VehiculeDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION,this);
+        this.offreDbHelper = new OffreDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION,this);
+        this.commentaireDbHelper = new CommentaireDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION,this);
+        this.favorisDbHelper = new FavorisDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION,this);
+        this.noteDbHelper = new NoteDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION,this);
+        this.notificationDbHelper = new NotificationDbHelper(context,DATABASE_NAME,null,DATABASE_VERSION,this);
     }
 
     @Override

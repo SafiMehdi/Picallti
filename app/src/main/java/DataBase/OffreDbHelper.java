@@ -52,11 +52,16 @@ public class OffreDbHelper extends SQLiteOpenHelper {
             "FOREIGN KEY("+VEHICULE+") REFERENCES "+VehiculeDbHelper.TABLE_VEHICULE+"("+ID+")," +
             "FOREIGN KEY("+USER+") REFERENCES "+UserDbHelper.TABLE_USER+"("+ID+"))";
 
-    public OffreDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public UserDbHelper userDbHelper;
+    public VehiculeDbHelper vehiculeDbHelper;
+
+    public OffreDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version,PicalltiDbHelper picalltiDbHelper) {
         super(context, name, factory, version);
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL(CREATE_OFFRE_TABLE);
         this.context = context;
+        this.userDbHelper = picalltiDbHelper.userDbHelper;
+        this.vehiculeDbHelper = picalltiDbHelper.vehiculeDbHelper;
     }
 
 
@@ -90,8 +95,7 @@ public class OffreDbHelper extends SQLiteOpenHelper {
 
     public ArrayList<Offre> readOffres() throws ParseException {
         SQLiteDatabase db = getReadableDatabase();
-        UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
-        VehiculeDbHelper vehiculeDbHelper = new VehiculeDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
+       // VehiculeDbHelper vehiculeDbHelper = new VehiculeDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         Cursor cursor = db.query(
                 TABLE_OFFRE,
                 null,
@@ -130,8 +134,7 @@ public class OffreDbHelper extends SQLiteOpenHelper {
 
     public Offre selectOfferById(int id){
         SQLiteDatabase db = getReadableDatabase();
-        UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
-        VehiculeDbHelper vehiculeDbHelper = new VehiculeDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
+        //VehiculeDbHelper vehiculeDbHelper = new VehiculeDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         /*Cursor cursor = db.query(
                 TABLE_OFFRE,
                 null,
@@ -162,9 +165,11 @@ public class OffreDbHelper extends SQLiteOpenHelper {
                 return new Offre(id,image,titre,description,localisation,prix, LocalTime.parse(time),operation,userDbHelper.selectUserById(user),vehiculeDbHelper.selectVehiculeById(vehicule),LocalDate.parse(date));
 
         }
-        else{
-
-        }cursor.close();
+        cursor.close();
         return  null;
+    }
+    public void deleteAll(){
+        SQLiteDatabase db = getReadableDatabase();
+        db.delete(TABLE_OFFRE, null, null);
     }
 }

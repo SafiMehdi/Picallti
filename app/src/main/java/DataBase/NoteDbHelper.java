@@ -30,12 +30,16 @@ public class NoteDbHelper extends SQLiteOpenHelper {
             "FOREIGN KEY("+USER+") REFERENCES "+UserDbHelper.TABLE_USER+"("+ID+")," +
             "FOREIGN KEY("+OFFRE+") REFERENCES "+OffreDbHelper.TABLE_OFFRE+"("+ID+")" +
             ")";
+    public UserDbHelper userDbHelper;
+    public OffreDbHelper offreDbHelper;
 
-    public NoteDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public NoteDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version,PicalltiDbHelper picalltiDbHelper) {
         super(context, name, factory, version);
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL(CREATE_TABLE_NOTE);
         this.context = context;
+        this.offreDbHelper = picalltiDbHelper.offreDbHelper;
+        this.userDbHelper = picalltiDbHelper.userDbHelper;
     }
 
     @Override
@@ -61,8 +65,6 @@ public class NoteDbHelper extends SQLiteOpenHelper {
     public ArrayList<Note> readNotes() throws ParseException {
         SQLiteDatabase db = getReadableDatabase();
 
-        UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
-        OffreDbHelper offreDbHelper = new OffreDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         Cursor cursor = db.query(
                 TABLE_NOTE,
                 null,
@@ -92,8 +94,6 @@ public class NoteDbHelper extends SQLiteOpenHelper {
 
     public Note selectNoteById(int id){
         SQLiteDatabase db = getReadableDatabase();
-        UserDbHelper userDbHelper = new UserDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
-        OffreDbHelper offreDbHelper = new OffreDbHelper(context,PicalltiDbHelper.DATABASE_NAME,null,1);
         Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_NOTE+" WHERE id="+id+"", null);
 
         if (cursor.moveToFirst()){
@@ -104,6 +104,9 @@ public class NoteDbHelper extends SQLiteOpenHelper {
             return  new Note(id,note,userDbHelper.selectUserById(user),offreDbHelper.selectOfferById(offre));
         }cursor.close();
         return  null;
-
+    }
+    public void deleteAll(){
+        SQLiteDatabase db = getReadableDatabase();
+        db.delete(TABLE_NOTE, null, null);
     }
 }

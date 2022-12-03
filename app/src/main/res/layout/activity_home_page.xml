@@ -7,15 +7,15 @@
     android:background="@drawable/wave"
     tools:context="com.example.picallti.HomePageActivity">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView2"
-        android:layout_width="256dp"
-        android:layout_height="256dp"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/picallti_logo" />
+        android:src="@drawable/picallti_finallogo" />-->
 
 
     <TextView

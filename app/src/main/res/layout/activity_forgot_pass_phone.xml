@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".forgot_passPhoneActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgotpasstitle"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/fontnew2bold"
+        android:textColor="#011EFE"
+        android:textSize="30sp"
+        android:layout_marginTop="35dp"
+        />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:width="300dp"
+        android:drawableStart="@drawable/phone"
+        android:drawablePadding="10dp"
+        android:hint="000-"
+        android:inputType="textEmailAddress"
+        android:paddingBottom="17dp" />
+
+    <Button
+        android:id="@+id/sendCode"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:width="300dp"
+        android:fontFamily="@font/fontnew2bold"
+        android:text="@string/sendCode" />
+
+    <EditText
+        android:id="@+id/verificationCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sendCode"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:width="300dp"
+        android:drawableStart="@drawable/ic_baseline_numbers_24"
+        android:drawablePadding="10dp"
+        android:hint="xx-xx-xx.."
+        android:paddingBottom="17dp" />
+
+    <Button
+        android:id="@+id/verifyCode"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/verificationCode"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:width="300dp"
+        android:fontFamily="@font/fontnew2bold"
+        android:text="@string/verifyCode" />
+
+    <TextView
+        android:id="@+id/txtbacklogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/verifyCode"
+        android:text="@string/forgotpassback"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/fontnew2bold"
+        android:textSize="15sp"
+        android:clickable="true"/>
+
+</RelativeLayout>

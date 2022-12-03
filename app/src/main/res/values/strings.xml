@@ -112,6 +112,10 @@
     <string name="deleteAccountTextView">Supprimer Compte</string>
     <string name="logout">Se déconnecter</string>
     <string name="modifierPDPButton">Modifier photo de profile</string>
-
-
+    <string name="VerificationQst">Veuillez choisir l\'outils de verification</string>
+    <string name="Vphone">Par N° de telephone</string>
+    <string name="Vmail">Par adresse em@il</string>
+    <string name="forgotpasstextPhone">Veuillez entrer votre n° de telephonne pour recevoir le code de verification </string>
+    <string name="sendCode">Envoyer code</string>
+    <string name="verifyCode">Verifier</string>
 </resources>

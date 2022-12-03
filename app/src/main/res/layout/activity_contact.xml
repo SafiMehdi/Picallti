@@ -66,12 +66,11 @@
                 tools:ignore="MissingConstraints" />
 
             <EditText
-                android:id="@+id/ContactName"
+                android:id="@+id/ContactNameSub"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="8dp"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
-                android:hint="Name"
+                android:hint="Sub"
                 app:layout_constraintEnd_toEndOf="@+id/logo"
                 app:layout_constraintStart_toStartOf="@+id/logo"
                 app:layout_constraintTop_toBottomOf="@+id/logo"
@@ -84,10 +83,10 @@
                 android:layout_marginTop="24dp"
                 android:drawableLeft="@drawable/ic_baseline_alternate_email_24"
                 android:hint="Email"
-                app:layout_constraintEnd_toEndOf="@+id/ContactName"
+                app:layout_constraintEnd_toEndOf="@+id/ContactNameSub"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/ContactName"
-                app:layout_constraintTop_toBottomOf="@+id/ContactName"
+                app:layout_constraintStart_toStartOf="@+id/ContactNameSub"
+                app:layout_constraintTop_toBottomOf="@+id/ContactNameSub"
                 tools:ignore="MissingConstraints" />
 
             <EditText
@@ -120,6 +119,136 @@
                 app:layout_constraintStart_toStartOf="@+id/ContactMsg"
                 app:layout_constraintTop_toBottomOf="@+id/ContactMsg"
                 tools:ignore="MissingConstraints" />
+
+            <RelativeLayout
+                android:layout_width="69dp"
+                android:layout_height="31dp"
+                android:fillViewport="true"
+                tools:layout_editor_absolute="1dp"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="457dp">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:context=".ContactActivity">
+
+                        <ImageButton
+                            android:id="@+id/ContactBack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_margin="10dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/white"
+                            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.041"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="DuplicateIds,MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/ContactTitle"
+                            android:textColor="@color/black"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ContactBack"
+                            tools:ignore="MissingConstraints" />
+
+                        <ImageView
+                            android:id="@+id/logo"
+                            android:layout_width="390dp"
+                            android:layout_height="90dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:maxWidth="300dp"
+                            android:src="@drawable/logo"
+                            app:layout_constraintEnd_toEndOf="@+id/textView"
+                            app:layout_constraintHorizontal_bias="0.504"
+                            app:layout_constraintStart_toStartOf="@+id/textView"
+                            app:layout_constraintTop_toBottomOf="@+id/textView"
+                            tools:ignore="MissingConstraints" />
+
+                        <EditText
+                            android:id="@+id/ContactNameSub"
+                            android:layout_width="300dp"
+                            android:layout_height="60dp"
+                            android:layout_marginTop="8dp"
+                            android:hint="Name"
+                            app:layout_constraintEnd_toEndOf="@+id/logo"
+                            app:layout_constraintStart_toStartOf="@+id/logo"
+                            app:layout_constraintTop_toBottomOf="@+id/logo"
+                            tools:ignore="MissingConstraints" />
+
+                        <EditText
+                            android:id="@+id/ContactMail"
+                            android:layout_width="300dp"
+                            android:layout_height="60dp"
+                            android:layout_marginTop="24dp"
+                            android:drawableLeft="@drawable/ic_baseline_alternate_email_24"
+                            android:hint="Email"
+                            app:layout_constraintEnd_toEndOf="@+id/ContactNameSub"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/ContactNameSub"
+                            app:layout_constraintTop_toBottomOf="@+id/ContactNameSub"
+                            tools:ignore="MissingConstraints" />
+
+                        <EditText
+                            android:id="@+id/ContactMsg"
+                            android:layout_width="300dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginVertical="50dp"
+                            android:layout_marginTop="24dp"
+                            android:drawableLeft="@drawable/ic_baseline_message_24"
+                            android:hint="Your message..."
+                            app:layout_constraintEnd_toEndOf="@+id/ContactMail"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="@+id/ContactMail"
+                            app:layout_constraintTop_toBottomOf="@+id/ContactMail"
+                            tools:ignore="MissingConstraints" />
+
+                        <Button
+                            android:id="@+id/ContactSendBtn"
+                            android:layout_width="173dp"
+                            android:layout_height="54dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/purple_500"
+                            android:drawableRight="@drawable/ic_baseline_send_24"
+                            android:padding="5dp"
+                            android:text="@string/ContactSend"
+                            app:layout_constraintEnd_toEndOf="@+id/ContactMsg"
+                            app:layout_constraintHorizontal_bias="0.496"
+                            app:layout_constraintStart_toStartOf="@+id/ContactMsg"
+                            app:layout_constraintTop_toBottomOf="@+id/ContactMsg"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </ScrollView>
+
+                <LinearLayout
+                    android:id="@+id/bottom_bar_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true" />
+
+
+            </RelativeLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

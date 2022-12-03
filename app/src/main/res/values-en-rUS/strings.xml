@@ -56,6 +56,7 @@
     <string name="textView">\t\t\tYou want to go for a ride\n\t\t\t\tbut have no bike?\n\t\tPicollti came with the solution\n\trent a bike or a scooter with one click</string>
     <string name="button">LOG IN</string>
     <string name="textView2">PICALLTI.2022</string>
+    <string name="VerificationQst">Please choose a way to verify</string>
 
 
 </resources>

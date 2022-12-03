@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.picallti.HomePageActivity">
+    tools:context=".ChooseVerificationWayPassWActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="342dp"
-        android:layout_height="262dp"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -25,10 +25,10 @@
         android:layout_marginTop="28dp"
         android:fontFamily="@font/louis_george_cafe"
         android:gravity="center"
-        android:text="@string/textView"
+        android:text="@string/VerificationQst"
         android:textColor="@color/black"
         android:textSize="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/Vphone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,13 +37,14 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/Vphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/shape"
         android:fontFamily="@font/louis_george_cafe"
-        android:text="@string/button"
+        android:text="@string/Vphone"
         android:textColor="@color/white"
+        android:drawableLeft="@drawable/phone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -52,22 +53,22 @@
         app:layout_constraintVertical_bias="0.475"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="170dp"
-        android:layout_height="43dp"
-        android:drawableStart="@drawable/copyright"
+    <Button
+        android:id="@+id/Vmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
         android:fontFamily="@font/louis_george_cafe"
-        android:gravity="center"
-        android:text="@string/textView2"
-        android:textColor="@color/black"
-        android:textSize="20dp"
+        android:text="@string/Vmail"
+        android:drawableLeft="@drawable/ic_baseline_alternate_email_24"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.952"
+        app:layout_constraintTop_toBottomOf="@+id/Vphone"
+        app:layout_constraintVertical_bias="0.285"
         tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

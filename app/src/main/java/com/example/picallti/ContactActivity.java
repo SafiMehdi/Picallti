@@ -17,8 +17,8 @@ import butterknife.ButterKnife;
 
 public class ContactActivity extends AppCompatActivity {
 
-    @BindView(R.id.ContactName)
-    EditText contactName;
+    @BindView(R.id.ContactNameSub)
+    EditText ContactNameSub;
     @BindView(R.id.ContactMail)
     EditText contactMail;
     @BindView(R.id.ContactMsg)
@@ -44,9 +44,7 @@ public class ContactActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //here we are going to inplement intent that containt alrealdy the destination mail and recuperate the infon from the
                 //editTexts thes send email dairectly
-                Toast.makeText(getApplicationContext(), "Send succesfully", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
+                sendMail();
             }
         });
 
@@ -61,5 +59,21 @@ public class ContactActivity extends AppCompatActivity {
         ViewGroup.LayoutParams params = contact.getLayoutParams();
         params.height =(int) (getResources().getDisplayMetrics().heightPixels-getResources().getDisplayMetrics().heightPixels/9) ;
         contact.setLayoutParams(params);
+    }
+
+    private void sendMail() {
+        String recipientList = contactMail.getText().toString();
+        String[] recipients = recipientList.split(",");
+
+        String subject = ContactNameSub.getText().toString();
+        String message = contactMsg.getText().toString();
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "Choose an email client"));
     }
 }

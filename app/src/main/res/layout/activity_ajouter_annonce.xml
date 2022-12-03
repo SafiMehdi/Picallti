@@ -1,233 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backajouteroffre2"
-    tools:context=".AjouterAnnonceActivity">
+    android:fillViewport="true">
 
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/menu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Title"
-        android:layout_width="243dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/fontnew2bold"
-        android:text="@string/titreAjouterOffre"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <LinearLayout
-        android:id="@+id/pictures"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="10dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Title">
+        android:layout_height="match_parent"
+        android:background="@drawable/backajouteroffre2"
+        tools:context=".AjouterAnnonceActivity">
 
-        <ImageView
-            android:id="@+id/vello1"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="5dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/ajouter_offre_shape"
-            android:clipToOutline="true"
-            android:elevation="5dp"
-            android:src="@drawable/bikefortest2" />
 
-        <ImageView
-            android:id="@+id/vello2"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="20dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/ajouter_offre_shape"
-            android:clipToOutline="true"
-            android:elevation="5dp"
-            app:srcCompat="@drawable/bikefortest2" />
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
-            android:layout_width="46dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp">
+        <TextView
+            android:id="@+id/Title"
+            android:layout_width="243dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/fontnew2bold"
+            android:text="@string/titreAjouterOffre"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/pictures"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Title">
 
             <ImageView
-                android:id="@+id/add"
+                android:id="@+id/vello1"
+                android:layout_width="130dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/ajouter_offre_shape"
+                android:clipToOutline="true"
+                android:elevation="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:src="@drawable/bikefortest2" />
+
+            <ImageView
+                android:id="@+id/vello2"
+                android:layout_width="130dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/ajouter_offre_shape"
+                android:clipToOutline="true"
+                android:elevation="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                app:srcCompat="@drawable/bikefortest2" />
+
+            <RelativeLayout
                 android:layout_width="46dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp">
+
+                <ImageView
+                    android:id="@+id/add"
+                    android:layout_width="46dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_baseline_add_24"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/add"
+                    android:fontFamily="@font/fontnew2bold"
+                    android:text="@string/ajouterPhotoOffre"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/TitreOffre"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:drawableLeft="@drawable/title_icon"
+            android:drawablePadding="12dp"
+            android:elevation="2dp"
+            android:hint="@string/titreOffreHint"
+            android:inputType="textPersonName"
+            android:paddingStart="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pictures" />
+        <EditText
+            android:id="@+id/Marque"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:drawableLeft="@drawable/marque_icon"
+            android:drawablePadding="12dp"
+            android:elevation="2dp"
+            android:hint="@string/marqueOffreHint"
+            android:inputType="textPersonName"
+            android:paddingStart="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TitreOffre"/>
+
+
+        <EditText
+            android:id="@+id/Description"
+            android:layout_width="260dp"
+            android:layout_height="78dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:drawableLeft="@drawable/description_icon"
+            android:drawablePadding="12dp"
+            android:elevation="2dp"
+            android:gravity="start|top"
+            android:hint="@string/descriptionOffreHint"
+            android:inputType="textMultiLine"
+            android:paddingStart="15dp"
+            android:paddingTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Marque" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/OperationCard"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:elevation="2dp"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            app:cardCornerRadius="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Description">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/Operation"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
-                app:srcCompat="@drawable/ic_baseline_add_24"
-                android:layout_centerVertical="true"
-
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ajouterPhotoOffre"
-                android:fontFamily="@font/fontnew2bold"
-                android:textColor="@color/black"
-                android:textSize="10dp"
-                android:layout_below="@+id/add"
-                android:textAlignment="center"/>
-        </RelativeLayout>
-
-    </LinearLayout>
+                android:paddingStart="15dp"
+                tools:ignore="TouchTargetSizeCheck" />
+        </androidx.cardview.widget.CardView>
 
 
-    <EditText
-        android:id="@+id/TitreOffre"
-        android:drawableLeft="@drawable/title_icon"
-        android:drawablePadding="12dp"
-        android:layout_width="260dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:hint="@string/titreOffreHint"
-        android:paddingStart="15dp"
-        android:inputType="textPersonName"
-        android:background="@drawable/rounded_corners_edittext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pictures"
-        android:elevation="2dp"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/VilleCard"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:elevation="2dp"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            app:cardCornerRadius="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/OperationCard">
 
-    <EditText
-        android:id="@+id/Description"
-        android:layout_width="260dp"
-        android:layout_height="78dp"
-        android:paddingStart="15dp"
-        android:gravity="start|top"
-        android:drawablePadding="12dp"
-        android:hint="@string/descriptionOffreHint"
-        android:inputType="textMultiLine"
-        android:background="@drawable/rounded_corners_edittext"
-        app:layout_constraintTop_toBottomOf="@+id/TitreOffre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        android:drawableLeft="@drawable/description_icon"
-        android:paddingTop="10dp"
-        android:elevation="2dp"
-         />
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/Ville"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                tools:ignore="TouchTargetSizeCheck" />
+        </androidx.cardview.widget.CardView>
 
-    <!--<Spinner
-        android:id="@+id/Ville"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CategorieCard"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:elevation="2dp"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            app:cardCornerRadius="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/VilleCard">
 
-        android:layout_width="260dp"
-        android:layout_height="33dp"
-        android:spinnerMode="dropdown"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Description"
-        android:layout_marginTop="20dp"
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/Categorie"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                tools:ignore="TouchTargetSizeCheck" />
+        </androidx.cardview.widget.CardView>
 
-        />-->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/VilleCard"
-        android:layout_width="260dp"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Description"
-        android:layout_marginTop="20dp"
-        android:elevation="2dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:cardCornerRadius="18dp">
+        <EditText
+            android:id="@+id/Prix"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:drawableLeft="@drawable/money_icon"
+            android:drawablePadding="12dp"
+            android:elevation="2dp"
+            android:hint="@string/prixOffreHint"
+            android:inputType="number"
+            android:paddingStart="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CategorieCard" />
 
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/Ville"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:paddingStart="15dp"/>
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/CategorieCard"
-        android:layout_width="260dp"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/VilleCard"
-        android:layout_marginTop="20dp"
-        android:elevation="2dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:cardCornerRadius="18dp">
-
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/Categorie"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:paddingStart="15dp"/>
-    </androidx.cardview.widget.CardView>
-    <EditText
-        android:id="@+id/Prix"
-        android:layout_width="260dp"
-        android:layout_height="50dp"
-        android:hint="@string/prixOffreHint"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CategorieCard"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_corners_edittext"
-        android:drawablePadding="12dp"
-        android:paddingStart="15dp"
-        android:drawableLeft="@drawable/money_icon"
-        android:elevation="2dp"
-        />
-
-    <android.widget.Button
-        android:id="@+id/button"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:drawableLeft="@drawable/add_icon"
-        android:text="@string/boutonAjouterOffre"
-        android:fontFamily="@font/fontnew2bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Prix"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/custom_btn_shape"
-        android:drawablePadding="-15dp"
-        android:paddingStart="15dp"
-         />
+        <android.widget.Button
+            android:id="@+id/button"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/custom_btn_shape"
+            android:drawableLeft="@drawable/add_icon"
+            android:drawablePadding="-15dp"
+            android:fontFamily="@font/fontnew2bold"
+            android:paddingStart="15dp"
+            android:text="@string/boutonAjouterOffre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Prix"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

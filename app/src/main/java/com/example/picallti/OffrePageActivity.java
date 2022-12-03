@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 
 import adapters.OffresAdapter;
 import adapters.VehiculeTypesAdapter;
+import butterknife.ButterKnife;
 import data.Offre;
 import data.User;
 import data.Vehicule;
@@ -24,11 +27,21 @@ public class OffrePageActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter2;
     private RecyclerView recyclerView;
     private RecyclerView recyclerViewCat;
+    BottomBarFragment frag = new BottomBarFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offre_page);
+        getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
+        ButterKnife.bind(this);
+
+        ImageView img = (ImageView) findViewById(R.id.filter);
+        img.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                startActivity(new Intent(OffrePageActivity.this, WhatYouNeedActivity.class));
+            }
+        });
 
         recyclerView = findViewById(R.id.view_holder_offers);
         recyclerViewCat = findViewById(R.id.view_holder_vehicule_type);

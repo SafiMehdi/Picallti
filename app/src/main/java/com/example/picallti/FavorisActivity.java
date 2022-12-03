@@ -1,27 +1,27 @@
 package com.example.picallti;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.sql.Date;
 import java.util.ArrayList;
 
-import adapters.AdapterFavoris;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import adapters.FavoritesAdapter;
+import adapters.NotificationAdapter;
+import data.Favoris;
+import data.Offre;
 
 public class FavorisActivity extends AppCompatActivity {
 
-    @BindView(R.id.likesListView)
-    ListView likesListView;
-    @BindView(R.id.LikesBack)
-    ImageView LikesBack;
-
+    private RecyclerView.Adapter adapter;
+    private RecyclerView recyclerView;
     BottomBarFragment frag = new BottomBarFragment();
 
     @Override
@@ -29,30 +29,26 @@ public class FavorisActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favoris);
         getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
-        ButterKnife.bind(this);
 
-        int[] image = {R.drawable.logo, R.drawable.logo, R.drawable.logo, R.drawable.logo, R.drawable.logo, R.drawable.logo, R.drawable.logo};
-        String[] title = {"Liked post", "Liked post", "Liked post", "Liked post", "Liked post", "Liked post", "Liked post"};
-        String[] price = {"10 500 DH", "299 DH", "199 DH", "299 DH", "199 DH", "299 DH", "199 DH"};
+        recyclerView = findViewById(R.id.view_holder_favorites);
 
-        ArrayList<LikedPosts> likedPosts = new ArrayList<LikedPosts>();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
-        for (int i =0; i< price.length; i++){
-            likedPosts.add(new LikedPosts(title[i], price[i], image[i]));
-        }
+        recyclerView.setLayoutManager(linearLayoutManager);
 
-        LikesBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            }
-        });
+        ArrayList<Offre> offres =new ArrayList<>();
+        offres.add(new data.Offre("Pikala VTT Lekher", "Katmchi finma bghiti gha rkeb u zid asahbi wayli", 12, "bicycle"));
+        offres.add(new data.Offre("Motor lahuma barik", "Swinga jaya mn asfi chi haja lahuma barik akhay diali", 50, "motorcycle"));
+        offres.add(new data.Offre("Boukchlita lhrba", "Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi", 10, "bicycle"));
+        offres.add(new Offre("Motor makaynch fhalu juj", "Had lmotor dor so9 kaml la l9iti bhalu aji dfl elia", 60, "motorcycle"));
 
-        AdapterFavoris adapterFavoris = new AdapterFavoris(getApplicationContext(), R.layout.list_item, likedPosts);
-        likesListView.setAdapter(adapterFavoris);
+        ArrayList<Favoris> favoris =new ArrayList<>();
+        favoris.add(new Favoris(offres.get(0)));
+        favoris.add(new Favoris(offres.get(1)));
+        favoris.add(new Favoris(offres.get(2)));
+        favoris.add(new Favoris(offres.get(3)));
 
-        ViewGroup.LayoutParams params = likesListView.getLayoutParams();
-        params.height =(int) (getResources().getDisplayMetrics().heightPixels-getResources().getDisplayMetrics().heightPixels/5.5) ;
-        likesListView.setLayoutParams(params);
+        adapter=new FavoritesAdapter(favoris);
+        recyclerView.setAdapter(adapter);
     }
 }

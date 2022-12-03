@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".forgot_pass1">
+    tools:context=".forgot_pass1"
+    >
     <ImageView
         android:id="@+id/illustration"
         android:layout_width="300dp"
@@ -12,6 +13,7 @@
         android:layout_marginLeft="25dp"
         android:src="@drawable/forgot_pass1_illu"
         android:layout_marginTop="20dp"
+
         />
     <TextView
         android:id="@+id/title"
@@ -55,17 +57,20 @@
 
     <EditText
         android:id="@+id/edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/contenu"
         android:layout_marginTop="30dp"
         android:hint="@string/user_placeholder"
         android:layout_centerHorizontal="true"
         android:width="300dp"
         android:drawableStart="@drawable/ic_baseline_email_24"
-        android:drawablePadding="10dp"
-        android:paddingBottom="17dp"
+        android:drawablePadding="12dp"
         android:inputType="textEmailAddress"
+        android:background="@drawable/rounded_corners_edittext"
+        android:elevation="3dp"
+        android:paddingEnd="5dp"
+        android:paddingStart="15dp"
         />
     <android.widget.Button
         android:id="@+id/btn"

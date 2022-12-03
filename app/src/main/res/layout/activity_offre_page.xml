@@ -46,19 +46,19 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/background_input_outline_white"
+        android:background="@drawable/background_outline_white"
         android:drawableLeft="@drawable/search_icon"
         android:ems="10"
         android:hint="search for ..."
         android:inputType="textPersonName"
         android:textColorHint="@color/kitten_white"
         android:textStyle="italic"
-        app:layout_constraintEnd_toStartOf="@id/imageButton2"
+        app:layout_constraintEnd_toStartOf="@id/filter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
@@ -135,4 +135,15 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_bar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        tools:ignore="Orientation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

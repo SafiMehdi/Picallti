@@ -102,6 +102,7 @@
     <string name="hidePhoneTextView">Hide my phone number</string>
     <string name="hideEmailTextView">Hide my email address</string>
     <string name="saveEditText">Save edit</string>
+    <string name="hiUsernameText">Hi Username</string>
     <string name="welcomeBackText">Welcome Back!</string>
     <string name="hiUsername">Hi username</string>
     <string name="categoryText">Category</string>
@@ -122,6 +123,11 @@
     <string name="ajouterPhotoOffre">Ajouter Photo</string>
     <string name="titreOffreHint">tittre</string>
     <string name="descriptionOffreHint">Description</string>
+    <string name="titreAjouterOffre">Ajouter Annonce</string>
+    <string name="ajouterPhotoOffre">Ajouter une photo</string>
+    <string name="titreOffreHint">Titre Offre</string>
+    <string name="marqueOffreHint">Marque</string>
+    <string name="descriptionOffreHint">Description Offre</string>
     <string name="prixOffreHint">Prix</string>
     <string name="boutonAjouterOffre">Ajouter offre</string>
     <string name="titlepass2">title pass 1</string>

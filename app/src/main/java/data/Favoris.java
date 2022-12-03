@@ -18,6 +18,9 @@ public class Favoris {
         this.user = user;
         this.offre = offre;
     }
+    public Favoris (Offre offre){
+        this.offre = offre;
+    }
 
     public int getId() {
         return id;

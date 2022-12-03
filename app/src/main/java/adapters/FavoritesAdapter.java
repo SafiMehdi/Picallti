@@ -10,31 +10,31 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
-import data.Notification;
+import data.Favoris;
 import com.example.picallti.R;
 
-public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
+public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.ViewHolder> {
 
-    ArrayList<Notification> notifications;
+    ArrayList<Favoris> favoris;
 
-    public NotificationAdapter(ArrayList<Notification> notifications) {
-        this.notifications = notifications;
+    public FavoritesAdapter(ArrayList<Favoris> favoris) {
+        this.favoris = favoris;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_holder_notification, parent, false);
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_holder_favorites, parent, false);
         return new ViewHolder(inflate);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.titleTxt.setText(String.valueOf(notifications.get(position).getTitle()));
-        holder.descriptionTxt.setText(String.valueOf(notifications.get(position).getText()));
-        holder.timeTxt.setText(String.valueOf(notifications.get(position).getTime()));
+        holder.titleTxt.setText(String.valueOf(favoris.get(position).getOffre().getTitre()));
+        holder.descriptionTxt.setText(String.valueOf(favoris.get(position).getOffre().getDescription()));
+        holder.priceTxt.setText(String.valueOf(favoris.get(position).getOffre().getPrix()));
 
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(notifications.get(position).getUrl(), "drawable", holder.itemView.getContext().getPackageName());
+        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(favoris.get(position).getOffre().getUrl(), "drawable", holder.itemView.getContext().getPackageName());
 
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
@@ -44,18 +44,18 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public int getItemCount() {
-        return notifications.size();
+        return favoris.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTxt,descriptionTxt,timeTxt;
+        TextView titleTxt,descriptionTxt,priceTxt;
         ImageView removeItem;
 
         public ViewHolder(View itemView) {
             super(itemView);
             titleTxt = itemView.findViewById(R.id.titleTxt);
             descriptionTxt = itemView.findViewById(R.id.descriptionTxt);
-            timeTxt = itemView.findViewById(R.id.timeTxt);
+            priceTxt = itemView.findViewById(R.id.priceTxt);
             removeItem = itemView.findViewById(R.id.img_view);
         }
     }

@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     android:background="@drawable/background3">
 
+    <ImageView
+        android:id="@+id/IVPreviewImage"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/sideBarBtn"
         android:layout_width="wrap_content"
@@ -24,7 +33,7 @@
         android:layout_marginTop="32dp"
         android:text="Edit Profile"
         android:textAllCaps="true"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,27 +67,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/background_input_outline_black"
+            android:background="@drawable/background_input_form_black"
             android:ems="10"
             android:hint="@string/usernameHint"
             android:inputType="textPersonName" />
 
         <Spinner
-            android:id="@+id/changeVilleInput"
+            android:id="@+id/cities_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/background_input_outline_black"
+            android:background="@drawable/background_input_form_black"
             android:ems="10"
             android:inputType="textPersonName"
-            android:padding="28dp" />
+            android:padding="25dp" />
 
         <EditText
             android:id="@+id/changeEmailInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/background_input_outline_black"
+            android:background="@drawable/background_input_form_black"
             android:ems="10"
             android:hint="@string/emailHint"
             android:inputType="textPersonName" />
@@ -88,7 +97,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/background_input_outline_black"
+            android:background="@drawable/background_input_form_black"
             android:ems="10"
             android:hint="@string/phoneHint"
             android:inputType="textPersonName" />
@@ -98,7 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/background_input_outline_black"
+            android:background="@drawable/background_input_form_black"
             android:ems="10"
             android:hint="@string/bioHint"
             android:inputType="textPersonName" />
@@ -109,8 +118,8 @@
         android:id="@+id/hideInfosProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/hidePhoneTextView"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -136,7 +145,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:switchMinWidth="50dp"/>
+                app:switchMinWidth="50dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -150,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/hideEmailTextView"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -159,7 +168,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:switchMinWidth="50dp"/>
+                app:switchMinWidth="50dp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -168,14 +177,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="70dp"
-        android:background="@drawable/background_btn"
+        android:background="@drawable/background_input_form_black"
         android:text="@string/saveEditText"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hideInfosProfile" />
+
+    <LinearLayout
+        android:id="@+id/bottom_bar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        tools:ignore="Orientation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

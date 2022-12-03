@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import adapters.SettingAdapter;
+//import com.example.picallti.adapters.SettingAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnItemClick;
@@ -34,9 +34,9 @@ public class SettingsActivity extends AppCompatActivity {
             Setting tr = new Setting( imageID[i], settingName[i] );
             settings.add(tr);
         }
-        SettingAdapter adapter = new SettingAdapter(getApplicationContext(), R.layout.list_layout, settings);
+        //SettingAdapter adapter = new SettingAdapter(getApplicationContext(), R.layout.list_layout, settings);
 
-        listSettings.setAdapter(adapter);
+        //listSettings.setAdapter(adapter);
         listSettings.setClickable(true);
 
         ImageView back = (ImageView)findViewById(R.id.back);
@@ -50,10 +50,10 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
 
-    @OnItemClick(R.id.listSettings)
-    public void onListSettingsItemClicked(int position){
-        if (position == 0 ){
-            Intent intent  = new Intent(SettingsActivity.this, ParametresCompteActivity.class);
+    //@OnItemClick(R.id.listSettings)
+    //public void onListSettingsItemClicked(int position){
+    //    if (position == 0 ){
+    /*        Intent intent  = new Intent(SettingsActivity.this, ParametresCompte.class);
             startActivity(intent);
 
         }else if (position == 1){
@@ -65,5 +65,5 @@ public class SettingsActivity extends AppCompatActivity {
             Intent intent  = new Intent(SettingsActivity.this, login_page.class);
             startActivity(intent);
         }
-    }
+    }*/
 }

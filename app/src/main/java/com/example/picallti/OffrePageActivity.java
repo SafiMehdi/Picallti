@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import adapters.OffresAdapter;
 import adapters.VehiculeTypesAdapter;
+import butterknife.ButterKnife;
 import data.Offre;
 import data.VehiculeType;
 
@@ -28,7 +31,7 @@ public class OffrePageActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
         ButterKnife.bind(this);
 
-        ImageView img = (ImageView) findViewById(R.id.imageView6);
+        ImageView img = (ImageView) findViewById(R.id.filter);
         img.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 startActivity(new Intent(OffrePageActivity.this, WhatYouNeedActivity.class));

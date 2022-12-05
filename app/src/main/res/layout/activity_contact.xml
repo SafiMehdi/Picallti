@@ -8,6 +8,7 @@
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absolute="1dp"
     android:fillViewport="true"
+    android:background="#f8f9fa"
     >
     <ScrollView
         android:layout_width="match_parent"
@@ -41,9 +42,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="sans-serif-light"
+                android:fontFamily="@font/fontnew2bold"
                 android:text="@string/ContactTitle"
-                android:textColor="@color/black"
+                android:textColor="#011EFE"
                 android:textSize="30dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -66,69 +67,82 @@
                 tools:ignore="MissingConstraints" />
 
             <EditText
-                android:id="@+id/ContactName"
+                android:id="@+id/ContactSub"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="8dp"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
-                android:hint="Name"
+                android:background="@drawable/rounded_corners_edittext"
+                android:drawableLeft="@drawable/ic_baseline_subject_24"
+                android:hint="Subject"
                 app:layout_constraintEnd_toEndOf="@+id/logo"
                 app:layout_constraintStart_toStartOf="@+id/logo"
                 app:layout_constraintTop_toBottomOf="@+id/logo"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:drawablePadding="10dp"
+                android:elevation="3dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="15dp"/>
 
             <EditText
                 android:id="@+id/ContactMail"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="24dp"
+                android:background="@drawable/rounded_corners_edittext"
                 android:drawableLeft="@drawable/ic_baseline_alternate_email_24"
                 android:hint="Email"
-                app:layout_constraintEnd_toEndOf="@+id/ContactName"
+                app:layout_constraintEnd_toEndOf="@+id/ContactSub"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/ContactName"
-                app:layout_constraintTop_toBottomOf="@+id/ContactName"
-                tools:ignore="MissingConstraints" />
+                app:layout_constraintStart_toStartOf="@+id/ContactSub"
+                app:layout_constraintTop_toBottomOf="@+id/ContactSub"
+                tools:ignore="MissingConstraints"
+                android:drawablePadding="10dp"
+                android:elevation="3dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="15dp"/>
 
             <EditText
                 android:id="@+id/ContactMsg"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginVertical="50dp"
                 android:layout_marginTop="24dp"
                 android:drawableLeft="@drawable/ic_baseline_message_24"
                 android:hint="Your message..."
+                android:background="@drawable/rounded_corners_edittext"
                 app:layout_constraintEnd_toEndOf="@+id/ContactMail"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/ContactMail"
                 app:layout_constraintTop_toBottomOf="@+id/ContactMail"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:drawablePadding="10dp"
+                android:elevation="3dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="15dp"/>
 
-            <Button
+            <android.widget.Button
                 android:id="@+id/ContactSendBtn"
                 android:layout_width="173dp"
-                android:layout_height="54dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:background="@color/purple_500"
+                android:layout_marginTop="20dp"
                 android:drawableRight="@drawable/ic_baseline_send_24"
+                android:backgroundTint="#4361ee"
                 android:padding="5dp"
                 android:text="@string/ContactSend"
                 app:layout_constraintEnd_toEndOf="@+id/ContactMsg"
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="@+id/ContactMsg"
                 app:layout_constraintTop_toBottomOf="@+id/ContactMsg"
-                tools:ignore="MissingConstraints" />
-
+                tools:ignore="MissingConstraints"
+                android:width="300dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/fontnew2bold"
+                android:background="@drawable/shape_more_info_offre"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-    <LinearLayout
-        android:id="@+id/bottom_bar_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
 
 
 </RelativeLayout>

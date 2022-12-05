@@ -51,43 +51,42 @@
         android:background="@drawable/shape_more_info_offre"/>
 
 
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sendCode"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="0dp"
+        android:fontFamily="@font/fontnew2"
+        android:text="Enter code you received" />
+
     <EditText
         android:id="@+id/verificationCode"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_below="@+id/sendCode"
+        android:layout_below="@+id/text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="13dp"
         android:width="300dp"
         android:background="@drawable/rounded_corners_edittext"
         android:drawableLeft="@drawable/ic_baseline_subject_24"
-        android:hint="xx-xx-xx.."
-        tools:ignore="MissingConstraints"
         android:drawablePadding="10dp"
         android:elevation="3dp"
+        android:hint="xx-xx-xx.."
+        android:paddingStart="15dp"
         android:paddingEnd="5dp"
-        android:paddingStart="15dp"/>
-
-
-    <android.widget.Button
-        android:textColor="@color/white"
-        android:id="@+id/verifyCode"
-        android:layout_width="182dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/verificationCode"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:text="Verify Code"
-        android:backgroundTint="#4361ee"
-        android:width="300dp"
-        android:fontFamily="@font/fontnew2bold"
-        android:background="@drawable/shape_more_info_offre"/>
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/txtbacklogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/verifyCode"
+        android:layout_below="@+id/verificationCode"
         android:text="@string/forgotpassback"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"

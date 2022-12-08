@@ -96,7 +96,7 @@ public class SingUp extends AppCompatActivity {
         if(val.isEmpty()){
             surname.setError("Field cannot be empty");
             return false;
-        }else if(!val.matches(validName)){
+        }else if(val.matches(validName)){
             surname.setError("Surname should not contain digits !");
             return false;
         } else {
@@ -110,7 +110,7 @@ public class SingUp extends AppCompatActivity {
         if(val.isEmpty()){
             name.setError("Field cannot be empty");
             return false;
-        }else if(!val.matches(validName)){
+        }else if(val.matches(validName)){
             name.setError("Name should not contain digits !");
             return false;
         } else {
@@ -148,18 +148,18 @@ public class SingUp extends AppCompatActivity {
     }
     private Boolean validatePhoneNo(){
         String val = phoneNumber.getText().toString();
-        String val2 = val.substring(0,2);
-        System.out.println(val2);
+        //String val2 = val.substring(0,2);
+        //System.out.println(val2);
         if(val.isEmpty()){
             phoneNumber.setError("Field cannot be empty !");
             return false;
         }else if (val.length() != 10 ){
             phoneNumber.setError("Only 10 digits are allowed !");
             return false;
-        }else if (!val2.equals("06") && !val2.equals("07")){
+        }/*else if (!val2.equals("06") && !val2.equals("07")){
             phoneNumber.setError("Phone number should start with 06 or 07 !");
             return false;
-        }
+        }*/
         else {
             phoneNumber.setError(null);
             return true;

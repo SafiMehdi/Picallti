@@ -76,7 +76,6 @@ public class login_page extends AppCompatActivity {
             }
         });
         getPreferencesData();
-
     }
     private void getPreferencesData() {
         SharedPreferences myPrefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
@@ -93,6 +92,4 @@ public class login_page extends AppCompatActivity {
             remembermecheckbox.setChecked(b);
         }
     }
-
-
 }

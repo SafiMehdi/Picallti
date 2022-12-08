@@ -97,19 +97,4 @@
     <string name="titlepass2">title pass 1</string>
 
 
-
-    <string name="app_name">SideBar</string>
-    <string name="menu_mon_profil">My profile</string>
-    <string name="menu_likes">My likes</string>
-    <string name="menu_apparence">Appearance</string>
-    <string name="menu_apropos">About</string>
-    <string name="menu_parametre">Settings</string>
-    <string name="position">Co-founder</string>
-    <string name="nav_header_subtitle">Bikes &amp; scooters rental app</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Picallti</string>
-    <string name="navigation_drawer_open">"Open navigation drawer "</string>
-    <string name="contact_us">Contact us</string>
 </resources>

@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "SideBar"
+rootProject.name = "Picallti"
 include ':app'

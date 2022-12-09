@@ -41,7 +41,11 @@ public class ProfileActivity extends AppCompatActivity {
         Intent intent = new Intent(this,ModifierProfileActivity.class);
         startActivity(intent);
     }
-
+    @OnClick(R.id.OffresBtn)
+    public void OffresClick(){
+        Intent intent = new Intent(this,PersonnalOfferActivity.class);
+        startActivity(intent);
+    }
 
 
 }

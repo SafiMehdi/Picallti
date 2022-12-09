@@ -30,9 +30,16 @@ public class forgot_pass1 extends AppCompatActivity {
 
         //Binding components
         mEmail = (EditText)findViewById(R.id.edit);
+        TextView txtotp = (TextView) findViewById(R.id.otp);
         txtbacklogin = (TextView)findViewById(R.id.txtbacklogin);
         sendMailButton = (Button)findViewById(R.id.btn);
 
+        txtotp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(forgot_pass1.this, OTPActivity.class));
+            }
+        });
         txtbacklogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

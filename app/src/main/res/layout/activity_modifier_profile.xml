@@ -60,57 +60,97 @@
             android:drawableLeft="@drawable/background_btn_pdp"
             android:text="@string/changePDPTextView"
             android:textColor="@color/black"
+            android:fontFamily="@font/fontnew2"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/changeUsernameInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/background_input_form_black"
-            android:ems="10"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
             android:hint="@string/usernameHint"
-            android:inputType="textPersonName" />
-
-        <Spinner
-            android:id="@+id/cities_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/background_input_form_black"
-            android:ems="10"
             android:inputType="textPersonName"
-            android:padding="25dp" />
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:paddingStart="15dp"
+            android:drawableStart="@drawable/userlogo"
+            android:fontFamily="@font/fontnew2"
+            android:drawablePadding="12dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:elevation="2dp"
+            android:paddingEnd="5dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/VilleCard"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:elevation="2dp"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Description">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/cities_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                tools:ignore="TouchTargetSizeCheck" />
+        </androidx.cardview.widget.CardView>
 
         <EditText
             android:id="@+id/changeEmailInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/background_input_form_black"
-            android:ems="10"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
             android:hint="@string/emailHint"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:paddingStart="15dp"
+            android:drawableStart="@drawable/email1"
+            android:fontFamily="@font/fontnew2"
+            android:drawablePadding="12dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:elevation="2dp"
+            android:paddingEnd="5dp"/>
 
         <EditText
             android:id="@+id/changePhoneInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/background_input_form_black"
-            android:ems="10"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
             android:hint="@string/phoneHint"
-            android:inputType="textPersonName" />
+            android:inputType="phone"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:paddingStart="15dp"
+            android:drawableStart="@drawable/phone"
+            android:fontFamily="@font/fontnew2"
+            android:drawablePadding="12dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:elevation="2dp"
+            android:paddingEnd="5dp"/>
 
         <EditText
             android:id="@+id/changeBioInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/background_input_form_black"
-            android:ems="10"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
             android:hint="@string/bioHint"
-            android:inputType="textPersonName" />
+            android:inputType="phone"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:paddingStart="15dp"
+            android:drawableStart="@drawable/phone"
+            android:fontFamily="@font/fontnew2"
+            android:drawablePadding="12dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:elevation="2dp"
+            android:paddingEnd="5dp"/>
 
     </LinearLayout>
 
@@ -137,6 +177,7 @@
                 android:layout_weight="1"
                 android:text="@string/hidePhoneTextView"
                 android:textColor="@color/white"
+                android:fontFamily="@font/fontnew2"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -160,6 +201,7 @@
                 android:layout_weight="1"
                 android:text="@string/hideEmailTextView"
                 android:textColor="@color/white"
+                android:fontFamily="@font/fontnew2"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -177,11 +219,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="70dp"
         android:background="@drawable/background_input_form_black"
         android:text="@string/saveEditText"
         android:textColor="@color/black"
+        android:fontFamily="@font/fontnew2"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="parent"

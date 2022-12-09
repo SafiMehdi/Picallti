@@ -68,7 +68,7 @@ public class OffrePageActivity extends AppCompatActivity {
         Vehicule vehicule = new Vehicule("marque",vehiculeType);
         User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
         ArrayList<Offre> offres =new ArrayList<>();
-        offres.add(  new Offre(R.drawable.broken_bike,"title46","decriiiiiiption","localisation",67, LocalTime.now(),"vente",user,vehicule,  LocalDate.of(2020, 1, 8)));
+        offres.add(  new Offre(R.drawable.motorcycle,"title46","decriiiiiiption","localisation",67, LocalTime.now(),"vente",user,vehicule,  LocalDate.of(2020, 1, 8)));
         offres.add(new Offre("Pikala VTT Lekher", "Vente",12,"Katmchi finma bghiti gha rkeb u zid asahbi wayli",  "bicycle",user,vehicule));
         //offres.add(new Offre("Motor lahuma barik", "Vente",50,"Swinga jaya mn asfi chi haja lahuma barik akhay diali",  "motorcycle",user,vehicule));
         //offres.add(new Offre("Boukchlita lhrba", "Vente",10,"Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi",  "bicycle",user,vehicule));

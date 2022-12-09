@@ -17,6 +17,7 @@ import org.w3c.dom.Text;
 
 public class login_page extends AppCompatActivity {
     private CheckBox remembermecheckbox;
+    private EditText username;
     private Button connect;
     private TextView signUp;
     private TextView forgotpass;
@@ -31,6 +32,8 @@ public class login_page extends AppCompatActivity {
         setContentView(R.layout.activity_login_page);
 
         //Binding components
+        username = (EditText) findViewById(R.id.username);
+        password = (EditText) findViewById(R.id.password);
         emailaddress = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         forgotpass = (TextView)findViewById(R.id.forgotbtn);
@@ -71,8 +74,14 @@ public class login_page extends AppCompatActivity {
                 else{
                     Prefs.edit().clear().apply();
                 }
-                Toast.makeText(getApplicationContext(),"Vous êtes connécté !",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(login_page.this, OffrePageActivity.class));
+                if (username.getText().toString().equals("admin") &&
+                        password.getText().toString().equals("admin")){
+                    Toast.makeText(getApplicationContext(),"Vous êtes connécté !",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(login_page.this, OffrePageActivity.class));
+                } else {
+                    Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
         getPreferencesData();

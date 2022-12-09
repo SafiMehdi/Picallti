@@ -157,6 +157,7 @@
             app:layout_constraintTop_toBottomOf="@id/firstSectionParameter">
 
             <RelativeLayout
+                android:id="@+id/changePasswordSection"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -282,6 +283,7 @@
             app:layout_constraintTop_toBottomOf="@id/secondSectionParameter">
 
             <RelativeLayout
+                android:id="@+id/contactUsSection"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -407,6 +409,7 @@
             app:layout_constraintTop_toBottomOf="@id/thirdSectionParameter">
 
             <RelativeLayout
+                android:id="@+id/logOutSection"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"

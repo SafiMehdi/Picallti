@@ -26,7 +26,7 @@ public class OTP_Receiver extends BroadcastReceiver
             String message = sms.getMessageBody();
             String otp = message.split(": ")[1];
             editText.setText(otp);
-            startActivity(new Intent(OTPActivity.this, forgot_pass1.class));
+            //startActivity(new Intent(OTPActivity.this, forgot_pass1.class));
         }
     }
 }

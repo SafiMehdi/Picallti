@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import data.Notification;
@@ -32,10 +34,19 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.titleTxt.setText(String.valueOf(notifications.get(position).getTitle()));
         holder.descriptionTxt.setText(String.valueOf(notifications.get(position).getText()));
-        holder.timeTxt.setText(String.valueOf(notifications.get(position).getTime()));
+        DateTimeFormatter formatter
+                =DateTimeFormatter.ofPattern("HH:mm");
 
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(notifications.get(position).getUrl(), "drawable", holder.itemView.getContext().getPackageName());
+        holder.timeTxt.setText(String.valueOf(notifications.get(position).getTime().format(formatter)));
 
+        int drawableResourceId;
+
+        if(notifications.get(position).getUrl() != null){
+            drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(notifications.get(position).getUrl(), "drawable", holder.itemView.getContext().getPackageName());
+        }else{
+            drawableResourceId = notifications.get(position).getIcon();
+
+        }
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.removeItem);

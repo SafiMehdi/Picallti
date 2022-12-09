@@ -11,12 +11,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import adapters.FavoritesAdapter;
 import adapters.NotificationAdapter;
 import data.Favoris;
 import data.Offre;
+import data.User;
+import data.Vehicule;
+import data.VehiculeType;
 
 public class FavorisActivity extends AppCompatActivity {
 
@@ -36,17 +41,23 @@ public class FavorisActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        VehiculeType vehiculeType = new VehiculeType("typeV");
+
+        Vehicule vehicule = new Vehicule("marque",vehiculeType);
+        User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+
         ArrayList<Offre> offres =new ArrayList<>();
+        offres.add(  new Offre(R.drawable.bicycle,"title46","decriiiiiiption","localisation",67, LocalTime.now(),"vente",user,vehicule,  LocalDate.of(2020, 1, 8)));
         offres.add(new data.Offre("Pikala VTT Lekher", "Katmchi finma bghiti gha rkeb u zid asahbi wayli", 12, "bicycle"));
         offres.add(new data.Offre("Motor lahuma barik", "Swinga jaya mn asfi chi haja lahuma barik akhay diali", 50, "motorcycle"));
-        offres.add(new data.Offre("Boukchlita lhrba", "Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi", 10, "bicycle"));
-        offres.add(new Offre("Motor makaynch fhalu juj", "Had lmotor dor so9 kaml la l9iti bhalu aji dfl elia", 60, "motorcycle"));
+        //offres.add(new data.Offre("Boukchlita lhrba", "Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi", 10, "bicycle"));
+        //offres.add(new Offre("Motor makaynch fhalu juj", "Had lmotor dor so9 kaml la l9iti bhalu aji dfl elia", 60, "motorcycle"));
 
         ArrayList<Favoris> favoris =new ArrayList<>();
         favoris.add(new Favoris(offres.get(0)));
         favoris.add(new Favoris(offres.get(1)));
-        favoris.add(new Favoris(offres.get(2)));
-        favoris.add(new Favoris(offres.get(3)));
+        //favoris.add(new Favoris(offres.get(2)));
+        //favoris.add(new Favoris(offres.get(3)));
 
         adapter=new FavoritesAdapter(favoris);
         recyclerView.setAdapter(adapter);

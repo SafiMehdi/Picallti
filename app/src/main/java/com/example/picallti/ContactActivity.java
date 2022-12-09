@@ -80,7 +80,7 @@ public class ContactActivity extends AppCompatActivity {
         String val = contactMail.getText().toString();
         String validEmail ="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         if(val.isEmpty()){
-            email.setError("Field cannot be empty !");
+            contactMail.setError("Field cannot be empty !");
             return false;
         }else if (!val.matches(validEmail)){
             contactMail.setError("Invalid email address !");

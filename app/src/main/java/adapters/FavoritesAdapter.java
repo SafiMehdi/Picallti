@@ -1,5 +1,6 @@
 package adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,10 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import data.Favoris;
+import data.Offre;
+
 import com.example.picallti.R;
+import com.example.picallti.SingleOffreActivity;
 
 public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.ViewHolder> {
 
@@ -34,11 +38,48 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
         holder.descriptionTxt.setText(String.valueOf(favoris.get(position).getOffre().getDescription()));
         holder.priceTxt.setText(String.valueOf(favoris.get(position).getOffre().getPrix()));
 
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(favoris.get(position).getOffre().getUrl(), "drawable", holder.itemView.getContext().getPackageName());
+        int drawableResourceId;
+        if (favoris.get(position).getOffre().getUrl() != null){
+             drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(favoris.get(position).getOffre().getUrl(), "drawable", holder.itemView.getContext().getPackageName());
 
+        }else {
+             drawableResourceId = favoris.get(position).getOffre().getImageId();
+        }
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.removeItem);
+
+
+        Offre offre = favoris.get(position).getOffre();
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                int photo;
+                if (offre.getUrl() != null){
+                    photo = holder.itemView.getContext().getResources().getIdentifier(offre.getUrl(), "drawable", holder.itemView.getContext().getPackageName());
+                }
+                else {
+                    photo = offre.getImageId();
+                }
+
+                Intent intent = new Intent(v.getContext(), SingleOffreActivity.class);
+                String time = offre.getLocalDateTime().toString() + " " + offre.getTime().toString().substring(0, 5);
+                intent.putExtra("photo", photo);
+                intent.putExtra("titre", offre.getTitre());
+                intent.putExtra("prix", offre.getPrix());
+                intent.putExtra("date", offre.getLocalDateTime().toString());
+                intent.putExtra("operation", offre.getOperation());
+                intent.putExtra("localisation", offre.getLocalisation());
+                intent.putExtra("description", offre.getDescription());
+                intent.putExtra("time", time);
+                intent.putExtra("user", offre.getUser().getNom());
+                intent.putExtra("phone", offre.getUser().getPhone());
+                intent.putExtra("vehicule", offre.getVehicule().getMarque());
+                v.getContext().startActivity(intent);
+            }
+
+        });
     }
 
 
@@ -46,6 +87,8 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
     public int getItemCount() {
         return favoris.size();
     }
+
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView titleTxt,descriptionTxt,priceTxt;

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -44,6 +45,7 @@ public class SingUp extends AppCompatActivity {
         password = findViewById(R.id.password);
         passwordVerif = findViewById(R.id.passwordVerif);
         signup = (Button) findViewById(R.id.createAccountButton);
+        CheckBox terms = (CheckBox) findViewById(R.id.conditions);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,10 +53,13 @@ public class SingUp extends AppCompatActivity {
                         | !validateEmailValidation() | !validatePassword() | !validatePasswordValidation() )
                 {
                     return;
+                }else if (!terms.isChecked()){
+                    Toast.makeText( SingUp.this, "You should accept our terms and conditions !",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText( SingUp.this, "Account Created !",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(SingUp.this, login_page.class));
+                    Toast.makeText( SingUp.this, "Account Created !",Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -148,7 +153,7 @@ public class SingUp extends AppCompatActivity {
     }
     private Boolean validatePhoneNo(){
         String val = phoneNumber.getText().toString();
-        //String val2 = val.substring(0,2);
+        String val2 = val.length() < 3 ? "00" : val.substring(0,2);
         //System.out.println(val2);
         if(val.isEmpty()){
             phoneNumber.setError("Field cannot be empty !");
@@ -156,10 +161,10 @@ public class SingUp extends AppCompatActivity {
         }else if (val.length() != 10 ){
             phoneNumber.setError("Only 10 digits are allowed !");
             return false;
-        }/*else if (!val2.equals("06") && !val2.equals("07")){
+        }else if (!val2.equals("06") && !val2.equals("07")){
             phoneNumber.setError("Phone number should start with 06 or 07 !");
             return false;
-        }*/
+        }
         else {
             phoneNumber.setError(null);
             return true;

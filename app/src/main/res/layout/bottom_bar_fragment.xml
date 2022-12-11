@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+    <!--<com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        >
+        <ImageButton
+            android:id="@+id/homee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/homeicon"
+            android:layout_alignParentStart="true"
+            android:background="@color/white"
+            app:tint="@color/black"
+            android:height="50dp"
+            android:width="50dp"/>
+        <ImageButton
+            android:id="@+id/profil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/usericon"
+            android:height="50dp"
+            android:width="50dp"
+            android:layout_toEndOf="@+id/homee"
+            android:background="@color/white"
+
+            app:tint="@color/black" />
+
+        <ImageButton
+            android:id="@+id/favoris"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hearticon"
+            android:height="50dp"
+            android:width="50dp"
+            android:layout_toEndOf="@+id/profil"
+            android:background="@color/white"
+
+
+            app:tint="@color/black" />
+
+        <ImageButton
+            android:id="@+id/notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/favoris"
+            android:src="@drawable/notificationicon"
+            android:background="@color/white"
+            android:height="50dp"
+            android:width="50dp"
+
+            app:tint="@color/black" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

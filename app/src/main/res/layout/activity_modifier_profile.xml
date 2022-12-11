@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3">
+
+    <ImageView
+        android:id="@+id/IVPreviewImage"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/sideBarBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Edit Profile"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sideBarBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/changeProfileForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="48dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView12">
+
+        <android.widget.Button
+            android:id="@+id/changePictureBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_btn"
+            android:drawableLeft="@drawable/background_btn_pdp"
+            android:text="@string/changePDPTextView"
+            android:textColor="@color/black"
+            android:fontFamily="@font/fontnew2"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/changeUsernameInput"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:hint="@string/usernameHint"
+            android:inputType="textPersonName"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:paddingStart="15dp"
+            android:drawableStart="@drawable/userlogo"
+            android:fontFamily="@font/fontnew2"
+            android:drawablePadding="12dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:elevation="2dp"
+            android:paddingEnd="5dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/VilleCard"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:elevation="2dp"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Description">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/cities_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                tools:ignore="TouchTargetSizeCheck" />
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/changeEmailInput"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:hint="@string/emailHint"
+            android:inputType="textPersonName"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:paddingStart="15dp"
+            android:drawableStart="@drawable/email1"
+            android:fontFamily="@font/fontnew2"
+            android:drawablePadding="12dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:elevation="2dp"
+            android:paddingEnd="5dp"/>
+
+        <EditText
+            android:id="@+id/changePhoneInput"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:hint="@string/phoneHint"
+            android:inputType="phone"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:paddingStart="15dp"
+            android:drawableStart="@drawable/phone"
+            android:fontFamily="@font/fontnew2"
+            android:drawablePadding="12dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:elevation="2dp"
+            android:paddingEnd="5dp"/>
+
+        <EditText
+            android:id="@+id/changeBioInput"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:hint="@string/bioHint"
+            android:inputType="phone"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:paddingStart="15dp"
+            android:drawableStart="@drawable/phone"
+            android:fontFamily="@font/fontnew2"
+            android:drawablePadding="12dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:elevation="2dp"
+            android:paddingEnd="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hideInfosProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/changeProfileForm">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/hidePhoneTextView"
+                android:textColor="@color/white"
+                android:fontFamily="@font/fontnew2"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/hidePhoneSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:switchMinWidth="50dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/hideEmailTextView"
+                android:textColor="@color/white"
+                android:fontFamily="@font/fontnew2"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/hideEmailSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:switchMinWidth="50dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.widget.Button
+        android:id="@+id/saveEditBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/background_input_form_black"
+        android:text="@string/saveEditText"
+        android:textColor="@color/black"
+        android:fontFamily="@font/fontnew2"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textView12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hideInfosProfile" />
+
+    <LinearLayout
+        android:id="@+id/bottom_bar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        tools:ignore="Orientation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

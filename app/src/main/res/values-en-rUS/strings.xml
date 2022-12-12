@@ -56,8 +56,8 @@
     <string name="textView">\t\t\tYou want to go for a ride\n\t\t\t\tbut have no bike?\n\t\tPicollti came with the solution\n\trent a bike or a scooter with one click</string>
     <string name="button">LOG IN</string>
     <string name="textView2">PICALLTI.2022</string>
+    <string name="hiUsernameText">Salut Username</string>
 
-    <string name="hiUsername">Hi Username</string>
     <string name="welcomeBackText">Welcome Back!</string>
     <string name="categoryText">Category</string>
     <string name="MostViewedText">Most Viewed</string>
@@ -93,8 +93,20 @@
     <string name="deleteTxt">Deleting your account is permanent and will delete all your saved data. Are you sure you want to continue ?</string>
     <string name="titreAjouterOffre">Ajouter offre</string>
     <string name="ajouterPhotoOffre">Ajouter Photo</string>
-    <string name="descriptionOffreHint">Description</string>
+
+    <string name="titreOffreHint">Titre Offre</string>
+    <string name="marqueOffreHint">Marque</string>
+    <string name="descriptionOffreHint">Description Offre</string>
+    <string name="prixOffreHint">Prix</string>
+    <string name="boutonAjouterOffre">Ajouter offre</string>
     <string name="titlepass2">title pass 1</string>
+    <string name="titlepass">title pqsss</string>
+    <string name="resetpasstitle">reset pass</string>
+    <string name="resetpasstitle2">Redzfinire le mot de passe:</string>
+    <string name="titleTooLongMessage">"Le Titre ne doit pas dépasser 100 caractére"</string>
+    <string name="noTitleMessage">"Vous devez mettre un titre"</string>
+    <string name="noPriceMessage">"Vous devez mettre un prix"</string>
+    <string name="falsePriceMessage">"Vous devez mettre un prix correcte"</string>
 
 
 </resources>

@@ -44,7 +44,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
         android:textColor="@color/white"
-        android:text="Send Code"
+        android:text="@string/SendCode"
         android:width="300dp"
         android:backgroundTint="#4361ee"
         android:fontFamily="@font/fontnew2bold"

@@ -49,7 +49,7 @@
         android:background="@drawable/background_outline_white"
         android:drawableLeft="@drawable/search_icon"
         android:ems="10"
-        android:hint="search for ..."
+        android:hint="@string/searchfor"
         android:inputType="textPersonName"
         android:textColorHint="@color/kitten_white"
         android:textStyle="italic"
@@ -86,7 +86,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:text="Category"
+            android:text="@string/Category"
             android:textColor="#000000"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -112,7 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Most Viewed"
+                android:text="@string/MostViewedText"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="#000000"/>
@@ -122,7 +122,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="See All"
+                android:text="@string/seeAllText"
                 android:textSize="18sp"
                 android:textColor="#6446b9"
                 android:textAlignment="viewEnd"/>

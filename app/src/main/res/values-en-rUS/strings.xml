@@ -108,6 +108,15 @@
     <string name="Subject">Subject</string>
     <string name="ForgotPassword">Forgot Password</string>
     <string name="MyOffers">My Offers</string>
+    <string name="searchfor">search for ...</string>
+    <string name="Category">Category</string>
+    <string name="SendCode">Send Code</string>
+    <string name="Entercode">Enter code you received</string>
+    <string name="AddOffer">Add Offer</string>
+    <string name="Change">Change</string>
+    <string name="Titredeloffre">Title of the offer</string>
+    <string name="Comments">Comments</string>
+    <string name="VehicleType">Vehicle Type</string>
 
 
 </resources>

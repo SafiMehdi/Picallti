@@ -132,7 +132,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Add Offer"
+                    android:text="@string/AddOffer"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
@@ -193,7 +193,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Change"
+                android:text="@string/Change"
                 android:textAlignment="viewEnd"
                 android:textColor="#585858"
                 android:textSize="16sp" />
@@ -220,7 +220,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Phone"
+                android:text="@string/phone"
                 android:textColor="#0090FF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -256,7 +256,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="City "
+                android:text="@string/City"
                 android:textColor="#0090FF"
                 android:textSize="18sp"
                 android:textStyle="bold" />

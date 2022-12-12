@@ -24,7 +24,7 @@
     <string name="forgotpasslientext">Recevoir le lien</string>
     <string name="forgotpassback">Retour à la page de connexion</string>
     <string name="app_name">Picallti</string>
-    <string name="signUp">Créer un nouveau compte</string>
+    <string name="signUp">Se deconnécter</string>
     <string name="nom">Nom</string>
     <string name="prenom">Prenom</string>
     <string name="email">Email</string>
@@ -60,7 +60,7 @@
 
     <string name="welcomeBackText">Content de te revoir</string>
     <string name="categoryText">Catégorie</string>
-    <string name="MostViewedText">Les plus regardé</string>
+    <string name="MostViewedText">Les plus regardés</string>
     <string name="seeAllText">Voir tout</string>
     <string name="ContactTitle">Contactez Nous</string>
     <string name="saveEditText">Enregistrer modification</string>
@@ -109,5 +109,15 @@
     <string name="falsePriceMessage">"Vous devez mettre un prix correcte"</string>
     <string name="ForgotPassword">Mot de passe oublié</string>
     <string name="MyOffers">Mes offres</string>
+    <string name="searchfor">rechercher ...</string>
+    <string name="Category">Catégorie</string>
+    <string name="SendCode">Envoyer le code</string>
+    <string name="Entercode">Entrez le code que vous avez reçu</string>
+    <string name="AddOffer">Ajouter offre</string>
+    <string name="Change">Changer</string>
+    <string name="Titredeloffre">Titre de l\'offre</string>
+    <string name="Comments">Commentaires</string>
+    <string name="VehicleType">Type De Véhicule</string>
+
 
 </resources>

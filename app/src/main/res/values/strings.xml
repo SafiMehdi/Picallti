@@ -9,7 +9,7 @@
     <string name="profile">Profile</string>
     <string name="reload">Reload</string>
 
-    <string name="titre">Login</string>
+
     <string name="image_holder">ImageHolder</string>
     <string name="user_placeholder">Email address</string>
     <string name="pass_placeholder">Password</string>
@@ -22,10 +22,8 @@
     <string name="forgotpass">Forgot your password ?</string>
     <string name="register">Register here</string>
     <string name="connectsocial">Or connect with</string>
-    <string name="forgotpasstitle">Forgot your password ?</string>
     <string name="forgotpasstitle2">Change your password</string>
     <string name="forgotpasstext">Please enter your email address to receive the password reset link.</string>
-    <string name="forgotpassmail">Email address</string>
     <string name="forgotpasslientext">Receive a link</string>
     <string name="forgotpassback">Go back to login page</string>
     <string name="signUp">Sign Up</string>
@@ -127,11 +125,15 @@
     <string name="boutonAjouterOffre">Ajouter offre</string>
     <string name="titlepass2">title pass 1</string>
     <string name="titlepass">title pqsss</string>
-    <string name="resetpasstitle">reset pass</string>
-    <string name="resetpasstitle2">Redzfinire le mot de passe:</string>
+    <string name="resetpasstitle2">Reset Password:</string>
     <string name="titleTooLongMessage">"Le Titre ne doit pas dépasser 100 caractére"</string>
     <string name="noTitleMessage">"Vous devez mettre un titre"</string>
     <string name="noPriceMessage">"Vous devez mettre un prix"</string>
     <string name="falsePriceMessage">"Vous devez mettre un prix correcte"</string>
+
+    <string name="Yourmessage">Your message...</string>
+    <string name="Subject">Subject</string>
+    <string name="ForgotPassword">Forgot Password</string>
+    <string name="MyOffers">My Offers</string>
 
 </resources>

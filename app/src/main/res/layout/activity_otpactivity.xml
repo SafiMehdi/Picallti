@@ -11,7 +11,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/forgotpasstitle"
+        android:text="@string/forgotpass"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/fontnew2bold"
         android:textColor="#011EFE"

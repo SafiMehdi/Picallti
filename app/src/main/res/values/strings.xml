@@ -53,9 +53,9 @@
     <string name="deleteAccountMessage2">It will delete all the data saved.</string>
     <string name="deleteAccountMessage3">Are you sure you want to continue ?</string>
     <string name="deleteAccountButton">DELETE MY ACCOUNT</string>
-    <string name="textView">\t\t\tYou want to go for a ride\n\t\t\t\tbut have no bike?\n\t\tPicollti came with the solution\n\trent a bike or a scooter with one click</string>
+    <string name="textView" translatable="false">\t\t\tYou want to go for a ride\n\t\t\t\tbut have no bike?\n\t\tPicollti came with the solution\n\trent a bike or a scooter with one click</string>
     <string name="button">LOG IN</string>
-    <string name="textView2">PICALLTI.2022</string>
+    <string name="textView2" translatable="false">PICALLTI.2022</string>
     <string name="ContactTitle" translatable="false">Contact us</string>
     <string name="ContactSend" translatable="false">Send Message</string>
 
@@ -86,13 +86,13 @@
     <string name="image_view_item_transform_content_description" translatable="false">Represents an image view in the
         item
     </string>
-    <string name="bioTemplate">This is a bio template don\'t mind me</string>
+    <string name="bioTemplate" translatable="false">This is a bio template don\'t mind me</string>
     <string name="usernameTemplate">Username</string>
     <string name="offersTextView">Offers</string>
     <string name="notificationsTextView">Notifications</string>
     <string name="settingsTextView">Settings</string>
-    <string name="phoneNumberTemplate">06-64-40-16-84</string>
-    <string name="emailTemplate">meydi.safi@gmail.com</string>
+    <string name="phoneNumberTemplate" translatable="false">06-64-40-16-84</string>
+    <string name="emailTemplate" translatable="false">meydi.safi@gmail.com</string>
     <string name="editProfileBtnText">Edit Profile</string>
     <string name="changePDPTextView">Change profile picture</string>
     <string name="usernameHint">Change your username</string>
@@ -126,8 +126,8 @@
     <string name="descriptionOffreHint">Description Offre</string>
     <string name="prixOffreHint">Prix</string>
     <string name="boutonAjouterOffre">Ajouter offre</string>
-    <string name="titlepass2">title pass 1</string>
-    <string name="titlepass">title pqsss</string>
+    <string name="titlepass2" translatable="false">title pass 1</string>
+    <string name="titlepass" translatable="false">title pqsss</string>
     <string name="resetpasstitle">reset pass</string>
     <string name="resetpasstitle2">Redzfinire le mot de passe:</string>
     <string name="titleTooLongMessage">"Le Titre ne doit pas dépasser 100 caractére"</string>

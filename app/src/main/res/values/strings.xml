@@ -129,10 +129,23 @@
     <string name="titlepass2" translatable="false">title pass 1</string>
     <string name="titlepass" translatable="false">title pqsss</string>
     <string name="resetpasstitle">reset pass</string>
-    <string name="resetpasstitle2">Redzfinire le mot de passe:</string>
+    <string name="resetpasstitle2">Redéfinire le mot de passe:</string>
     <string name="titleTooLongMessage">"Le Titre ne doit pas dépasser 100 caractére"</string>
-    <string name="noTitleMessage">"Vous devez mettre un titre"</string>
-    <string name="noPriceMessage">"Vous devez mettre un prix"</string>
-    <string name="falsePriceMessage">"Vous devez mettre un prix correcte"</string>
+    <string name="noTitleMessage">You must put a title</string>
+    <string name="noPriceMessage">You must put a price</string>
+    <string name="falsePriceMessage">You must put a correct price</string>
+    <string name="Yourmessage">Your message</string>
+    <string name="Subject">Subject</string>
+    <string name="ForgotPassword">Forgot password</string>
+    <string name="MyOffers">My offers</string>
+    <string name="searchfor">Search for...</string>
+    <string name="Category">Category</string>
+    <string name="SendCode">Send code</string>
+    <string name="Entercode">Enter the code that you received</string>
+    <string name="AddOffer">Add offer</string>
+    <string name="Titredeloffre">Title of the offer</string>
+    <string name="VehicleType">Vehicule type</string>
+    <string name="Change">Change</string>
+    <string name="Comments">Comments</string>
 
 </resources>

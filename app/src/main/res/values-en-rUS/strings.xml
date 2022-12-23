@@ -91,10 +91,33 @@
     <string name="City">City</string>
     <string name="OfferTitle">Offer Title</string>
     <string name="deleteTxt">Deleting your account is permanent and will delete all your saved data. Are you sure you want to continue ?</string>
-    <string name="titreAjouterOffre">Ajouter offre</string>
+    <string name="titreAjouterOffre">Add advertissement</string>
     <string name="ajouterPhotoOffre">Ajouter Photo</string>
     <string name="descriptionOffreHint">Description</string>
     <string name="titlepass2">title pass 1</string>
+    <string name="hiUsernameText">Hi Username</string>
+    <string name="titreOffreHint">Title of the offer</string>
+    <string name="marqueOffreHint">Mark</string>
+    <string name="prixOffreHint">Price</string>
+    <string name="boutonAjouterOffre">Add offer</string>
+    <string name="resetpasstitle">Resset password</string>
+    <string name="resetpasstitle2">Resset password</string>
+    <string name="noTitleMessage">You must put a title</string>
+    <string name="noPriceMessage">You must put a price</string>
+    <string name="falsePriceMessage">You must put a correct price</string>
+    <string name="Yourmessage">Your message</string>
+    <string name="Subject">Subject</string>
+    <string name="ForgotPassword">Forgot password</string>
+    <string name="MyOffers">My offers</string>
+    <string name="searchfor">Search for...</string>
+    <string name="Category">Category</string>
+    <string name="SendCode">Send code</string>
+    <string name="Entercode">Enter the code that you received</string>
+    <string name="AddOffer">Add offer</string>
+    <string name="Titredeloffre">Title of the offer</string>
+    <string name="VehicleType">Vehicule type</string>
+    <string name="Change">Change</string>
+    <string name="Comments">Comments</string>
 
 
 </resources>

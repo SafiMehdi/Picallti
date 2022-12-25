@@ -69,14 +69,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageOffre" />
 
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@drawable/image_slider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageOffre" />
 
     <LinearLayout
         android:id="@+id/offreInfo"
@@ -84,11 +76,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/shape_more_info_offre"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageButton5" >
+        app:layout_constraintTop_toBottomOf="@id/imageOffre" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -138,7 +131,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView18"
+                    android:id="@+id/imageView17"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginEnd="5dp"
@@ -176,7 +169,6 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_weight="2"
             android:orientation="horizontal">
 
             <ImageButton
@@ -206,6 +198,7 @@
                 android:id="@+id/favoris"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
+                android:layout_marginLeft="150dp"
                 android:background="@drawable/like" />
 
         </LinearLayout>
@@ -224,7 +217,7 @@
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="230dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
@@ -238,24 +231,38 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView28"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
                 android:text="Commentaires"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/imageView19"
-                android:layout_width="48dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/stars" />
-        </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/view_holder_comments"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" >
 
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+
+        </LinearLayout>
+        <EditText
+            android:id="@+id/TitreOffre"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:drawableRight="@drawable/send_comment_input"
+            android:hint="@string/add_your_comment"
+            android:inputType="text"
+            android:layout_marginTop="15dp"
+            android:paddingStart="15dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

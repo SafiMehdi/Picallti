@@ -134,5 +134,6 @@
     <string name="noTitleMessage">"Vous devez mettre un titre"</string>
     <string name="noPriceMessage">"Vous devez mettre un prix"</string>
     <string name="falsePriceMessage">"Vous devez mettre un prix correcte"</string>
+    <string name="add_your_comment">Add your comment</string>
 
 </resources>

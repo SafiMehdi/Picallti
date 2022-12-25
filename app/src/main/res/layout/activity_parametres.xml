@@ -355,41 +355,7 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
-                android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/faq"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/icon_faq" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/faq"
-                    android:layout_weight="1"
-                    android:text="FAQ's"
-                    android:textColor="@color/kitten_white"
-                    android:textStyle="bold" />
-
-                <ImageButton
-                    android:id="@+id/faqForward"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_weight="1"
-                    android:background="@drawable/arrow_right"
-                    app:switchMinWidth="50dp" />
-
-            </RelativeLayout>
 
         </LinearLayout>
 

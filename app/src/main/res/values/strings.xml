@@ -135,4 +135,11 @@
     <string name="noPriceMessage">"Vous devez mettre un prix"</string>
     <string name="falsePriceMessage">"Vous devez mettre un prix correcte"</string>
 
+    <string name="menu_mon_profil">Mon profil</string>
+    <string name="menu_apparence">Apparence</string>
+    <string name="menu_language">Langues</string>
+    <string name="menu_apropos">A propos</string>
+    <string name="menu_parametre">Paramètres</string>
+    <string name="menu_likes">Mes likes</string>
+
 </resources>

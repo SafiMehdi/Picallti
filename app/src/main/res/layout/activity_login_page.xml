@@ -11,21 +11,10 @@
 
 
     <ImageView
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/back"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="35dp"
-        android:layout_marginStart="20dp"
-        android:contentDescription="@string/image_holder"/>
-
-    <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/back"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/picallti_finallogo"
         android:adjustViewBounds="true"
         android:maxWidth="200dp"

@@ -9,13 +9,13 @@
         android:id="@+id/titreOffre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="Titre de l'offre"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="64dp" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -27,27 +27,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageOffre" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/menu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageOffre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
         android:background="@drawable/img_offre_shape"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/titreOffre"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titreOffre" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -217,7 +205,7 @@
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="270dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
@@ -231,7 +219,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:orientation="vertical">
 
             <TextView
@@ -245,24 +233,24 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/view_holder_comments"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp" >
+                android:layout_marginBottom="15dp">
 
             </androidx.recyclerview.widget.RecyclerView>
 
 
-
         </LinearLayout>
+
         <EditText
             android:id="@+id/TitreOffre"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/rounded_corners_edittext"
             android:drawableRight="@drawable/send_comment_input"
             android:hint="@string/add_your_comment"
             android:inputType="text"
-            android:layout_marginTop="15dp"
             android:paddingStart="15dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

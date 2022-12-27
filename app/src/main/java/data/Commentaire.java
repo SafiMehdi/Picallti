@@ -22,7 +22,7 @@ public class Commentaire {
         this.time = time;
     }
 
-    public Commentaire( String commentaire, User user, Offre offre,LocalDate LocalDateTime,LocalTime time) {
+    public Commentaire(String commentaire, User user, Offre offre,LocalDate LocalDateTime,LocalTime time) {
         this.commentaire = commentaire;
         this.user = user;
         this.offre = offre;

@@ -43,6 +43,7 @@ public class login_page extends AppCompatActivity {
         Prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
 
+
         forgotpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

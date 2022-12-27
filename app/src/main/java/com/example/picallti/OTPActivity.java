@@ -5,10 +5,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,12 +26,22 @@ public class OTPActivity extends AppCompatActivity {
     Button verifyCode;*/
     @BindView(R.id.sendCode)
     Button sendCode;
+    @BindView(R.id.txtbacklogin)
+    TextView txtbacklogin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otpactivity);
         ButterKnife.bind(this);
+
+        txtbacklogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(OTPActivity.this, login_page.class));
+            }
+        });
 
         if(!validatePhoneNo()){
             return;

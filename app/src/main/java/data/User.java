@@ -1,5 +1,7 @@
 package data;
 
+import android.widget.EditText;
+
 public class User {
     private int id;
     private String nom;
@@ -46,6 +48,16 @@ public class User {
         this.password = password;
         this.photo = photo;
         this.role = role;
+    }
+    public User(String nom, String prenom, String email, int phone, String password) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+    }
+
+    public User(EditText surname, EditText name, EditText email, EditText phoneNumber, EditText password) {
     }
 
     public int getId() {

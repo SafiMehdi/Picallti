@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -19,7 +20,17 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import MailAPI2.GMailSender;
+import data.User;
+import retrofit.RetrofitService;
+import retrofit.UserApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class SingUp extends AppCompatActivity {
     EditText surname, name, email, emailVerif, phoneNumber, password, passwordVerif;
@@ -44,6 +55,10 @@ public class SingUp extends AppCompatActivity {
         password = findViewById(R.id.password);
         passwordVerif = findViewById(R.id.passwordVerif);
         signup = (Button) findViewById(R.id.createAccountButton);
+        CheckBox terms = (CheckBox) findViewById(R.id.conditions);
+
+        RetrofitService retrofitService = new RetrofitService();
+        UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,10 +66,34 @@ public class SingUp extends AppCompatActivity {
                         | !validateEmailValidation() | !validatePassword() | !validatePasswordValidation() )
                 {
                     return;
+                }else if (!terms.isChecked()){
+                    Toast.makeText( SingUp.this, "You should accept our terms and conditions !",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText( SingUp.this, "Account Created !",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(SingUp.this, login_page.class));
+                    String nom = surname.getText().toString();
+                    String prenom = name.getText().toString();
+                    String mail = email.getText().toString();
+                    String mdp = password.getText().toString();
+                    int phone = Integer.parseInt(phoneNumber.getText().toString());
+
+                    User user = new User(nom, prenom, mail, phone,mdp);
+
+                    userApi.addUser(user)
+                                    .enqueue(new Callback() {
+                                        @Override
+                                        public void onResponse(Call call, Response response) {
+                                            startActivity(new Intent(SingUp.this, login_page.class));
+                                            Toast.makeText( SingUp.this, "Account Created !",Toast.LENGTH_SHORT).show();
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call call, Throwable t) {
+                                            Logger.getLogger(SingUp.class.getName()).log(Level.SEVERE, "Error Occured", t);
+                                        }
+                                    });
+
+
+
                 }
             }
         });
@@ -148,7 +187,7 @@ public class SingUp extends AppCompatActivity {
     }
     private Boolean validatePhoneNo(){
         String val = phoneNumber.getText().toString();
-        //String val2 = val.substring(0,2);
+        String val2 = val.length() < 3 ? "00" : val.substring(0,2);
         //System.out.println(val2);
         if(val.isEmpty()){
             phoneNumber.setError("Field cannot be empty !");
@@ -156,10 +195,10 @@ public class SingUp extends AppCompatActivity {
         }else if (val.length() != 10 ){
             phoneNumber.setError("Only 10 digits are allowed !");
             return false;
-        }/*else if (!val2.equals("06") && !val2.equals("07")){
+        }else if (!val2.equals("06") && !val2.equals("07")){
             phoneNumber.setError("Phone number should start with 06 or 07 !");
             return false;
-        }*/
+        }
         else {
             phoneNumber.setError(null);
             return true;

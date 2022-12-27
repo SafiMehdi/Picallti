@@ -20,7 +20,17 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import MailAPI2.GMailSender;
+import data.User;
+import retrofit.RetrofitService;
+import retrofit.UserApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class SingUp extends AppCompatActivity {
     EditText surname, name, email, emailVerif, phoneNumber, password, passwordVerif;
@@ -46,6 +56,9 @@ public class SingUp extends AppCompatActivity {
         passwordVerif = findViewById(R.id.passwordVerif);
         signup = (Button) findViewById(R.id.createAccountButton);
         CheckBox terms = (CheckBox) findViewById(R.id.conditions);
+
+        RetrofitService retrofitService = new RetrofitService();
+        UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,8 +70,29 @@ public class SingUp extends AppCompatActivity {
                     Toast.makeText( SingUp.this, "You should accept our terms and conditions !",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    startActivity(new Intent(SingUp.this, login_page.class));
-                    Toast.makeText( SingUp.this, "Account Created !",Toast.LENGTH_SHORT).show();
+                    String nom = surname.getText().toString();
+                    String prenom = name.getText().toString();
+                    String mail = email.getText().toString();
+                    String mdp = password.getText().toString();
+                    int phone = Integer.parseInt(phoneNumber.getText().toString());
+
+                    User user = new User(nom, prenom, mail, phone,mdp);
+
+                    userApi.addUser(user)
+                                    .enqueue(new Callback() {
+                                        @Override
+                                        public void onResponse(Call call, Response response) {
+                                            startActivity(new Intent(SingUp.this, login_page.class));
+                                            Toast.makeText( SingUp.this, "Account Created !",Toast.LENGTH_SHORT).show();
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call call, Throwable t) {
+                                            Logger.getLogger(SingUp.class.getName()).log(Level.SEVERE, "Error Occured", t);
+                                        }
+                                    });
+
+
 
                 }
             }

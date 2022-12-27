@@ -56,7 +56,8 @@ public class OffrePageActivity extends AppCompatActivity {
                         // add the fragment
                         break;
                     case R.id.nav_apropos:
-                        // add the fragment
+                        Intent intent_apropos = new Intent(OffrePageActivity.this, AproposActivity.class);
+                        startActivity(intent_apropos);
                         break;
                     case R.id.nav_parametre:
                         Intent intent_parametre = new Intent(OffrePageActivity.this, ParametresActivity.class);

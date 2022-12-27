@@ -1,13 +1,20 @@
 package com.example.picallti;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -76,7 +83,44 @@ public class OffrePageActivity extends AppCompatActivity {
 
         adapter=new OffresAdapter(getApplicationContext(),offres);
         recyclerView.setAdapter(adapter);
+
+        //Sidebar implementation
+        NavigationView navView = findViewById(R.id.sidebar_view);
+        navView.inflateMenu(R.menu.sidebar_menu);
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.nav_profil:
+                        Intent intent = new Intent(OffrePageActivity.this, ProfileActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.nav_likes:
+                        // Handle the selection of item 2
+                        break;
+                    default:
+                        return false;
+                }
+                return true;
+            }
+        });
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout_offre_page);
+
+        ImageButton toggleButton = findViewById(R.id.sidebar_button);
+        toggleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open or close the navigation drawer when the button is clicked
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+            }
+        });
     }
+
+
 
 
 }

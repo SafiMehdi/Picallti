@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout_offre_page"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    layout_width=""
-    layout_height="">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

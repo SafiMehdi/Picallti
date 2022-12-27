@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".login_page"
     android:background="#f8f9fa"
-
     >
 
 

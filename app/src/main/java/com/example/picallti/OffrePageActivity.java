@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -105,11 +106,18 @@ public class OffrePageActivity extends AppCompatActivity {
         });
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout_offre_page);
 
-        // Close the drawer
-        drawerLayout.closeDrawer(GravityCompat.START);
-
-        // Open the drawer
-        drawerLayout.openDrawer(GravityCompat.START);
+        ImageButton toggleButton = findViewById(R.id.sidebar_button);
+        toggleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open or close the navigation drawer when the button is clicked
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+            }
+        });
     }
 
 

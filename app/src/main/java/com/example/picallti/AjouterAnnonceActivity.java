@@ -66,11 +66,11 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
     }
 
     public void villeValue(String selectedV) {
-        this.selectedOp = selectedV;
+        this.selectedVille = selectedV;
     }
 
     public void catValue(String selectedV) {
-        this.selectedOp = selectedV;
+        this.selectedCat = selectedV;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,40 +107,13 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println("----------------------------------------");
-    }
-
-    @OnClick(R.id.button)
-    public void saveOffre(){
-        if(titre.getText().length() >100  ){
-            Toast.makeText(getApplicationContext(),R.string.titleTooLongMessage, Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(titre.getText().length() == 0  ){
-            Toast.makeText(getApplicationContext(),R.string.noTitleMessage, Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(prix.getText().length() == 0  ){
-            Toast.makeText(getApplicationContext(),R.string.noPriceMessage, Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (Float.parseFloat(prix.getText().toString()) <=0){
-            Toast.makeText(getApplicationContext(),R.string.falsePriceMessage, Toast.LENGTH_SHORT).show();
-            return;
-        }
-
         Spinner operation = findViewById(R.id.Operation);
-        /*operation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                operationValue(String.valueOf(adapterView.getItemIdAtPosition(position)));
-            }
-        });*/
         operation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 operationValue(String.valueOf(parent.getItemIdAtPosition(position)));
-
+                System.out.println(parent.getItemIdAtPosition(position));
+                System.out.println("----------------------------------------");
             }
 
             @Override
@@ -174,6 +147,34 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @OnClick(R.id.button)
+    public void saveOffre(){
+        if(titre.getText().length() >100  ){
+            Toast.makeText(getApplicationContext(),R.string.titleTooLongMessage, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(titre.getText().length() == 0  ){
+            Toast.makeText(getApplicationContext(),R.string.noTitleMessage, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(prix.getText().length() == 0  ){
+            Toast.makeText(getApplicationContext(),R.string.noPriceMessage, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (Float.parseFloat(prix.getText().toString()) <=0){
+            Toast.makeText(getApplicationContext(),R.string.falsePriceMessage, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        /*operation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                operationValue(String.valueOf(adapterView.getItemIdAtPosition(position)));
+            }
+        });*/
+
 
 
         String title = titre.getText().toString();
@@ -190,7 +191,7 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
         RetrofitService retrofitService = new RetrofitService();
         OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
 
-        Offre offre = new Offre(R.drawable.avatar_2,title,desc,"localisation",price, LocalTime.now().toString(),op,user,vehicule,LocalDate.now().toString());
+        Offre offre = new Offre(R.drawable.avatar_2,title,desc,"localisation",price, LocalTime.now().toString(),op,user,vehicule,LocalDate.now().toString(),city);
         System.out.println(new Gson().toJson(offre));
         offreApi.addOffre(offre)
                 .enqueue(new Callback() {

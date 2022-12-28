@@ -23,8 +23,10 @@ public class Offre {
     private String url;
     @SerializedName("locaLDate")
     private String LocalDateTime;
+    private String ville;
 
-    public Offre(Integer id, Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule,String LocalDateTime) {
+
+    public Offre(Integer id, Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule,String LocalDateTime,String ville) {
         this.id = id;
         this.imageId = imageId;
         this.titre = titre;
@@ -36,9 +38,10 @@ public class Offre {
         this.user = user;
         this.LocalDateTime = LocalDateTime;
         this.vehicule = vehicule;
+        this.ville = ville;
     }
 
-    public Offre( Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule,String LocalDateTime) {
+    public Offre( Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule,String LocalDateTime,String ville) {
         this.imageId = imageId;
         this.titre = titre;
         this.description = description;
@@ -49,9 +52,10 @@ public class Offre {
         this.user = user;
         this.vehicule = vehicule;
         this.LocalDateTime = LocalDateTime;
+        this.ville = ville;
     }
 
-    public Offre(int id, String titre, String description, String operation, float prix, String url, User owner, Vehicule vehicule) {
+    public Offre(int id, String titre, String description, String operation, float prix, String url, User owner, Vehicule vehicule,String ville) {
         this.id = id;
         this.titre = titre;
         this.description = description;
@@ -60,9 +64,10 @@ public class Offre {
         this.user = owner;
         this.vehicule = vehicule;
         this.url = url;
+        this.ville = ville;
     }
 
-    public Offre(String titre, String description, String operation, float prix, String url, User owner, Vehicule vehicule) {
+    public Offre(String titre, String description, String operation, float prix, String url, User owner, Vehicule vehicule,String ville) {
         this.titre = titre;
         this.description = description;
         this.operation = operation;
@@ -70,8 +75,9 @@ public class Offre {
         this.user = owner;
         this.vehicule = vehicule;
         this.url = url;
+        this.ville = ville;
     }
-    public Offre(String titre, String operation,float prix,String description,  String url, User owner, Vehicule vehicule) {
+    public Offre(String titre, String operation,float prix,String description,  String url, User owner, Vehicule vehicule,String ville) {
         this.titre = titre;
         this.description = description;
         this.operation = operation;
@@ -79,12 +85,14 @@ public class Offre {
         this.user = owner;
         this.vehicule = vehicule;
         this.url = url;
+        this.ville = ville;
     }
     public Offre(String titre, String description, float prix, String url ){
         this.titre = titre;
         this.description = description;
         this.prix = prix;
         this.url = url;
+        this.ville = ville;
     }
     public Integer getId() {
         return id;
@@ -193,5 +201,13 @@ public class Offre {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 }

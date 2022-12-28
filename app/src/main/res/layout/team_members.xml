@@ -31,6 +31,7 @@
                 android:layout_height="wrap_content"
                 android:text="Meryem Bensaid"
                 android:layout_gravity="center"
+                android:textColor="@color/bleu_dark"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -38,6 +39,7 @@
                 android:text="Ilham Oukassou"
                 android:layout_gravity="center"
                 android:layout_column="2"
+                android:textColor="@color/bleu_dark"
                 />
         </TableRow>
 
@@ -46,13 +48,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/position"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:textColor="@color/bleu_dark"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/position"
                 android:layout_gravity="center"
-                android:layout_column="2" />
+                android:layout_column="2"
+                android:textColor="@color/bleu_dark" />
         </TableRow>
 
         <TableRow>
@@ -81,6 +85,7 @@
                 android:layout_height="wrap_content"
                 android:text="Mehdi Safi"
                 android:layout_gravity="center"
+                android:textColor="@color/bleu_dark"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -88,6 +93,7 @@
                 android:text="Ayoub Fadili"
                 android:layout_gravity="center"
                 android:layout_column="2"
+                android:textColor="@color/bleu_dark"
                 />
         </TableRow>
 
@@ -96,13 +102,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/position"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:textColor="@color/bleu_dark"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/position"
                 android:layout_gravity="center"
-                android:layout_column="2" />
+                android:layout_column="2"
+                android:textColor="@color/bleu_dark" />
         </TableRow>
 
         <TableRow>
@@ -131,6 +139,7 @@
                 android:layout_height="wrap_content"
                 android:text="IbtissamZerouali"
                 android:layout_gravity="center"
+                android:textColor="@color/bleu_dark"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -138,6 +147,7 @@
                 android:text="Mohammed Echtouki"
                 android:layout_gravity="center"
                 android:layout_column="2"
+                android:textColor="@color/bleu_dark"
                 />
         </TableRow>
 
@@ -146,13 +156,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/position"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:textColor="@color/bleu_dark"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/position"
                 android:layout_gravity="center"
-                android:layout_column="2" />
+                android:layout_column="2"
+                android:textColor="@color/bleu_dark" />
         </TableRow>
 
         <TableRow>
@@ -181,6 +193,7 @@
                 android:layout_height="wrap_content"
                 android:text="Nisrine Moufakir"
                 android:layout_gravity="center"
+                android:textColor="@color/bleu_dark"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -188,6 +201,7 @@
                 android:text="Ouissal Elkorri"
                 android:layout_gravity="center"
                 android:layout_column="2"
+                android:textColor="@color/bleu_dark"
                 />
         </TableRow>
 
@@ -196,13 +210,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/position"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:textColor="@color/bleu_dark"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/position"
                 android:layout_gravity="center"
-                android:layout_column="2" />
+                android:layout_column="2"
+                android:textColor="@color/bleu_dark" />
         </TableRow>
 
         <TableRow>

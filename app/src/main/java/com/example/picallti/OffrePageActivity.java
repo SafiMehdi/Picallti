@@ -53,7 +53,8 @@ public class OffrePageActivity extends AppCompatActivity {
                         startActivity(intent_likes);
                         break;
                     case R.id.nav_langues:
-                        // add the fragment
+                        Intent intent_langues = new Intent(OffrePageActivity.this, LanguagesActivity.class);
+                        startActivity(intent_langues);
                         break;
                     case R.id.nav_apropos:
                         Intent intent_apropos = new Intent(OffrePageActivity.this, AproposActivity.class);

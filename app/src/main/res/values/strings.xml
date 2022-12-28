@@ -146,5 +146,7 @@
     <string name="sidebar_drawer_close">Fermer le tiroir de navigation</string>
 
     <string name="position">Co-fondateur</string>
+    <string name="languages_choice">Chose the application language
+        (we have only three languages till now, we will add others in the nearest future)</string>
 
 </resources>

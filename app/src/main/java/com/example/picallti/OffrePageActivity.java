@@ -161,7 +161,6 @@ public class OffrePageActivity extends AppCompatActivity {
                 System.out.println(offres);
                 adapter = new OffresAdapter(getApplicationContext(), offres);
                 recyclerView.setAdapter(adapter);
-            }
 
         //Sidebar implementation
         Sidebar();

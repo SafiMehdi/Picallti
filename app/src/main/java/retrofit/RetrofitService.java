@@ -16,7 +16,7 @@ public class RetrofitService {
     }
     private void initializeRetrofit() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.42.1:8080")
+                .baseUrl("http://192.168.100.31:8080")
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .build();
     }
@@ -27,6 +27,7 @@ public class RetrofitService {
 }
 /*
 * Meryem ip : 192.168.100.31
+* Ilham ip : 192.168.42.1
 *
 *
 * */

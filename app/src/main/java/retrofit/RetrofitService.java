@@ -25,3 +25,8 @@ public class RetrofitService {
         return retrofit;
     }
 }
+/*
+* Meryem ip : 192.168.100.31
+*
+*
+* */

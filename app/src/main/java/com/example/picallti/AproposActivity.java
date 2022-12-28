@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +13,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+public class AproposActivity extends AppCompatActivity {
 
-public class ProfileActivity extends AppCompatActivity {
-
-    BottomBarFragment frag = new BottomBarFragment();
     //The function that implements the sidebar
     public void Sidebar(){
         NavigationView navView = findViewById(R.id.sidebar_view);
@@ -29,23 +24,23 @@ public class ProfileActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.nav_profile:
-                        Intent intent_profile = new Intent(ProfileActivity.this, ProfileActivity.class);
+                        Intent intent_profile = new Intent(AproposActivity.this, ProfileActivity.class);
                         startActivity(intent_profile);
                         break;
                     case R.id.nav_likes:
-                        Intent intent_likes = new Intent(ProfileActivity.this, FavorisActivity.class);
+                        Intent intent_likes = new Intent(AproposActivity.this, FavorisActivity.class);
                         startActivity(intent_likes);
                         break;
                     case R.id.nav_langues:
-                        Intent intent_langues = new Intent(ProfileActivity.this, LanguagesActivity.class);
+                        Intent intent_langues = new Intent(AproposActivity.this, LanguagesActivity.class);
                         startActivity(intent_langues);
                         break;
                     case R.id.nav_apropos:
-                        Intent intent_apropos = new Intent(ProfileActivity.this, AproposActivity.class);
+                        Intent intent_apropos = new Intent(AproposActivity.this, AproposActivity.class);
                         startActivity(intent_apropos);
                         break;
                     case R.id.nav_parametre:
-                        Intent intent_parametre = new Intent(ProfileActivity.this, ParametresActivity.class);
+                        Intent intent_parametre = new Intent(AproposActivity.this, ParametresActivity.class);
                         startActivity(intent_parametre);
                         break;
                     default:
@@ -54,11 +49,10 @@ public class ProfileActivity extends AppCompatActivity {
                 return true;
             }
         });
-        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout_profile_page);
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout_apropos_page);
 
-        ImageButton toggleButton1 = findViewById(R.id.sidebar_button_profile);
-        toggleButton1.bringToFront();
-        toggleButton1.setOnClickListener(new View.OnClickListener() {
+        ImageButton toggleButton = findViewById(R.id.sidebar_button);
+        toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Open or close the navigation drawer when the button is clicked
@@ -72,37 +66,10 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-        getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
-        ImageView img = (ImageView) findViewById(R.id.profile_picture);
-        img.setBackgroundResource(R.drawable.background_profile_picutre);
-        ButterKnife.bind(this);
+        setContentView(R.layout.activity_apropos);
         //Sidebar implementation
         Sidebar();
     }
-
-    @OnClick(R.id.addOfferButton)
-    public void addClick(){
-        Intent intent = new Intent(this,AjouterAnnonceActivity.class);
-        startActivity(intent);
-    }
-    @OnClick(R.id.settingsBtn)
-    public void settingsClick(){
-        Intent intent = new Intent(this,ParametresActivity.class);
-        startActivity(intent);
-    }
-    @OnClick(R.id.editProfileBtn)
-    public void editClick(){
-        Intent intent = new Intent(this,ModifierProfileActivity.class);
-        startActivity(intent);
-    }
-    @OnClick(R.id.OffresBtn)
-    public void OffresClick(){
-        Intent intent = new Intent(this,PersonnalOfferActivity.class);
-        startActivity(intent);
-    }
-
-
 }

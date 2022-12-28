@@ -150,6 +150,20 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".AproposActivity"
+            android:exported="true" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".LanguagesActivity"
+            android:exported="true" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".HomePageActivity"
             android:exported="true" >
             <intent-filter>

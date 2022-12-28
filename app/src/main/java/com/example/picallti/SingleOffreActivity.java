@@ -6,13 +6,20 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -64,6 +71,56 @@ public class SingleOffreActivity extends AppCompatActivity {
     @BindView(R.id.favoris)
     ImageButton like;
     int phoneNummber;
+
+    //The function that implements the sidebar
+    public void Sidebar(){
+        NavigationView navView = findViewById(R.id.sidebar_view);
+        navView.inflateMenu(R.menu.sidebar_menu);
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.nav_profile:
+                        Intent intent_profile = new Intent(SingleOffreActivity.this, ProfileActivity.class);
+                        startActivity(intent_profile);
+                        break;
+                    case R.id.nav_likes:
+                        Intent intent_likes = new Intent(SingleOffreActivity.this, FavorisActivity.class);
+                        startActivity(intent_likes);
+                        break;
+                    case R.id.nav_langues:
+                        Intent intent_langues = new Intent(SingleOffreActivity.this, LanguagesActivity.class);
+                        startActivity(intent_langues);
+                        break;
+                    case R.id.nav_apropos:
+                        Intent intent_apropos = new Intent(SingleOffreActivity.this, AproposActivity.class);
+                        startActivity(intent_apropos);
+                        break;
+                    case R.id.nav_parametre:
+                        Intent intent_parametre = new Intent(SingleOffreActivity.this, ParametresActivity.class);
+                        startActivity(intent_parametre);
+                        break;
+                    default:
+                        return false;
+                }
+                return true;
+            }
+        });
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout_single_offer_page);
+
+        ImageButton toggleButton = findViewById(R.id.sidebar_button);
+        toggleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open or close the navigation drawer when the button is clicked
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+            }
+        });
+    }
 
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerView;
@@ -139,6 +196,17 @@ public class SingleOffreActivity extends AppCompatActivity {
 
             }
         });
+        ButterKnife.bind(this);
+        Bundle extras = getIntent().getExtras();
+        titreOffre.setText(extras.getString("titre"));
+        imageOffre.setBackgroundResource(extras.getInt("photo"));
+        prix.setText(Double.toString(extras.getDouble("prix")));
+        time.setText(extras.getString("time"));
+        description.setText(extras.getString("description"));
+        this.phoneNummber = extras.getInt("phone");
+
+        //Sidebar implementation
+        Sidebar();
     }
 
     @OnClick(R.id.appeler)

@@ -147,5 +147,6 @@
     <string name="VehicleType">Vehicule type</string>
     <string name="Change">Change</string>
     <string name="Comments">Comments</string>
+    <string name="add_your_comment">"add your comment "</string>
 
 </resources>

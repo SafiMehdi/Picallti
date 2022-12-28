@@ -38,7 +38,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.commentTxt.setText(String.valueOf(commentaires.get(position).getCommentaire()));
-        holder.usernameTxt.setText(String.valueOf(commentaires.get(position).getUser()));
+        holder.usernameTxt.setText(String.valueOf(commentaires.get(position).getUser().getNom()));
 
         int drawableResourceId = commentaires.get(position).getUser().getPhoto();
 

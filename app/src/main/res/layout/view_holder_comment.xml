@@ -12,7 +12,7 @@
         android:id="@+id/img_view"
         android:layout_width="42dp"
         android:layout_height="42dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/commentSection"
@@ -24,7 +24,7 @@
 
     <LinearLayout
         android:id="@+id/commentSection"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@+id/img_view"

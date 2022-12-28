@@ -4,14 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,13 +49,29 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
     TextView prix;
     @BindView(R.id.add)
     ImageView addImage;
-    @BindView(R.id.Operation)
-    TextView operation;
+    /*@BindView(R.id.Operation)
+    Spinner operation;
     @BindView(R.id.Ville)
     TextView ville;
     @BindView(R.id.Categorie)
-    TextView category;
+    TextView category;*/
 
+    String selectedOp = "";
+    String selectedVille = "";
+    String selectedCat = "";
+
+
+    public void operationValue(String selectedV ){
+        this.selectedOp = selectedV;
+    }
+
+    public void villeValue(String selectedV) {
+        this.selectedOp = selectedV;
+    }
+
+    public void catValue(String selectedV) {
+        this.selectedOp = selectedV;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,22 +129,69 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
             return;
         }
 
+        Spinner operation = findViewById(R.id.Operation);
+        /*operation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                operationValue(String.valueOf(adapterView.getItemIdAtPosition(position)));
+            }
+        });*/
+        operation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                operationValue(String.valueOf(parent.getItemIdAtPosition(position)));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        Spinner ville = findViewById(R.id.Ville);
+        ville.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                villeValue(String.valueOf(parent.getItemIdAtPosition(position)));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        Spinner category = findViewById(R.id.Categorie);
+        category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                catValue(String.valueOf(parent.getItemIdAtPosition(position)));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
         String title = titre.getText().toString();
         String desc = description.getText().toString();
         float price = Float.parseFloat(prix.getText().toString());
-        String op = operation.getText().toString();
-        String city = ville.getText().toString();
+        String op = this.selectedOp;
+        String city = this.selectedVille;
 
-        VehiculeType vehiculeType = new VehiculeType("typeV");
-        Vehicule vehicule = new Vehicule("marque",vehiculeType);
-        User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+        VehiculeType vehiculeType = new VehiculeType(1,"typeV");
+        Vehicule vehicule = new Vehicule(1,"marque",vehiculeType);
+        User user = new User(1,"nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
 
 
         RetrofitService retrofitService = new RetrofitService();
         OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
-        Call<List<Offre>> call = offreApi.getOffers();
 
-        Offre offre = new Offre(R.drawable.avatar_2,title,desc,"localisation",price, LocalDate.now().toString(),op,user,vehicule,LocalDate.now().toString());
+        Offre offre = new Offre(R.drawable.avatar_2,title,desc,"localisation",price, LocalTime.now().toString(),op,user,vehicule,LocalDate.now().toString());
+        System.out.println(new Gson().toJson(offre));
         offreApi.addOffre(offre)
                 .enqueue(new Callback() {
                     @Override

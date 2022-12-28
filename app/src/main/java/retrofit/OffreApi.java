@@ -12,6 +12,6 @@ public interface OffreApi {
     @GET("/offers/getAll")
     Call<List<Offre>> getOffers();
 
-    @POST("/offres/add")
+    @POST("/offers/add")
     Call<Void> addOffre(@Body Offre offre);
 }

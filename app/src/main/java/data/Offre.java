@@ -1,5 +1,7 @@
 package data;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -19,6 +21,7 @@ public class Offre {
     private User user;
     private Vehicule vehicule;
     private String url;
+    @SerializedName("locaLDate")
     private String LocalDateTime;
 
     public Offre(Integer id, Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule,String LocalDateTime) {

@@ -1,5 +1,7 @@
 package data;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -14,14 +16,15 @@ public class Offre {
     private String description;
     private String localisation;
     private float prix;
-    private LocalTime time;
+    private String time;
     private String operation;
     private User user;
     private Vehicule vehicule;
     private String url;
-    private LocalDate LocalDateTime;
+    @SerializedName("locaLDate")
+    private String LocalDateTime;
 
-    public Offre(Integer id, Integer imageId, String titre, String description, String localisation, float prix, LocalTime time, String operation, User user,Vehicule vehicule,LocalDate LocalDateTime) {
+    public Offre(Integer id, Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule,String LocalDateTime) {
         this.id = id;
         this.imageId = imageId;
         this.titre = titre;
@@ -35,7 +38,7 @@ public class Offre {
         this.vehicule = vehicule;
     }
 
-    public Offre( Integer imageId, String titre, String description, String localisation, float prix, LocalTime time, String operation, User user,Vehicule vehicule,LocalDate LocalDateTime) {
+    public Offre( Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule,String LocalDateTime) {
         this.imageId = imageId;
         this.titre = titre;
         this.description = description;
@@ -107,7 +110,7 @@ public class Offre {
         return prix;
     }
 
-    public LocalTime getTime() {
+    public String getTime() {
         return time;
     }
 
@@ -131,7 +134,7 @@ public class Offre {
         this.prix = prix;
     }
 
-    public void setTime(LocalTime time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -163,11 +166,11 @@ public class Offre {
         this.vehicule = vehicule;
     }
 
-    public LocalDate getLocalDateTime() {
+    public String getLocalDateTime() {
         return LocalDateTime;
     }
 
-    public void setLocalDateTime(LocalDate LocalDateTime) {
+    public void setLocalDateTime(String LocalDateTime) {
         this.LocalDateTime = LocalDateTime;
     }
 

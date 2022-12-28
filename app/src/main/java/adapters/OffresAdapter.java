@@ -63,18 +63,43 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
                      photo = offre.getImageId();
                 }
                 Intent intent = new Intent(v.getContext(), SingleOffreActivity.class);
-                String time =   offre.getLocalDateTime().toString() +  " "+offre.getTime().toString().substring(0,5);
+                String time = "";
+                if(offre.getLocalDateTime() != null & offre.getTime()!= null){
+                     time =   offre.getLocalDateTime() +  " "+offre.getTime().substring(0,5);
+                }
+                else {
+                    if(offre.getTime()!= null){
+                         time =   offre.getLocalDateTime() ;
+                    }
+                    if(offre.getLocalDateTime()!= null){
+                         time =   offre.getLocalDateTime();
+                    }
+                }
                 intent.putExtra("photo",photo);
                 intent.putExtra("titre", offre.getTitre());
                 intent.putExtra("prix", offre.getPrix());
-                intent.putExtra("date", offre.getLocalDateTime().toString());
+                String date = "";
+                if (offre.getLocalDateTime() != null){
+                    date = offre.getLocalDateTime();
+                }
+                intent.putExtra("date", date);
                 intent.putExtra("operation", offre.getOperation());
                 intent.putExtra("localisation", offre.getLocalisation());
                 intent.putExtra("description",offre.getDescription());
                 intent.putExtra("time",time);
-                intent.putExtra("user",offre.getUser().getNom());
-                intent.putExtra("phone",offre.getUser().getPhone());
-                intent.putExtra("vehicule", offre.getVehicule().getMarque());
+                String username = "";
+                int phone = 0;
+                if(offre.getUser() != null){
+                    username = offre.getUser().getNom();
+                    phone = offre.getUser().getPhone();
+                }
+                intent.putExtra("user",username);
+                intent.putExtra("phone",phone);
+                String marque = "";
+                if(offre.getVehicule() != null){
+                    marque = offre.getVehicule().getMarque();
+                }
+                intent.putExtra("vehicule", marque);
                 v.getContext().startActivity(intent);
 
             }

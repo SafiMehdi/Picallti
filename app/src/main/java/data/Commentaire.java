@@ -9,11 +9,11 @@ public class Commentaire {
     private String commentaire;
     private User user;
     private Offre offre;
-    private LocalTime time;
-    private LocalDate LocalDateTime;
+    private String time;
+    private String LocalDateTime;
 
 
-    public Commentaire(int id, String commentaire, User user, Offre offre,LocalDate LocalDateTime,LocalTime time) {
+    public Commentaire(int id, String commentaire, User user, Offre offre,String LocalDateTime,String time) {
         this.id = id;
         this.commentaire = commentaire;
         this.user = user;
@@ -22,7 +22,7 @@ public class Commentaire {
         this.time = time;
     }
 
-    public Commentaire( String commentaire, User user, Offre offre,LocalDate LocalDateTime,LocalTime time) {
+    public Commentaire(String commentaire, User user, Offre offre,String LocalDateTime,String time) {
         this.commentaire = commentaire;
         this.user = user;
         this.offre = offre;
@@ -62,19 +62,19 @@ public class Commentaire {
         this.offre = offre;
     }
 
-    public LocalDate getLocalDateTime() {
+    public String getLocalDateTime() {
         return LocalDateTime;
     }
 
-    public void setLocalDateTime(LocalDate LocalDateTime) {
+    public void setLocalDateTime(String LocalDateTime) {
         this.LocalDateTime = LocalDateTime;
     }
 
-    public LocalTime getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalTime time) {
+    public void setTime(String time) {
         this.time = time;
     }
 }

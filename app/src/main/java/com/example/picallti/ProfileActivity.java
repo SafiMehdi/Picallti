@@ -20,7 +20,6 @@ import butterknife.OnClick;
 public class ProfileActivity extends AppCompatActivity {
 
     BottomBarFragment frag = new BottomBarFragment();
-
     //The function that implements the sidebar
     public void Sidebar(){
         NavigationView navView = findViewById(R.id.sidebar_view);
@@ -55,10 +54,11 @@ public class ProfileActivity extends AppCompatActivity {
                 return true;
             }
         });
-        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout_offre_page);
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout_profile_page);
 
-        ImageButton toggleButton = findViewById(R.id.sidebar_button);
-        toggleButton.setOnClickListener(new View.OnClickListener() {
+        ImageButton toggleButton1 = findViewById(R.id.sidebar_button_profile);
+        toggleButton1.bringToFront();
+        toggleButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Open or close the navigation drawer when the button is clicked
@@ -79,7 +79,6 @@ public class ProfileActivity extends AppCompatActivity {
         ImageView img = (ImageView) findViewById(R.id.profile_picture);
         img.setBackgroundResource(R.drawable.background_profile_picutre);
         ButterKnife.bind(this);
-
         //Sidebar implementation
         Sidebar();
     }

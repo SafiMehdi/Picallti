@@ -43,7 +43,11 @@ public class SingleOffreActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Bundle extras = getIntent().getExtras();
         titreOffre.setText(extras.getString("titre"));
-        imageOffre.setBackgroundResource(extras.getInt("photo"));
+        int photo = R.drawable.avatar_2;
+        /*if(getResources().getResourceName((int)extras.getDouble("photo") ) != null){
+            photo = extras.getInt("photo");
+        }*/
+        imageOffre.setBackgroundResource(photo);
         prix.setText(Double.toString(extras.getDouble("prix")));
         time.setText(extras.getString("time"));
         description.setText(extras.getString("description"));

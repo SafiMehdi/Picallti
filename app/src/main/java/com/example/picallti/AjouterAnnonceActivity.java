@@ -11,11 +11,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import DataBase.PicalltiDbHelper;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import data.Offre;
+import data.User;
+import data.Vehicule;
+import data.VehiculeType;
+import retrofit.OffreApi;
+import retrofit.RetrofitService;
+import retrofit.UserApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AjouterAnnonceActivity extends AppCompatActivity {
 
@@ -28,6 +44,12 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
     TextView prix;
     @BindView(R.id.add)
     ImageView addImage;
+    @BindView(R.id.Operation)
+    TextView operation;
+    @BindView(R.id.Ville)
+    TextView ville;
+    @BindView(R.id.Categorie)
+    TextView category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +107,36 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),R.string.falsePriceMessage, Toast.LENGTH_SHORT).show();
             return;
         }
+
+        String title = titre.getText().toString();
+        String desc = description.getText().toString();
+        float price = Float.parseFloat(prix.getText().toString());
+        String op = operation.getText().toString();
+        String city = ville.getText().toString();
+
+        VehiculeType vehiculeType = new VehiculeType("typeV");
+        Vehicule vehicule = new Vehicule("marque",vehiculeType);
+        User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+
+
+        RetrofitService retrofitService = new RetrofitService();
+        OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
+        Call<List<Offre>> call = offreApi.getOffers();
+
+        Offre offre = new Offre(R.drawable.avatar_2,title,desc,"localisation",price, LocalDate.now().toString(),op,user,vehicule,LocalDate.now().toString());
+        offreApi.addOffre(offre)
+                .enqueue(new Callback() {
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                       // startActivity(new Intent(SingUp.this, login_page.class));
+                        Toast.makeText(AjouterAnnonceActivity.this, "Account Created !", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+                        Logger.getLogger(AjouterAnnonceActivity.class.getName()).log(Level.SEVERE, "Error Occured", t);
+                    }
+                });
     }
 
     @OnClick(R.id.add)

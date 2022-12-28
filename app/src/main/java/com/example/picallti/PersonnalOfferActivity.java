@@ -48,7 +48,7 @@ public class PersonnalOfferActivity extends AppCompatActivity {
         User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
 
         ArrayList<Offre> offres =new ArrayList<>();
-        offres.add(  new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, LocalTime.now(),"vente",user,vehicule,  LocalDate.of(2020, 1, 8)));
+        offres.add(  new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, "LocalTime.now()","vente",user,vehicule,  "LocalDate.of(2020, 1, 8)"));
         offres.add(new Offre("Bicycle VTT", "Vente",12,"A perfectly working bicycle, available starting from now ",  "bicycle",user,vehicule));
         //offres.add(new data.Offre("Motor lahuma barik", "Swinga jaya mn asfi chi haja lahuma barik akhay diali", 50, "motorcycle"));
         //offres.add(new data.Offre("Boukchlita lhrba", "Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi", 10, "bicycle"));

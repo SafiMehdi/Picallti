@@ -58,8 +58,8 @@ public class SingleOffreActivity extends AppCompatActivity {
     TextView prix;
     @BindView(R.id.time)
     TextView time;
-    @BindView(R.id.img_view)
-    ImageView userImage;
+    //@BindView(R.id.img_view)
+    //ImageView userImage;
     @BindView(R.id.description)
     TextView description;
     @BindView(R.id.appeler)
@@ -180,13 +180,13 @@ public class SingleOffreActivity extends AppCompatActivity {
             .enqueue(new Callback<Collection<Commentaire>>() {
             @Override
             public void onResponse(Call<Collection<Commentaire>> call, Response<Collection<Commentaire>> response) {
-                assert response.body() != null;
+               if ( response.body() != null){
                 System.out.println("working");
                 ArrayList<Commentaire> commentaires =new ArrayList<>();
                 commentaires = new ArrayList<Commentaire>(response.body());
                 System.out.println(commentaires);
                 adapter = new CommentsAdapter(getApplicationContext(), commentaires);
-                recyclerView.setAdapter(adapter);
+                recyclerView.setAdapter(adapter);}
             }
 
             @Override

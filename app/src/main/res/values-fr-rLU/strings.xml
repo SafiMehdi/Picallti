@@ -17,6 +17,7 @@
     <string name="btnchangepass">Changer votre mot de passe</string>
     <string name="rememberme">Se souvenir de moi</string>
     <string name="connect">Connexion</string>
+    <string name="usersurnameHint">nom</string>
     <string name="forgotpass">Vous avez oublié votre mot de passe ?</string>
     <string name="register">S\'inscrire</string>
     <string name="connectsocial">Se connecter</string>

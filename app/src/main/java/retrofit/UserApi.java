@@ -21,4 +21,6 @@ public interface UserApi {
         @GET("/users/getAll")
         Call<Collection<User>> getAllUsers();
 
+        @POST("/users/update")
+        Call<Void> updateUser(@Body User user);
 }

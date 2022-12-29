@@ -57,8 +57,23 @@ public class User {
         this.password = password;
     }
 
+    public User(String nom, String prenom, String email, int phone, String bio, int image) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.phone = phone;
+        this.bio = bio;
+        this.photo = image;
+    }
+
+
     public User(EditText surname, EditText name, EditText email, EditText phoneNumber, EditText password) {
     }
+
+    public User(EditText surname, EditText name, EditText email, EditText phoneNumber, EditText bio, int image) {
+    }
+
+
 
     public int getId() {
         return id;

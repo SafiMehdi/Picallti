@@ -19,6 +19,7 @@
     <string name="rememberme">Remember me</string>
     <string name="connect">Login</string>
     <string name="forgotpass">Forgot your password ?</string>
+    <string name="usersurnameHint">surname</string>
     <string name="register">Register here</string>
     <string name="connectsocial">Or connect with</string>
     <string name="forgotpasstitle">Forgot your password ?</string>

@@ -98,7 +98,7 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
             String time = cursor.getString(cursor.getColumnIndexOrThrow(TIME));
             String date = cursor.getString(cursor.getColumnIndexOrThrow(DATE));
 
-            Commentaire comment = new Commentaire(id,commentaire,userDbHelper.selectUserById(user),offreDbHelper.selectOfferById(offre),LocalDate.parse(date),LocalTime.parse(time));
+            Commentaire comment = new Commentaire(id,commentaire,userDbHelper.selectUserById(user),offreDbHelper.selectOfferById(offre),"LocalDate.parse(date)","LocalTime.parse(time)");
             commentaires.add(comment);
         }
         cursor.close();
@@ -120,7 +120,7 @@ public class CommentaireDbHelper extends SQLiteOpenHelper {
             String time = cursor.getString(cursor.getColumnIndexOrThrow(TIME));
             String date = cursor.getString(cursor.getColumnIndexOrThrow(DATE));
 
-            return new Commentaire(id,commentaire,userDbHelper.selectUserById(user),offreDbHelper.selectOfferById(offre),LocalDate.parse(date),LocalTime.parse(time));
+            return new Commentaire(id,commentaire,userDbHelper.selectUserById(user),offreDbHelper.selectOfferById(offre),"LocalDate.parse(date)","LocalTime.parse(time)");
         }cursor.close();
         return  null;
 

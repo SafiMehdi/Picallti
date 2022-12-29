@@ -1,16 +1,24 @@
 package com.example.picallti;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 
 import com.google.gson.Gson;
 
@@ -64,14 +72,65 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
     public void operationValue(String selectedV ){
         this.selectedOp = selectedV;
     }
-
     public void villeValue(String selectedV) {
-        this.selectedVille = selectedV;
+        this.selectedOp = selectedV;
     }
 
     public void catValue(String selectedV) {
-        this.selectedCat = selectedV;
+        this.selectedOp = selectedV;
     }
+
+    //The function that implements the sidebar
+    public void Sidebar(){
+        NavigationView navView = findViewById(R.id.sidebar_view);
+        navView.inflateMenu(R.menu.sidebar_menu);
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.nav_profile:
+                        Intent intent_profile = new Intent(AjouterAnnonceActivity.this, ProfileActivity.class);
+                        startActivity(intent_profile);
+                        break;
+                    case R.id.nav_likes:
+                        Intent intent_likes = new Intent(AjouterAnnonceActivity.this, FavorisActivity.class);
+                        startActivity(intent_likes);
+                        break;
+                    case R.id.nav_langues:
+                        Intent intent_langues = new Intent(AjouterAnnonceActivity.this, LanguagesActivity.class);
+                        startActivity(intent_langues);
+                        break;
+                    case R.id.nav_apropos:
+                        Intent intent_apropos = new Intent(AjouterAnnonceActivity.this, AproposActivity.class);
+                        startActivity(intent_apropos);
+                        break;
+                    case R.id.nav_parametre:
+                        Intent intent_parametre = new Intent(AjouterAnnonceActivity.this, ParametresActivity.class);
+                        startActivity(intent_parametre);
+                        break;
+                    default:
+                        return false;
+                }
+                return true;
+            }
+        });
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout_ajouter_annoce);
+
+        ImageButton toggleButton = findViewById(R.id.sidebar_button);
+        toggleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open or close the navigation drawer when the button is clicked
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+            }
+        });
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,13 +166,42 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        System.out.println("----------------------------------------");
+        //Sidebar implementation
+        Sidebar();
+    }
+
+    @OnClick(R.id.button)
+    public void saveOffre(){
+        if(titre.getText().length() >100  ){
+            Toast.makeText(getApplicationContext(),R.string.titleTooLongMessage, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(titre.getText().length() == 0  ){
+            Toast.makeText(getApplicationContext(),R.string.noTitleMessage, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(prix.getText().length() == 0  ){
+            Toast.makeText(getApplicationContext(),R.string.noPriceMessage, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (Float.parseFloat(prix.getText().toString()) <=0){
+            Toast.makeText(getApplicationContext(),R.string.falsePriceMessage, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Spinner operation = findViewById(R.id.Operation);
+        /*operation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                operationValue(String.valueOf(adapterView.getItemIdAtPosition(position)));
+            }
+        });*/
         operation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 operationValue(String.valueOf(parent.getItemIdAtPosition(position)));
-                System.out.println(parent.getItemIdAtPosition(position));
-                System.out.println("----------------------------------------");
+
             }
 
             @Override
@@ -147,34 +235,6 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    @OnClick(R.id.button)
-    public void saveOffre(){
-        if(titre.getText().length() >100  ){
-            Toast.makeText(getApplicationContext(),R.string.titleTooLongMessage, Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(titre.getText().length() == 0  ){
-            Toast.makeText(getApplicationContext(),R.string.noTitleMessage, Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(prix.getText().length() == 0  ){
-            Toast.makeText(getApplicationContext(),R.string.noPriceMessage, Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (Float.parseFloat(prix.getText().toString()) <=0){
-            Toast.makeText(getApplicationContext(),R.string.falsePriceMessage, Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        /*operation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                operationValue(String.valueOf(adapterView.getItemIdAtPosition(position)));
-            }
-        });*/
-
 
 
         String title = titre.getText().toString();
@@ -191,7 +251,7 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
         RetrofitService retrofitService = new RetrofitService();
         OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
 
-        Offre offre = new Offre(R.drawable.avatar_2,title,desc,"localisation",price, LocalTime.now().toString(),op,user,vehicule,LocalDate.now().toString(),city);
+        Offre offre = new Offre(R.drawable.avatar_2,title,desc,"localisation",price, LocalTime.now().toString(),op,user,vehicule,LocalDate.now().toString());
         System.out.println(new Gson().toJson(offre));
         offreApi.addOffre(offre)
                 .enqueue(new Callback() {

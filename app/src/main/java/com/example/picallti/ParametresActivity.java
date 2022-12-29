@@ -86,7 +86,7 @@ public class ParametresActivity extends AppCompatActivity {
 
     @OnClick(R.id.changePasswordSection)
     public void changePasswordClicked(){
-        Intent intent = new Intent(this,forgot_pass1.class);
+        Intent intent = new Intent(this,forgot_pass2.class);
         startActivity(intent);
     }
 

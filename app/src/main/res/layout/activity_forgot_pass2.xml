@@ -15,7 +15,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/resetpasstitle"
+        android:text="Reset Password"
         android:layout_below="@+id/illustration"
         android:layout_alignStart="@+id/illustration"
         android:fontFamily="@font/fontnew2bold"
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
-        android:text="@string/resetpasstitle2"
+        android:text="Redefine new Password:"
         android:fontFamily="@font/fontnew2bold"
         android:textSize="35sp"
         android:layout_alignStart="@+id/title"
@@ -77,18 +77,18 @@
         android:background="@drawable/shape_more_info_offre"
         android:backgroundTint="#4361ee"
         android:textColor="@color/white"/>
-    <TextView
-        android:id="@+id/txtbacklogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn"
-        android:text="@string/forgotpassback"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/fontnew2bold"
-        android:textSize="15sp"
-        android:clickable="true"
-        android:layout_marginBottom="20dp"/>
+<!--    <TextView-->
+<!--        android:id="@+id/txtbacklogin"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/btn"-->
+<!--        android:text="@string/forgotpassback"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:fontFamily="@font/fontnew2bold"-->
+<!--        android:textSize="15sp"-->
+<!--        android:clickable="true"-->
+<!--        android:layout_marginBottom="20dp"/>-->
 
 
 </RelativeLayout>

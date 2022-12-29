@@ -13,7 +13,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import data.LoginRequest;
+import retrofit.RetrofitService;
+import retrofit.UserApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class login_page extends AppCompatActivity {
     private CheckBox remembermecheckbox;
@@ -32,7 +40,7 @@ public class login_page extends AppCompatActivity {
         setContentView(R.layout.activity_login_page);
 
         //Binding components
-        username = (EditText) findViewById(R.id.username);
+
         password = (EditText) findViewById(R.id.password);
         emailaddress = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
@@ -41,6 +49,7 @@ public class login_page extends AppCompatActivity {
         connect = (Button)findViewById(R.id.btnConnect);
         remembermecheckbox = (CheckBox) findViewById(R.id.checkboxrememberme);
         Prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+
 
 
         forgotpass.setOnClickListener(new View.OnClickListener() {
@@ -60,10 +69,54 @@ public class login_page extends AppCompatActivity {
             startActivity(new Intent(login_page.this, OffrePageActivity.class));
         }
 
+        RetrofitService retrofitService = new RetrofitService();
+        UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(remembermecheckbox.isChecked()){
+
+                if(!emailaddress.getText().toString().isEmpty() && !password.getText().toString().isEmpty()){
+                LoginRequest userRequest = new LoginRequest(emailaddress.getText().toString(),password.getText().toString());
+                userApi.loginUser(userRequest)
+                        .enqueue(new Callback() {
+                            @Override
+                            public void onResponse(Call call, Response response) {
+                                if(response.isSuccessful()) {
+                                    if (remembermecheckbox.isChecked()) {
+                                        SharedPreferences.Editor editor = Prefs.edit();
+                                        Boolean BoolChecked = remembermecheckbox.isChecked();
+                                        editor.putString("emailPref", emailaddress.getText().toString());
+                                        editor.putString("passwordPref", password.getText().toString());
+                                        editor.putBoolean("isCheckedPref", BoolChecked);
+                                        editor.apply();
+
+                                    } else {
+                                        Prefs.edit().clear().apply();
+                                    }
+                                    Toast.makeText(getApplicationContext(), "Vous êtes connécté !", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(login_page.this, OffrePageActivity.class));
+                                }else if(response.code() == 500){
+                                    Toast.makeText(getApplicationContext(),"Email ou mot de passe incorrect !",Toast.LENGTH_LONG).show();
+                                }else{
+                                    Toast.makeText(getApplicationContext(),"Erreur serveur !",Toast.LENGTH_LONG).show();
+                                }
+
+                            }
+
+                            @Override
+                            public void onFailure(Call call, Throwable t) {
+                                System.out.println(emailaddress.getText().toString());
+                                System.out.println(password.getText().toString());
+
+                                Logger.getLogger(login_page.class.getName()).log(Level.SEVERE, "Wrong Credentials !", t);
+                                Toast.makeText(getApplicationContext(),"Email ou mot de passe incorrect !",Toast.LENGTH_LONG).show();
+                            }
+                        });}else{
+                            Toast.makeText(getApplicationContext(),"Veuillez remplir les champs !",Toast.LENGTH_LONG).show();
+                }
+
+
+                /*if(remembermecheckbox.isChecked()){
                     SharedPreferences.Editor editor = Prefs.edit();
                     Boolean BoolChecked = remembermecheckbox.isChecked();
                     editor.putString("emailPref",emailaddress.getText().toString());
@@ -80,7 +133,7 @@ public class login_page extends AppCompatActivity {
                     startActivity(new Intent(login_page.this, OffrePageActivity.class));
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
-                }
+                }*/
 
             }
         });

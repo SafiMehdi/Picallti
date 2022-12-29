@@ -40,6 +40,7 @@ import data.VehiculeType;
 import retrofit.OffreApi;
 import retrofit.RetrofitService;
 import retrofit.UserApi;
+import retrofit.VehiculeApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -57,6 +58,8 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
     TextView prix;
     @BindView(R.id.add)
     ImageView addImage;
+    @BindView(R.id.Marque)
+    TextView marque;
     /*@BindView(R.id.Operation)
     Spinner operation;
     @BindView(R.id.Ville)
@@ -69,9 +72,10 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
     String selectedCat = "";
 
 
-    public void operationValue(String selectedV ){
+    public void operationValue(String selectedV) {
         this.selectedOp = selectedV;
     }
+
     public void villeValue(String selectedV) {
         this.selectedOp = selectedV;
     }
@@ -81,7 +85,7 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
     }
 
     //The function that implements the sidebar
-    public void Sidebar(){
+    public void Sidebar() {
         NavigationView navView = findViewById(R.id.sidebar_view);
         navView.inflateMenu(R.menu.sidebar_menu);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -172,21 +176,21 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.button)
-    public void saveOffre(){
-        if(titre.getText().length() >100  ){
-            Toast.makeText(getApplicationContext(),R.string.titleTooLongMessage, Toast.LENGTH_SHORT).show();
+    public void saveOffre() {
+        if (titre.getText().length() > 100) {
+            Toast.makeText(getApplicationContext(), R.string.titleTooLongMessage, Toast.LENGTH_SHORT).show();
             return;
         }
-        if(titre.getText().length() == 0  ){
-            Toast.makeText(getApplicationContext(),R.string.noTitleMessage, Toast.LENGTH_SHORT).show();
+        if (titre.getText().length() == 0) {
+            Toast.makeText(getApplicationContext(), R.string.noTitleMessage, Toast.LENGTH_SHORT).show();
             return;
         }
-        if(prix.getText().length() == 0  ){
-            Toast.makeText(getApplicationContext(),R.string.noPriceMessage, Toast.LENGTH_SHORT).show();
+        if (prix.getText().length() == 0) {
+            Toast.makeText(getApplicationContext(), R.string.noPriceMessage, Toast.LENGTH_SHORT).show();
             return;
         }
-        if (Float.parseFloat(prix.getText().toString()) <=0){
-            Toast.makeText(getApplicationContext(),R.string.falsePriceMessage, Toast.LENGTH_SHORT).show();
+        if (Float.parseFloat(prix.getText().toString()) <= 0) {
+            Toast.makeText(getApplicationContext(), R.string.falsePriceMessage, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -243,33 +247,61 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
         String op = this.selectedOp;
         String city = this.selectedVille;
 
-        VehiculeType vehiculeType = new VehiculeType(1,"typeV");
-        Vehicule vehicule = new Vehicule(1,"marque",vehiculeType);
-        User user = new User(1,"nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+        VehiculeType vehiculeType = new VehiculeType(1, "typeV");
+        Vehicule vehicule = new Vehicule(marque.getText().toString(), vehiculeType);
+        User user = new User(1, "nom", "prenom", "M", "testttt@test.com", 78, "pass", 78, "bio", "admin");
 
 
         RetrofitService retrofitService = new RetrofitService();
+        VehiculeApi vehiculeApi = retrofitService.getRetrofit().create(VehiculeApi.class);
+        vehiculeApi.addVehicule(vehicule).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                System.out.println("working");
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                System.out.println("erreuuuuuuuuuuur");
+
+            }
+        });
         OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
 
-        Offre offre = new Offre(R.drawable.avatar_2,title,desc,"localisation",price, LocalTime.now().toString(),op,user,vehicule,LocalDate.now().toString());
-        System.out.println(new Gson().toJson(offre));
-        offreApi.addOffre(offre)
-                .enqueue(new Callback() {
-                    @Override
-                    public void onResponse(Call call, Response response) {
-                       // startActivity(new Intent(SingUp.this, login_page.class));
-                        Toast.makeText(AjouterAnnonceActivity.this, "Account Created !", Toast.LENGTH_SHORT).show();
-                    }
+        vehiculeApi.getLastVehicule().enqueue(new Callback<Vehicule>() {
+            @Override
+            public void onResponse(Call<Vehicule> call, Response<Vehicule> response) {
+                Vehicule vehicule1 = response.body();
+                vehicule1.setId(vehicule1.getId()+1);
+                Offre offre = new Offre(R.drawable.avatar_2, title, desc, "localisation", price, LocalTime.now().toString(), op, user, vehicule1, LocalDate.now().toString(), "ville");
 
-                    @Override
-                    public void onFailure(Call call, Throwable t) {
-                        Logger.getLogger(AjouterAnnonceActivity.class.getName()).log(Level.SEVERE, "Error Occured", t);
-                    }
-                });
+                System.out.println(new Gson().toJson(offre));
+                offreApi.addOffre(offre)
+                        .enqueue(new Callback() {
+                            @Override
+                            public void onResponse(Call call, Response response) {
+                                // startActivity(new Intent(SingUp.this, login_page.class));
+                                Toast.makeText(AjouterAnnonceActivity.this, "Account Created !", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onFailure(Call call, Throwable t) {
+                                Logger.getLogger(AjouterAnnonceActivity.class.getName()).log(Level.SEVERE, "Error Occured", t);
+                            }
+                        });
+            }
+
+            @Override
+            public void onFailure(Call<Vehicule> call, Throwable t) {
+                System.out.println("Can't get last vehicule");
+
+            }
+        });
+
     }
 
     @OnClick(R.id.add)
-    public void addImage(){
+    public void addImage() {
         startActivity(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI));
     }
 

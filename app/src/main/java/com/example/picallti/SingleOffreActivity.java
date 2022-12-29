@@ -148,7 +148,7 @@ public class SingleOffreActivity extends AppCompatActivity {
                     User user = new User("Mehdi","Safi","M","testttt@test.com",78,"pass",1,"bio","admin");
                     VehiculeType vehiculeType = new VehiculeType("typeV");
                     Vehicule vehicule = new Vehicule("marque",vehiculeType);
-                    Offre offre = new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, LocalTime.now().toString(),"vente",user,vehicule, LocalDate.of(2020, 1, 8).toString());
+                    Offre offre = new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, LocalTime.now().toString(),"vente",user,vehicule, LocalDate.of(2020, 1, 8).toString(),"ville");
 
 
                     Commentaire commentaire = new Commentaire(commentSent, user,offre,LocalDate.now().toString(), LocalTime.now().toString());

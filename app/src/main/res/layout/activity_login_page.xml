@@ -135,6 +135,7 @@
         android:textColor="#131349"/>
 
     <ImageView
+        android:id="@+id/connectwithfacebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/connectwith"
@@ -145,6 +146,7 @@
         tools:ignore="ImageContrastCheck"
         />
     <ImageView
+        android:id="@+id/connectwithgoogle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/connectwith"
@@ -156,6 +158,7 @@
         />
 
     <ImageView
+        android:id="@+id/connectwithtwitter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/connectwith"

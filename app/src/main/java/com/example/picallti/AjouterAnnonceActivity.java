@@ -1,6 +1,9 @@
 package com.example.picallti;
 
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -22,6 +26,8 @@ import com.google.android.material.navigation.NavigationView;
 
 import com.google.gson.Gson;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -41,6 +47,7 @@ import retrofit.OffreApi;
 import retrofit.RetrofitService;
 import retrofit.UserApi;
 import retrofit.VehiculeApi;
+import retrofit.VehiculeTypeApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -68,8 +75,7 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
     TextView category;*/
 
     String selectedOp = "";
-    String selectedVille = "";
-    String selectedCat = "";
+    VehiculeType vehiculeType;
 
 
     public void operationValue(String selectedV) {
@@ -142,6 +148,7 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
 
         //Binding view components
         Spinner spinner2 = (Spinner) findViewById(R.id.Categorie);
+        Spinner spinner3 = (Spinner) findViewById(R.id.Operation);
         Spinner spinner = (Spinner) findViewById(R.id.Ville);
 
         //populating spinner 1
@@ -155,6 +162,10 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
                 R.array.categorie, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
+                R.array.operation, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner3.setAdapter(adapter3);
 
         ButterKnife.bind(this);
 
@@ -194,86 +205,74 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
             return;
         }
 
-        Spinner operation = findViewById(R.id.Operation);
-        /*operation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                operationValue(String.valueOf(adapterView.getItemIdAtPosition(position)));
-            }
-        });*/
-        operation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                operationValue(String.valueOf(parent.getItemIdAtPosition(position)));
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        Spinner ville = findViewById(R.id.Ville);
-        ville.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                villeValue(String.valueOf(parent.getItemIdAtPosition(position)));
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        Spinner category = findViewById(R.id.Categorie);
-        category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                catValue(String.valueOf(parent.getItemIdAtPosition(position)));
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-
         String title = titre.getText().toString();
         String desc = description.getText().toString();
         float price = Float.parseFloat(prix.getText().toString());
-        String op = this.selectedOp;
-        String city = this.selectedVille;
+        //String op = this.selectedOp;
+        Spinner operation = (Spinner) findViewById(R.id.Operation);
+        Spinner ville = findViewById(R.id.Ville);
+        Spinner type = findViewById(R.id.Categorie);
+        String typeDeVehicule = type.getSelectedItem().toString();
+        String op = operation.getSelectedItem().toString();
+        String city = ville.getSelectedItem().toString();
 
-        VehiculeType vehiculeType = new VehiculeType(1, "typeV");
-        Vehicule vehicule = new Vehicule(marque.getText().toString(), vehiculeType);
+        //VehiculeType vehiculeType = new VehiculeType(1, "typeV");
         User user = new User(1, "nom", "prenom", "M", "testttt@test.com", 78, "pass", 78, "bio", "admin");
 
 
         RetrofitService retrofitService = new RetrofitService();
+        VehiculeTypeApi vehiculeTypeApi = retrofitService.getRetrofit().create(VehiculeTypeApi.class);
         VehiculeApi vehiculeApi = retrofitService.getRetrofit().create(VehiculeApi.class);
-        vehiculeApi.addVehicule(vehicule).enqueue(new Callback<Void>() {
+        OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
+
+        vehiculeTypeApi.getTypeByName(typeDeVehicule).enqueue(new Callback<VehiculeType>() {
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                System.out.println("working");
+            public void onResponse(Call<VehiculeType> call, Response<VehiculeType> response) {
+                VehiculeType vehiculeType = response.body();
+                System.out.println("***************");
+                System.out.println(vehiculeType);
+                System.out.println("***************");
+                Vehicule vehicule = new Vehicule(marque.getText().toString(), vehiculeType);
+
+                vehiculeApi.addVehicule(vehicule).enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        System.out.println("working");
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        System.out.println("erreuuuuuuuuuuur");
+
+                    }
+                });
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                System.out.println("erreuuuuuuuuuuur");
+            public void onFailure(Call<VehiculeType> call, Throwable t) {
+                VehiculeType vehiculeType = new VehiculeType(30,"no type");
+                Vehicule vehicule = new Vehicule(marque.getText().toString(), vehiculeType);
+                vehiculeApi.addVehicule(vehicule).enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        System.out.println("working");
+                    }
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        System.out.println("erreuuuuuuuuuuur");
 
+                    }
+                });
             }
         });
-        OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
+
 
         vehiculeApi.getLastVehicule().enqueue(new Callback<Vehicule>() {
             @Override
             public void onResponse(Call<Vehicule> call, Response<Vehicule> response) {
                 Vehicule vehicule1 = response.body();
                 vehicule1.setId(vehicule1.getId()+1);
-                Offre offre = new Offre(R.drawable.avatar_2, title, desc, "localisation", price, LocalTime.now().toString(), op, user, vehicule1, LocalDate.now().toString(), "ville");
+                Offre offre = new Offre(R.drawable.avatar_2, title, desc, "localisation", price, LocalTime.now().toString(), op, user, vehicule1, LocalDate.now().toString(), city);
 
                 System.out.println(new Gson().toJson(offre));
                 offreApi.addOffre(offre)
@@ -302,8 +301,18 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
 
     @OnClick(R.id.add)
     public void addImage() {
-        startActivity(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI));
+        startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI),3);
+
+
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK && data != null){
+            Uri image = data.getData();
 
+
+        }
+    }
 }

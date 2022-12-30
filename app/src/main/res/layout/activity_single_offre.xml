@@ -29,8 +29,10 @@
         android:background="@drawable/wave_offre"
         app:layout_constraintBottom_toBottomOf="@+id/imageOffre"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageOffre" />
+        app:layout_constraintTop_toTopOf="@+id/imageOffre"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/sidebar_button"

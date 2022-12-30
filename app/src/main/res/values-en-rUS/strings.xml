@@ -5,10 +5,10 @@
     <string name="profil">Profil</string>
     <string name="favorites">Favorites</string>
     <string name="notifications">Notifications</string>
-    <string name="profile">Profile</string>
+    <string name="profile">Profil</string>
     <string name="reload">Reload</string>
 
-
+    <string name="titre">Login</string>
     <string name="image_holder">ImageHolder</string>
     <string name="user_placeholder">Email address</string>
     <string name="pass_placeholder">Password</string>
@@ -21,8 +21,10 @@
     <string name="forgotpass">Forgot your password ?</string>
     <string name="register">Register here</string>
     <string name="connectsocial">Or connect with</string>
+    <string name="forgotpasstitle">Forgot your password ?</string>
     <string name="forgotpasstitle2">Change your password</string>
     <string name="forgotpasstext">Please enter your email address to receive the password reset link.</string>
+    <string name="forgotpassmail">Email address</string>
     <string name="forgotpasslientext">Receive a link</string>
     <string name="forgotpassback">Go back to login page</string>
     <string name="app_name">Picallti</string>
@@ -54,8 +56,8 @@
     <string name="textView">\t\t\tYou want to go for a ride\n\t\t\t\tbut have no bike?\n\t\tPicollti came with the solution\n\trent a bike or a scooter with one click</string>
     <string name="button">LOG IN</string>
     <string name="textView2">PICALLTI.2022</string>
-    <string name="hiUsernameText">Salut Username</string>
 
+    <string name="hiUsername">Hi Username</string>
     <string name="welcomeBackText">Welcome Back!</string>
     <string name="categoryText">Category</string>
     <string name="MostViewedText">Most Viewed</string>
@@ -89,34 +91,33 @@
     <string name="City">City</string>
     <string name="OfferTitle">Offer Title</string>
     <string name="deleteTxt">Deleting your account is permanent and will delete all your saved data. Are you sure you want to continue ?</string>
-    <string name="titreAjouterOffre">Ajouter offre</string>
+    <string name="titreAjouterOffre">Add advertissement</string>
     <string name="ajouterPhotoOffre">Ajouter Photo</string>
-
-    <string name="titreOffreHint">Titre Offre</string>
-    <string name="marqueOffreHint">Marque</string>
-    <string name="descriptionOffreHint">Description Offre</string>
-    <string name="prixOffreHint">Prix</string>
-    <string name="boutonAjouterOffre">Ajouter offre</string>
+    <string name="descriptionOffreHint">Description</string>
     <string name="titlepass2">title pass 1</string>
-    <string name="titlepass">title pqsss</string>
-    <string name="resetpasstitle2">Reset Password:</string>
-    <string name="titleTooLongMessage">"Le Titre ne doit pas dépasser 100 caractére"</string>
-    <string name="noTitleMessage">"Vous devez mettre un titre"</string>
-    <string name="noPriceMessage">"Vous devez mettre un prix"</string>
-    <string name="falsePriceMessage">"Vous devez mettre un prix correcte"</string>
-    <string name="Yourmessage">Your message...</string>
+    <string name="hiUsernameText">Hi Username</string>
+    <string name="titreOffreHint">Title of the offer</string>
+    <string name="marqueOffreHint">Mark</string>
+    <string name="prixOffreHint">Price</string>
+    <string name="boutonAjouterOffre">Add offer</string>
+    <string name="resetpasstitle">Resset password</string>
+    <string name="resetpasstitle2">Resset password</string>
+    <string name="noTitleMessage">You must put a title</string>
+    <string name="noPriceMessage">You must put a price</string>
+    <string name="falsePriceMessage">You must put a correct price</string>
+    <string name="Yourmessage">Your message</string>
     <string name="Subject">Subject</string>
-    <string name="ForgotPassword">Forgot Password</string>
-    <string name="MyOffers">My Offers</string>
-    <string name="searchfor">search for ...</string>
+    <string name="ForgotPassword">Forgot password</string>
+    <string name="MyOffers">My offers</string>
+    <string name="searchfor">Search for...</string>
     <string name="Category">Category</string>
-    <string name="SendCode">Send Code</string>
-    <string name="Entercode">Enter code you received</string>
-    <string name="AddOffer">Add Offer</string>
-    <string name="Change">Change</string>
+    <string name="SendCode">Send code</string>
+    <string name="Entercode">Enter the code that you received</string>
+    <string name="AddOffer">Add offer</string>
     <string name="Titredeloffre">Title of the offer</string>
+    <string name="VehicleType">Vehicule type</string>
+    <string name="Change">Change</string>
     <string name="Comments">Comments</string>
-    <string name="VehicleType">Vehicle Type</string>
 
 
 </resources>

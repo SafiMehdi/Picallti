@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="home">Home</string>
+    <string name="home">Accueil</string>
     <string name="profil">Profil</string>
     <string name="favorites">Favoris</string>
     <string name="notifications">Notifications</string>
-    <string name="profile">Profile</string>
+    <string name="profile">Profil</string>
     <string name="reload">Recharger</string>
+    <string name="titre">Connexion</string>
     <string name="image_holder">ImageHolder</string>
-    <string name="user_placeholder">Addresse email</string>
-    <string name="pass_placeholder">Mot de passe</string>
+    <string name="user_placeholder">Adresse mail</string>
+    <string name="pass_placeholder">Mot de Passe</string>
     <string name="currentpass_placeholder">Mot de passe actuel</string>
-    <string name="newpass_placeholder">Nouveau mot de passe</string>
-    <string name="confirmnewpass_placeholder">Confirmer nouveau mot de passe</string>
+    <string name="newpass_placeholder">Nouveau Mot de Passe</string>
+    <string name="confirmnewpass_placeholder">Confirmer votre mot de passe</string>
     <string name="btnchangepass">Changer votre mot de passe</string>
-    <string name="rememberme">Se souvient de moi</string>
+    <string name="rememberme">Se souvenir de moi</string>
     <string name="connect">Connexion</string>
-    <string name="forgotpass">Mot de passe oublié ?</string>
-    <string name="register">Inscrivez-vous ici</string>
-    <string name="connectsocial">Ou connectez-vous avec</string>
-    <string name="forgotpasstitle2">Changer de mot de passe</string>
-    <string name="forgotpasstext">Veuillez saisir votre adresse e-mail pour recevoir le lien de réinitialisation du mot de passe.</string>
-    <string name="forgotpasslientext">Recevoir le lien</string>
+    <string name="forgotpass">Vous avez oublié votre mot de passe ?</string>
+    <string name="register">S\'inscrire</string>
+    <string name="connectsocial">Se connecter</string>
+    <string name="forgotpasstitle">Vous avez oublié votre mot de passe ?</string>
+    <string name="forgotpasstitle2">Changer votre mot de passe</string>
+    <string name="forgotpasstext">Merci d\'entrer votre adress mail our recevoir le lien pour définir un mot de passe</string>
+    <string name="forgotpassmail">Adresse mail</string>
+    <string name="forgotpasslientext">Recevoir un lien</string>
     <string name="forgotpassback">Retour à la page de connexion</string>
     <string name="app_name">Picallti</string>
-    <string name="signUp">Se deconnécter</string>
+    <string name="signUp">Créer un nouveau compte</string>
     <string name="nom">Nom</string>
     <string name="prenom">Prenom</string>
-    <string name="email">Email</string>
+    <string name="email">Mail</string>
     <string name="emailConfirm">Confirmer votre email</string>
     <string name="phone">Numéro de Téléphone</string>
     <string name="password">Mot de passe</string>
@@ -52,15 +55,14 @@
     <string name="textView">\t\t\tYou want to go for a ride\n\t\t\t\tbut have no bike?\n\t\tPicollti came with the solution\n\trent a bike or a scooter with one click</string>
     <string name="button">SE CONNECTER</string>
     <string name="textView2">PICALLTI.2022</string>
-    <string name="Yourmessage">Votre message...</string>
-    <string name="Subject">Sujet</string>
 
 
 
 
+    <string name="hiUsername">Salut Username</string>
     <string name="welcomeBackText">Content de te revoir</string>
     <string name="categoryText">Catégorie</string>
-    <string name="MostViewedText">Les plus regardés</string>
+    <string name="MostViewedText">Les plus regardé</string>
     <string name="seeAllText">Voir tout</string>
     <string name="ContactTitle">Contactez Nous</string>
     <string name="saveEditText">Enregistrer modification</string>
@@ -91,33 +93,31 @@
     <string name="City">Ville</string>
     <string name="OfferTitle">Titre de l\'offre</string>
     <string name="deleteTxt">La suppression de votre compte est permanente et enrtrainera la suppression de toutes vos données enregitrées. Êtes-vous sûr de bien vouloir continuer ?</string>
-    <string name="hiUsernameText">Salut Username</string>
-
-    <string name="titreAjouterOffre">Ajouter Annonce</string>
-    <string name="ajouterPhotoOffre">Ajouter une photo</string>
-    <string name="titreOffreHint">Titre Offre</string>
-    <string name="marqueOffreHint">Marque</string>
-    <string name="descriptionOffreHint">Description Offre</string>
+    <string name="ajouterPhotoOffre">Ajouter Photo</string>
+    <string name="titreOffreHint">Titre de l\'annonce</string>
+    <string name="descriptionOffreHint">Description</string>
     <string name="prixOffreHint">Prix</string>
     <string name="boutonAjouterOffre">Ajouter offre</string>
-    <string name="titlepass2">title pass 1</string>
-    <string name="titlepass">title pqsss</string>
-    <string name="resetpasstitle2">Redéfinire le mot de passe:</string>
-    <string name="titleTooLongMessage">"Le Titre ne doit pas dépasser 100 caractére"</string>
-    <string name="noTitleMessage">"Vous devez mettre un titre"</string>
-    <string name="noPriceMessage">"Vous devez mettre un prix"</string>
-    <string name="falsePriceMessage">"Vous devez mettre un prix correcte"</string>
+    <string name="hiUsernameText">Salut utilisateur</string>
+    <string name="titreAjouterOffre">Ajouter annonce</string>
+    <string name="marqueOffreHint">Marque</string>
+    <string name="resetpasstitle">réinitialiser le mot de passe</string>
+    <string name="resetpasstitle2">réinitialiser le mot de passe</string>
+    <string name="noTitleMessage">Vous devez définir un titre</string>
+    <string name="noPriceMessage">Vous devez définir un prix</string>
+    <string name="falsePriceMessage">Vous devez définir un prix correcte</string>
+    <string name="Yourmessage">Votre mot de passe</string>
+    <string name="Subject">Sujet</string>
     <string name="ForgotPassword">Mot de passe oublié</string>
     <string name="MyOffers">Mes offres</string>
-    <string name="searchfor">rechercher ...</string>
+    <string name="searchfor">Recherche de...</string>
     <string name="Category">Catégorie</string>
-    <string name="SendCode">Envoyer le code</string>
-    <string name="Entercode">Entrez le code que vous avez reçu</string>
+    <string name="SendCode">Envoi du code</string>
+    <string name="Entercode">Entrez le code que vous venez de recevoir</string>
     <string name="AddOffer">Ajouter offre</string>
-    <string name="Change">Changer</string>
     <string name="Titredeloffre">Titre de l\'offre</string>
+    <string name="VehicleType">Type de véhicule</string>
+    <string name="Change">Changer</string>
     <string name="Comments">Commentaires</string>
-    <string name="VehicleType">Type De Véhicule</string>
-
 
 </resources>

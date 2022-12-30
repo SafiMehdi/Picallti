@@ -42,7 +42,7 @@ public class OffrePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offre_page);
 
-        //wahd l3ayba nadya to retrieve user
+        //function to retrieve connected user
         User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
 
         //setting title name

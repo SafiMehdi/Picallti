@@ -84,26 +84,6 @@
             android:elevation="2dp"
             android:paddingEnd="5dp"/>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/VilleCard"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:elevation="2dp"
-            android:spinnerMode="dropdown"
-            android:textAlignment="center"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Description">
-
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/cities_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:paddingStart="15dp"
-                tools:ignore="TouchTargetSizeCheck" />
-        </androidx.cardview.widget.CardView>
 
         <EditText
             android:id="@+id/changeEmailInput"
@@ -223,7 +203,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="70dp"
         android:background="@drawable/background_input_form_black"
         android:text="@string/saveEditText"

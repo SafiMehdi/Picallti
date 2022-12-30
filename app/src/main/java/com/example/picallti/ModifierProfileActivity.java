@@ -89,11 +89,11 @@ public class ModifierProfileActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
 
 
-        Spinner spinner = (Spinner) findViewById(R.id.cities_spinner);
+        /*Spinner spinner = (Spinner) findViewById(R.id.cities_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.cities_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);*/
 
 
         changeProfilePictureButton = (Button) findViewById(R.id.changePictureBtn);

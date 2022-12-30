@@ -90,7 +90,7 @@ public class login_page extends AppCompatActivity {
                                         editor.putBoolean("isCheckedPref", BoolChecked);
                                         editor.apply();
 
-                                    } else {
+                                    }else {
                                         Prefs.edit().clear().apply();
                                     }
                                     Toast.makeText(getApplicationContext(), "Vous êtes connécté !", Toast.LENGTH_LONG).show();

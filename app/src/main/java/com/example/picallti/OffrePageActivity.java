@@ -1,13 +1,17 @@
 package com.example.picallti;
 
+import static com.example.picallti.login_page.PREFS_NAME;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +21,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+
+import com.google.gson.Gson;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -44,6 +50,7 @@ public class OffrePageActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter2;
     private RecyclerView recyclerView;
     private RecyclerView recyclerViewCat;
+    private TextView title;
     BottomBarFragment frag = new BottomBarFragment();
 
     //The function that implements the sidebar
@@ -96,11 +103,25 @@ public class OffrePageActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offre_page);
         getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container, frag).commit();
+
+        //function to retrieve connected user
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
+
+        //setting title name
+        title = findViewById(R.id.textView7);
+        if(connectedUser != null) {
+            String Nom = connectedUser.getNom();
+            title.setText(Nom);
+        }
+
+
+        getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
         ButterKnife.bind(this);
 
         ImageView img = (ImageView) findViewById(R.id.filter);

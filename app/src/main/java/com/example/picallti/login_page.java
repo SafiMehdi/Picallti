@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -26,6 +28,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import data.LoginRequest;
+import data.User;
 import retrofit.RetrofitService;
 import retrofit.UserApi;
 import retrofit2.Call;
@@ -47,6 +50,16 @@ public class login_page extends AppCompatActivity {
     private ImageView connectwithgoogle;
     private ImageView connectwithtwitter;
     public static String PREFS_NAME = "myFile";
+    public static User userTest;
+
+    public static <GenericClass> GenericClass getSavedObjectFromPreference(Context context, String preferenceFileName, String preferenceKey, Class<GenericClass> classType) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceFileName, 0);
+        if (sharedPreferences.contains(preferenceKey)) {
+            final Gson gson = new Gson();
+            return gson.fromJson(sharedPreferences.getString(preferenceKey, ""), classType);
+        }
+        return null;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,20 +140,31 @@ public class login_page extends AppCompatActivity {
                         .enqueue(new Callback() {
                             @Override
                             public void onResponse(Call call, Response response) {
+
                                 if(response.isSuccessful()) {
+                                    userTest = (User) response.body();
+                                    SharedPreferences.Editor editor = Prefs.edit();
                                     if (remembermecheckbox.isChecked()) {
-                                        SharedPreferences.Editor editor = Prefs.edit();
                                         Boolean BoolChecked = remembermecheckbox.isChecked();
                                         editor.putString("emailPref", emailaddress.getText().toString());
                                         editor.putString("passwordPref", password.getText().toString());
                                         editor.putBoolean("isCheckedPref", BoolChecked);
-                                        editor.apply();
-
                                     }else {
                                         Prefs.edit().clear().apply();
                                     }
+
+                                    //adding the user
+                                    Gson gson = new Gson();
+                                    String json = gson.toJson(userTest);
+                                    editor.putString("connectedUser",json);
+                                    editor.apply();
+
                                     Toast.makeText(getApplicationContext(), "Vous êtes connécté !", Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(login_page.this, OffrePageActivity.class));
+
+                                    System.out.println(userTest.getEmail());
+
+
                                 }else if(response.code() == 500){
                                     Toast.makeText(getApplicationContext(),"Email ou mot de passe incorrect !",Toast.LENGTH_LONG).show();
                                 }else{
@@ -198,32 +222,6 @@ public class login_page extends AppCompatActivity {
         if(myPrefs.contains("isCheckedPref")){
             Boolean b = myPrefs.getBoolean("isCheckedPref",false);
             remembermecheckbox.setChecked(b);
-        }
-    }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
-        }
-    }
-
-    private void handleSignInResult(Task<GoogleSignInAccount> task) {
-        try {
-            GoogleSignInAccount account = task.getResult(ApiException.class);
-
-            // Signed in successfully, show authenticated UI.
-            Log.e(TAG, "handleSignInResult: "+ account.getEmail() );
-        } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.e(TAG, "signInResult:failed code=" + e.getMessage());
-
         }
     }
 }

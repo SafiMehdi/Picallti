@@ -26,6 +26,9 @@ public class Offre {
     private String ville;
 
 
+    public Offre(){
+
+    }
     public Offre(Integer id, Integer imageId, String titre, String description, String localisation, float prix, String time, String operation, User user,Vehicule vehicule,String LocalDateTime,String ville) {
         this.id = id;
         this.imageId = imageId;

@@ -33,16 +33,20 @@ import java.util.logging.Logger;
 
 import adapters.CommentsAdapter;
 import adapters.NotificationAdapter;
+import adapters.OffresAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import data.Commentaire;
+import data.Favoris;
 import data.Notification;
 import data.Offre;
 import data.User;
 import data.Vehicule;
 import data.VehiculeType;
 import retrofit.CommentApi;
+import retrofit.FavorisApi;
+import retrofit.OffreApi;
 import retrofit.RetrofitService;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -219,6 +223,32 @@ public class SingleOffreActivity extends AppCompatActivity {
         Uri phone = Uri.parse("tel:"+phoneNummber);
         Intent call = new Intent(Intent.ACTION_DIAL,phone);
         startActivity(call);
+    }
+    @OnClick(R.id.favoris)
+    public void addToFav(){
+        User user = new User(2,"nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+        Bundle extras = getIntent().getExtras();
+        Offre offre = new Offre();
+        offre.setId(extras.getInt("id"));
+        Favoris favoris = new Favoris(user,offre);
+        RetrofitService retrofitService = new RetrofitService();
+        FavorisApi favorisApi = retrofitService.getRetrofit().create(FavorisApi.class);
+        favorisApi.addFavoris(favoris).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+                System.out.println("working");
+                System.out.println(response);
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                System.out.println("Not working");
+            }
+        });
+
+
+
     }
 
 

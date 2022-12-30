@@ -140,9 +140,8 @@ public class ModifierProfileActivity extends AppCompatActivity {
 
                     //this should be replaced by un object user from the sharedPrefe
                     // user = sharedPrefVariable.get......
-                    User user = new User(surname, name, mail, phone, bio, img);
 
-                    userApi.updateUser(user)
+                  /*  userApi.updateUser(user)
                             .enqueue(new Callback() {
                                 @Override
                                 public void onResponse(Call call, Response response) {
@@ -154,7 +153,7 @@ public class ModifierProfileActivity extends AppCompatActivity {
                                 public void onFailure(Call call, Throwable t) {
                                     Logger.getLogger(ModifierProfileActivity.class.getName()).log(Level.SEVERE, "Error Occured", t);
                                 }
-                            });
+                            });*/
                 }
             }
         });

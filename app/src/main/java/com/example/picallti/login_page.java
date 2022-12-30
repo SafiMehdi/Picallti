@@ -6,12 +6,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +33,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class login_page extends AppCompatActivity {
+    private static final int RC_SIGN_IN = 201;
+    private static final String TAG = "login_page";
     private CheckBox remembermecheckbox;
     private EditText username;
     private Button connect;
@@ -32,6 +43,9 @@ public class login_page extends AppCompatActivity {
     private EditText emailaddress;
     private EditText password;
     public SharedPreferences Prefs;
+    private ImageView connectwithfacebook;
+    private ImageView connectwithgoogle;
+    private ImageView connectwithtwitter;
     public static String PREFS_NAME = "myFile";
 
     @Override
@@ -49,6 +63,38 @@ public class login_page extends AppCompatActivity {
         connect = (Button)findViewById(R.id.btnConnect);
         remembermecheckbox = (CheckBox) findViewById(R.id.checkboxrememberme);
         Prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        connectwithfacebook = (ImageView) findViewById(R.id.connectwithfacebook);
+        connectwithgoogle = (ImageView) findViewById(R.id.connectwithgoogle);
+        connectwithtwitter = (ImageView) findViewById(R.id.connectwithtwitter);
+
+        connectwithfacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        connectwithgoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                        .requestEmail()
+                        .build();
+
+                GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(login_page.this, gso);
+
+                Intent signInIntent = googleSignInClient.getSignInIntent();
+                startActivityForResult(signInIntent, RC_SIGN_IN);
+            }
+        });
+
+        connectwithtwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
 
 
@@ -152,6 +198,32 @@ public class login_page extends AppCompatActivity {
         if(myPrefs.contains("isCheckedPref")){
             Boolean b = myPrefs.getBoolean("isCheckedPref",false);
             remembermecheckbox.setChecked(b);
+        }
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            // The Task returned from this call is always completed, no need to attach
+            // a listener.
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            handleSignInResult(task);
+        }
+    }
+
+    private void handleSignInResult(Task<GoogleSignInAccount> task) {
+        try {
+            GoogleSignInAccount account = task.getResult(ApiException.class);
+
+            // Signed in successfully, show authenticated UI.
+            Log.e(TAG, "handleSignInResult: "+ account.getEmail() );
+        } catch (ApiException e) {
+            // The ApiException status code indicates the detailed failure reason.
+            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            Log.e(TAG, "signInResult:failed code=" + e.getMessage());
+
         }
     }
 }

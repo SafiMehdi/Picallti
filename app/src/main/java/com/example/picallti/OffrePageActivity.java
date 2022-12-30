@@ -120,10 +120,6 @@ public class OffrePageActivity extends AppCompatActivity {
             title.setText(Nom);
         }
 
-
-        getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
-        ButterKnife.bind(this);
-
         ImageView img = (ImageView) findViewById(R.id.filter);
         img.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

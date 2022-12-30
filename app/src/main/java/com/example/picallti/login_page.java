@@ -129,6 +129,9 @@ public class login_page extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call call, Throwable t) {
+                                System.out.println(emailaddress.getText().toString());
+                                System.out.println(password.getText().toString());
+
                                 Logger.getLogger(login_page.class.getName()).log(Level.SEVERE, "Wrong Credentials !", t);
                                 Toast.makeText(getApplicationContext(),"Email ou mot de passe incorrect !",Toast.LENGTH_LONG).show();
                             }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +43,10 @@ public class PrivacyActivity extends AppCompatActivity {
                     case R.id.nav_parametre:
                         Intent intent_parametre = new Intent(PrivacyActivity.this, ParametresActivity.class);
                         startActivity(intent_parametre);
+                        break;
+                    case R.id.nav_logout:
+                        Toast.makeText( PrivacyActivity.this, "You've been disconnected!",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(PrivacyActivity.this, login_page.class));
                         break;
                     default:
                         return false;

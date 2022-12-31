@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
@@ -19,13 +18,11 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
-
 import com.google.gson.Gson;
 
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,12 +36,9 @@ import data.Vehicule;
 import data.VehiculeType;
 import retrofit.OffreApi;
 import retrofit.RetrofitService;
-import retrofit.UserApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AjouterAnnonceActivity extends AppCompatActivity {
 
@@ -107,6 +101,10 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
                     case R.id.nav_parametre:
                         Intent intent_parametre = new Intent(AjouterAnnonceActivity.this, ParametresActivity.class);
                         startActivity(intent_parametre);
+                        break;
+                    case R.id.nav_logout:
+                        Toast.makeText( AjouterAnnonceActivity.this, "You've been disconnected!",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(AjouterAnnonceActivity.this, login_page.class));
                         break;
                     default:
                         return false;

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 import adapters.FavoritesAdapter;
@@ -60,6 +59,10 @@ public class PersonnalOfferActivity extends AppCompatActivity {
                     case R.id.nav_parametre:
                         Intent intent_parametre = new Intent(PersonnalOfferActivity.this, ParametresActivity.class);
                         startActivity(intent_parametre);
+                        break;
+                    case R.id.nav_logout:
+                        Toast.makeText( PersonnalOfferActivity.this, "You've been disconnected!",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(PersonnalOfferActivity.this, login_page.class));
                         break;
                     default:
                         return false;

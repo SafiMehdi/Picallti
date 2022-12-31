@@ -1,15 +1,7 @@
 package com.example.picallti;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.database.Cursor;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -17,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,6 +53,10 @@ public class ModifierProfileActivity extends AppCompatActivity {
                     case R.id.nav_parametre:
                         Intent intent_parametre = new Intent(ModifierProfileActivity.this, ParametresActivity.class);
                         startActivity(intent_parametre);
+                        break;
+                    case R.id.nav_logout:
+                        Toast.makeText( ModifierProfileActivity.this, "You've been disconnected!",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(ModifierProfileActivity.this, login_page.class));
                         break;
                     default:
                         return false;

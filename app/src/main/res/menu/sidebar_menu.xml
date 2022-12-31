@@ -26,6 +26,11 @@
             android:id="@+id/nav_parametre"
             android:icon="@drawable/ic_baseline_settings_24"
             android:title="@string/menu_parametre" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_baseline_logout_24"
+            android:layout_gravity="bottom"
+            android:title="@string/menu_logout" />
     </group>
 
 </menu>

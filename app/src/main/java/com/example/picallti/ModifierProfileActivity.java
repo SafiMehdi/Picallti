@@ -1,5 +1,7 @@
 package com.example.picallti;
 
+import static com.example.picallti.login_page.PREFS_NAME;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
@@ -34,6 +36,10 @@ import java.util.logging.Logger;
 import data.User;
 import retrofit.RetrofitService;
 import retrofit.UserApi;
+
+
+import retrofit2.Response;
+import retrofit2.Callback;
 
 public class ModifierProfileActivity extends AppCompatActivity {
 
@@ -138,8 +144,8 @@ public class ModifierProfileActivity extends AppCompatActivity {
                     String bio = changeBioInput.getText().toString();
                     int phone = Integer.parseInt(changePhoneInput.getText().toString());
 
-                    //this should be replaced by un object user from the sharedPrefe
-                    // user = sharedPrefVariable.get......
+                    //function to retrieve connected user
+                    User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
                     User user = new User(surname, name, mail, phone, bio, img);
 
                     userApi.updateUser(user)

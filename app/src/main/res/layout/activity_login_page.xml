@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/backgroundPage"
     tools:context=".login_page"
     android:background="#f8f9fa"
 
@@ -12,39 +13,40 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/picallti_finallogo"
-        android:adjustViewBounds="true"
-        android:maxWidth="200dp"
-        android:maxHeight="200dp"
+        android:layout_width="361dp"
+        android:layout_height="123dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/backgroundPage"
         android:contentDescription="@string/image_holder"
-        />
+        android:src="@drawable/logo" />
+
     <EditText
         android:id="@+id/username"
+        android:textColorHint="@color/hint"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_below="@id/logo"
-        android:width="300dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:hint="@string/user_placeholder"
-        android:textSize="20sp"
-        android:drawableStart="@drawable/userlogo"
+        android:layout_marginTop="30dp"
+        android:width="300dp"
         android:background="@drawable/rounded_corners_edittext"
-        android:inputType="textEmailAddress"
-        android:fontFamily="@font/fontnew2"
+        android:drawableStart="@drawable/userlogo"
         android:drawablePadding="12dp"
-        android:paddingStart="15dp"
         android:elevation="2dp"
+        android:fontFamily="@font/fontnew2"
+        android:hint="@string/user_placeholder"
+        android:inputType="textEmailAddress"
+        android:paddingStart="15dp"
         android:paddingEnd="5dp"
-        />
+        android:textSize="20sp" />
+
     <EditText
         android:id="@+id/password"
         android:layout_width="300dp"
         android:layout_height="60dp"
+        android:textColorHint="@color/hint"
         android:layout_below="@id/username"
         android:width="300dp"
         android:layout_centerHorizontal="true"
@@ -69,7 +71,7 @@
         android:fontFamily="@font/fontnew2"
         android:layout_alignStart="@id/password"
         android:layout_marginTop="15dp"
-        android:textColor="#131349"
+        android:textColor="@color/black"
         android:layout_marginStart="35dp"
         />
 
@@ -79,6 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
         android:layout_alignStart="@id/password"
+        android:backgroundTint="@color/black"
         android:layout_marginStart="-10dp"
         android:minWidth="48dp"
         android:minHeight="48dp" />
@@ -97,7 +100,8 @@
         android:fontFamily="@font/fontnew2bold"
         android:clickable="true"
         android:background="@drawable/shape_more_info_offre"
-        android:backgroundTint="#4361ee"
+        android:backgroundTint="@color/button"
+        android:textColorHint="@color/textBoutton"
         />
 
     <TextView
@@ -111,7 +115,7 @@
         android:fontFamily="@font/fontnew2"
         android:minHeight="48dp"
         android:text="@string/forgotpass"
-        android:textColor="#131349" />
+        android:textColor="@color/black" />
     <TextView
         android:id="@+id/inscription"
         android:layout_width="wrap_content"
@@ -121,7 +125,7 @@
         android:layout_alignEnd="@id/btnConnect"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/fontnew2"
-        android:textColor="#131349"/>
+        android:textColor="@color/black" />
     <TextView
         android:id="@+id/connectwith"
         android:layout_width="wrap_content"
@@ -132,7 +136,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
         android:fontFamily="@font/fontnew2"
-        android:textColor="#131349"/>
+        android:textColor="@color/black" />
 
     <ImageView
         android:layout_width="wrap_content"

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -60,6 +61,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="60dp"
                     android:layout_marginEnd="24dp"
+                    android:backgroundTint="@color/backgroundPage"
                     android:background="@drawable/white_background"
                     android:elevation="3dp"
                     android:orientation="vertical"
@@ -185,7 +187,7 @@
                             style="@android:style/Widget.Holo.Light.Spinner"
                             android:layout_width="150dp"
                             android:layout_height="35dp"
-                            android:layout_below="@+id/passwordVerif"
+                            android:backgroundTint="@color/NoChange"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp" />
 
@@ -196,8 +198,10 @@
                             android:layout_marginLeft="25dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="25dp"
+                            android:textColor="@color/textBoutton"
                             android:fontFamily="@font/fontnew2bold"
-                            android:text="APPLY" />
+                            android:text="APPLY"
+                            android:backgroundTint="@color/button"/>
 
                     </LinearLayout>
                 </LinearLayout>

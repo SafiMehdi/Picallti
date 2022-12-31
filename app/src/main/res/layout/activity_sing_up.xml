@@ -42,6 +42,7 @@
         android:layout_marginTop="50dp"
         android:hint="@string/nom"
         android:layout_centerHorizontal="true"
+        android:textColorHint="@color/hint"
         android:paddingStart="15dp"
         android:inputType="textPersonName"
         android:layout_below="@+id/pageTitle"
@@ -49,6 +50,7 @@
 
     <EditText
         android:id="@+id/name"
+        android:textColorHint="@color/hint"
         android:background="@drawable/rounded_corners_edittext"
         android:drawableLeft="@drawable/nom"
         android:layout_width="260dp"
@@ -67,6 +69,7 @@
         android:background="@drawable/rounded_corners_edittext"
         android:drawableLeft="@drawable/email1"
         android:layout_below="@+id/name"
+        android:textColorHint="@color/hint"
         android:layout_width="260dp"
         android:layout_height="50dp"
         android:drawablePadding="12dp"
@@ -87,6 +90,7 @@
         android:drawablePadding="12dp"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
+        android:textColorHint="@color/hint"
         android:paddingStart="15dp"
         android:hint="@string/emailConfirm"
         android:inputType="textEmailAddress"
@@ -102,6 +106,7 @@
         android:drawablePadding="12dp"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
+        android:textColorHint="@color/hint"
         android:paddingStart="15dp"
         android:hint="@string/phone"
         android:inputType="phone"
@@ -109,6 +114,7 @@
 
     <EditText
         android:id="@+id/password"
+        android:textColorHint="@color/hint"
         android:background="@drawable/rounded_corners_edittext"
         android:drawableLeft="@drawable/open_lock"
         android:layout_below="@+id/phoneNumber"
@@ -133,6 +139,7 @@
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:paddingStart="15dp"
+        android:textColorHint="@color/hint"
         android:hint="@string/passwordConfirm"
         android:inputType="textPassword"
         android:elevation="2dp"/>
@@ -181,11 +188,11 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/custom_btn_shape"
-        android:backgroundTint="#4361ee"
+        android:backgroundTint="@color/button"
         android:drawablePadding="-15dp"
         android:fontFamily="@font/fontnew2bold"
         android:text="@string/buttonCreerCompte"
-        android:textColor="@color/white"
+        android:textColor="@color/textBoutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:onClick="registerUser" />
@@ -200,7 +207,7 @@
         android:textSize="20sp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/fontnew2"
-        android:textColor="#131349"/>
+        android:textColor="@color/black"/>
 
     <ImageView
         android:layout_width="wrap_content"

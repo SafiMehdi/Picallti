@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OTPActivity"
-    android:background="#f8f9fa">
+    android:background="@color/backgroundPage">
 
     <TextView
         android:id="@+id/title"
@@ -14,7 +14,7 @@
         android:text="@string/forgotpasstitle"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/fontnew2bold"
-        android:textColor="#011EFE"
+        android:textColor="@color/titlePage"
         android:textSize="30sp"
         android:layout_marginTop="35dp"
         />
@@ -27,6 +27,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="59dp"
         android:width="300dp"
+        android:textColorHint="@color/hint"
         android:background="@drawable/rounded_corners_edittext"
         android:drawableLeft="@drawable/phone"
         android:hint="0(6/7) 00 0..."
@@ -43,7 +44,7 @@
         android:layout_below="@+id/phoneNumber"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
-        android:textColor="@color/white"
+        android:textColor="@color/textBoutton"
         android:text="Send Code"
         android:width="300dp"
         android:backgroundTint="#4361ee"
@@ -62,6 +63,7 @@
         android:layout_marginTop="46dp"
         android:layout_marginEnd="45dp"
         android:layout_marginBottom="0dp"
+        android:textColor="@color/black"
         android:fontFamily="@font/fontnew2"
         android:text="Enter code you received" />
 
@@ -72,6 +74,7 @@
         android:layout_below="@+id/text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
+        android:textColorHint="@color/hint"
         android:width="300dp"
         android:background="@drawable/rounded_corners_edittext"
         android:drawableLeft="@drawable/ic_baseline_subject_24"
@@ -90,6 +93,7 @@
         android:text="@string/forgotpassback"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
         android:fontFamily="@font/fontnew2bold"
         android:textSize="15sp"
         android:clickable="true"/>

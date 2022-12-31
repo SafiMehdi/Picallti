@@ -47,6 +47,10 @@ public class ParametresActivity extends AppCompatActivity {
                         Intent intent_parametre = new Intent(ParametresActivity.this, ParametresActivity.class);
                         startActivity(intent_parametre);
                         break;
+                    case R.id.nav_logout:
+                        Toast.makeText( ParametresActivity.this, "You've been disconnected!",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(ParametresActivity.this, login_page.class));
+                        break;
                     default:
                         return false;
                 }

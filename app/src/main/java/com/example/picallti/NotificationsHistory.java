@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,6 +56,10 @@ public class NotificationsHistory extends AppCompatActivity {
                     case R.id.nav_parametre:
                         Intent intent_parametre = new Intent(NotificationsHistory.this, ParametresActivity.class);
                         startActivity(intent_parametre);
+                        break;
+                    case R.id.nav_logout:
+                        Toast.makeText( NotificationsHistory.this, "You've been disconnected!",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(NotificationsHistory.this, login_page.class));
                         break;
                     default:
                         return false;

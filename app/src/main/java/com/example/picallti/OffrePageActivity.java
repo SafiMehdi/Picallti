@@ -1,13 +1,12 @@
 package com.example.picallti;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -29,8 +26,6 @@ import adapters.OffresAdapter;
 import adapters.VehiculeTypesAdapter;
 import butterknife.ButterKnife;
 import data.Offre;
-import data.User;
-import data.Vehicule;
 import data.VehiculeType;
 import retrofit.OffreApi;
 import retrofit.RetrofitService;
@@ -73,6 +68,10 @@ public class OffrePageActivity extends AppCompatActivity {
                     case R.id.nav_parametre:
                         Intent intent_parametre = new Intent(OffrePageActivity.this, ParametresActivity.class);
                         startActivity(intent_parametre);
+                        break;
+                    case R.id.nav_logout:
+                        Toast.makeText( OffrePageActivity.this, "You've been disconnected!",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(OffrePageActivity.this, login_page.class));
                         break;
                     default:
                         return false;

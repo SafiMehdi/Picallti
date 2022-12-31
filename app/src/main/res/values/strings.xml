@@ -1,5 +1,4 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="app_name">Picallti</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
@@ -155,6 +154,7 @@
     <string name="menu_apropos">A propos</string>
     <string name="menu_parametre">Paramètres</string>
     <string name="menu_likes">Mes likes</string>
+    <string name="menu_logout">Se déconnecter</string>
 
     <string name="sidebar_drawer_open">Ouvrir le tiroir de navigation</string>
     <string name="sidebar_drawer_close">Fermer le tiroir de navigation</string>

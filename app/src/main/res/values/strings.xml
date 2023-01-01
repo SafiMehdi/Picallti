@@ -2,7 +2,7 @@
     <string name="app_name">Picallti</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
-    <string name="profil">Profil</string>
+    <string name="profil">Profile</string>
     <string name="favorites">Favorites</string>
     <string name="notifications">Notifications</string>
     <string name="profile">Profile</string>
@@ -153,14 +153,25 @@
     <string name="menu_language">Langues</string>
     <string name="menu_apropos">A propos</string>
     <string name="menu_parametre">Paramètres</string>
-    <string name="menu_likes">Mes likes</string>
+    <string name="menu_likes">Mes favories</string>
     <string name="menu_logout">Se déconnecter</string>
 
     <string name="sidebar_drawer_open">Ouvrir le tiroir de navigation</string>
     <string name="sidebar_drawer_close">Fermer le tiroir de navigation</string>
 
     <string name="position">Co-fondateur</string>
-    <string name="languages_choice_title">Chose the application\'s language</string>
+    <string name="team_name">The warriors team</string>
+    <string name="team_description">Description</string>
+    <string name="ouissal">Ouissal Elkorri</string>
+    <string name="ilham">Ilham Oukassou</string>
+    <string name="ayoub">Ayoub Fadili</string>
+    <string name="mehdi">Mehdi Safi</string>
+    <string name="nisrine">Nisrine Moufakir</string>
+    <string name="ibtissam">Ibtissam Zerouali</string>
+    <string name="meryem">Meryem Bensaid</string>
+    <string name="mohammed">Mohammed Echtouki</string>
+
+    <string name="languages_choice_title">Choose the application\'s language</string>
     <string name="languages_choice">(we have only three languages till now, we will add others in the nearest future)</string>
     <string name="privacy_title">Picallti Privacy &amp; Policy</string>
     <string name="privacy_text" translatable="false">

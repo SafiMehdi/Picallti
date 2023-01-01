@@ -29,14 +29,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Meryem Bensaid"
+                android:text="@string/meryem"
                 android:layout_gravity="center"
                 android:textColor="@color/bleu_dark"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ilham Oukassou"
+                android:text="@string/ilham"
                 android:layout_gravity="center"
                 android:layout_column="2"
                 android:textColor="@color/bleu_dark"
@@ -83,14 +83,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mehdi Safi"
+                android:text="@string/mehdi"
                 android:layout_gravity="center"
                 android:textColor="@color/bleu_dark"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ayoub Fadili"
+                android:text="@string/ayoub"
                 android:layout_gravity="center"
                 android:layout_column="2"
                 android:textColor="@color/bleu_dark"
@@ -137,14 +137,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="IbtissamZerouali"
+                android:text="@string/ibtissam"
                 android:layout_gravity="center"
                 android:textColor="@color/bleu_dark"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mohammed Echtouki"
+                android:text="@string/mohammed"
                 android:layout_gravity="center"
                 android:layout_column="2"
                 android:textColor="@color/bleu_dark"
@@ -191,14 +191,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nisrine Moufakir"
+                android:text="@string/nisrine"
                 android:layout_gravity="center"
                 android:textColor="@color/bleu_dark"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ouissal Elkorri"
+                android:text="@string/ouissal"
                 android:layout_gravity="center"
                 android:layout_column="2"
                 android:textColor="@color/bleu_dark"

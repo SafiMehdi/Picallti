@@ -1,16 +1,21 @@
 package com.example.picallti;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.FileUtils;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.telecom.Call;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,28 +28,47 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import data.User;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit.ImageDataApi;
 import retrofit.RetrofitService;
 import retrofit.UserApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class ModifierProfileActivity extends AppCompatActivity {
 
+    private final int GALLERY_REQUEST_CODE = 1000;
     public static final int PICK_IMAGE = 1;
-
+    // Storage Permissions
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
     BottomBarFragment frag = new BottomBarFragment();
     Button changeProfilePictureButton;
     Button saveEditBtn;
-    ImageView IVPreviewImage;
+    ImageView imgGallery;
     EditText changeBioInput , changePhoneInput , changeEmailInput ,changeSurnameInput , changeNameInput ;
-
+    String filePath;
     //The function that implements the sidebar
     public void Sidebar(){
         NavigationView navView = findViewById(R.id.sidebar_view);
@@ -109,12 +133,20 @@ public class ModifierProfileActivity extends AppCompatActivity {
 
 
         changeProfilePictureButton = (Button) findViewById(R.id.changePictureBtn);
+        imgGallery = findViewById(R.id.imgGallery);
         changeProfilePictureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent iGallery = new Intent(Intent.ACTION_PICK);
+                iGallery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(iGallery ,GALLERY_REQUEST_CODE );
                 System.out.println("Clicked");
             }
+
         });
+
+
 
         changeNameInput = (EditText) findViewById(R.id.changeNameInput);
         changeSurnameInput = (EditText) findViewById(R.id.changeSurnameInput);
@@ -122,7 +154,6 @@ public class ModifierProfileActivity extends AppCompatActivity {
         changePhoneInput = (EditText) findViewById(R.id.changePhoneInput);
         changeBioInput = (EditText) findViewById(R.id.changeBioInput);
         saveEditBtn = (Button) findViewById(R.id.saveEditBtn);
-
         RetrofitService retrofitService = new RetrofitService();
         UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
         saveEditBtn.setOnClickListener(new View.OnClickListener() {
@@ -156,7 +187,69 @@ public class ModifierProfileActivity extends AppCompatActivity {
                             });*/
                 }
             }
+
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            int permission = ActivityCompat.checkSelfPermission(ModifierProfileActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+            if (permission != PackageManager.PERMISSION_GRANTED) {
+                // We don't have permission so prompt the user
+                ActivityCompat.requestPermissions(
+                        ModifierProfileActivity.this,
+                        PERMISSIONS_STORAGE,
+                        REQUEST_EXTERNAL_STORAGE
+                );
+            }else {
+                try {
+                    Uri imageUri = data.getData();
+                    Context context = ModifierProfileActivity.this;
+                    filePath = RealPathUtil.getRealPath(context, imageUri);
+                    //System.out.println("The path is : "+filePath);
+                    InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                    Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                    imgGallery.setImageBitmap(selectedImage);
+                    RetrofitService retrofitService = new RetrofitService();
+                    ImageDataApi imageDataApi = retrofitService.getRetrofit().create(ImageDataApi.class);
+                    File file = new File(filePath);
+                    RequestBody requestFile = RequestBody.create(MediaType.parse("image/png"), file);
+                    MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), requestFile);
+                    imageDataApi.uploadImage(body).enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            if (response.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "Uploaded!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Not uploaded !!", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                            System.out.println("U're here : " + t.toString());
+
+                        }
+                    });
+
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    Toast.makeText(ModifierProfileActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
+                }
+
+            }}
+        else {
+                Toast.makeText(ModifierProfileActivity.this, "You haven't picked Image",Toast.LENGTH_LONG).show();
+            }
+
+
+
     }
 
     private Boolean validateSurname() {

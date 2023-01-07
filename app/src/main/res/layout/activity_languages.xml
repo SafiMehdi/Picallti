@@ -56,15 +56,22 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="230dp"
             android:layout_centerHorizontal="true"
             android:textAlignment="center"
             android:textSize="15sp"
             android:text="@string/languages_choice"
             />
 
+        <Spinner
+            android:id="@+id/languages_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="300dp"
+            android:layout_centerHorizontal="true"/>
 
-        <RadioGroup
+        <!--<RadioGroup
             android:id="@+id/languages_radio_grp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,26 +80,26 @@
             android:layout_centerHorizontal="true">
 
             <RadioButton
-                android:id="@+id/ar"
+                android:id="@+id/arabic_buttun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"
                 android:text="العربية" />
 
             <RadioButton
-                android:id="@+id/fr"
+                android:id="@+id/french_buttun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"
                 android:text="Français" />
 
             <RadioButton
-                android:id="@+id/eng"
+                android:id="@+id/english_buttun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"
                 android:text="English" />
-        </RadioGroup>
+        </RadioGroup>-->
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

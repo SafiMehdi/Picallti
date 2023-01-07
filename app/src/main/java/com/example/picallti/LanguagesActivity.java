@@ -1,10 +1,16 @@
 package com.example.picallti;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,6 +19,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Locale;
 
 
 public class LanguagesActivity extends AppCompatActivity {
@@ -70,11 +78,91 @@ public class LanguagesActivity extends AppCompatActivity {
             }
         });
     }
+
+    //Change lang function
+    public void ChangeLanguage(){
+        /*RadioGroup radioGroup = findViewById(R.id.languages_radio_grp);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.arabic_buttun:
+                        Toast.makeText( LanguagesActivity.this, "you selected arabic",Toast.LENGTH_SHORT).show();
+                        setAppLanguage("ar", "rMA");
+                        break;
+                    case R.id.french_buttun:
+                        Toast.makeText( LanguagesActivity.this, "you selected french",Toast.LENGTH_SHORT).show();
+                        setAppLanguage("fr", "rLU");
+                        break;
+                    case R.id.english_buttun:
+                        Toast.makeText( LanguagesActivity.this, "you selected english",Toast.LENGTH_SHORT).show();
+                        setAppLanguage("en", "rUS");
+                        break;
+                }
+            }
+        });*/
+        Spinner spinner = findViewById(R.id.languages_spinner);
+        final String[] Languages = {"Select Language", "Arabic", "French", "English"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Languages);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setSelection(0);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedLang = parent.getItemAtPosition(position).toString();
+                if (selectedLang.equals("Arabic")){
+                    setLocal(LanguagesActivity.this, "ar");
+                    finish();
+                    startActivity(getIntent());
+                }else if (selectedLang.equals("English")){
+                    setLocal(LanguagesActivity.this, "en");
+                    finish();
+                    startActivity(getIntent());
+                }else if (selectedLang.equals("French")){
+                    setLocal(LanguagesActivity.this, "fr");
+                    finish();
+                    startActivity(getIntent());
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+    }
+    /*private void setAppLanguage(String languageCode, String regionCode) {
+        Resources res = getResources();
+        // Change locale settings in the app.
+        DisplayMetrics dm = res.getDisplayMetrics();
+        android.content.res.Configuration conf = res.getConfiguration();
+        conf.setLocale(new Locale(languageCode, regionCode)); // API 17+ only.
+        // Use conf.locale = new Locale(languageCode, regionCode) if targeting lower versions
+        res.updateConfiguration(conf, dm);
+        // Refresh the activity to apply the language change.
+        recreate();
+    }*/
+
+   public void setLocal(Activity activity, String lanCode){
+        Locale locale = new Locale(lanCode);
+        locale.setDefault(locale);
+        Resources resources = activity.getResources();
+        Configuration config = resources.getConfiguration();
+        config.setLocale(locale);
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_languages);
         //Sidebar implementation
         Sidebar();
+
+        //Change lang function
+        ChangeLanguage();
     }
 }

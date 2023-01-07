@@ -12,6 +12,7 @@
     <string name="btnchangepass">تغيير كلمة سر</string>
     <string name="connect">اسم الولوج</string>
     <string name="forgotpass">هل نسيت كلمة السر؟</string>
+    <string name="usersurnameHint">النسب</string>
     <string name="favorites">المفضلة</string>
     <string name="register">انشاء حساب جديد</string>
     <string name="connectsocial">تسجيل الدخول</string>

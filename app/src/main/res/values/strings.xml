@@ -95,7 +95,8 @@
     <string name="emailTemplate" translatable="false">meydi.safi@gmail.com</string>
     <string name="editProfileBtnText">Edit Profile</string>
     <string name="changePDPTextView">Change profile picture</string>
-    <string name="usernameHint">Change your username</string>
+    <string name="usernameHint">name</string>
+    <string name="usersurnameHint">surname</string>
     <string name="emailHint">Change your email</string>
     <string name="phoneHint">Change your phone number</string>
     <string name="bioHint">Change your bio</string>

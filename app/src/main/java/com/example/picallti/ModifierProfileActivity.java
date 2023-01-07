@@ -10,13 +10,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.telecom.Call;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,13 +28,22 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import data.User;
+import retrofit.RetrofitService;
+import retrofit.UserApi;
+
 public class ModifierProfileActivity extends AppCompatActivity {
 
     public static final int PICK_IMAGE = 1;
 
     BottomBarFragment frag = new BottomBarFragment();
     Button changeProfilePictureButton;
+    Button saveEditBtn;
     ImageView IVPreviewImage;
+    EditText changeBioInput , changePhoneInput , changeEmailInput ,changeSurnameInput , changeNameInput ;
 
     //The function that implements the sidebar
     public void Sidebar(){
@@ -89,11 +101,11 @@ public class ModifierProfileActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
 
 
-        Spinner spinner = (Spinner) findViewById(R.id.cities_spinner);
+        /*Spinner spinner = (Spinner) findViewById(R.id.cities_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.cities_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);*/
 
 
         changeProfilePictureButton = (Button) findViewById(R.id.changePictureBtn);
@@ -103,6 +115,112 @@ public class ModifierProfileActivity extends AppCompatActivity {
                 System.out.println("Clicked");
             }
         });
+
+        changeNameInput = (EditText) findViewById(R.id.changeNameInput);
+        changeSurnameInput = (EditText) findViewById(R.id.changeSurnameInput);
+        changeEmailInput = (EditText) findViewById(R.id.changeEmailInput);
+        changePhoneInput = (EditText) findViewById(R.id.changePhoneInput);
+        changeBioInput = (EditText) findViewById(R.id.changeBioInput);
+        saveEditBtn = (Button) findViewById(R.id.saveEditBtn);
+
+        RetrofitService retrofitService = new RetrofitService();
+        UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
+        saveEditBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!validateSurname() | !validateName() | !validatePhoneNo() | !validateEmail()) {
+                    return;
+                } else {
+                    int img = Integer.parseInt(changeProfilePictureButton.getText().toString());
+                    String surname = changeSurnameInput.getText().toString();
+                    String name = changeNameInput.getText().toString();
+                    String mail = changeEmailInput.getText().toString();
+                    String bio = changeBioInput.getText().toString();
+                    int phone = Integer.parseInt(changePhoneInput.getText().toString());
+
+                    //this should be replaced by un object user from the sharedPrefe
+                    // user = sharedPrefVariable.get......
+
+                  /*  userApi.updateUser(user)
+                            .enqueue(new Callback() {
+                                @Override
+                                public void onResponse(Call call, Response response) {
+                                    startActivity(new Intent(ModifierProfileActivity.this, login_page.class));
+                                    Toast.makeText(ModifierProfileActivity.this, "Account Updated !", Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onFailure(Call call, Throwable t) {
+                                    Logger.getLogger(ModifierProfileActivity.class.getName()).log(Level.SEVERE, "Error Occured", t);
+                                }
+                            });*/
+                }
+            }
+        });
+    }
+
+    private Boolean validateSurname() {
+        String val = changeSurnameInput.getText().toString();
+        String validName = "(?=^[^0-9]+$)";
+        if (val.isEmpty()) {
+            changeSurnameInput.setError("Field cannot be empty");
+            return false;
+        } else if (val.matches(validName)) {
+            changeSurnameInput.setError("Surname should not contain digits !");
+            return false;
+        } else {
+            changeSurnameInput.setError(null);
+            return true;
+        }
+    }
+
+    private Boolean validateName() {
+        String val = changeNameInput.getText().toString();
+        String validName = "(?=^[^0-9]+$)";
+        if (val.isEmpty()) {
+            changeNameInput.setError("Field cannot be empty");
+            return false;
+        } else if (val.matches(validName)) {
+            changeNameInput.setError("Name should not contain digits !");
+            return false;
+        } else {
+            changeNameInput.setError(null);
+            return true;
+        }
+    }
+
+    private Boolean validateEmail() {
+        String val = changeEmailInput.getText().toString();
+        String validEmail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if (val.isEmpty()) {
+            changeNameInput.setError("Field cannot be empty !");
+            return false;
+        } else if (!val.matches(validEmail)) {
+            changeNameInput.setError("Invalid email address !");
+            return false;
+        } else {
+            changeNameInput.setError(null);
+            return true;
+        }
+    }
+
+    private Boolean validatePhoneNo() {
+        String val = changePhoneInput.getText().toString();
+        String val2 = val.length() < 3 ? "00" : val.substring(0, 2);
+        //System.out.println(val2);
+        if (val.isEmpty()) {
+            changePhoneInput.setError("Field cannot be empty !");
+            return false;
+        } else if (val.length() != 10) {
+            changePhoneInput.setError("Only 10 digits are allowed !");
+            return false;
+        } else if (!val2.equals("06") && !val2.equals("07")) {
+            changePhoneInput.setError("Phone number should start with 06 or 07 !");
+            return false;
+        } else {
+            changePhoneInput.setError(null);
+            return true;
+        }
     }
 
 }

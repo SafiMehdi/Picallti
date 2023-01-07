@@ -59,7 +59,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/nightMode"
                         android:layout_weight="1"
-                        android:text="Night Mode"
+                        android:text="@string/settings_night_mode"
                         android:textColor="@color/kitten_white"
                         android:textStyle="bold" />
 
@@ -129,7 +129,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/darkMode"
                         android:layout_weight="1"
-                        android:text="Private Account"
+                        android:text="@string/settings_private_account"
                         android:textColor="@color/kitten_white"
                         android:textStyle="bold" />
 
@@ -181,7 +181,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/changePassword"
                         android:layout_weight="1"
-                        android:text="Change Password"
+                        android:text="@string/settings_change_password"
                         android:textColor="@color/kitten_white"
                         android:textStyle="bold" />
 
@@ -217,7 +217,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/security"
                         android:layout_weight="1"
-                        android:text="Security and Privacy"
+                        android:text="@string/settings_security_privacy"
                         android:textColor="@color/kitten_white"
                         android:textStyle="bold" />
 
@@ -253,7 +253,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/languages"
                         android:layout_weight="1"
-                        android:text="Languages"
+                        android:text="@string/settings_languages"
                         android:textColor="@color/kitten_white"
                         android:textStyle="bold" />
 
@@ -307,7 +307,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/sendUs"
                         android:layout_weight="1"
-                        android:text="Send us a message"
+                        android:text="@string/settings_send_us_message"
                         android:textColor="@color/kitten_white"
                         android:textStyle="bold" />
 
@@ -343,7 +343,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/aboutUs"
                         android:layout_weight="1"
-                        android:text="About us"
+                        android:text="@string/settings_about_us"
                         android:textColor="@color/kitten_white"
                         android:textStyle="bold" />
 
@@ -379,7 +379,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/faq"
                         android:layout_weight="1"
-                        android:text="FAQ's"
+                        android:text="@string/settings_FAQs"
                         android:textColor="@color/kitten_white"
                         android:textStyle="bold" />
 

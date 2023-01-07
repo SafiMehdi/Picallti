@@ -108,6 +108,16 @@
     <string name="forgotpasstitle">هل نسيت كلمة السر؟</string>
     <string name="forgotpassmail">الايميل</string>
     <string name="hiUsername">مرحبا</string>
+    <string name="add_your_comment">"أضف تعليقك"</string>
+
+    <string name="settings_night_mode">الوضع الليلي</string>
+    <string name="settings_private_account">حساب خاص</string>
+    <string name="settings_change_password">غير كلمة السر</string>
+    <string name="settings_security_privacy">الأمن والخصوصية</string>
+    <string name="settings_languages">اللغات</string>
+    <string name="settings_send_us_message">أرسل لنا رسالة</string>
+    <string name="settings_about_us">معلومات عنا</string>
+    <string name="settings_FAQs">التعليمات</string>
 
     <string name="menu_mon_profil">ملفي الشخصي</string>
     <string name="menu_apparence">مظهر التطبيق</string>
@@ -133,6 +143,9 @@
 
 
     <string name="languages_choice_title">اختر لغة التطبيق</string>
+    <string name="arabic">العربية</string>
+    <string name="english">الإنجليزية</string>
+    <string name="french">الفرنسية</string>
     <string name="languages_choice">(لدينا ثلاث لغات فقط حتى الآن ، وسنضيف المزيد في المستقبل القريب)</string>
     <string name="privacy_title">خصوصية و سياسة بيكالتي</string>
     <string name="privacy_text" translatable="true">

@@ -91,7 +91,7 @@ public class updateActivity extends AppCompatActivity {
         Button saveEditBtn = (Button) findViewById(R.id.button);
 
 
-        titreEdit = (EditText) findViewById(R.id.titreOffre);
+        titreEdit = (EditText) findViewById(R.id.TitreOffre);
         descEdit = (EditText) findViewById(R.id.Description);
         prixEdit = (EditText) findViewById(R.id.Prix);
         marqueEdit = (EditText) findViewById(R.id.Marque);

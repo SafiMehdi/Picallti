@@ -4,35 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/backgroundPage"
     tools:context=".forgot_pass2">
+
     <ImageView
         android:id="@+id/illustration"
-        android:layout_width="300dp"
-        android:layout_height="250dp"
-        android:src="@drawable/reset_password_illustration"
-        android:layout_centerHorizontal="true"/>
+        android:layout_width="295dp"
+        android:layout_height="210dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/reset_password_illustration" />
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reset Password"
+        android:textColor="@color/titlePage"
         android:layout_below="@+id/illustration"
         android:layout_alignStart="@+id/illustration"
         android:fontFamily="@font/fontnew2bold"
-        android:textColor="#023e8a"
         android:textSize="35sp"
         />
     <TextView
         android:id="@+id/title2"
+        android:textColor="@color/titlePage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
         android:text="Redefine new Password:"
         android:fontFamily="@font/fontnew2bold"
         android:textSize="35sp"
-        android:layout_alignStart="@+id/title"
-        android:textColor="#023e8a"/>
+        android:layout_alignStart="@+id/title"/>
     <EditText
+        android:textColorHint="@color/hint"
         android:id="@+id/edit2"
         android:layout_width="300dp"
         android:layout_height="60dp"
@@ -49,6 +52,7 @@
         android:inputType="textPassword"
         android:background="@drawable/rounded_corners_edittext"/>
     <EditText
+        android:textColorHint="@color/hint"
         android:id="@+id/edit3"
         android:layout_width="300dp"
         android:layout_height="60dp"
@@ -75,8 +79,9 @@
         android:width="300dp"
         android:fontFamily="@font/fontnew2bold"
         android:background="@drawable/shape_more_info_offre"
-        android:backgroundTint="#4361ee"
-        android:textColor="@color/white"/>
+        android:backgroundTint="@color/button"
+        android:textColorHint="@color/textBoutton"
+        android:textColor="@color/textBoutton"/>
 <!--    <TextView-->
 <!--        android:id="@+id/txtbacklogin"-->
 <!--        android:layout_width="wrap_content"-->

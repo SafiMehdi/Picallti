@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout_modifier_profile"
     android:layout_width="match_parent"
+    android:backgroundTint="@color/backgroundPage"
     android:layout_height="match_parent">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -12,14 +13,14 @@
 
     <ImageButton
         android:id="@+id/sidebar_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
+        android:layout_width="55dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#00FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/menu" />
+        app:srcCompat="@drawable/ic_baseline_menu_24" />
 
     <TextView
         android:id="@+id/textView12"
@@ -64,12 +65,13 @@
         <android.widget.Button
             android:id="@+id/changePictureBtn"
             android:layout_width="match_parent"
+            android:backgroundTint="@color/hint"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/background_btn"
             android:drawableLeft="@drawable/background_btn_pdp"
             android:text="@string/changePDPTextView"
-            android:textColor="@color/black"
+            android:textColor="@color/textBoutton"
             android:fontFamily="@font/fontnew2"
             android:textStyle="bold" />
 
@@ -87,6 +89,7 @@
                 android:layout_centerHorizontal="true"
                 android:textSize="20sp"
                 android:paddingStart="15dp"
+                android:textColorHint="@color/hint"
                 android:fontFamily="@font/fontnew2"
                 android:drawablePadding="12dp"
                 android:background="@drawable/rounded_corners_edittext"
@@ -97,6 +100,8 @@
                 android:id="@+id/changeSurnameInput"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
+                android:layout_height="60dp"
+                android:textColorHint="@color/hint"
                 android:layout_marginTop="15dp"
                 android:hint="@string/usersurnameHint"
                 android:inputType="textPersonName"
@@ -136,6 +141,7 @@
             android:layout_marginTop="15dp"
             android:hint="@string/phoneHint"
             android:inputType="phone"
+            android:textColorHint="@color/hint"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
             android:paddingStart="15dp"
@@ -150,6 +156,7 @@
             android:id="@+id/changeBioInput"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textColorHint="@color/hint"
             android:layout_marginTop="15dp"
             android:hint="@string/bioHint"
             android:inputType="phone"
@@ -161,6 +168,7 @@
             android:background="@drawable/rounded_corners_edittext"
             android:elevation="2dp"
             android:paddingEnd="5dp"/>
+
 
     </LinearLayout>
 
@@ -202,7 +210,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="2dp"
             android:orientation="horizontal">
 
             <TextView
@@ -211,7 +219,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/fontnew2"
                 android:text="@string/hideEmailTextView"
-                android:textColor="@color/bleu"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

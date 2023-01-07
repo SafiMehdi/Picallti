@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/backgroundPage"
     tools:context=".forgot_pass1"
     >
     <ImageView
@@ -23,7 +24,7 @@
         android:layout_below="@+id/illustration"
         android:layout_alignStart="@+id/illustration"
         android:fontFamily="@font/fontnew2bold"
-        android:textColor="#023e8a"
+        android:textColor="@color/titlePage"
         android:textSize="35sp"
         android:textAlignment="textEnd"
         android:layout_marginLeft="20dp"
@@ -62,6 +63,7 @@
         android:layout_below="@+id/contenu"
         android:layout_marginTop="30dp"
         android:hint="@string/user_placeholder"
+        android:textColorHint="@color/hint"
         android:layout_centerHorizontal="true"
         android:width="300dp"
         android:drawableStart="@drawable/ic_baseline_email_24"
@@ -85,7 +87,7 @@
         android:background="@drawable/shape_more_info_offre"
         android:elevation="2dp"
         android:backgroundTint="#4361ee"
-        android:textColor="@color/white"
+        android:textColor="@color/textBoutton"
         />
     <TextView
         android:id="@+id/txtbacklogin"

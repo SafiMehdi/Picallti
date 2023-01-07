@@ -126,7 +126,7 @@
     <string name="prixOffreHint">Prix</string>
     <string name="boutonAjouterOffre">Ajouter offre</string>
     <string name="titlepass2" translatable="false">title pass 1</string>
-    <string name="titlepass" translatable="false">title pqsss</string>
+    <string name="titlepass" translatable="false">title passs</string>
     <string name="resetpasstitle">reset pass</string>
     <string name="resetpasstitle2">Redéfinire le mot de passe:</string>
     <string name="titleTooLongMessage">"Le Titre ne doit pas dépasser 100 caractére"</string>
@@ -147,6 +147,15 @@
     <string name="Change">Change</string>
     <string name="Comments">Comments</string>
     <string name="add_your_comment">"add your comment "</string>
+
+    <string name="settings_night_mode">Night Mode</string>
+    <string name="settings_private_account">Private Account</string>
+    <string name="settings_change_password">Change Password</string>
+    <string name="settings_security_privacy">Security and Privacy</string>
+    <string name="settings_languages">Languages</string>
+    <string name="settings_send_us_message">Send us a message</string>
+    <string name="settings_about_us">About us</string>
+    <string name="settings_FAQs">FAQ\'s</string>
 
     <string name="menu_mon_profil">Mon profil</string>
     <string name="menu_apparence">Apparence</string>
@@ -172,6 +181,9 @@
     <string name="mohammed">Mohammed Echtouki</string>
 
     <string name="languages_choice_title">Choose the application\'s language</string>
+    <string name="arabic">Arabic</string>
+    <string name="english">English</string>
+    <string name="french">French</string>
     <string name="languages_choice">(we have only three languages till now, we will add others in the nearest future)</string>
     <string name="privacy_title">Picallti Privacy &amp; Policy</string>
     <string name="privacy_text" translatable="false">

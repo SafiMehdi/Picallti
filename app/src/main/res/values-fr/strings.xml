@@ -119,6 +119,16 @@
     <string name="VehicleType">Type de véhicule</string>
     <string name="Change">Changer</string>
     <string name="Comments">Commentaires</string>
+    <string name="add_your_comment">"Ajoutez votre commentaire"</string>
+
+    <string name="settings_night_mode">Night Mode</string>
+    <string name="settings_private_account">Compte privé</string>
+    <string name="settings_change_password">Changer le mot de passe</string>
+    <string name="settings_security_privacy">Sécurité et confidentialité</string>
+    <string name="settings_languages">Langues</string>
+    <string name="settings_send_us_message">Envoie-nous un message</string>
+    <string name="settings_about_us">À propos de nous</string>
+    <string name="settings_FAQs">FAQ</string>
 
 
     <string name="menu_mon_profil">Mon profil</string>
@@ -146,6 +156,9 @@
 
 
     <string name="languages_choice_title">Choisissez la language de l application</string>
+    <string name="arabic">Arabe</string>
+    <string name="english">Anglais</string>
+    <string name="french">Français</string>
     <string name="languages_choice">(Nous n avons que trois langues jusqu à présent, nous en ajouterons d autres dans un futur proche)</string>
     <string name="privacy_title">Picallti: Confidentialité &amp; Politique</string>
     <string name="privacy_text" translatable="true">

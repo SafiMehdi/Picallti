@@ -1,5 +1,7 @@
 package com.example.picallti;
 
+import static com.example.picallti.login_page.PREFS_NAME;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -125,6 +127,7 @@ public class ModifierProfileActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
 
 
+
         /*Spinner spinner = (Spinner) findViewById(R.id.cities_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.cities_array, android.R.layout.simple_spinner_item);
@@ -133,7 +136,7 @@ public class ModifierProfileActivity extends AppCompatActivity {
 
 
         changeProfilePictureButton = (Button) findViewById(R.id.changePictureBtn);
-        imgGallery = findViewById(R.id.imgGallery);
+        imgGallery = findViewById(R.id.imageView2);
         changeProfilePictureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,7 +144,7 @@ public class ModifierProfileActivity extends AppCompatActivity {
                 Intent iGallery = new Intent(Intent.ACTION_PICK);
                 iGallery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(iGallery ,GALLERY_REQUEST_CODE );
-                System.out.println("Clicked");
+                //System.out.println("Clicked");
             }
 
         });
@@ -194,6 +197,9 @@ public class ModifierProfileActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        //function to retrieve connected user
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
+
         if (resultCode == RESULT_OK) {
             int permission = ActivityCompat.checkSelfPermission(ModifierProfileActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
@@ -205,43 +211,57 @@ public class ModifierProfileActivity extends AppCompatActivity {
                         REQUEST_EXTERNAL_STORAGE
                 );
             }else {
-                try {
                     Uri imageUri = data.getData();
                     Context context = ModifierProfileActivity.this;
                     filePath = RealPathUtil.getRealPath(context, imageUri);
-                    //System.out.println("The path is : "+filePath);
-                    InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                    System.out.println("The path is : "+filePath);
+                    // Display the image
+                InputStream imageStream = null;
+                try {
+                    imageStream = getContentResolver().openInputStream(imageUri);
                     Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                     imgGallery.setImageBitmap(selectedImage);
-                    RetrofitService retrofitService = new RetrofitService();
-                    ImageDataApi imageDataApi = retrofitService.getRetrofit().create(ImageDataApi.class);
-                    File file = new File(filePath);
-                    RequestBody requestFile = RequestBody.create(MediaType.parse("image/png"), file);
-                    MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), requestFile);
-                    imageDataApi.uploadImage(body).enqueue(new Callback<ResponseBody>() {
-                        @Override
-                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                            if (response.isSuccessful()) {
-                                Toast.makeText(getApplicationContext(), "Uploaded!", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(getApplicationContext(), "Not uploaded !!", Toast.LENGTH_SHORT).show();
-
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<ResponseBody> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
-                            System.out.println("U're here : " + t.toString());
-
-                        }
-                    });
-
-
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
-                    Toast.makeText(ModifierProfileActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
                 }
+                    //######
+                    File file = new File(filePath);
+                    String ext = filePath.substring(filePath.lastIndexOf(".")); // Extension with dot .jpg, .png
+                System.out.println("the extension:"+ext);
+                if(ext.equals(".jpg") || ext.contains(".png")){
+                        RetrofitService retrofitService = new RetrofitService();
+                        ImageDataApi imageDataApi = retrofitService.getRetrofit().create(ImageDataApi.class);
+                        RequestBody requestFile;
+                        if(ext.equals(".png")){
+                            System.out.println("here is png");
+                            requestFile = RequestBody.create(MediaType.parse("image/jpg"), file);
+                        }else {
+                            requestFile = RequestBody.create(MediaType.parse("image/png"), file);
+                        }
+                        String email = connectedUser.getEmail();
+                        MultipartBody.Part body = MultipartBody.Part.createFormData("image", email, requestFile);
+                        imageDataApi.uploadImage(body).enqueue(new Callback<ResponseBody>() {
+                            @Override
+                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                if (response.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Uploaded!", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Not uploaded !!", Toast.LENGTH_SHORT).show();
+
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                                System.out.println("U're here : " + t.toString());
+
+                            }
+                        });
+                    } else {
+                        Toast.makeText(ModifierProfileActivity.this, "Image type not supported !!",Toast.LENGTH_LONG).show();
+                    }
+
 
             }}
         else {

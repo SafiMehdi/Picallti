@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +26,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import com.google.gson.Gson;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -38,6 +41,8 @@ import data.Offre;
 import data.User;
 import data.Vehicule;
 import data.VehiculeType;
+import okhttp3.ResponseBody;
+import retrofit.ImageDataApi;
 import retrofit.OffreApi;
 import retrofit.RetrofitService;
 import retrofit2.Call;
@@ -118,7 +123,34 @@ public class OffrePageActivity extends AppCompatActivity {
         if(connectedUser != null) {
             String Nom = connectedUser.getNom();
             title.setText(Nom);
+
+            String email = connectedUser.getEmail();
         }
+        ImageView pp = (ImageView) findViewById(R.id.imageView2);
+        RetrofitService retrofitService = new RetrofitService();
+        ImageDataApi imageDataApi = retrofitService.getRetrofit().create(ImageDataApi.class);
+        imageDataApi.downloadImage("test.jpg").enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+                    byte[] r = new byte[0];
+                    try {
+                        r = response.body().bytes();
+                        Bitmap bitmap = BitmapFactory.decodeByteArray(r, 0, r.length);
+                        pp.setImageBitmap(bitmap);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+
 
         ImageView img = (ImageView) findViewById(R.id.filter);
         img.setOnClickListener(new View.OnClickListener() {
@@ -164,7 +196,7 @@ public class OffrePageActivity extends AppCompatActivity {
         adapter=new OffresAdapter(getApplicationContext(),offres);
         recyclerView.setAdapter(adapter);
 */
-        RetrofitService retrofitService = new RetrofitService();
+       //RetrofitService retrofitService = new RetrofitService();
         OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
         Call<List<Offre>> call = offreApi.getOffers();
         call.enqueue(new Callback<List<Offre>>() {

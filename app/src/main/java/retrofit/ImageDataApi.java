@@ -21,5 +21,7 @@ public interface ImageDataApi {
     Call<ResponseBody> uploadImage(@Part MultipartBody.Part file);
 
     @GET("/imageData/{fileName}")
-    Call<?> getAllUsers(@Path("fileName") String fileName);
+    Call<ResponseBody> downloadImage(@Path("fileName") String fileName);
+
+
 }

@@ -212,7 +212,7 @@ public class SingleOffreActivity extends AppCompatActivity {
             photo = extras.getInt("photo");
         }*/
         imageOffre.setBackgroundResource(photo);
-        prix.setText(Double.toString(extras.getDouble("prix")));
+        prix.setText(Float.toString(extras.getFloat("prix")));
         time.setText(extras.getString("time"));
         description.setText(extras.getString("description"));
         this.phoneNummber = extras.getInt("phone");

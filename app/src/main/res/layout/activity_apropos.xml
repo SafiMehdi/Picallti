@@ -50,7 +50,7 @@
             android:layout_marginStart="0dp"
             android:layout_marginTop="130dp"
             android:layout_centerHorizontal="true"
-            android:text="The warriors team"
+            android:text="@string/team_name"
             android:textColor="@color/bleu_dark"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Description"
+            android:text="@string/team_description"
             android:layout_marginStart="0dp"
             android:layout_marginTop="160dp"
             android:textColor="@color/bleu_dark"/>

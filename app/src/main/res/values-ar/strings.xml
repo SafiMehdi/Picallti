@@ -101,11 +101,56 @@
     <string name="Entercode">أدخل الرمز الذي تلقيته</string>
     <string name="AddOffer">أضف العرض</string>
     <string name="Titredeloffre">عنوان العرض</string>
-    <string name="VehicleType">"نوع الدراجة "</string>
+    <string name="VehicleType">"نوع الدراجة"</string>
     <string name="Change">تغيير</string>
     <string name="Comments">تعليقات</string>
     <string name="titre">تسجيل الدخول</string>
     <string name="forgotpasstitle">هل نسيت كلمة السر؟</string>
     <string name="forgotpassmail">الايميل</string>
     <string name="hiUsername">مرحبا</string>
+    <string name="add_your_comment">"أضف تعليقك"</string>
+
+    <string name="settings_night_mode">الوضع الليلي</string>
+    <string name="settings_private_account">حساب خاص</string>
+    <string name="settings_change_password">غير كلمة السر</string>
+    <string name="settings_security_privacy">الأمن والخصوصية</string>
+    <string name="settings_languages">اللغات</string>
+    <string name="settings_send_us_message">أرسل لنا رسالة</string>
+    <string name="settings_about_us">معلومات عنا</string>
+    <string name="settings_FAQs">التعليمات</string>
+
+    <string name="menu_mon_profil">ملفي الشخصي</string>
+    <string name="menu_apparence">مظهر التطبيق</string>
+    <string name="menu_language">اللغات</string>
+    <string name="menu_apropos">حول</string>
+    <string name="menu_parametre">الإعدادات</string>
+    <string name="menu_likes">مفضلتي</string>
+    <string name="menu_logout">تسجيل الخروج</string>
+
+    <string name="sidebar_drawer_open">افتح درج التنقل</string>
+    <string name="sidebar_drawer_close">أغلق درج التنقل</string>
+    <string name="position">شريك مؤسس</string>
+    <string name="team_name">فريق المحاربين</string>
+    <string name="team_description">وصف</string>
+    <string name="ouissal">Ouissal Elkorri</string>
+    <string name="ilham">Ilham Oukassou</string>
+    <string name="ayoub">Ayoub Fadili</string>
+    <string name="mehdi">Mehdi Safi</string>
+    <string name="nisrine">Nisrine Moufakir</string>
+    <string name="ibtissam">Ibtissam Zerouali</string>
+    <string name="meryem">Meryem Bensaid</string>
+    <string name="mohammed">Mohammed Echtouki</string>
+
+
+    <string name="languages_choice_title">اختر لغة التطبيق</string>
+    <string name="arabic">العربية</string>
+    <string name="english">الإنجليزية</string>
+    <string name="french">الفرنسية</string>
+    <string name="languages_choice">(لدينا ثلاث لغات فقط حتى الآن ، وسنضيف المزيد في المستقبل القريب)</string>
+    <string name="privacy_title">خصوصية و سياسة بيكالتي</string>
+    <string name="privacy_text" translatable="true">
+لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد. كان  هو النص الوهمي القياسي في الصناعة منذ القرن الخامس عشر الميلادي ، عندما أخذت طابعة غير معروفة لوحًا من النوع وتدافعت عليه لعمل كتاب عينة من النوع. لقد صمد ليس فقط لخمسة قرون ، ولكن أيضًا القفزة في التنضيد الإلكتروني ، وظل دون تغيير جوهري. تم نشره في الستينيات من القرن الماضي مع إصدار أوراق  التي تحتوي على مقاطع   ، ومؤخرًا مع برامج النشر المكتبي مثل   بما في ذلك إصدارات  .
+         لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد. كان  هو النص الوهمي القياسي في الصناعة منذ القرن الخامس عشر الميلادي ، عندما أخذت طابعة غير معروفة لوحًا من النوع وتدافعت عليه لعمل كتاب عينة من النوع. لقد صمد ليس فقط لخمسة قرون ، ولكن أيضًا القفزة في التنضيد الإلكتروني ، وظل دون تغيير جوهري. تم نشره في الستينيات من القرن الماضي مع إصدار أوراق  التي تحتوي على مقاطع   ، ومؤخرًا مع برامج النشر المكتبي مثل   بما في ذلك إصدارات  .
+         هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. الهدف من استخدام لوريم إيبسوم هو أنه يحتوي على توزيع طبيعي -إلى حد ما- للأحرف ، بدلاً من استخدام يوجد محتوى هنا ، يوجد محتوى هنا  ، مما يجعلها تبدو وكأنها إنجليزية قابلة للقراءة. تستخدم العديد من حزم النشر المكتبي ومحرري صفحات الويب الآن  كنموذج افتراضي للنموذج ، وسيكشف البحث عن  العديد من مواقع الويب التي لا تزال في مهدها. تطورت إصدارات مختلفة على مر السنين ، أحيانًا عن طريق الصدفة ، وأحيانًا عن قصد (روح الدعابة المحقونة وما شابه ذلك).
+    </string>
 </resources>

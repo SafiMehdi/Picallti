@@ -2,7 +2,7 @@
     <string name="app_name">Picallti</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
-    <string name="profil">Profil</string>
+    <string name="profil">Profile</string>
     <string name="favorites">Favorites</string>
     <string name="notifications">Notifications</string>
     <string name="profile">Profile</string>
@@ -126,7 +126,7 @@
     <string name="prixOffreHint">Prix</string>
     <string name="boutonAjouterOffre">Ajouter offre</string>
     <string name="titlepass2" translatable="false">title pass 1</string>
-    <string name="titlepass" translatable="false">title pqsss</string>
+    <string name="titlepass" translatable="false">title passs</string>
     <string name="resetpasstitle">reset pass</string>
     <string name="resetpasstitle2">Redéfinire le mot de passe:</string>
     <string name="titleTooLongMessage">"Le Titre ne doit pas dépasser 100 caractére"</string>
@@ -148,20 +148,43 @@
     <string name="Comments">Comments</string>
     <string name="add_your_comment">"add your comment "</string>
 
+    <string name="settings_night_mode">Night Mode</string>
+    <string name="settings_private_account">Private Account</string>
+    <string name="settings_change_password">Change Password</string>
+    <string name="settings_security_privacy">Security and Privacy</string>
+    <string name="settings_languages">Languages</string>
+    <string name="settings_send_us_message">Send us a message</string>
+    <string name="settings_about_us">About us</string>
+    <string name="settings_FAQs">FAQ\'s</string>
+
     <string name="menu_mon_profil">Mon profil</string>
     <string name="menu_apparence">Apparence</string>
     <string name="menu_language">Langues</string>
     <string name="menu_apropos">A propos</string>
     <string name="menu_parametre">Paramètres</string>
-    <string name="menu_likes">Mes likes</string>
+    <string name="menu_likes">Mes favories</string>
     <string name="menu_logout">Se déconnecter</string>
 
     <string name="sidebar_drawer_open">Ouvrir le tiroir de navigation</string>
     <string name="sidebar_drawer_close">Fermer le tiroir de navigation</string>
 
     <string name="position">Co-fondateur</string>
-    <string name="languages_choice">Chose the application language
-        (we have only three languages till now, we will add others in the nearest future)</string>
+    <string name="team_name">The warriors team</string>
+    <string name="team_description">Description</string>
+    <string name="ouissal">Ouissal Elkorri</string>
+    <string name="ilham">Ilham Oukassou</string>
+    <string name="ayoub">Ayoub Fadili</string>
+    <string name="mehdi">Mehdi Safi</string>
+    <string name="nisrine">Nisrine Moufakir</string>
+    <string name="ibtissam">Ibtissam Zerouali</string>
+    <string name="meryem">Meryem Bensaid</string>
+    <string name="mohammed">Mohammed Echtouki</string>
+
+    <string name="languages_choice_title">Choose the application\'s language</string>
+    <string name="arabic">Arabic</string>
+    <string name="english">English</string>
+    <string name="french">French</string>
+    <string name="languages_choice">(we have only three languages till now, we will add others in the nearest future)</string>
     <string name="privacy_title">Picallti Privacy &amp; Policy</string>
     <string name="privacy_text" translatable="false">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.

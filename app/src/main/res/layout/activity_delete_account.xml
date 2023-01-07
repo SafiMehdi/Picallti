@@ -34,7 +34,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:text="La suppression de votre compte est permanente et enrtrainera la suppression de toutes vos données enregitrées. Êtes-vous sûr de bien vouloir continuer ?"
+        android:text="@string/deleteTxt"
         android:textAlignment="center"
         android:textColor="@color/kitten_white"
         android:textSize="16sp"

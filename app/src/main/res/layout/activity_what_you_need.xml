@@ -109,7 +109,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/fontnew2bold"
-                            android:text="Type De Véhicule"
+                            android:text="@string/VehicleType"
                             android:textAlignment="center"
                             android:textAppearance="@style/TextAppearance.AppCompat.Large"
                             android:textColor="@color/colorPrimary" />
@@ -142,7 +142,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/fontnew2bold"
-                            android:text="Prix"
+                            android:text="@string/prixOffreHint"
                             android:textAlignment="center"
                             android:textAppearance="@style/TextAppearance.AppCompat.Large"
                             android:textColor="@color/colorPrimary" />
@@ -175,7 +175,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/fontnew2bold"
-                            android:text="Ville"
+                            android:text="@string/City"
                             android:textAlignment="center"
                             android:textAppearance="@style/TextAppearance.AppCompat.Large"
                             android:textColor="@color/colorPrimary" />

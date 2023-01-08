@@ -36,7 +36,7 @@
         android:layout_marginEnd="32dp"
         android:text="@string/deleteTxt"
         android:textAlignment="center"
-        android:textColor="@color/kitten_white"
+        android:textColor="@color/NoChange"
         android:textSize="16sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,23 +61,31 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="42dp"
         android:text="@string/usernameTemplate"
-        android:textColor="@color/kitten_white"
+        android:textColor="@color/NoChange"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView16"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
+
+
     <android.widget.Button
         android:id="@+id/deleteAccountButton"
-        android:layout_width="wrap_content"
+        android:layout_width="173dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_gravity="center"
         android:layout_marginTop="80dp"
-        android:background="@drawable/background_outline_white"
+        android:drawableRight="@drawable/ic_baseline_send_24"
+        android:backgroundTint="@color/button"
+        android:padding="5dp"
         android:text="@string/deleteAccount"
-        android:textColor="@color/kitten_white"
-        android:textSize="16dp"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toEndOf="@+id/imageView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        tools:ignore="MissingConstraints"
+        android:width="300dp"
+        android:textColor="@color/textBoutton"
+        android:fontFamily="@font/fontnew2bold"
+        android:background="@drawable/shape_more_info_offre"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

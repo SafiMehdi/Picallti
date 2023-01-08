@@ -13,4 +13,17 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Night Mode  -->
+    <style name="SCREEN">
+        <item name="backgroundColor">#292727</item>
+    </style>
+
+    <style name="TEXT">
+        <item name="backgroundColor">#FFF</item>
+    </style>
+
+    <style name="BUTTON">
+        <item name="backgroundColor">#5B678F</item>
+    </style>
 </resources>

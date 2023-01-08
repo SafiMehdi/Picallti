@@ -1,5 +1,7 @@
 package com.example.picallti;
 
+import static com.example.picallti.login_page.PREFS_NAME;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -76,8 +79,10 @@ public class SingleOffreActivity extends AppCompatActivity {
     ImageButton like;
     int phoneNummber;
 
+    Boolean isFav;
+
     //The function that implements the sidebar
-    public void Sidebar(){
+    public void Sidebar() {
         NavigationView navView = findViewById(R.id.sidebar_view);
         navView.inflateMenu(R.menu.sidebar_menu);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -137,7 +142,7 @@ public class SingleOffreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_offre);
 
-        sendComment=(EditText)findViewById(R.id.sendComment);
+        sendComment = (EditText) findViewById(R.id.sendComment);
         RetrofitService retrofitService = new RetrofitService();
         CommentApi commentApi = retrofitService.getRetrofit().create(CommentApi.class);
 
@@ -149,19 +154,19 @@ public class SingleOffreActivity extends AppCompatActivity {
                 if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN)) {
                     // Perform action on key press
                     String commentSent = sendComment.getText().toString();
-                    User user = new User("Mehdi","Safi","M","testttt@test.com",78,"pass",1,"bio","admin");
+                    User user = new User("Mehdi", "Safi", "M", "testttt@test.com", 78, "pass", 1, "bio", "admin");
                     VehiculeType vehiculeType = new VehiculeType("typeV");
-                    Vehicule vehicule = new Vehicule("marque",vehiculeType);
-                    Offre offre = new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, LocalTime.now().toString(),"vente",user,vehicule, LocalDate.of(2020, 1, 8).toString(),"ville");
+                    Vehicule vehicule = new Vehicule("marque", vehiculeType);
+                    Offre offre = new Offre(R.drawable.motorcycle, "Motorcycle", "A perfectly working Motorcycle, available starting from now ", "localisation", 67, LocalTime.now().toString(), "vente", user, vehicule, LocalDate.of(2020, 1, 8).toString(), "ville");
 
 
-                    Commentaire commentaire = new Commentaire(commentSent, user,offre,LocalDate.now().toString(), LocalTime.now().toString());
+                    Commentaire commentaire = new Commentaire(commentSent, user, offre, LocalDate.now().toString(), LocalTime.now().toString());
 
                     commentApi.addComment(commentaire)
                             .enqueue(new Callback<Void>() {
                                 @Override
                                 public void onResponse(Call<Void> call, Response<Void> response) {
-                                    Toast.makeText(SingleOffreActivity.this, "Comment created !",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SingleOffreActivity.this, "Comment created !", Toast.LENGTH_SHORT).show();
                                 }
 
                                 @Override
@@ -178,28 +183,27 @@ public class SingleOffreActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
         recyclerView.setLayoutManager(linearLayoutManager);
-
-
         commentApi.getAllCommentairesByOffre(3)
-            .enqueue(new Callback<Collection<Commentaire>>() {
-            @Override
-            public void onResponse(Call<Collection<Commentaire>> call, Response<Collection<Commentaire>> response) {
-               if ( response.body() != null){
-                System.out.println("working");
-                ArrayList<Commentaire> commentaires =new ArrayList<>();
-                commentaires = new ArrayList<Commentaire>(response.body());
-                System.out.println(commentaires);
-                adapter = new CommentsAdapter(getApplicationContext(), commentaires);
-                recyclerView.setAdapter(adapter);}
-            }
+                .enqueue(new Callback<Collection<Commentaire>>() {
+                    @Override
+                    public void onResponse(Call<Collection<Commentaire>> call, Response<Collection<Commentaire>> response) {
+                        if (response.body() != null) {
+                            System.out.println("working");
+                            ArrayList<Commentaire> commentaires = new ArrayList<>();
+                            commentaires = new ArrayList<Commentaire>(response.body());
+                            System.out.println(commentaires);
+                            adapter = new CommentsAdapter(getApplicationContext(), commentaires);
+                            recyclerView.setAdapter(adapter);
+                        }
+                    }
 
-            @Override
-            public void onFailure(Call<Collection<Commentaire>> call, Throwable t) {
-                System.out.println("Exception");
-                Logger.getLogger(SingleOffreActivity.class.getName()).log(Level.SEVERE, "Error Occured", t);
+                    @Override
+                    public void onFailure(Call<Collection<Commentaire>> call, Throwable t) {
+                        System.out.println("Exception");
+                        Logger.getLogger(SingleOffreActivity.class.getName()).log(Level.SEVERE, "Error Occured", t);
 
-            }
-        });
+                    }
+                });
         ButterKnife.bind(this);
         Bundle extras = getIntent().getExtras();
         titreOffre.setText(extras.getString("titre"));
@@ -208,48 +212,95 @@ public class SingleOffreActivity extends AppCompatActivity {
             photo = extras.getInt("photo");
         }*/
         imageOffre.setBackgroundResource(photo);
-        prix.setText(Double.toString(extras.getDouble("prix")));
+        prix.setText(Float.toString(extras.getFloat("prix")));
         time.setText(extras.getString("time"));
         description.setText(extras.getString("description"));
         this.phoneNummber = extras.getInt("phone");
 
         //Sidebar implementation
         Sidebar();
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(), PREFS_NAME, "connectedUser", User.class);
+        //User user = new User(2,"nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+        Offre offre = new Offre();
+        offre.setId(extras.getInt("id"));
+        Favoris favoris = new Favoris(connectedUser, offre);
+        RetrofitService retrofitService1 = new RetrofitService();
+        FavorisApi favorisApi = retrofitService1.getRetrofit().create(FavorisApi.class);
+        favorisApi.checkIfExists(favoris).enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                //System.out.println("response.body()");
+                isFav = response.body();
+                if (!isFav) {
+                    like.setBackgroundResource(R.drawable.like);
+                } else {
+                    like.setBackgroundResource(R.drawable.redheart);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                System.out.println("can't know if exists");
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     @OnClick(R.id.appeler)
-    public void callOwner(){
+    public void callOwner() {
         System.out.println(phoneNummber);
-        Uri phone = Uri.parse("tel:"+phoneNummber);
-        Intent call = new Intent(Intent.ACTION_DIAL,phone);
+        Uri phone = Uri.parse("tel:" + phoneNummber);
+        Intent call = new Intent(Intent.ACTION_DIAL, phone);
         startActivity(call);
     }
+
     @OnClick(R.id.favoris)
-    public void addToFav(){
-        User user = new User(2,"nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+    public void addToFav() {
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(), PREFS_NAME, "connectedUser", User.class);
+        //User user = new User(2,"nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
         Bundle extras = getIntent().getExtras();
         Offre offre = new Offre();
         offre.setId(extras.getInt("id"));
-        Favoris favoris = new Favoris(user,offre);
+        Favoris favoris = new Favoris(connectedUser, offre);
         RetrofitService retrofitService = new RetrofitService();
         FavorisApi favorisApi = retrofitService.getRetrofit().create(FavorisApi.class);
-        favorisApi.addFavoris(favoris).enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
+        if (!isFav) {
+            isFav = true;
+            favorisApi.addFavoris(favoris).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    System.out.println("working");
+                    System.out.println(response);
+                    like.setBackgroundResource(R.drawable.redheart);
 
-                System.out.println("working");
-                System.out.println(response);
-            }
+                }
 
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                System.out.println("Not working");
-            }
-        });
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    System.out.println("Not working");
+                }
+            });
+        } else {
+            isFav = false;
+            favorisApi.remove(favoris).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    System.out.println("remove");
+                    like.setBackgroundResource(R.drawable.like);
 
+                }
 
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    System.out.println("not removing");
+                }
+            });
+
+        }
 
     }
-
-
 }

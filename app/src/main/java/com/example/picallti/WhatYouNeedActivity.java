@@ -2,6 +2,7 @@ package com.example.picallti;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -10,6 +11,9 @@ import android.widget.Spinner;
 import com.google.android.material.chip.Chip;
 
 import java.util.ArrayList;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class WhatYouNeedActivity extends AppCompatActivity {
 
@@ -22,6 +26,7 @@ public class WhatYouNeedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_what_you_need);
 
+        ButterKnife.bind(this);
         /*chip4 = findViewById(R.id.chip4);
         chip5 = findViewById(R.id.chip5);
         chip6 = findViewById(R.id.chip6);
@@ -56,5 +61,33 @@ public class WhatYouNeedActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);*/
+    }
+    @OnClick(R.id.velo)
+    public void findVelo(){
+        Intent intent = new Intent(WhatYouNeedActivity.this, OffrePageActivity.class);
+        intent.putExtra("type","vehiculeType");
+        intent.putExtra("value","Vélo");
+        startActivity(intent);
+    }
+    @OnClick(R.id.veloElectric)
+    public void findElectrique(){
+        Intent intent = new Intent(WhatYouNeedActivity.this, OffrePageActivity.class);
+        intent.putExtra("type","vehiculeType");
+        intent.putExtra("value","Vélo_electrique");
+        startActivity(intent);
+    }
+    @OnClick(R.id.motorcycle)
+    public void findMoto(){
+        Intent intent = new Intent(WhatYouNeedActivity.this, OffrePageActivity.class);
+        intent.putExtra("type","vehiculeType");
+        intent.putExtra("value","Moto");
+        startActivity(intent);
+    }
+    @OnClick(R.id.scooter)
+    public void findScooter(){
+        Intent intent = new Intent(WhatYouNeedActivity.this, OffrePageActivity.class);
+        intent.putExtra("type","vehiculeType");
+        intent.putExtra("value","Scooter");
+        startActivity(intent);
     }
 }

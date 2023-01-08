@@ -64,7 +64,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
                 }
 
                 Intent intent = new Intent(v.getContext(), SingleOffreActivity.class);
-                String time = offre.getLocalDateTime().toString() + " " + offre.getTime().toString().substring(0, 5);
+                String time = offre.getLocalDateTime() + " " + offre.getTime().substring(0, 5);
                 intent.putExtra("photo", photo);
                 intent.putExtra("titre", offre.getTitre());
                 intent.putExtra("prix", offre.getPrix());

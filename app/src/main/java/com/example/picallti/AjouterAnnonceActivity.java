@@ -295,7 +295,6 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<Vehicule> call, Throwable t) {
                 System.out.println("Can't get last vehicule");
-
             }
         });
 

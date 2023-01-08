@@ -78,6 +78,9 @@ public class ModifierProfileActivity extends AppCompatActivity {
     ImageView imgGallery;
     EditText changeBioInput , changePhoneInput , changeEmailInput ,changeSurnameInput , changeNameInput ;
     String filePath;
+
+
+
     //The function that implements the sidebar
     public void Sidebar(){
         NavigationView navView = findViewById(R.id.sidebar_view);
@@ -133,14 +136,30 @@ public class ModifierProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_modifier_profile);
         getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
 
+        changeNameInput = (EditText) findViewById(R.id.changeNameInput);
+        changeSurnameInput = (EditText) findViewById(R.id.changeSurnameInput);
+        changeEmailInput = (EditText) findViewById(R.id.changeEmailInput);
+        changePhoneInput = (EditText) findViewById(R.id.changePhoneInput);
+        changeBioInput = (EditText) findViewById(R.id.changeBioInput);
+        saveEditBtn = (Button) findViewById(R.id.saveEditBtn);
 
+        //function to retrieve connected user
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
 
-        /*Spinner spinner = (Spinner) findViewById(R.id.cities_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.cities_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);*/
+        //setting Info
+        if(connectedUser != null) {
+            String Nom = connectedUser.getNom();
+            String Preom = connectedUser.getPrenom();
+            String Email = connectedUser.getEmail();
+            int Telephone = connectedUser.getPhone();
+            String Bio = connectedUser.getBio();
 
+            changeSurnameInput.setText(Nom);
+            changeNameInput.setText(Preom);
+            changeEmailInput.setText(Email);
+            changeBioInput.setText(Bio);
+            changePhoneInput.setText(String.valueOf(Telephone));
+        }
 
         changeProfilePictureButton = (Button) findViewById(R.id.changePictureBtn);
         imgGallery = findViewById(R.id.imageView2);
@@ -157,13 +176,6 @@ public class ModifierProfileActivity extends AppCompatActivity {
         });
 
 
-
-        changeNameInput = (EditText) findViewById(R.id.changeNameInput);
-        changeSurnameInput = (EditText) findViewById(R.id.changeSurnameInput);
-        changeEmailInput = (EditText) findViewById(R.id.changeEmailInput);
-        changePhoneInput = (EditText) findViewById(R.id.changePhoneInput);
-        changeBioInput = (EditText) findViewById(R.id.changeBioInput);
-        saveEditBtn = (Button) findViewById(R.id.saveEditBtn);
         RetrofitService retrofitService = new RetrofitService();
         UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
         saveEditBtn.setOnClickListener(new View.OnClickListener() {
@@ -172,31 +184,23 @@ public class ModifierProfileActivity extends AppCompatActivity {
                 if (!validateSurname() | !validateName() | !validatePhoneNo() | !validateEmail()) {
                     return;
                 } else {
-                    int img = 11;
                     String surname = changeSurnameInput.getText().toString();
                     String name = changeNameInput.getText().toString();
                     String mail = changeEmailInput.getText().toString();
                     String bio = changeBioInput.getText().toString();
                     int phone = Integer.parseInt(changePhoneInput.getText().toString());
 
-                    //function to retrieve connected user
-                    User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
                     connectedUser.setNom(surname);
                     connectedUser.setPrenom(name);
                     connectedUser.setEmail(mail);
                     connectedUser.setBio(bio);
                     connectedUser.setPhone(phone);
-                    connectedUser.setPhoto(img);
-                    //this should be replaced by un object user from the sharedPrefe
-                    // user = sharedPrefVariable.get......
 
-                  /*  userApi.updateUser(user)
-                            .enqueue(new Callback() {
                     userApi.updateUser(connectedUser)
                             .enqueue(new Callback<Void>() {
                                 @Override
                                 public void onResponse(Call<Void> call, Response<Void> response) {
-                                    startActivity(new Intent(ModifierProfileActivity.this, login_page.class));
+                                    startActivity(new Intent(ModifierProfileActivity.this, ProfileActivity.class));
                                     Toast.makeText(ModifierProfileActivity.this, "Account Updated !", Toast.LENGTH_SHORT).show();
                                 }
 
@@ -204,7 +208,7 @@ public class ModifierProfileActivity extends AppCompatActivity {
                                 public void onFailure(Call<Void> call, Throwable t) {
                                     Logger.getLogger(ModifierProfileActivity.class.getName()).log(Level.SEVERE, "Error Occured", t);
                                 }
-                            });*/
+                            });
                 }
             }
 

@@ -61,6 +61,11 @@ public class login_page extends AppCompatActivity {
         return null;
     }
 
+
+
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,18 +92,13 @@ public class login_page extends AppCompatActivity {
             }
         });
 
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(this,gso);
+
         connectwithgoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                        .requestEmail()
-                        .build();
-
-                GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(login_page.this, gso);
-
-                Intent signInIntent = googleSignInClient.getSignInIntent();
-                startActivityForResult(signInIntent, RC_SIGN_IN);
+                singnIn();
             }
         });
 
@@ -209,6 +209,7 @@ public class login_page extends AppCompatActivity {
         });
         getPreferencesData();
     }
+
     private void getPreferencesData() {
         SharedPreferences myPrefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         if(myPrefs.contains("emailPref")){
@@ -223,5 +224,33 @@ public class login_page extends AppCompatActivity {
             Boolean b = myPrefs.getBoolean("isCheckedPref",false);
             remembermecheckbox.setChecked(b);
         }
+    }
+
+    void singnIn(){
+        Intent signInIntent = gsc.getSignInIntent();
+        startActivityForResult(signInIntent,1000);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1000) {
+
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+
+            try {
+                task.getResult(ApiException.class);
+                navigateToSecondActivity();
+
+            } catch (ApiException e) {
+                Toast.makeText(getApplicationContext(),"Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    void navigateToSecondActivity(){
+        finish();
+        Intent intent = new Intent(login_page.this, OffrePageActivity.class);
+        startActivity(intent);
     }
 }

@@ -37,4 +37,10 @@
     </style>
     <style name="Theme.Picallti.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.Picallti.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- Light Mode  -->
+    <style name="SCREEN">
+        <item name="backgroundColor"></item>
+    </style>
+
 </resources>

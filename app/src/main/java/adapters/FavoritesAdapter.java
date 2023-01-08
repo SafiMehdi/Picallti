@@ -76,6 +76,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
                 intent.putExtra("user", offre.getUser().getNom());
                 intent.putExtra("phone", offre.getUser().getPhone());
                 intent.putExtra("vehicule", offre.getVehicule().getMarque());
+                intent.putExtra("id",offre.getId());
                 v.getContext().startActivity(intent);
             }
 

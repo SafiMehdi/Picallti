@@ -1,5 +1,7 @@
 package retrofit;
 
+import java.util.List;
+
 import data.Favoris;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -18,4 +20,7 @@ public interface FavorisApi {
 
     @POST("favoris/remove")
     Call<Void> remove(@Body Favoris favoris);
+
+    @GET("favoris/findallbyuser")
+    Call<List<Favoris>> getFavorisByUser(@Query("id") int id);
 }

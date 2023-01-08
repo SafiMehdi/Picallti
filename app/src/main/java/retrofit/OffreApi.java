@@ -7,7 +7,6 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 public interface OffreApi {
     @GET("/offers/getAll")
@@ -15,6 +14,11 @@ public interface OffreApi {
 
     @POST("/offers/add")
     Call<Void> addOffre(@Body Offre offre);
+
+    @POST("/offers/update")
+    Call<Void> update(@Body Offre offre);
+
+
 
     @GET("/offers/offrebyvehiculetype")
     Call<List<Offre>> getOffersByVehiculeType(@Query("vehiculeTypeName") String vehiculeTypeName);

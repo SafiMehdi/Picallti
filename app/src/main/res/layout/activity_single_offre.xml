@@ -13,13 +13,11 @@
         android:id="@+id/titreOffre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
         android:text="Titre de l'offre"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/sidebar_button"
+        app:layout_constraintStart_toStartOf="@+id/imageOffre"
         app:layout_constraintTop_toBottomOf="@+id/sidebar_button" />
 
     <ImageView
@@ -51,29 +49,8 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/img_offre_shape"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/sidebar_button"
-        app:layout_constraintTop_toBottomOf="@+id/titreOffre"
-        />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="32dp"
-        android:background="@drawable/left"
-        app:layout_constraintBottom_toBottomOf="@+id/imageOffre"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageOffre" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/right"
-        app:layout_constraintBottom_toBottomOf="@+id/imageOffre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageOffre" />
+        app:layout_constraintTop_toBottomOf="@+id/titreOffre" />
 
 
     <LinearLayout
@@ -271,11 +248,21 @@
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/rounded_corners_edittext"
-            android:drawableRight="@drawable/send_comment_input"
             android:hint="@string/add_your_comment"
             android:inputType="text"
             android:paddingStart="15dp" />
+
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/commentSender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="26dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+        app:srcCompat="@drawable/send_comment_input" />
 </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/sidebar_view"

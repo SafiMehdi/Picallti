@@ -11,12 +11,12 @@ public class Notification {
     private String text;
     private int icon;
     private User user;
-    private LocalTime time;
-    private LocalDate localDate;
+    private String time;
+    private String localDate;
     private String url;
 
 
-    public Notification(int id,String title, String text, int icon, User user, LocalTime time, LocalDate localDate) {
+    public Notification(int id,String title, String text, int icon, User user, String time, String localDate) {
         this.id = id;
         this.title = title;
         this.text = text;
@@ -26,7 +26,7 @@ public class Notification {
         this.localDate = localDate;
     }
 
-    public Notification(String title, LocalTime time, LocalDate localDate, User user) {
+    public Notification(String title, String time, String localDate, User user) {
         this.title = title;
         this.localDate = localDate;
         this.time = time;
@@ -34,7 +34,7 @@ public class Notification {
 
     }
 
-    public Notification(String title, String text, LocalTime time,LocalDate date,User user) {
+    public Notification(String title, String text, String time,String date,User user) {
         this.title = title;
         this.text = text;
         this.time = time;
@@ -42,7 +42,7 @@ public class Notification {
         this.user = user;
 
     }
-    public Notification(String title, int icon, LocalTime time,LocalDate date,User user) {
+    public Notification(String title, int icon, String time,String date,User user) {
         this.title = title;
         this.icon = icon;
         this.time = time;
@@ -51,7 +51,7 @@ public class Notification {
 
     }
 
-    public Notification(String title, String text, int icon, LocalTime time, LocalDate date,User user) {
+    public Notification(String title, String text, int icon, String time, String date,User user) {
         this.title = title;
         this.text = text;
         this.icon = icon;
@@ -93,19 +93,19 @@ public class Notification {
         this.icon = icon;
     }
 
-    public LocalTime getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalTime time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
-    public LocalDate getLocalDate() {
+    public String getLocalDate() {
         return localDate;
     }
 
-    public void setLocalDate(LocalDate localDate) {
+    public void setLocalDate(String localDate) {
         this.localDate = localDate;
     }
 

@@ -2,6 +2,7 @@ package adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import data.Offre;
 import com.example.picallti.R;
@@ -84,6 +87,7 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
                 }
                 intent.putExtra("date", date);
                 intent.putExtra("id", offre.getId());
+                intent.putExtra("id_user",offre.getUser().getId());
                 intent.putExtra("operation", offre.getOperation());
                 intent.putExtra("localisation", offre.getLocalisation());
                 intent.putExtra("description",offre.getDescription());
@@ -100,7 +104,12 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
                 if(offre.getVehicule() != null){
                     marque = offre.getVehicule().getMarque();
                 }
-                intent.putExtra("vehicule", marque);
+                intent.putExtra("vehicule", (Serializable) offre.getVehicule());
+                System.out.println("----------------------------sdslkhqlkdq");
+                System.out.println(offre.getVehicule());
+                System.out.println(offre.getVehicule().getClass().getSimpleName());
+                System.out.println("----------------------------sdslkhqlkdq");
+
                 v.getContext().startActivity(intent);
 
             }

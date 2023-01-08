@@ -51,16 +51,16 @@ public class DeleteAccount extends AppCompatActivity {
             public void onClick(View view) {
                 if(connectedUser != null){
                     Integer id = connectedUser.getId();
-                    userApi.removeUser(id).enqueue(new Callback<Void>() {
+                    userApi.removeUser(id).enqueue(new Callback() {
                             @Override
-                            public void onResponse(Call<Void> call, Response<Void> response) {
+                            public void onResponse(Call call, Response response) {
                                 if(response.isSuccessful()){
                                     Toast.makeText(DeleteAccount.this,"L'utilisateur a bien été supprimé !",Toast.LENGTH_LONG).show();
                                 }
                             }
 
                             @Override
-                            public void onFailure(Call<Void> call, Throwable t) {
+                            public void onFailure(Call call, Throwable t) {
                                 Log.e("Opération échouée",t.getMessage());
 
                             }

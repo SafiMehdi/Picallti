@@ -172,7 +172,7 @@ public class ModifierProfileActivity extends AppCompatActivity {
                 if (!validateSurname() | !validateName() | !validatePhoneNo() | !validateEmail()) {
                     return;
                 } else {
-                    int img = Integer.parseInt(changeProfilePictureButton.getText().toString());
+                    int img = 11;
                     String surname = changeSurnameInput.getText().toString();
                     String name = changeNameInput.getText().toString();
                     String mail = changeEmailInput.getText().toString();

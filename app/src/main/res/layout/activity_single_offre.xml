@@ -3,11 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout_single_offer_page"
+    android:backgroundTint="@color/backgroundPage"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <TextView
         android:id="@+id/titreOffre"
@@ -16,7 +19,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="24dp"
         android:text="Titre de l'offre"
-        android:textColor="@color/black"
+        android:textColor="@color/titlePage"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/sidebar_button"
@@ -44,6 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/imageOffre"
         android:layout_width="wrap_content"
@@ -51,30 +55,9 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/img_offre_shape"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/sidebar_button"
-        app:layout_constraintTop_toBottomOf="@+id/titreOffre"
-        />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="32dp"
-        android:background="@drawable/left"
-        app:layout_constraintBottom_toBottomOf="@+id/imageOffre"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageOffre" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/right"
-        app:layout_constraintBottom_toBottomOf="@+id/imageOffre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageOffre" />
-
+        app:layout_constraintTop_toBottomOf="@+id/titreOffre" />
 
     <LinearLayout
         android:id="@+id/offreInfo"
@@ -100,6 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:textColor="@color/blackDoesNotChange"
                 android:layout_weight="2"
                 android:text="Rabat, Morocco"
                 android:textSize="12sp"
@@ -124,6 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:textColor="@color/blackDoesNotChange"
                     android:layout_weight="1"
                     android:text="13Dh/Jours"
                     android:textSize="12sp"
@@ -152,6 +137,7 @@
                     android:layout_weight="1"
                     android:text="17 minutes"
                     android:textSize="12sp"
+                    android:textColor="@color/blackDoesNotChange"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -166,6 +152,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
+            android:textColor="@color/blackDoesNotChange"
             android:text="Lorem sqldknqslk qmsdq ls,dnlqsndqs nqsonnd qslkd qsdlnqskdjqs dmqsldn;qsmldkqsndlqksd qlskdnqskdqdqlkn " />
 
         <LinearLayout
@@ -245,6 +232,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Commentaires"
+                android:textColor="@color/blackDoesNotChange"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -253,6 +241,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
+                tools:listitem="@layout/view_holder_comment"
                 android:layout_marginBottom="15dp">
 
             </androidx.recyclerview.widget.RecyclerView>

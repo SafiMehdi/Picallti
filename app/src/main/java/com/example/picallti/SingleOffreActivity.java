@@ -67,62 +67,8 @@ public class SingleOffreActivity extends AppCompatActivity {
     @BindView(R.id.favoris)
     ImageButton like;
     int phoneNummber;
-
-    //The function that implements the sidebar
-    public void Sidebar(){
-        NavigationView navView = findViewById(R.id.sidebar_view);
-        navView.inflateMenu(R.menu.sidebar_menu);
-        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.nav_profile:
-                        Intent intent_profile = new Intent(SingleOffreActivity.this, ProfileActivity.class);
-                        startActivity(intent_profile);
-                        break;
-                    case R.id.nav_likes:
-                        Intent intent_likes = new Intent(SingleOffreActivity.this, FavorisActivity.class);
-                        startActivity(intent_likes);
-                        break;
-                    case R.id.nav_langues:
-                        Intent intent_langues = new Intent(SingleOffreActivity.this, LanguagesActivity.class);
-                        startActivity(intent_langues);
-                        break;
-                    case R.id.nav_apropos:
-                        Intent intent_apropos = new Intent(SingleOffreActivity.this, AproposActivity.class);
-                        startActivity(intent_apropos);
-                        break;
-                    case R.id.nav_parametre:
-                        Intent intent_parametre = new Intent(SingleOffreActivity.this, ParametresActivity.class);
-                        startActivity(intent_parametre);
-                        break;
-                    case R.id.nav_logout:
-                        Toast.makeText( SingleOffreActivity.this, "You've been disconnected!",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SingleOffreActivity.this, login_page.class));
-                        break;
-                    default:
-                        return false;
-                }
-                return true;
-            }
-        });
-        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout_single_offer_page);
-
-        ImageButton toggleButton = findViewById(R.id.sidebar_button);
-        toggleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Open or close the navigation drawer when the button is clicked
-                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else {
-                    drawerLayout.openDrawer(GravityCompat.START);
-                }
-            }
-        });
-    }
-
-    //Share offer via WhatsApp
+    String whatsAppNumber = "0664401684";
+    String messagestr = "Hello from Picallti :D";
     
 
     private RecyclerView.Adapter adapter;
@@ -214,6 +160,9 @@ public class SingleOffreActivity extends AppCompatActivity {
 
         //Sidebar implementation
         Sidebar();
+
+        //Contact offer owner
+        ContactOfferOwner();
     }
 
     @OnClick(R.id.appeler)
@@ -224,5 +173,69 @@ public class SingleOffreActivity extends AppCompatActivity {
         startActivity(call);
     }
 
+    //The function that implements the sidebar
+    public void Sidebar(){
+        NavigationView navView = findViewById(R.id.sidebar_view);
+        navView.inflateMenu(R.menu.sidebar_menu);
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.nav_profile:
+                        Intent intent_profile = new Intent(SingleOffreActivity.this, ProfileActivity.class);
+                        startActivity(intent_profile);
+                        break;
+                    case R.id.nav_likes:
+                        Intent intent_likes = new Intent(SingleOffreActivity.this, FavorisActivity.class);
+                        startActivity(intent_likes);
+                        break;
+                    case R.id.nav_langues:
+                        Intent intent_langues = new Intent(SingleOffreActivity.this, LanguagesActivity.class);
+                        startActivity(intent_langues);
+                        break;
+                    case R.id.nav_apropos:
+                        Intent intent_apropos = new Intent(SingleOffreActivity.this, AproposActivity.class);
+                        startActivity(intent_apropos);
+                        break;
+                    case R.id.nav_parametre:
+                        Intent intent_parametre = new Intent(SingleOffreActivity.this, ParametresActivity.class);
+                        startActivity(intent_parametre);
+                        break;
+                    case R.id.nav_logout:
+                        Toast.makeText( SingleOffreActivity.this, "You've been disconnected!",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(SingleOffreActivity.this, login_page.class));
+                        break;
+                    default:
+                        return false;
+                }
+                return true;
+            }
+        });
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout_single_offer_page);
 
+        ImageButton toggleButton = findViewById(R.id.sidebar_button);
+        toggleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open or close the navigation drawer when the button is clicked
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+            }
+        });
+    }
+
+    //Contact offer owner
+    //@OnClick(R.id.whatsapp)
+    public void ContactOfferOwner(){
+        whatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent messageWtsp = new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone="+whatsAppNumber+"&text="+messagestr));
+                startActivity(messageWtsp);
+            }
+        });
+    }
 }

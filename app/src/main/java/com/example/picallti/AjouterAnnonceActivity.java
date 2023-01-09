@@ -1,5 +1,7 @@
 package com.example.picallti;
 
+import static com.example.picallti.login_page.PREFS_NAME;
+
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
@@ -217,7 +219,7 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
         String city = ville.getSelectedItem().toString();
 
         //VehiculeType vehiculeType = new VehiculeType(1, "typeV");
-        User user = new User(1, "nom", "prenom", "M", "testttt@test.com", 78, "pass", 78, "bio", "admin");
+        User user = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
 
 
         RetrofitService retrofitService = new RetrofitService();

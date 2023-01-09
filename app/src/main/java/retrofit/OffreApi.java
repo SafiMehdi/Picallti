@@ -14,4 +14,9 @@ public interface OffreApi {
 
     @POST("/offers/add")
     Call<Void> addOffre(@Body Offre offre);
+
+    @POST("/offers/update")
+    Call<Void> update(@Body Offre offre);
+
+
 }

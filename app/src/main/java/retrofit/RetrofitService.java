@@ -28,7 +28,6 @@ public class RetrofitService {
 /*
 * Meryem ip : 192.168.100.31
 * Ilham ip : 192.168.42.1
-* Mehdi : 192.168.8.153
 *
 *
 * */

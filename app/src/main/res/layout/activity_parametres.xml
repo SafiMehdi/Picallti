@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout_parametres_page"
+    android:backgroundTint="@color/backgroundPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ScrollView
@@ -16,11 +17,11 @@
 
             <ImageButton
                 android:id="@+id/sidebar_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="55dp"
+                android:layout_height="45dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/menu"
+                android:background="@drawable/ic_baseline_menu_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,7 +61,7 @@
                         android:layout_toRightOf="@id/nightMode"
                         android:layout_weight="1"
                         android:text="Night Mode"
-                        android:textColor="@color/kitten_white"
+                        android:textColor="@color/NoChange"
                         android:textStyle="bold" />
 
                     <androidx.appcompat.widget.SwitchCompat
@@ -95,7 +96,7 @@
                         android:layout_toRightOf="@id/notification"
                         android:layout_weight="1"
                         android:text="@string/notificationSettings"
-                        android:textColor="@color/kitten_white"
+                        android:textColor="@color/NoChange"
                         android:textStyle="bold" />
 
                     <androidx.appcompat.widget.SwitchCompat
@@ -130,7 +131,7 @@
                         android:layout_toRightOf="@id/darkMode"
                         android:layout_weight="1"
                         android:text="Private Account"
-                        android:textColor="@color/kitten_white"
+                        android:textColor="@color/NoChange"
                         android:textStyle="bold" />
 
                     <androidx.appcompat.widget.SwitchCompat
@@ -182,7 +183,7 @@
                         android:layout_toRightOf="@id/changePassword"
                         android:layout_weight="1"
                         android:text="Change Password"
-                        android:textColor="@color/kitten_white"
+                        android:textColor="@color/NoChange"
                         android:textStyle="bold" />
 
                     <ImageButton
@@ -218,7 +219,7 @@
                         android:layout_toRightOf="@id/security"
                         android:layout_weight="1"
                         android:text="Security and Privacy"
-                        android:textColor="@color/kitten_white"
+                        android:textColor="@color/NoChange"
                         android:textStyle="bold" />
 
                     <ImageButton
@@ -254,7 +255,7 @@
                         android:layout_toRightOf="@id/languages"
                         android:layout_weight="1"
                         android:text="Languages"
-                        android:textColor="@color/kitten_white"
+                        android:textColor="@color/NoChange"
                         android:textStyle="bold" />
 
                     <ImageButton
@@ -308,7 +309,7 @@
                         android:layout_toRightOf="@id/sendUs"
                         android:layout_weight="1"
                         android:text="Send us a message"
-                        android:textColor="@color/kitten_white"
+                        android:textColor="@color/NoChange"
                         android:textStyle="bold" />
 
                     <ImageButton
@@ -344,7 +345,7 @@
                         android:layout_toRightOf="@id/aboutUs"
                         android:layout_weight="1"
                         android:text="About us"
-                        android:textColor="@color/kitten_white"
+                        android:textColor="@color/NoChange"
                         android:textStyle="bold" />
 
                     <ImageButton
@@ -380,7 +381,7 @@
                         android:layout_toRightOf="@id/faq"
                         android:layout_weight="1"
                         android:text="FAQ's"
-                        android:textColor="@color/kitten_white"
+                        android:textColor="@color/NoChange"
                         android:textStyle="bold" />
 
                     <ImageButton
@@ -434,7 +435,7 @@
                         android:layout_toRightOf="@id/logout"
                         android:layout_weight="1"
                         android:text="@string/logOut"
-                        android:textColor="@color/kitten_white"
+                        android:textColor="@color/NoChange"
                         android:textStyle="bold" />
 
                     <ImageButton
@@ -471,7 +472,7 @@
                         android:layout_toRightOf="@id/deleteAccount"
                         android:layout_weight="1"
                         android:text="@string/deleteAccount"
-                        android:textColor="@color/kitten_white"
+                        android:textColor="@color/NoChange"
                         android:textStyle="bold" />
 
                     <ImageButton

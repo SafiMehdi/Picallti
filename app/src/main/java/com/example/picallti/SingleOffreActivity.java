@@ -34,6 +34,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -85,6 +86,8 @@ public class SingleOffreActivity extends AppCompatActivity {
     EditText sendComment;
     int phoneNummber;
 
+    Boolean isFav;
+
     ArrayList<Commentaire> commentaires = new ArrayList<>();
     NotificationManagerCompat notificationManagerCompat;
     private RecyclerView.Adapter adapter;
@@ -93,7 +96,7 @@ public class SingleOffreActivity extends AppCompatActivity {
     CommentApi commentApi = retrofitService.getRetrofit().create(CommentApi.class);
 
     //The function that implements the sidebar
-    public void Sidebar(){
+    public void Sidebar() {
         NavigationView navView = findViewById(R.id.sidebar_view);
         navView.inflateMenu(R.menu.sidebar_menu);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -191,8 +194,33 @@ public class SingleOffreActivity extends AppCompatActivity {
                 });
 
         notificationManagerCompat = NotificationManagerCompat.from(SingleOffreActivity.this);
+
         //Sidebar implementation
         Sidebar();
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(), PREFS_NAME, "connectedUser", User.class);
+        //User user = new User(2,"nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+        Offre offre = new Offre();
+        offre.setId(extras.getInt("id"));
+        Favoris favoris = new Favoris(connectedUser, offre);
+        RetrofitService retrofitService1 = new RetrofitService();
+        FavorisApi favorisApi = retrofitService1.getRetrofit().create(FavorisApi.class);
+        favorisApi.checkIfExists(favoris).enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                //System.out.println("response.body()");
+                isFav = response.body();
+                if (!isFav) {
+                    like.setBackgroundResource(R.drawable.like);
+                } else {
+                    like.setBackgroundResource(R.drawable.redheart);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                System.out.println("can't know if exists");
+            }
+        });
     }
 
     @OnClick(R.id.commentSender)
@@ -244,36 +272,64 @@ public class SingleOffreActivity extends AppCompatActivity {
     }
 
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
     @OnClick(R.id.appeler)
-    public void callOwner(){
+    public void callOwner() {
         System.out.println(phoneNummber);
-        Uri phone = Uri.parse("tel:"+phoneNummber);
-        Intent call = new Intent(Intent.ACTION_DIAL,phone);
+        Uri phone = Uri.parse("tel:" + phoneNummber);
+        Intent call = new Intent(Intent.ACTION_DIAL, phone);
         startActivity(call);
     }
-    @OnClick(R.id.favoris)
-    public void addToFav(){
-        User user = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
-        Bundle extras = getIntent().getExtras();
-        Offre offre = new Offre(extras.getInt("id"), imageOffre.getId(),extras.getString("titre"),extras.getString("description"),extras.getString("localisation"),extras.getFloat("prix"),extras.getString("time"),extras.getString("operation"),user,(Vehicule) extras.getSerializable("vehicule"),extras.getString("date"),extras.getString("ville"));
 
+    @OnClick(R.id.favoris)
+    public void addToFav() {
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(), PREFS_NAME, "connectedUser", User.class);
+        //User user = new User(2,"nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+        Bundle extras = getIntent().getExtras();
+        Offre offre = new Offre();
         offre.setId(extras.getInt("id"));
-        Favoris favoris = new Favoris(user,offre);
+        Favoris favoris = new Favoris(connectedUser, offre);
         RetrofitService retrofitService = new RetrofitService();
         FavorisApi favorisApi = retrofitService.getRetrofit().create(FavorisApi.class);
-        favorisApi.addFavoris(favoris).enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
+        if (!isFav) {
+            isFav = true;
+            favorisApi.addFavoris(favoris).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    System.out.println("working");
+                    System.out.println(response);
+                    like.setBackgroundResource(R.drawable.redheart);
 
-                System.out.println("working");
-                System.out.println(response);
-            }
+                }
 
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                System.out.println("Not working");
-            }
-        });
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    System.out.println("Not working");
+                }
+            });
+        } else {
+            isFav = false;
+            favorisApi.remove(favoris).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    System.out.println("remove");
+                    like.setBackgroundResource(R.drawable.like);
+
+                }
+
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    System.out.println("not removing");
+                }
+            });
+
+        }
+
     }
 
 
@@ -312,3 +368,7 @@ public class SingleOffreActivity extends AppCompatActivity {
         }
     }
 }
+
+/*
+
+ */

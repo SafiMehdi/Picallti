@@ -63,7 +63,7 @@ public class updateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajouter_annonce);
+        setContentView(R.layout.activity_update_annonce);
         //getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
 
         Spinner spinner2 = (Spinner) findViewById(R.id.Categorie);

@@ -13,6 +13,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import adapters.MyOffersAdapter;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -24,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import adapters.FavoritesAdapter;
+import adapters.MyOffersAdapter;
 import adapters.OffresAdapter;
 import butterknife.ButterKnife;
 import data.Favoris;
@@ -148,7 +150,7 @@ public class PersonnalOfferActivity extends AppCompatActivity {
                     System.out.println("response khedmat dyal offre");
                     ArrayList<Offre> offres = new ArrayList<Offre>(response.body());
                     System.out.println(offres);
-                    adapter = new OffresAdapter(getApplicationContext(), offres);
+                    adapter =  new MyOffersAdapter(getApplicationContext(), offres);
                     recyclerView.setAdapter(adapter);
                 }
             }

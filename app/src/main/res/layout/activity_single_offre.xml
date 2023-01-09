@@ -192,7 +192,7 @@
                 android:background="@drawable/whatsapp" />
 
             <ImageButton
-                android:id="@+id/share"
+                android:id="@+id/share_offer"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_weight="0"

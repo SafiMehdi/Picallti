@@ -45,6 +45,7 @@ import okhttp3.ResponseBody;
 import retrofit.ImageDataApi;
 import retrofit.OffreApi;
 import retrofit.RetrofitService;
+import retrofit.UserApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -121,33 +122,35 @@ public class OffrePageActivity extends AppCompatActivity {
         if(connectedUser != null) {
             String Nom = connectedUser.getNom();
             title.setText(Nom);
-
+            int id = connectedUser.getId();
             String email = connectedUser.getEmail();
-        }
-        ImageView pp = (ImageView) findViewById(R.id.imageView2);
-        RetrofitService retrofitService = new RetrofitService();
-        ImageDataApi imageDataApi = retrofitService.getRetrofit().create(ImageDataApi.class);
-        imageDataApi.downloadImage("test.jpg").enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if(response.isSuccessful()){
-                    byte[] r = new byte[0];
-                    try {
-                        r = response.body().bytes();
-                        Bitmap bitmap = BitmapFactory.decodeByteArray(r, 0, r.length);
-                        pp.setImageBitmap(bitmap);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+
+            ImageView pp = (ImageView) findViewById(R.id.imageView2);
+            RetrofitService retrofitService = new RetrofitService();
+            UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
+            userApi.downloadImage(id).enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if(response.isSuccessful()){
+                        byte[] r;
+                        try {
+                            r = response.body().bytes();
+                            Bitmap bitmap = BitmapFactory.decodeByteArray(r, 0, r.length);
+                            pp.setImageBitmap(bitmap);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
                     }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
 
                 }
-            }
+            });
+        }
 
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-
-            }
-        });
 
 
         ImageView img = (ImageView) findViewById(R.id.filter);
@@ -194,7 +197,7 @@ public class OffrePageActivity extends AppCompatActivity {
         adapter=new OffresAdapter(getApplicationContext(),offres);
         recyclerView.setAdapter(adapter);
 */
-       //RetrofitService retrofitService = new RetrofitService();
+        RetrofitService retrofitService = new RetrofitService();
         OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
         Call<List<Offre>> call = offreApi.getOffers();
         call.enqueue(new Callback<List<Offre>>() {

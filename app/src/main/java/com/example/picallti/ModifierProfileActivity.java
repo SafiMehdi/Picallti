@@ -247,7 +247,7 @@ public class ModifierProfileActivity extends AppCompatActivity {
                 System.out.println("the extension:"+ext);
                 if(ext.equals(".jpg") || ext.contains(".png")){
                         RetrofitService retrofitService = new RetrofitService();
-                        ImageDataApi imageDataApi = retrofitService.getRetrofit().create(ImageDataApi.class);
+                        UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
                         RequestBody requestFile;
                         if(ext.equals(".png")){
                             System.out.println("here is png");
@@ -256,20 +256,21 @@ public class ModifierProfileActivity extends AppCompatActivity {
                             requestFile = RequestBody.create(MediaType.parse("image/png"), file);
                         }
                         String email = connectedUser.getEmail();
-                        MultipartBody.Part body = MultipartBody.Part.createFormData("image", email, requestFile);
-                        imageDataApi.uploadImage(body).enqueue(new Callback<ResponseBody>() {
+                        int id = connectedUser.getId();
+                        MultipartBody.Part body = MultipartBody.Part.createFormData("image",file.getName(), requestFile);
+                        userApi.updateUserWithImage(id, body).enqueue(new Callback<User>() {
                             @Override
-                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            public void onResponse(Call<User> call, Response<User> response) {
                                 if (response.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "Uploaded!", Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Not uploaded !!", Toast.LENGTH_SHORT).show();
-
+                                    System.out.println(response.body());
                                 }
                             }
 
                             @Override
-                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            public void onFailure(Call<User> call, Throwable t) {
                                 Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
                                 System.out.println("U're here : " + t.toString());
 

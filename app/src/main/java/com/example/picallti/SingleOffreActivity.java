@@ -62,7 +62,7 @@ public class SingleOffreActivity extends AppCompatActivity {
     ImageButton appeler;
     @BindView(R.id.whatsapp)
     ImageButton whatsapp;
-    @BindView(R.id.share)
+    @BindView(R.id.share_offer)
     ImageButton share;
     @BindView(R.id.favoris)
     ImageButton like;
@@ -121,6 +121,9 @@ public class SingleOffreActivity extends AppCompatActivity {
             }
         });
     }
+
+    //Share offer via WhatsApp
+    
 
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerView;

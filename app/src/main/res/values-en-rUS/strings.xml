@@ -7,6 +7,7 @@
     <string name="notifications">Notifications</string>
     <string name="profile">Profil</string>
     <string name="reload">Reload</string>
+    <string name="languages_title">Languages</string>
 
     <string name="titre">Login</string>
     <string name="image_holder">ImageHolder</string>
@@ -19,6 +20,7 @@
     <string name="rememberme">Remember me</string>
     <string name="connect">Login</string>
     <string name="forgotpass">Forgot your password ?</string>
+    <string name="usersurnameHint">surname</string>
     <string name="register">Register here</string>
     <string name="connectsocial">Or connect with</string>
     <string name="forgotpasstitle">Forgot your password ?</string>

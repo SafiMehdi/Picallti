@@ -20,6 +20,8 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.json.JSONObject;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -61,6 +63,7 @@ public class SingUp extends AppCompatActivity {
         RetrofitService retrofitService = new RetrofitService();
         UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
         signup.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 if (!validateSurname() | !validateName() | !validatePhoneNo() | !validateEmail()
@@ -74,15 +77,24 @@ public class SingUp extends AppCompatActivity {
                     String mail = email.getText().toString();
                     String mdp = password.getText().toString();
                     int phone = Integer.parseInt(phoneNumber.getText().toString());
-
-                    User user = new User(nom, prenom, mail, phone, mdp);
+                    int photo = R.drawable.avatar_2;
+                    User user = new User(nom, prenom, mail, phone, mdp, photo);
 
                     userApi.addUser(user)
                             .enqueue(new Callback() {
                                 @Override
                                 public void onResponse(Call call, Response response) {
-                                    startActivity(new Intent(SingUp.this, login_page.class));
-                                    Toast.makeText(SingUp.this, "Account Created !", Toast.LENGTH_SHORT).show();
+                                    if(response.isSuccessful()){
+                                        startActivity(new Intent(SingUp.this, login_page.class));
+                                        Toast.makeText(SingUp.this, "Account Created !", Toast.LENGTH_SHORT).show();
+                                    }else if(response.code() == 400){
+                                        email.setError("Email already exists !!");
+                                        Toast.makeText(SingUp.this, "Email already exists !!", Toast.LENGTH_SHORT).show();
+
+                                    }else if (response.code() == 406){
+                                        phoneNumber.setError("phone number already exists !!");
+                                        Toast.makeText(SingUp.this, "phone number already exists !!", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
 
                                 @Override
@@ -94,14 +106,14 @@ public class SingUp extends AppCompatActivity {
             }
         });
 
-        Spinner spinner = (Spinner) findViewById(R.id.Ville);
+       /* Spinner spinner = (Spinner) findViewById(R.id.Ville);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.cities_array, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);*/
 
     }
 
@@ -242,6 +254,8 @@ public class SingUp extends AppCompatActivity {
             return true;
         }
     }
+
+
 
 
 }

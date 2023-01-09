@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout_offre_page"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/backgroundPage">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,11 +15,11 @@
 
         <ImageButton
             android:id="@+id/sidebar_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="55dp"
+            android:layout_height="45dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/menu"
+            android:background="@drawable/ic_baseline_menu_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:text="@string/hiUsernameText"
-            android:textColor="@color/kitten_white"
+            android:textColor="@color/NoChange"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/sidebar_button"
@@ -51,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcomeBackText"
-            android:textColor="@color/kitten_white"
+            android:textColor="@color/NoChange"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -60,15 +61,16 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_width="159dp"
+            android:layout_height="51dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/background_outline_white"
+            android:backgroundTint="@color/button"
             android:drawableLeft="@drawable/search_icon"
             android:ems="10"
-            android:hint="search for ..."
+            android:hint="search"
             android:inputType="textPersonName"
-            android:textColorHint="@color/kitten_white"
+            android:textColorHint="@color/textBoutton"
             android:textStyle="italic"
             app:layout_constraintEnd_toStartOf="@id/filter"
             app:layout_constraintStart_toStartOf="parent"

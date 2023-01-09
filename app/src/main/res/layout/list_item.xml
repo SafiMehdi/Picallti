@@ -10,6 +10,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/backgroundItem"
         app:cardCornerRadius="30dp"
         app:cardElevation="8dp"
         android:layout_margin="6dp"
@@ -46,7 +47,7 @@
                         android:text="@string/LikedPst"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:textColor="@color/bleu_marine"/>
+                        android:textColor="@color/black"/>
 
                     <TextView
                         android:id="@+id/PostPrice"

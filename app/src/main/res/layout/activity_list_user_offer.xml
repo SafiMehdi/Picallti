@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/view_holder_offers"
+            android:id="@+id/view_holder_favorites"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"

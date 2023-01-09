@@ -1,5 +1,6 @@
 package adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,14 +13,17 @@ import com.bumptech.glide.Glide;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import data.Commentaire;
 import data.Notification;
 import com.example.picallti.R;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
 
     ArrayList<Notification> notifications;
+    private LayoutInflater mInflater;
 
-    public NotificationAdapter(ArrayList<Notification> notifications) {
+    public NotificationAdapter(@NonNull Context context,ArrayList<Notification> notifications) {
+        this.mInflater = LayoutInflater.from(context);
         this.notifications = notifications;
     }
 
@@ -37,19 +41,10 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         DateTimeFormatter formatter
                 =DateTimeFormatter.ofPattern("HH:mm");
 
-        holder.timeTxt.setText(String.valueOf(notifications.get(position).getTime().format(formatter)));
+        holder.timeTxt.setText(String.valueOf(notifications.get(position).getTime()));
 
         int drawableResourceId;
 
-        if(notifications.get(position).getUrl() != null){
-            drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(notifications.get(position).getUrl(), "drawable", holder.itemView.getContext().getPackageName());
-        }else{
-            drawableResourceId = notifications.get(position).getIcon();
-
-        }
-        Glide.with(holder.itemView.getContext())
-                .load(drawableResourceId)
-                .into(holder.removeItem);
     }
 
 
@@ -60,14 +55,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView titleTxt,descriptionTxt,timeTxt;
-        ImageView removeItem;
 
         public ViewHolder(View itemView) {
             super(itemView);
             titleTxt = itemView.findViewById(R.id.titleTxt);
             descriptionTxt = itemView.findViewById(R.id.descriptionTxt);
             timeTxt = itemView.findViewById(R.id.timeTxt);
-            removeItem = itemView.findViewById(R.id.img_view);
         }
     }
 }

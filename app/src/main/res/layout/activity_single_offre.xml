@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout_single_offer_page"
-    android:backgroundTint="@color/backgroundPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -16,13 +15,10 @@
         android:id="@+id/titreOffre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
         android:text="Titre de l'offre"
-        android:textColor="@color/titlePage"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/sidebar_button"
+        app:layout_constraintStart_toStartOf="@+id/imageOffre"
         app:layout_constraintTop_toBottomOf="@+id/sidebar_button" />
 
     <ImageView
@@ -55,8 +51,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/img_offre_shape"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/sidebar_button"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titreOffre" />
 
     <LinearLayout
@@ -83,7 +78,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textColor="@color/blackDoesNotChange"
                 android:layout_weight="2"
                 android:text="Rabat, Morocco"
                 android:textSize="12sp"
@@ -108,7 +102,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:textColor="@color/blackDoesNotChange"
                     android:layout_weight="1"
                     android:text="13Dh/Jours"
                     android:textSize="12sp"
@@ -137,7 +130,6 @@
                     android:layout_weight="1"
                     android:text="17 minutes"
                     android:textSize="12sp"
-                    android:textColor="@color/blackDoesNotChange"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -152,7 +144,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/blackDoesNotChange"
             android:text="Lorem sqldknqslk qmsdq ls,dnlqsndqs nqsonnd qslkd qsdlnqskdjqs dmqsldn;qsmldkqsndlqksd qlskdnqskdqdqlkn " />
 
         <LinearLayout
@@ -232,7 +223,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Commentaires"
-                android:textColor="@color/blackDoesNotChange"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -260,11 +250,21 @@
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/rounded_corners_edittext"
-            android:drawableRight="@drawable/send_comment_input"
             android:hint="@string/add_your_comment"
             android:inputType="text"
             android:paddingStart="15dp" />
+
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/commentSender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="26dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+        app:srcCompat="@drawable/send_comment_input" />
 </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/sidebar_view"

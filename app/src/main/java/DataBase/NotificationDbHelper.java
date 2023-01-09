@@ -82,7 +82,7 @@ public class NotificationDbHelper extends SQLiteOpenHelper {
             String time = cursor.getString(cursor.getColumnIndexOrThrow(TIME));
             String date = cursor.getString(cursor.getColumnIndexOrThrow(DATE));
             int id = cursor.getInt(cursor.getColumnIndexOrThrow(ID));
-            notifications.add(new Notification(id,titre,text,image,user,LocalTime.parse(time),LocalDate.parse(date)));
+            notifications.add(new Notification(id,titre,text,image,user,"LocalTime.parse(time)","LocalDate.parse(date)"));
         }
         cursor.close();
         //String items[] = itemTitles.toArray(new String[itemTitles.size()]);

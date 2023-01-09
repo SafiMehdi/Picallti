@@ -1,7 +1,9 @@
 package data;
 
 
-public class VehiculeType {
+import java.io.Serializable;
+
+public class VehiculeType implements Serializable {
     private int id;
     private String nom;
     private String url;

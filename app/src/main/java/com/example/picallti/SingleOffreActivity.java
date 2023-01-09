@@ -1,6 +1,18 @@
 package com.example.picallti;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import static com.example.picallti.login_page.PREFS_NAME;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import androidx.core.app.NotificationCompat;
+import android.app.NotificationChannel;
+import androidx.core.app.NotificationManagerCompat;
+import android.content.Context;
+import android.graphics.Color;
+import android.os.Build;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -40,22 +52,15 @@ import adapters.OffresAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import data.Commentaire;
-import data.Favoris;
-import data.Notification;
-import data.Offre;
-import data.User;
-import data.Vehicule;
-import data.VehiculeType;
-import retrofit.CommentApi;
-import retrofit.FavorisApi;
-import retrofit.OffreApi;
-import retrofit.RetrofitService;
+import data.*;
+import retrofit.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SingleOffreActivity extends AppCompatActivity {
+
+    final String PICALLTI_CHANNEL_ID = "PICALLTI_CHANNEL_ID";
 
     @BindView(R.id.titreOffre)
     TextView titreOffre;
@@ -77,9 +82,18 @@ public class SingleOffreActivity extends AppCompatActivity {
     ImageButton share;
     @BindView(R.id.favoris)
     ImageButton like;
+    @BindView(R.id.sendComment)
+    EditText sendComment;
     int phoneNummber;
 
     Boolean isFav;
+
+    ArrayList<Commentaire> commentaires = new ArrayList<>();
+    NotificationManagerCompat notificationManagerCompat;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView recyclerView;
+    RetrofitService retrofitService = new RetrofitService();
+    CommentApi commentApi = retrofitService.getRetrofit().create(CommentApi.class);
 
     //The function that implements the sidebar
     public void Sidebar() {
@@ -131,10 +145,6 @@ public class SingleOffreActivity extends AppCompatActivity {
         });
     }
 
-    private RecyclerView.Adapter adapter;
-    private RecyclerView recyclerView;
-    RetrofitService retrofitService = new RetrofitService();
-    EditText sendComment;
 
 
     @Override
@@ -142,58 +152,36 @@ public class SingleOffreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_offre);
 
-        sendComment = (EditText) findViewById(R.id.sendComment);
-        RetrofitService retrofitService = new RetrofitService();
-        CommentApi commentApi = retrofitService.getRetrofit().create(CommentApi.class);
+        createNotificationChannel();
 
-        sendComment.setText("");
-        sendComment.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                // If the event is a key-down event on the "enter" button
-                if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN)) {
-                    // Perform action on key press
-                    String commentSent = sendComment.getText().toString();
-                    User user = new User("Mehdi", "Safi", "M", "testttt@test.com", 78, "pass", 1, "bio", "admin");
-                    VehiculeType vehiculeType = new VehiculeType("typeV");
-                    Vehicule vehicule = new Vehicule("marque", vehiculeType);
-                    Offre offre = new Offre(R.drawable.motorcycle, "Motorcycle", "A perfectly working Motorcycle, available starting from now ", "localisation", 67, LocalTime.now().toString(), "vente", user, vehicule, LocalDate.of(2020, 1, 8).toString(), "ville");
-
-
-                    Commentaire commentaire = new Commentaire(commentSent, user, offre, LocalDate.now().toString(), LocalTime.now().toString());
-
-                    commentApi.addComment(commentaire)
-                            .enqueue(new Callback<Void>() {
-                                @Override
-                                public void onResponse(Call<Void> call, Response<Void> response) {
-                                    Toast.makeText(SingleOffreActivity.this, "Comment created !", Toast.LENGTH_SHORT).show();
-                                }
-
-                                @Override
-                                public void onFailure(Call<Void> call, Throwable t) {
-                                    Logger.getLogger(SingleOffreActivity.class.getName()).log(Level.SEVERE, "Error Occured", t);
-                                }
-                            });
-                }
-                return false;
-            }
-        });
         recyclerView = findViewById(R.id.view_holder_comments);
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-
         recyclerView.setLayoutManager(linearLayoutManager);
-        commentApi.getAllCommentairesByOffre(3)
+
+        ButterKnife.bind(this);
+        Bundle extras = getIntent().getExtras();
+        titreOffre.setText(extras.getString("titre"));
+        int photo = R.drawable.avatar_2;
+        /*if(getResources().getResourceName((int)extras.getDouble("photo") ) != null){
+            photo = extras.getInt("photo");
+        }*/
+        imageOffre.setBackgroundResource(photo);
+        prix.setText(Double.toString(extras.getDouble("prix")));
+        time.setText(extras.getString("time"));
+        description.setText(extras.getString("description"));
+        this.phoneNummber = extras.getInt("phone");
+
+        commentApi.getAllCommentairesByOffre(extras.getInt("id"))
                 .enqueue(new Callback<Collection<Commentaire>>() {
                     @Override
                     public void onResponse(Call<Collection<Commentaire>> call, Response<Collection<Commentaire>> response) {
-                        if (response.body() != null) {
+                        if ( response.body() != null){
                             System.out.println("working");
-                            ArrayList<Commentaire> commentaires = new ArrayList<>();
                             commentaires = new ArrayList<Commentaire>(response.body());
                             System.out.println(commentaires);
                             adapter = new CommentsAdapter(getApplicationContext(), commentaires);
                             recyclerView.setAdapter(adapter);
+
                         }
                     }
 
@@ -204,18 +192,8 @@ public class SingleOffreActivity extends AppCompatActivity {
 
                     }
                 });
-        ButterKnife.bind(this);
-        Bundle extras = getIntent().getExtras();
-        titreOffre.setText(extras.getString("titre"));
-        int photo = R.drawable.avatar_2;
-        /*if(getResources().getResourceName((int)extras.getDouble("photo") ) != null){
-            photo = extras.getInt("photo");
-        }*/
-        imageOffre.setBackgroundResource(photo);
-        prix.setText(Float.toString(extras.getFloat("prix")));
-        time.setText(extras.getString("time"));
-        description.setText(extras.getString("description"));
-        this.phoneNummber = extras.getInt("phone");
+
+        notificationManagerCompat = NotificationManagerCompat.from(SingleOffreActivity.this);
 
         //Sidebar implementation
         Sidebar();
@@ -244,6 +222,56 @@ public class SingleOffreActivity extends AppCompatActivity {
             }
         });
     }
+
+    @OnClick(R.id.commentSender)
+    public void addComment(){
+        String commentSent = sendComment.getText().toString();
+        User user = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
+        Bundle extras = getIntent().getExtras();
+        Vehicule vehicule = (Vehicule)getIntent().getSerializableExtra("vehicule");
+
+        Offre offre = new Offre(extras.getInt("id"), imageOffre.getId(),extras.getString("titre"),extras.getString("description"),extras.getString("localisation"),extras.getFloat("prix"),extras.getString("time"),extras.getString("operation"),user,vehicule,extras.getString("date"),extras.getString("ville"));
+        Commentaire commentaire = new Commentaire(commentSent, user,offre,LocalDate.now().toString(), LocalTime.now().toString());
+
+        commentApi.addComment(commentaire)
+                .enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        Toast.makeText(SingleOffreActivity.this, "Comment created !",Toast.LENGTH_SHORT).show();
+                        Bundle extras = getIntent().getExtras();
+                        User user1 = offre.getUser();
+                        user1.setId(extras.getInt("id_user"));
+
+                        commentaires.add(commentaire);
+                        adapter.notifyDataSetChanged();
+
+                        data.Notification notification = new data.Notification("Your Offre has been commented",commentaire.getCommentaire(),LocalDate.now().toString(),LocalTime.now().toString(),offre.getUser());
+                        NotificationApi notificationApi =retrofitService.getRetrofit().create(NotificationApi.class);
+                        notificationApi.addNotification(notification).enqueue(new Callback<Void>() {
+                            @Override
+                            public void onResponse(Call<Void> call, Response<Void> response) {
+                                System.out.println("notification created");
+                                createSimpleNotification("Your Offre has been commented","picallti",1);
+                            }
+
+                            @Override
+                            public void onFailure(Call<Void> call, Throwable t) {
+                                System.out.println("erreur add notification");
+
+                            }
+                        });
+
+                        sendComment.setText("");
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Logger.getLogger(SingleOffreActivity.class.getName()).log(Level.SEVERE, "Error Occured", t);
+                    }
+                });
+    }
+
+
 
     @Override
     protected void onStart() {
@@ -303,4 +331,44 @@ public class SingleOffreActivity extends AppCompatActivity {
         }
 
     }
+
+
+    private void createSimpleNotification(String title, String text, int notificationId) {
+
+        notificationManagerCompat.cancelAll();
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
+                R.drawable.notifications_icon);
+
+        // Create an explicit intent for an Activity in your app
+        Intent intent = new Intent(this, NotificationsHistory.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+
+
+        Notification notification = new NotificationCompat.Builder(this, PICALLTI_CHANNEL_ID)
+                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setContentTitle(title)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(commentaires.get(commentaires.size()-1).getCommentaire()))
+                .build();
+
+        notificationManagerCompat.notify(notificationId, notification);
+    }
+
+    private void createNotificationChannel() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "PICALLTI_CHANNEL";
+            String description = "picallti channel description";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(PICALLTI_CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
 }
+
+/*
+
+ */

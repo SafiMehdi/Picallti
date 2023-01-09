@@ -9,6 +9,7 @@
     <string name="reload">Recharger</string>
     <string name="titre">Connexion</string>
     <string name="image_holder">ImageHolder</string>
+    <string name="languages_title">Languages</string>
     <string name="user_placeholder">Adresse mail</string>
     <string name="pass_placeholder">Mot de Passe</string>
     <string name="currentpass_placeholder">Mot de passe actuel</string>
@@ -17,6 +18,7 @@
     <string name="btnchangepass">Changer votre mot de passe</string>
     <string name="rememberme">Se souvenir de moi</string>
     <string name="connect">Connexion</string>
+    <string name="usersurnameHint">nom</string>
     <string name="forgotpass">Vous avez oublié votre mot de passe ?</string>
     <string name="register">S\'inscrire</string>
     <string name="connectsocial">Se connecter</string>

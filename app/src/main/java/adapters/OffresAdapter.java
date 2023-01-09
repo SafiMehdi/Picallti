@@ -83,6 +83,7 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
                     date = offre.getLocalDateTime();
                 }
                 intent.putExtra("date", date);
+                intent.putExtra("id", offre.getId());
                 intent.putExtra("operation", offre.getOperation());
                 intent.putExtra("localisation", offre.getLocalisation());
                 intent.putExtra("description",offre.getDescription());

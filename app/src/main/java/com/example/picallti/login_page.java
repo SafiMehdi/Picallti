@@ -6,17 +6,29 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import data.LoginRequest;
+import data.User;
 import retrofit.RetrofitService;
 import retrofit.UserApi;
 import retrofit2.Call;
@@ -24,6 +36,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class login_page extends AppCompatActivity {
+    private static final int RC_SIGN_IN = 201;
+    private static final String TAG = "login_page";
     private CheckBox remembermecheckbox;
     private EditText username;
     private Button connect;
@@ -32,7 +46,25 @@ public class login_page extends AppCompatActivity {
     private EditText emailaddress;
     private EditText password;
     public SharedPreferences Prefs;
+    private ImageView connectwithfacebook;
+    private ImageView connectwithgoogle;
+    private ImageView connectwithtwitter;
     public static String PREFS_NAME = "myFile";
+    public static User userTest;
+
+    public static <GenericClass> GenericClass getSavedObjectFromPreference(Context context, String preferenceFileName, String preferenceKey, Class<GenericClass> classType) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceFileName, 0);
+        if (sharedPreferences.contains(preferenceKey)) {
+            final Gson gson = new Gson();
+            return gson.fromJson(sharedPreferences.getString(preferenceKey, ""), classType);
+        }
+        return null;
+    }
+
+
+
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +81,33 @@ public class login_page extends AppCompatActivity {
         connect = (Button)findViewById(R.id.btnConnect);
         remembermecheckbox = (CheckBox) findViewById(R.id.checkboxrememberme);
         Prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        connectwithfacebook = (ImageView) findViewById(R.id.connectwithfacebook);
+        connectwithgoogle = (ImageView) findViewById(R.id.connectwithgoogle);
+        connectwithtwitter = (ImageView) findViewById(R.id.connectwithtwitter);
+
+        connectwithfacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(this,gso);
+
+        connectwithgoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                singnIn();
+            }
+        });
+
+        connectwithtwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
 
 
@@ -81,20 +140,31 @@ public class login_page extends AppCompatActivity {
                         .enqueue(new Callback() {
                             @Override
                             public void onResponse(Call call, Response response) {
+
                                 if(response.isSuccessful()) {
+                                    userTest = (User) response.body();
+                                    SharedPreferences.Editor editor = Prefs.edit();
                                     if (remembermecheckbox.isChecked()) {
-                                        SharedPreferences.Editor editor = Prefs.edit();
                                         Boolean BoolChecked = remembermecheckbox.isChecked();
                                         editor.putString("emailPref", emailaddress.getText().toString());
                                         editor.putString("passwordPref", password.getText().toString());
                                         editor.putBoolean("isCheckedPref", BoolChecked);
-                                        editor.apply();
-
-                                    } else {
+                                    }else {
                                         Prefs.edit().clear().apply();
                                     }
+
+                                    //adding the user
+                                    Gson gson = new Gson();
+                                    String json = gson.toJson(userTest);
+                                    editor.putString("connectedUser",json);
+                                    editor.apply();
+
                                     Toast.makeText(getApplicationContext(), "Vous êtes connécté !", Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(login_page.this, OffrePageActivity.class));
+
+                                    System.out.println(userTest.getEmail());
+
+
                                 }else if(response.code() == 500){
                                     Toast.makeText(getApplicationContext(),"Email ou mot de passe incorrect !",Toast.LENGTH_LONG).show();
                                 }else{
@@ -139,6 +209,7 @@ public class login_page extends AppCompatActivity {
         });
         getPreferencesData();
     }
+
     private void getPreferencesData() {
         SharedPreferences myPrefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         if(myPrefs.contains("emailPref")){
@@ -153,5 +224,33 @@ public class login_page extends AppCompatActivity {
             Boolean b = myPrefs.getBoolean("isCheckedPref",false);
             remembermecheckbox.setChecked(b);
         }
+    }
+
+    void singnIn(){
+        Intent signInIntent = gsc.getSignInIntent();
+        startActivityForResult(signInIntent,1000);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1000) {
+
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+
+            try {
+                task.getResult(ApiException.class);
+                navigateToSecondActivity();
+
+            } catch (ApiException e) {
+                Toast.makeText(getApplicationContext(),"Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    void navigateToSecondActivity(){
+        finish();
+        Intent intent = new Intent(login_page.this, OffrePageActivity.class);
+        startActivity(intent);
     }
 }

@@ -4,38 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout_modifier_profile"
     android:layout_width="match_parent"
+    android:backgroundTint="@color/backgroundPage"
     android:layout_height="match_parent">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background3">
 
-    <ImageView
-        android:id="@+id/IVPreviewImage"
-        android:layout_width="40dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageButton
         android:id="@+id/sidebar_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="55dp"
+        android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#00FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/menu" />
+        app:srcCompat="@drawable/ic_baseline_menu_24" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Edit Profile"
+        android:text="@string/editProfileBtnText"
+        android:layout_marginRight="50dp"
         android:textAllCaps="true"
         android:textColor="@color/black"
         android:textSize="25sp"
@@ -44,71 +37,89 @@
         app:layout_constraintStart_toEndOf="@+id/sidebar_button"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
+
+
+
+
     <LinearLayout
         android:id="@+id/changeProfileForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="48dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView12">
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/background_profile_picutre" />
         <android.widget.Button
             android:id="@+id/changePictureBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:backgroundTint="@color/hint"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/background_btn"
             android:drawableLeft="@drawable/background_btn_pdp"
             android:text="@string/changePDPTextView"
-            android:textColor="@color/black"
+            android:textColor="@color/textBoutton"
             android:fontFamily="@font/fontnew2"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/changeUsernameInput"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="15dp"
-            android:hint="@string/usernameHint"
-            android:inputType="textPersonName"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:paddingStart="15dp"
-            android:drawableStart="@drawable/userlogo"
-            android:fontFamily="@font/fontnew2"
-            android:drawablePadding="12dp"
-            android:background="@drawable/rounded_corners_edittext"
-            android:elevation="2dp"
-            android:paddingEnd="5dp"/>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/VilleCard"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:elevation="2dp"
-            android:spinnerMode="dropdown"
-            android:textAlignment="center"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Description">
-
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/cities_spinner"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/changeNameInput"
+                android:layout_width="150dp"
                 android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:hint="@string/usernameHint"
+                android:inputType="textPersonName"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
                 android:paddingStart="15dp"
-                tools:ignore="TouchTargetSizeCheck" />
-        </androidx.cardview.widget.CardView>
+                android:textColorHint="@color/hint"
+                android:fontFamily="@font/fontnew2"
+                android:drawablePadding="12dp"
+                android:background="@drawable/rounded_corners_edittext"
+                android:elevation="2dp"
+                android:paddingEnd="5dp"
+                android:layout_marginRight="15dp"/>
+            <EditText
+                android:id="@+id/changeSurnameInput"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:textColorHint="@color/hint"
+                android:layout_marginTop="15dp"
+                android:hint="@string/usersurnameHint"
+                android:inputType="textPersonName"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:paddingStart="15dp"
+                android:fontFamily="@font/fontnew2"
+                android:drawablePadding="12dp"
+                android:background="@drawable/rounded_corners_edittext"
+                android:elevation="2dp"
+                android:paddingEnd="5dp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
 
         <EditText
             android:id="@+id/changeEmailInput"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:layout_marginTop="15dp"
             android:hint="@string/emailHint"
             android:inputType="textPersonName"
@@ -125,10 +136,11 @@
         <EditText
             android:id="@+id/changePhoneInput"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:layout_marginTop="15dp"
             android:hint="@string/phoneHint"
             android:inputType="phone"
+            android:textColorHint="@color/hint"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
             android:paddingStart="15dp"
@@ -142,19 +154,20 @@
         <EditText
             android:id="@+id/changeBioInput"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
+            android:textColorHint="@color/hint"
             android:layout_marginTop="15dp"
             android:hint="@string/bioHint"
             android:inputType="phone"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
             android:paddingStart="15dp"
-            android:drawableStart="@drawable/phone"
             android:fontFamily="@font/fontnew2"
             android:drawablePadding="12dp"
             android:background="@drawable/rounded_corners_edittext"
             android:elevation="2dp"
             android:paddingEnd="5dp"/>
+
 
     </LinearLayout>
 
@@ -196,16 +209,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="2dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/fontnew2"
                 android:text="@string/hideEmailTextView"
                 android:textColor="@color/white"
-                android:fontFamily="@font/fontnew2"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -223,7 +236,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="70dp"
         android:background="@drawable/background_input_form_black"
         android:text="@string/saveEditText"

@@ -23,14 +23,14 @@
 
         <ImageView
             android:id="@+id/sidebar_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_width="55dp"
+            android:layout_height="45dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/menu" />
+            app:srcCompat="@drawable/ic_baseline_menu_24" />
 
         <ImageView
             android:id="@+id/textView3"

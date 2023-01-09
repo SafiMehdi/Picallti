@@ -1,5 +1,7 @@
 package com.example.picallti;
 
+import static com.example.picallti.login_page.PREFS_NAME;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -17,13 +19,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import adapters.FavoritesAdapter;
 import data.Favoris;
-import data.Offre;
 import data.User;
-import data.Vehicule;
-import data.VehiculeType;
+import retrofit.FavorisApi;
+import retrofit.RetrofitService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FavorisActivity extends AppCompatActivity {
 
@@ -96,26 +101,39 @@ public class FavorisActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        VehiculeType vehiculeType = new VehiculeType("typeV");
+        //function to retrive connected User
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
+        
+        int idConnectedUser = 0;
+        if(connectedUser != null){
+            idConnectedUser = connectedUser.getId();
+        }
 
-        Vehicule vehicule = new Vehicule("marque",vehiculeType);
-        User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+        RetrofitService retrofitService = new RetrofitService();
+        FavorisApi favorisApi = retrofitService.getRetrofit().create(FavorisApi.class);
+        Call<List<Favoris>> callFavoris = favorisApi.getFavorisByUser(idConnectedUser);
+        callFavoris.enqueue(new Callback<List<Favoris>>() {
+            @Override
+            public void onResponse(Call<List<Favoris>> call, Response<List<Favoris>> response) {
+                if(response.isSuccessful()) {
+                    System.out.println("IT'S WORKING !!!!!!!!!!");
 
-        ArrayList<Offre> offres =new ArrayList<>();
-        offres.add(  new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, "LocalTime.now()","vente",user,vehicule, " LocalDate.of(2020, 1, 8)"));
-        offres.add(new Offre("Bicycle VTT", "Vente",12,"A perfectly working bicycle, available starting from now ",  "bicycle",user,vehicule));
-        //offres.add(new data.Offre("Motor lahuma barik", "Swinga jaya mn asfi chi haja lahuma barik akhay diali", 50, "motorcycle"));
-        //offres.add(new data.Offre("Boukchlita lhrba", "Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi", 10, "bicycle"));
-        //offres.add(new Offre("Motor makaynch fhalu juj", "Had lmotor dor so9 kaml la l9iti bhalu aji dfl elia", 60, "motorcycle"));
+                    ArrayList<Favoris> favoris = new ArrayList<Favoris>(response.body());
+                    System.out.println(favoris);
+                    adapter = new FavoritesAdapter(favoris);
+                    recyclerView.setAdapter(adapter);
+                }else {
+                    Toast.makeText(getApplicationContext(),"Erreur Serveur !",Toast.LENGTH_LONG).show();
+                }
 
-        ArrayList<Favoris> favoris =new ArrayList<>();
-        favoris.add(new Favoris(offres.get(0)));
-        favoris.add(new Favoris(offres.get(1)));
-        //favoris.add(new Favoris(offres.get(2)));
-        //favoris.add(new Favoris(offres.get(3)));
+            }
 
-        adapter=new FavoritesAdapter(favoris);
-        recyclerView.setAdapter(adapter);
+            @Override
+            public void onFailure(Call<List<Favoris>> call, Throwable t) {
+                System.out.println("Request Error !");
+                Toast.makeText(getApplicationContext(),"Erreur serveur !",Toast.LENGTH_LONG).show();
+            }
+        });
 
         //Sidebar implementation
         Sidebar();

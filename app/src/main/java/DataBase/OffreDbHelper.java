@@ -123,7 +123,7 @@ public class OffreDbHelper extends SQLiteOpenHelper {
             int id = cursor.getInt(cursor.getColumnIndexOrThrow(ID));
             //SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm");
-            Offre offre = new Offre(id,image,titre,description,localisation,prix,"LocalTime.parse(time)",operation,userDbHelper.selectUserById(user),vehiculeDbHelper.selectVehiculeById(vehicule),"LocalDate.parse(date)");
+            Offre offre = new Offre(id,image,titre,description,localisation,prix,"LocalTime.parse(time)",operation,userDbHelper.selectUserById(user),vehiculeDbHelper.selectVehiculeById(vehicule),"LocalDate.parse(date)","kenitra");
             offres.add(offre);
         }
         cursor.close();
@@ -162,7 +162,7 @@ public class OffreDbHelper extends SQLiteOpenHelper {
                 //int id = cursor.getInt(cursor.getColumnIndexOrThrow(ID));
                 //SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm");
-                return new Offre(id,image,titre,description,localisation,prix, "LocalTime.parse(time)",operation,userDbHelper.selectUserById(user),vehiculeDbHelper.selectVehiculeById(vehicule),"LocalDate.parse(date)");
+                return new Offre(id,image,titre,description,localisation,prix, "LocalTime.parse(time)",operation,userDbHelper.selectUserById(user),vehiculeDbHelper.selectVehiculeById(vehicule),"LocalDate.parse(date)","kenitra");
 
         }
         cursor.close();

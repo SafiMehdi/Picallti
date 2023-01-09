@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/menu"
+            android:background="@drawable/ic_baseline_menu_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,7 +36,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/fontnew2bold"
             android:text="@string/titreAjouterOffre"
-            android:textColor="@color/black"
+            android:textColor="@color/titlePage"
             android:textSize="30dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -120,6 +120,7 @@
             android:background="@drawable/rounded_corners_edittext"
             android:drawableLeft="@drawable/title_icon"
             android:drawablePadding="12dp"
+            android:textColorHint="@color/hint"
             android:elevation="2dp"
             android:hint="@string/titreOffreHint"
             android:inputType="textPersonName"
@@ -135,6 +136,7 @@
             android:background="@drawable/rounded_corners_edittext"
             android:drawableLeft="@drawable/marque_icon"
             android:drawablePadding="12dp"
+            android:textColorHint="@color/hint"
             android:elevation="2dp"
             android:hint="@string/marqueOffreHint"
             android:inputType="textPersonName"
@@ -149,6 +151,7 @@
             android:layout_width="260dp"
             android:layout_height="78dp"
             android:layout_marginTop="8dp"
+            android:textColorHint="@color/hint"
             android:background="@drawable/rounded_corners_edittext"
             android:drawableLeft="@drawable/description_icon"
             android:drawablePadding="12dp"
@@ -245,12 +248,15 @@
             android:hint="@string/prixOffreHint"
             android:inputType="number"
             android:paddingStart="15dp"
+            android:textColorHint="@color/hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/CategorieCard" />
 
         <android.widget.Button
             android:id="@+id/button"
+            android:textColor="@color/textBoutton"
+            android:backgroundTint="@color/button"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

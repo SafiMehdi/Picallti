@@ -158,7 +158,7 @@ public class ModifierProfileActivity extends AppCompatActivity {
             changeNameInput.setText(Preom);
             changeEmailInput.setText(Email);
             changeBioInput.setText(Bio);
-            changePhoneInput.setText(String.valueOf(Telephone));
+            changePhoneInput.setText("0"+String.valueOf(Telephone));
         }
 
         changeProfilePictureButton = (Button) findViewById(R.id.changePictureBtn);

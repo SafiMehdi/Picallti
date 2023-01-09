@@ -1,11 +1,16 @@
 package com.example.picallti;
 
+import static com.example.picallti.login_page.PREFS_NAME;
+
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,8 +19,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.IOException;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import data.User;
+import okhttp3.ResponseBody;
+import retrofit.RetrofitService;
+import retrofit.UserApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -79,9 +93,62 @@ public class ProfileActivity extends AppCompatActivity {
         ImageView img = (ImageView) findViewById(R.id.profile_picture);
         img.setBackgroundResource(R.drawable.background_profile_picutre);
         ButterKnife.bind(this);
+
+        TextView bio =(TextView)findViewById(R.id.bioTextView);
+        TextView nom = (TextView)findViewById(R.id.usernameTextView);
+        TextView phone =  (TextView)findViewById(R.id.phoneNumberTextView);
+        TextView email =  (TextView)findViewById(R.id.emailTextView);
+
         //Sidebar implementation
         Sidebar();
+
+
+
+
+
+        //function to retrieve connected user
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
+
+        //setting Info
+        if(connectedUser != null) {
+            String Nom = connectedUser.getNom();
+            String Email = connectedUser.getEmail();
+            int Telephone = connectedUser.getPhone();
+            String Bio = connectedUser.getBio();
+            int id = connectedUser.getId();
+
+            bio.setText(Bio);
+            nom.setText(Nom);
+            phone.setText("0"+Integer.toString(Telephone));
+            email.setText(Email);
+            ImageView pp = (ImageView) findViewById(R.id.profile_picture);
+            RetrofitService retrofitService = new RetrofitService();
+            UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
+            userApi.downloadImage(id).enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if(response.isSuccessful()){
+                        byte[] r;
+                        try {
+                            r = response.body().bytes();
+                            Bitmap bitmap = BitmapFactory.decodeByteArray(r, 0, r.length);
+                            pp.setImageBitmap(bitmap);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                }
+            });
+        }
+
     }
+
 
     @OnClick(R.id.addOfferButton)
     public void addClick(){

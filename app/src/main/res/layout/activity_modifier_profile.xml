@@ -158,7 +158,7 @@
             android:textColorHint="@color/hint"
             android:layout_marginTop="15dp"
             android:hint="@string/bioHint"
-            android:inputType="phone"
+            android:inputType="textPersonName"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
             android:paddingStart="15dp"

@@ -282,7 +282,48 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(Call call, Response response) {
                                 // startActivity(new Intent(SingUp.this, login_page.class));
-                                Toast.makeText(AjouterAnnonceActivity.this, "Account Created !", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AjouterAnnonceActivity.this, "Offer Created !", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(AjouterAnnonceActivity.this,SingleOffreActivity.class);
+                                intent.putExtra("photo",R.drawable.avatar_5);
+                                intent.putExtra("titre", offre.getTitre());
+                                intent.putExtra("prix", offre.getPrix());
+                                String date = "";
+                                if (offre.getLocalDateTime() != null){
+                                    date = offre.getLocalDateTime();
+                                }
+                                intent.putExtra("date", date);
+                                intent.putExtra("id", offre.getId());
+                                intent.putExtra("operation", offre.getOperation());
+                                intent.putExtra("localisation", offre.getLocalisation());
+                                intent.putExtra("description",offre.getDescription());
+                                String time = "";
+                                if(offre.getLocalDateTime() != null & offre.getTime()!= null){
+                                    time =   offre.getLocalDateTime() +  " "+offre.getTime().substring(0,5);
+                                }
+                                else {
+                                    if(offre.getTime()!= null){
+                                        time =   offre.getLocalDateTime() ;
+                                    }
+                                    if(offre.getLocalDateTime()!= null){
+                                        time =   offre.getLocalDateTime();
+                                    }
+                                }
+                                intent.putExtra("time",time);
+                                String username = "";
+                                int phone = 0;
+                                if(offre.getUser() != null){
+                                    username = offre.getUser().getNom();
+                                    phone = offre.getUser().getPhone();
+                                }
+                                intent.putExtra("user",username);
+                                intent.putExtra("phone",phone);
+                                String marque = "";
+                                if(offre.getVehicule() != null){
+                                    marque = offre.getVehicule().getMarque();
+                                }
+                                intent.putExtra("vehicule", marque);
+                                startActivity(intent);
+                                //startActivity(new Intent(AjouterAnnonceActivity.this,));
                             }
 
                             @Override

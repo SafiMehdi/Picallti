@@ -7,6 +7,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface OffreApi {
     @GET("/offers/getAll")
@@ -18,8 +19,18 @@ public interface OffreApi {
     @POST("/offers/update")
     Call<Void> update(@Body Offre offre);
 
-
-
     @GET("/offers/offrebyvehiculetype")
     Call<List<Offre>> getOffersByVehiculeType(@Query("vehiculeTypeName") String vehiculeTypeName);
+
+    @GET("/offers/offrebyprice")
+    Call<List<Offre>> filterOffresByPrix(@Query("min") float min,@Query("max") float max);
+
+    @GET("/offers/getByVille")
+    Call<List<Offre>> getOffreByVille(@Query("ville") String ville);
+
+    @GET("/offers/getByDateDesc")
+    Call<List<Offre>> getOffreByDateDesc();
+
+    @GET("offers/searchtitle")
+    Call<List<Offre>> searchTitleContaining(@Query("title") String title);
 }

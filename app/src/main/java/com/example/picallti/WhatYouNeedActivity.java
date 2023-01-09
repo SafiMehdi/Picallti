@@ -4,14 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -20,6 +26,10 @@ public class WhatYouNeedActivity extends AppCompatActivity {
     private Chip chip4, chip5, chip6, chip7;
     private Button btnApply;
     private ArrayList<String> selectedChipData;
+    @BindView(R.id.priceMaxTxt)
+    TextView maxPrice;
+    @BindView(R.id.priceMinTxt)
+    TextView minPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +37,56 @@ public class WhatYouNeedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_what_you_need);
 
         ButterKnife.bind(this);
+
+        maxPrice.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    System.out.println("testtttttttttttttttttt");
+                    System.out.println(maxPrice.getText());
+                    System.out.println(minPrice.getText());
+                    float min = Float.parseFloat(minPrice.getText().toString());
+                    float max = Float.parseFloat(maxPrice.getText().toString());
+                    if (min > max){
+                        Toast toast = Toast.makeText(getApplicationContext(),"Max Value Should be Greater Than The Min",Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    else{
+                        Intent intent = new Intent(WhatYouNeedActivity.this, OffrePageActivity.class);
+                        intent.putExtra("type","price");
+                        intent.putExtra("min",min);
+                        intent.putExtra("max",max);
+                        startActivity(intent);
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+        Spinner spinner = (Spinner) findViewById(R.id.villeSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.cities_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setSelected(false);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                if(position != 0){
+                    Intent intent = new Intent(WhatYouNeedActivity.this, OffrePageActivity.class);
+                    intent.putExtra("type","city");
+                    intent.putExtra("ville", spinner.getItemAtPosition(position).toString());
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
         /*chip4 = findViewById(R.id.chip4);
         chip5 = findViewById(R.id.chip5);
         chip6 = findViewById(R.id.chip6);
@@ -52,15 +112,6 @@ public class WhatYouNeedActivity extends AppCompatActivity {
         chip5.setOnCheckedChangeListener(checkedChangeListener);
         chip6.setOnCheckedChangeListener(checkedChangeListener);
         chip7.setOnCheckedChangeListener(checkedChangeListener);*/
-
-        /*Spinner spinner = (Spinner) findViewById(R.id.cities_spinner);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.cities_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);*/
     }
     @OnClick(R.id.velo)
     public void findVelo(){
@@ -90,4 +141,20 @@ public class WhatYouNeedActivity extends AppCompatActivity {
         intent.putExtra("value","Scooter");
         startActivity(intent);
     }
+    @OnClick(R.id.plusRecentButton)
+    public void findPlusRecent(){
+        Intent intent = new Intent(WhatYouNeedActivity.this, OffrePageActivity.class);
+        intent.putExtra("type","date");
+        intent.putExtra("value","recent");
+        startActivity(intent);
+    }
+    @OnClick(R.id.plusAncienButton)
+    public void findPlusAncien(){
+        Intent intent = new Intent(WhatYouNeedActivity.this, OffrePageActivity.class);
+        startActivity(intent);
+    }
+
+
+
+
 }

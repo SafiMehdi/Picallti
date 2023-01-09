@@ -1,8 +1,19 @@
 package com.example.picallti;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import static com.example.picallti.login_page.PREFS_NAME;
 
+import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import androidx.core.app.NotificationCompat;
+import android.app.NotificationChannel;
+import androidx.core.app.NotificationManagerCompat;
+import android.content.Context;
+import android.graphics.Color;
+import android.os.Build;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,8 +30,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -42,23 +51,15 @@ import adapters.OffresAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import data.Commentaire;
-import data.Favoris;
-import data.Notification;
-import data.Offre;
-import data.User;
-import data.Vehicule;
-import data.VehiculeType;
-import retrofit.CommentApi;
-import retrofit.FavorisApi;
-import retrofit.NotificationApi;
-import retrofit.OffreApi;
-import retrofit.RetrofitService;
+import data.*;
+import retrofit.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SingleOffreActivity extends AppCompatActivity {
+
+    final String PICALLTI_CHANNEL_ID = "PICALLTI_CHANNEL_ID";
 
     @BindView(R.id.titreOffre)
     TextView titreOffre;
@@ -84,6 +85,8 @@ public class SingleOffreActivity extends AppCompatActivity {
     EditText sendComment;
     int phoneNummber;
 
+    ArrayList<Commentaire> commentaires = new ArrayList<>();
+    NotificationManagerCompat notificationManagerCompat;
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerView;
     RetrofitService retrofitService = new RetrofitService();
@@ -146,6 +149,8 @@ public class SingleOffreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_offre);
 
+        createNotificationChannel();
+
         recyclerView = findViewById(R.id.view_holder_comments);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -169,15 +174,11 @@ public class SingleOffreActivity extends AppCompatActivity {
                     public void onResponse(Call<Collection<Commentaire>> call, Response<Collection<Commentaire>> response) {
                         if ( response.body() != null){
                             System.out.println("working");
-                            ArrayList<Commentaire> commentaires =new ArrayList<>();
                             commentaires = new ArrayList<Commentaire>(response.body());
                             System.out.println(commentaires);
                             adapter = new CommentsAdapter(getApplicationContext(), commentaires);
                             recyclerView.setAdapter(adapter);
 
-                            if(commentaires.size() > adapter.getItemCount()){
-                                adapter.notifyDataSetChanged();
-                            }
                         }
                     }
 
@@ -189,6 +190,7 @@ public class SingleOffreActivity extends AppCompatActivity {
                     }
                 });
 
+        notificationManagerCompat = NotificationManagerCompat.from(SingleOffreActivity.this);
         //Sidebar implementation
         Sidebar();
     }
@@ -212,12 +214,16 @@ public class SingleOffreActivity extends AppCompatActivity {
                         User user1 = offre.getUser();
                         user1.setId(extras.getInt("id_user"));
 
-                        Notification notification = new Notification("Your Offre has been commented",commentaire.getCommentaire(),LocalDate.now().toString(),LocalTime.now().toString(),offre.getUser());
+                        commentaires.add(commentaire);
+                        adapter.notifyDataSetChanged();
+
+                        data.Notification notification = new data.Notification("Your Offre has been commented",commentaire.getCommentaire(),LocalDate.now().toString(),LocalTime.now().toString(),offre.getUser());
                         NotificationApi notificationApi =retrofitService.getRetrofit().create(NotificationApi.class);
                         notificationApi.addNotification(notification).enqueue(new Callback<Void>() {
                             @Override
                             public void onResponse(Call<Void> call, Response<Void> response) {
                                 System.out.println("notification created");
+                                createSimpleNotification("Your Offre has been commented","picallti",1);
                             }
 
                             @Override
@@ -271,5 +277,38 @@ public class SingleOffreActivity extends AppCompatActivity {
     }
 
 
+    private void createSimpleNotification(String title, String text, int notificationId) {
 
+        notificationManagerCompat.cancelAll();
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
+                R.drawable.notifications_icon);
+
+        // Create an explicit intent for an Activity in your app
+        Intent intent = new Intent(this, NotificationsHistory.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+
+
+        Notification notification = new NotificationCompat.Builder(this, PICALLTI_CHANNEL_ID)
+                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setContentTitle(title)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(commentaires.get(commentaires.size()-1).getCommentaire()))
+                .build();
+
+        notificationManagerCompat.notify(notificationId, notification);
+    }
+
+    private void createNotificationChannel() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "PICALLTI_CHANNEL";
+            String description = "picallti channel description";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(PICALLTI_CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
 }

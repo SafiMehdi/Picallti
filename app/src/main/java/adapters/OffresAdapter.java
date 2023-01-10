@@ -46,7 +46,8 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
 
         }
         else {
-             drawableResourceId = offres.get(position).getImageId();
+             //drawableResourceId = offres.get(position).getImageId();
+            drawableResourceId = R.drawable.avatar_2;
         }
 
         final Offre offre =offres.get(position);

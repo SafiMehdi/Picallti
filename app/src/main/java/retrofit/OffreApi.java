@@ -22,5 +22,8 @@ public interface OffreApi {
     @POST("/offers/update")
     Call<Void> update(@Body Offre offre);
 
+    @GET("/offers/remove")
+    Call<Void> removeOffreById(@Query("id") int id);
+
 
 }

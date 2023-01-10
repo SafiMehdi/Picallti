@@ -98,6 +98,17 @@ public class ParametresActivity extends AppCompatActivity {
         });
     }
 
+    @OnClick(R.id.changeLanguageSection)
+    public void changeLanguageSection(){
+        Intent intent = new Intent(this,LanguagesActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.aboutUsSection)
+    public void aboutUsSection(){
+        Intent intent = new Intent(this,AproposActivity.class);
+        startActivity(intent);
+    }
     @OnClick(R.id.deleteAccountSection)
     public void deleteaccountClicked(){
         Intent intent = new Intent(this,DeleteAccount.class);

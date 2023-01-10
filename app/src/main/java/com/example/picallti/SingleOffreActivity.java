@@ -254,7 +254,7 @@ public class SingleOffreActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(Call<Void> call, Response<Void> response) {
                                 System.out.println("notification created");
-                                createSimpleNotification(commentaire.getUser().getNom()+"has commented on your post","picallti",1);
+                                createSimpleNotification(commentaire.getUser().getNom()+" has commented on your post","picallti",1);
                             }
 
                             @Override

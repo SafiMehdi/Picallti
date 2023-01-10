@@ -60,10 +60,13 @@
         android:id="@+id/languages_radio_grp"
         android:layout_width="101dp"
         android:layout_height="145dp"
+        android:layout_marginStart="164dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="146dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/text_langues"
-        tools:layout_editor_absoluteX="164dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_langues">
 
         <RadioButton
             android:id="@+id/ar"

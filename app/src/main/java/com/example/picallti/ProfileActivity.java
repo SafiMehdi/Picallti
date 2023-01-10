@@ -83,6 +83,11 @@ public class ProfileActivity extends AppCompatActivity {
         Sidebar();
     }
 
+    @OnClick(R.id.changePasswordTextView)
+    public void changePasswordClick(){
+        Intent intent = new Intent(this,forgot_pass1.class);
+        startActivity(intent);
+    }
     @OnClick(R.id.addOfferButton)
     public void addClick(){
         Intent intent = new Intent(this,AjouterAnnonceActivity.class);

@@ -68,24 +68,22 @@
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
 
-
     <android.widget.Button
         android:id="@+id/deleteAccountButton"
         android:layout_width="173dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="80dp"
+        android:width="300dp"
+        android:background="@drawable/background_outline_white"
         android:drawableRight="@drawable/ic_baseline_send_24"
-        android:backgroundTint="@color/button"
+        android:fontFamily="@font/fontnew2bold"
         android:padding="5dp"
         android:text="@string/deleteAccount"
+        android:textColor="@color/textBoutton"
+        app:layout_constraintEnd_toEndOf="@+id/textView18"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toEndOf="@+id/imageView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView18"
-        tools:ignore="MissingConstraints"
-        android:width="300dp"
-        android:textColor="@color/textBoutton"
-        android:fontFamily="@font/fontnew2bold"
-        android:background="@drawable/shape_more_info_offre"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

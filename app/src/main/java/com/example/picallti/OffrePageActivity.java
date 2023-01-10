@@ -120,7 +120,7 @@ public class OffrePageActivity extends AppCompatActivity {
         title = findViewById(R.id.textView7);
         if(connectedUser != null) {
             String Nom = connectedUser.getNom();
-            title.setText(Nom);
+            title.setText("Hi "+Nom);
 
             String email = connectedUser.getEmail();
         }
@@ -158,42 +158,12 @@ public class OffrePageActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.view_holder_offers);
-        recyclerViewCat = findViewById(R.id.view_holder_vehicule_type);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerViewCat.setLayoutManager(linearLayoutManager2);
 
-        ArrayList<VehiculeType> cat = new ArrayList<>();
-        //cat.add(new VehiculeType("Bike"));
-        //cat.add(new VehiculeType("Electric Bike"));
-        //cat.add(new VehiculeType("Scooter"));
-        //cat.add(new VehiculeType("Motorcycle"));
-
-        adapter2 = new VehiculeTypesAdapter(cat);
-        recyclerViewCat.setAdapter(adapter2);
-
-
-
-
-
-        /*VehiculeType vehiculeType = new VehiculeType("typeV");
-       // db.vehiculeTypeDbHelper.insertVehiculeType(vehiculeType);
-        Vehicule vehicule = new Vehicule("marque",vehiculeType);
-        User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
-        offres.add(  new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, "LocalTime.now()","vente",user,vehicule,  LocalDate.of(2020, 1, 8)));
-        ArrayList<Offre> offres =new ArrayList<>();
-        offres.add(new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, LocalTime.now(),"vente",user,vehicule,  LocalDate.of(2020, 1, 8)));
-        offres.add(new Offre("Bicycle VTT", "Vente",12,"A perfectly working bicycle, available starting from now ",  "bicycle",user,vehicule));
-        //offres.add(new Offre("Motor lahuma barik", "Vente",50,"Swinga jaya mn asfi chi haja lahuma barik akhay diali",  "motorcycle",user,vehicule));
-        //offres.add(new Offre("Boukchlita lhrba", "Vente",10,"Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi",  "bicycle",user,vehicule));
-        //offres.add(new Offre("Motor makaynch fhalu juj", "Vente",60,"Had lmotor dor so9 kaml la l9iti bhalu aji dfl elia", "motorcycle",user,vehicule));
-
-        adapter=new OffresAdapter(getApplicationContext(),offres);
-        recyclerView.setAdapter(adapter);
-*/
        //RetrofitService retrofitService = new RetrofitService();
         OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
         Call<List<Offre>> call = offreApi.getOffers();
@@ -209,9 +179,8 @@ public class OffrePageActivity extends AppCompatActivity {
                 adapter = new OffresAdapter(getApplicationContext(), offres);
                 recyclerView.setAdapter(adapter);
 
-        //Sidebar implementation
-        Sidebar();
-    }
+
+            }
             @Override
             public void onFailure(Call<List<Offre>> call, Throwable t) {
                 System.out.println("exceeeption");
@@ -220,7 +189,8 @@ public class OffrePageActivity extends AppCompatActivity {
             }
         });
 
-
+        //Sidebar implementation
+        Sidebar();
     }
 
 

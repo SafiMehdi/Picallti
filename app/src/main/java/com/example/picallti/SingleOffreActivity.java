@@ -95,6 +95,8 @@ public class SingleOffreActivity extends AppCompatActivity {
     RetrofitService retrofitService = new RetrofitService();
     CommentApi commentApi = retrofitService.getRetrofit().create(CommentApi.class);
 
+    BottomBarFragment frag = new BottomBarFragment();
+
     //The function that implements the sidebar
     public void Sidebar() {
         NavigationView navView = findViewById(R.id.sidebar_view);
@@ -151,6 +153,7 @@ public class SingleOffreActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_offre);
+        getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container, frag).commit();
 
         createNotificationChannel();
 
@@ -166,7 +169,7 @@ public class SingleOffreActivity extends AppCompatActivity {
             photo = extras.getInt("photo");
         }*/
         imageOffre.setBackgroundResource(photo);
-        prix.setText(Double.toString(extras.getDouble("prix")));
+        prix.setText(Float.toString(extras.getFloat("prix")));
         time.setText(extras.getString("time"));
         description.setText(extras.getString("description"));
         this.phoneNummber = extras.getInt("phone");
@@ -245,13 +248,13 @@ public class SingleOffreActivity extends AppCompatActivity {
                         commentaires.add(commentaire);
                         adapter.notifyDataSetChanged();
 
-                        data.Notification notification = new data.Notification("Your Offre has been commented",commentaire.getCommentaire(),LocalDate.now().toString(),LocalTime.now().toString(),offre.getUser());
+                        data.Notification notification = new data.Notification(user1.getNom()+" has commented",commentaire.getCommentaire(),LocalDate.now().toString(),LocalTime.now().toString(),offre.getUser());
                         NotificationApi notificationApi =retrofitService.getRetrofit().create(NotificationApi.class);
                         notificationApi.addNotification(notification).enqueue(new Callback<Void>() {
                             @Override
                             public void onResponse(Call<Void> call, Response<Void> response) {
                                 System.out.println("notification created");
-                                createSimpleNotification("Your Offre has been commented","picallti",1);
+                                createSimpleNotification(commentaire.getUser().getNom()+"has commented on your post","picallti",1);
                             }
 
                             @Override

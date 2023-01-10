@@ -17,10 +17,9 @@
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#00FFFFFF"
+        android:background="@drawable/ic_baseline_menu_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_menu_24" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView12"
@@ -62,17 +61,18 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/background_profile_picutre" />
+
         <android.widget.Button
             android:id="@+id/changePictureBtn"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/hint"
             android:layout_height="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/background_btn"
+            android:backgroundTint="@color/hint"
             android:drawableLeft="@drawable/background_btn_pdp"
+            android:fontFamily="@font/fontnew2"
             android:text="@string/changePDPTextView"
             android:textColor="@color/textBoutton"
-            android:fontFamily="@font/fontnew2"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -83,35 +83,36 @@
                 android:id="@+id/changeNameInput"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/rounded_corners_edittext"
+                android:drawablePadding="12dp"
+                android:elevation="2dp"
+                android:fontFamily="@font/fontnew2"
                 android:hint="@string/usernameHint"
                 android:inputType="textPersonName"
-                android:layout_centerHorizontal="true"
-                android:textSize="20sp"
                 android:paddingStart="15dp"
-                android:textColorHint="@color/hint"
-                android:fontFamily="@font/fontnew2"
-                android:drawablePadding="12dp"
-                android:background="@drawable/rounded_corners_edittext"
-                android:elevation="2dp"
                 android:paddingEnd="5dp"
-                android:layout_marginRight="15dp"/>
+                android:textColorHint="@color/hint"
+                android:textSize="20sp" />
+
             <EditText
                 android:id="@+id/changeSurnameInput"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
-                android:textColorHint="@color/hint"
-                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/rounded_corners_edittext"
+                android:drawablePadding="12dp"
+                android:elevation="2dp"
+                android:fontFamily="@font/fontnew2"
                 android:hint="@string/usersurnameHint"
                 android:inputType="textPersonName"
-                android:layout_centerHorizontal="true"
-                android:textSize="20sp"
                 android:paddingStart="15dp"
-                android:fontFamily="@font/fontnew2"
-                android:drawablePadding="12dp"
-                android:background="@drawable/rounded_corners_edittext"
-                android:elevation="2dp"
-                android:paddingEnd="5dp"/>
+                android:paddingEnd="5dp"
+                android:textColorHint="@color/hint"
+                android:textSize="20sp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -120,53 +121,53 @@
             android:id="@+id/changeEmailInput"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:drawableStart="@drawable/email1"
+            android:drawablePadding="12dp"
+            android:elevation="2dp"
+            android:fontFamily="@font/fontnew2"
             android:hint="@string/emailHint"
             android:inputType="textPersonName"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
             android:paddingStart="15dp"
-            android:drawableStart="@drawable/email1"
-            android:fontFamily="@font/fontnew2"
-            android:drawablePadding="12dp"
-            android:background="@drawable/rounded_corners_edittext"
-            android:elevation="2dp"
-            android:paddingEnd="5dp"/>
+            android:paddingEnd="5dp"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/changePhoneInput"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:drawableStart="@drawable/phone"
+            android:drawablePadding="12dp"
+            android:elevation="2dp"
+            android:fontFamily="@font/fontnew2"
             android:hint="@string/phoneHint"
             android:inputType="phone"
-            android:textColorHint="@color/hint"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
             android:paddingStart="15dp"
-            android:drawableStart="@drawable/phone"
-            android:fontFamily="@font/fontnew2"
-            android:drawablePadding="12dp"
-            android:background="@drawable/rounded_corners_edittext"
-            android:elevation="2dp"
-            android:paddingEnd="5dp"/>
+            android:paddingEnd="5dp"
+            android:textColorHint="@color/hint"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/changeBioInput"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textColorHint="@color/hint"
-            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corners_edittext"
+            android:drawablePadding="12dp"
+            android:elevation="2dp"
+            android:fontFamily="@font/fontnew2"
             android:hint="@string/bioHint"
             android:inputType="phone"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
             android:paddingStart="15dp"
-            android:fontFamily="@font/fontnew2"
-            android:drawablePadding="12dp"
-            android:background="@drawable/rounded_corners_edittext"
-            android:elevation="2dp"
-            android:paddingEnd="5dp"/>
+            android:paddingEnd="5dp"
+            android:textColorHint="@color/hint"
+            android:textSize="20sp" />
 
 
     </LinearLayout>
@@ -192,9 +193,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/fontnew2"
                 android:text="@string/hidePhoneTextView"
                 android:textColor="@color/white"
-                android:fontFamily="@font/fontnew2"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -236,12 +237,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="70dp"
         android:background="@drawable/background_input_form_black"
+        android:fontFamily="@font/fontnew2"
         android:text="@string/saveEditText"
         android:textColor="@color/black"
-        android:fontFamily="@font/fontnew2"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="parent"

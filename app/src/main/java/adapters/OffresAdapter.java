@@ -105,18 +105,13 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
                     marque = offre.getVehicule().getMarque();
                 }
                 intent.putExtra("vehicule", (Serializable) offre.getVehicule());
-                System.out.println("----------------------------sdslkhqlkdq");
-                System.out.println(offre.getVehicule());
-                System.out.println(offre.getVehicule().getClass().getSimpleName());
-                System.out.println("----------------------------sdslkhqlkdq");
-
                 v.getContext().startActivity(intent);
 
             }
         });
-        Glide.with(holder.itemView.getContext())
-                .load(drawableResourceId)
-                .into(holder.removeItem);
+
+        System.out.println(holder.removeItem);
+
     }
 
 

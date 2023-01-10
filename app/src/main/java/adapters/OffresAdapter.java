@@ -48,7 +48,8 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
 
         }
         else {
-            drawableResourceId = offres.get(position).getImageId();
+             //drawableResourceId = offres.get(position).getImageId();
+            drawableResourceId = R.drawable.avatar_2;
         }
 
         final Offre offre =offres.get(position);
@@ -59,22 +60,22 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
             public void onClick(View v) {
                 int photo;
                 if (offre.getUrl() != null){
-                    photo = holder.itemView.getContext().getResources().getIdentifier(offre.getUrl(), "drawable", holder.itemView.getContext().getPackageName());
+                     photo = holder.itemView.getContext().getResources().getIdentifier(offre.getUrl(), "drawable", holder.itemView.getContext().getPackageName());
                 }
                 else {
-                    photo = offre.getImageId();
+                     photo = offre.getImageId();
                 }
                 Intent intent = new Intent(v.getContext(), SingleOffreActivity.class);
                 String time = "";
                 if(offre.getLocalDateTime() != null & offre.getTime()!= null){
-                    time =   offre.getLocalDateTime() +  " "+offre.getTime().substring(0,5);
+                     time =   offre.getLocalDateTime() +  " "+offre.getTime().substring(0,5);
                 }
                 else {
                     if(offre.getTime()!= null){
-                        time =   offre.getLocalDateTime() ;
+                         time =   offre.getLocalDateTime() ;
                     }
                     if(offre.getLocalDateTime()!= null){
-                        time =   offre.getLocalDateTime();
+                         time =   offre.getLocalDateTime();
                     }
                 }
                 intent.putExtra("photo",photo);
@@ -87,8 +88,7 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
                 intent.putExtra("date", date);
                 intent.putExtra("id", offre.getId());
                 intent.putExtra("operation", offre.getOperation());
-                intent.putExtra("ville", offre.getVille());
-                intent.putExtra("operation", offre.getOperation());
+                intent.putExtra("localisation", offre.getLocalisation());
                 intent.putExtra("description",offre.getDescription());
                 intent.putExtra("time",time);
                 String username = "";

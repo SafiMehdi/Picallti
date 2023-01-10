@@ -13,6 +13,9 @@ public interface OffreApi {
     @GET("/offers/getAll")
     Call<List<Offre>> getOffers();
 
+    @GET("/offers/getAllByUser")
+    Call<List<Offre>> getOffersByUser(@Query("id") int id);
+
     @POST("/offers/add")
     Call<Void> addOffre(@Body Offre offre);
 
@@ -33,4 +36,8 @@ public interface OffreApi {
 
     @GET("offers/searchtitle")
     Call<List<Offre>> searchTitleContaining(@Query("title") String title);
+
+    @GET("/offers/remove")
+    Call<Void> removeOffreById(@Query("id") int id);
+
 }

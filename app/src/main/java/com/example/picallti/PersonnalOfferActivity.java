@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,20 +13,34 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import adapters.MyOffersAdapter;
 
 import com.google.android.material.navigation.NavigationView;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import adapters.FavoritesAdapter;
+import adapters.MyOffersAdapter;
+import adapters.OffresAdapter;
 import butterknife.ButterKnife;
 import data.Favoris;
 import data.Offre;
 import data.User;
 import data.Vehicule;
 import data.VehiculeType;
+import retrofit.OffreApi;
+import retrofit.RetrofitService;
+import retrofit.UserApi;
+import retrofit.VehiculeApi;
+import retrofit.VehiculeTypeApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PersonnalOfferActivity extends AppCompatActivity {
 
@@ -99,15 +114,56 @@ public class PersonnalOfferActivity extends AppCompatActivity {
         VehiculeType vehiculeType = new VehiculeType("typeV");
 
         Vehicule vehicule = new Vehicule("marque",vehiculeType);
-        User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
-
-        ArrayList<Offre> offres =new ArrayList<>();
-        offres.add(  new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, "LocalTime.now()","vente",user,vehicule,  "LocalDate.of(2020, 1, 8)","kenitra"));
-        offres.add(new Offre("Bicycle VTT", "Vente",12,"A perfectly working bicycle, available starting from now ",  "bicycle",user,vehicule,"kenitra"));
+        //User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+        User user = login_page.getSavedObjectFromPreference(getApplicationContext(),login_page.PREFS_NAME,"connectedUser",User.class);
+        //offres.add(  new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, "LocalTime.now()","vente",user,vehicule,  "LocalDate.of(2020, 1, 8)","kenitra"));
+        //offres.add(new Offre("Bicycle VTT", "Vente",12,"A perfectly working bicycle, available starting from now ",  "bicycle",user,vehicule,"kenitra"));
         //offres.add(new data.Offre("Motor lahuma barik", "Swinga jaya mn asfi chi haja lahuma barik akhay diali", 50, "motorcycle"));
         //offres.add(new data.Offre("Boukchlita lhrba", "Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi", 10, "bicycle"));
         //offres.add(new Offre("Motor makaynch fhalu juj", "Had lmotor dor so9 kaml la l9iti bhalu aji dfl elia", 60, "motorcycle"));
+        /*
+        RetrofitService retrofitService = new RetrofitService();
+        VehiculeTypeApi vehiculeTypeApi = retrofitService.getRetrofit().create(VehiculeTypeApi.class);
+        VehiculeApi vehiculeApi = retrofitService.getRetrofit().create(VehiculeApi.class);
+        OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
 
+        vehiculeTypeApi.getTypeByName(typeDeVehicule).enqueue(new Callback<VehiculeType>() {
+            @Override
+            public void onResponse(Call<VehiculeType> call, Response<VehiculeType> response) {
+                VehiculeType vehiculeType = response.body();
+                System.out.println("***************");
+                System.out.println(vehiculeType);
+                System.out.println("***************");
+                Vehicule vehicule = new Vehicule(marque.getText().toString(), vehiculeType);
+         */
+        RetrofitService retrofitService = new RetrofitService();
+        UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
+        OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
+
+        //Call<List<Offre>> call = offreApi.getOffersByUser(user.getId());
+        offreApi.getOffersByUser(user.getId()).enqueue(new Callback<List<Offre>>() {
+            @Override
+            public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
+                 //response.body() != null;
+                if(response.body() != null){
+                    System.out.println(response.body());
+                    System.out.println("response khedmat dyal offre");
+                    ArrayList<Offre> offres = new ArrayList<Offre>(response.body());
+                    System.out.println(offres);
+                    adapter =  new MyOffersAdapter(getApplicationContext(), offres);
+                    recyclerView.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Offre>> call, Throwable t) {
+                Logger.getLogger(PersonnalOfferActivity.class.getName()).log(Level.SEVERE, "Error Occured", t);
+            }
+        });
+
+
+
+/*
         ArrayList<Favoris> favoris =new ArrayList<>();
         favoris.add(new Favoris(offres.get(0)));
         favoris.add(new Favoris(offres.get(1)));
@@ -117,7 +173,7 @@ public class PersonnalOfferActivity extends AppCompatActivity {
         adapter=new FavoritesAdapter(favoris);
         recyclerView.setAdapter(adapter);
         //Sidebar implementation
-        Sidebar();
+        Sidebar();*/
     }
 
 

@@ -65,8 +65,8 @@ public class SingleOffreActivity extends AppCompatActivity {
     TextView prix;
     @BindView(R.id.time)
     TextView time;
-    //@BindView(R.id.img_view)
-    //ImageView userImage;
+    @BindView(R.id.localisation)
+    TextView localisation;
     @BindView(R.id.description)
     TextView description;
     @BindView(R.id.appeler)
@@ -206,6 +206,8 @@ public class SingleOffreActivity extends AppCompatActivity {
                 });
         ButterKnife.bind(this);
         Bundle extras = getIntent().getExtras();
+
+        localisation.setText(extras.getString("ville")+":"+extras.getString("operation"));
         titreOffre.setText(extras.getString("titre"));
         int photo = R.drawable.avatar_2;
         /*if(getResources().getResourceName((int)extras.getDouble("photo") ) != null){

@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
-
+import static com.example.picallti.login_page.PREFS_NAME;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -101,8 +101,8 @@ public class NotificationsHistory extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-
-        notificationApi.getNotificationByUser(1)
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
+        notificationApi.getNotificationByUser(connectedUser.getId())
                 .enqueue(new Callback<Collection<Notification>>() {
                     @Override
                     public void onResponse(Call<Collection<Notification>> call, Response<Collection<Notification>> response) {

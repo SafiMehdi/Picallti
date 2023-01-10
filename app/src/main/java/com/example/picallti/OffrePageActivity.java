@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -27,6 +29,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import com.google.gson.Gson;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -42,8 +45,10 @@ import data.Offre;
 import data.User;
 import data.Vehicule;
 import data.VehiculeType;
+import okhttp3.ResponseBody;
 import retrofit.OffreApi;
 import retrofit.RetrofitService;
+import retrofit.UserApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -51,9 +56,7 @@ import retrofit2.Response;
 public class OffrePageActivity extends AppCompatActivity {
 
     private RecyclerView.Adapter adapter;
-    private RecyclerView.Adapter adapter2;
     private RecyclerView recyclerView;
-    private RecyclerView recyclerViewCat;
     private TextView title;
     private ArrayList<Offre> offres = new ArrayList<>();
 
@@ -124,6 +127,33 @@ public class OffrePageActivity extends AppCompatActivity {
         if (connectedUser != null) {
             String Nom = connectedUser.getNom();
             title.setText(Nom);
+            int id = connectedUser.getId();
+            ImageView profileimg = (ImageView) findViewById(R.id.imageView2);
+            RetrofitService retrofitService = new RetrofitService();
+            UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
+            userApi.downloadImage(id).enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if(response.isSuccessful()){
+                        System.out.println("success");
+                        byte[] r;
+                        try {
+                            r = response.body().bytes();
+                            Bitmap bitmap = BitmapFactory.decodeByteArray(r, 0, r.length);
+                            profileimg.setImageBitmap(bitmap);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }else {
+                        System.out.println(response.body());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    System.out.println("failed ! ");
+                }
+            });
         }
 
         ImageView img = (ImageView) findViewById(R.id.filter);
@@ -134,17 +164,11 @@ public class OffrePageActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.view_holder_offers);
-        recyclerViewCat = findViewById(R.id.view_holder_vehicule_type);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerViewCat.setLayoutManager(linearLayoutManager2);
 
-        ArrayList<VehiculeType> cat = new ArrayList<>();
-        adapter2 = new VehiculeTypesAdapter(cat);
-        recyclerViewCat.setAdapter(adapter2);
         RetrofitService retrofitService = new RetrofitService();
         OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
         Bundle extras = getIntent().getExtras();

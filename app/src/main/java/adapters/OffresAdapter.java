@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import data.Offre;
 import com.example.picallti.R;

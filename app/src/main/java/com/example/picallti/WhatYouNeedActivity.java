@@ -64,7 +64,7 @@ public class WhatYouNeedActivity extends AppCompatActivity {
                 return false;
             }
         });
-        Spinner spinner = (Spinner) findViewById(R.id.villeSpinner);
+        Spinner spinner = (Spinner) findViewById(R.id.Operation);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.cities_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

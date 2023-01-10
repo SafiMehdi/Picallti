@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import static com.example.picallti.login_page.PREFS_NAME;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -100,9 +101,9 @@ public class NotificationsHistory extends AppCompatActivity {
         recyclerView = findViewById(R.id.view_holder_notification);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
 
-
-        notificationApi.getNotificationByUser(1)
+        notificationApi.getNotificationByUser(connectedUser.getId())
                 .enqueue(new Callback<Collection<Notification>>() {
                     @Override
                     public void onResponse(Call<Collection<Notification>> call, Response<Collection<Notification>> response) {

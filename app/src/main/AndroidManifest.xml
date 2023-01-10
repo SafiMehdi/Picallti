@@ -26,6 +26,7 @@
         tools:targetApi="31">
         <activity
             android:name=".updateActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -34,6 +35,7 @@
 
         <receiver
             android:name=".OTP_Receiver"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
@@ -42,6 +44,7 @@
 
         <activity
             android:name=".OTPActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -49,6 +52,7 @@
         </activity>
         <activity
             android:name=".PersonnalOfferActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -56,6 +60,7 @@
         </activity>
         <activity
             android:name=".DetailsActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -63,6 +68,7 @@
         </activity>
         <activity
             android:name=".ParametresActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -86,6 +92,7 @@
         </activity>
         <activity
             android:name=".SingleOffreActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -93,6 +100,7 @@
         </activity>
         <activity
             android:name=".forgot_pass2"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -100,6 +108,7 @@
         </activity>
         <activity
             android:name=".NotificationsHistory"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true" />
         <activity
             android:name=".forgot_pass1"
@@ -110,6 +119,7 @@
         </activity>
         <activity
             android:name=".DeleteAccount"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -117,6 +127,7 @@
         </activity>
         <activity
             android:name=".SingUp"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -124,6 +135,7 @@
         </activity>
         <activity
             android:name=".login_page"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -131,6 +143,7 @@
         </activity>
         <activity
             android:name=".AjouterAnnonceActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -138,6 +151,7 @@
         </activity>
         <activity
             android:name=".FavorisActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -145,6 +159,7 @@
         </activity>
         <activity
             android:name=".ContactActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -152,6 +167,7 @@
         </activity>
         <activity
             android:name=".ProfileActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -159,6 +175,7 @@
         </activity>
         <activity
             android:name=".AproposActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -166,6 +183,7 @@
         </activity>
         <activity
             android:name=".LanguagesActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -173,6 +191,7 @@
         </activity>
         <activity
             android:name=".HomePageActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -186,6 +205,7 @@
         </activity>
         <activity
             android:name=".ModifierProfileActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"

@@ -134,17 +134,17 @@ public class OffrePageActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.view_holder_offers);
-        recyclerViewCat = findViewById(R.id.view_holder_vehicule_type);
+        //recyclerViewCat = findViewById(R.id.view_holder_vehicule_type);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        //LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerViewCat.setLayoutManager(linearLayoutManager2);
+        //recyclerViewCat.setLayoutManager(linearLayoutManager2);
 
         ArrayList<VehiculeType> cat = new ArrayList<>();
         adapter2 = new VehiculeTypesAdapter(cat);
-        recyclerViewCat.setAdapter(adapter2);
+        //recyclerViewCat.setAdapter(adapter2);
         RetrofitService retrofitService = new RetrofitService();
         OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
         Bundle extras = getIntent().getExtras();

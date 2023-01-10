@@ -2,8 +2,14 @@ package com.example.picallti;
 
 import static com.example.picallti.login_page.PREFS_NAME;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -18,6 +24,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -186,11 +194,11 @@ public class SingleOffreActivity extends AppCompatActivity {
 
         notificationManagerCompat = NotificationManagerCompat.from(SingleOffreActivity.this);
         ButterKnife.bind(this);
-        Bundle extras = getIntent().getExtras();
+        //undle extras = getIntent().getExtras();
 
         localisation.setText(extras.getString("ville")+":"+extras.getString("operation"));
         titreOffre.setText(extras.getString("titre"));
-        int photo = R.drawable.avatar_2;
+        //int photo = R.drawable.avatar_2;
         /*if(getResources().getResourceName((int)extras.getDouble("photo") ) != null){
             photo = extras.getInt("photo");
         }*/
@@ -351,7 +359,7 @@ public class SingleOffreActivity extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
 
-        Notification notification = new NotificationCompat.Builder(this, PICALLTI_CHANNEL_ID)
+        android.app.Notification notification = new NotificationCompat.Builder(this, PICALLTI_CHANNEL_ID)
                 .setSmallIcon(R.mipmap.ic_launcher_round)
                 .setContentTitle(title)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(commentaires.get(commentaires.size()-1).getCommentaire()))

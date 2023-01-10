@@ -12,24 +12,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="100dp"
         android:text="@string/languages_title"
         android:textAlignment="center"
+        android:textAllCaps="true"
         android:textColor="@color/titlePage"
         android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="390dp"
+        android:layout_width="100dp"
         android:layout_height="90dp"
         android:layout_gravity="center"
         android:layout_marginTop="28dp"
@@ -43,9 +40,11 @@
 
     <TextView
         android:id="@+id/text_langues"
-        android:layout_width="297dp"
-        android:layout_height="156dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="48dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/fontnew2"
         android:lineSpacingExtra="20sp"
         android:text="@string/languages_choice"
@@ -54,16 +53,20 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        tools:textAlignment="center" />
 
     <RadioGroup
         android:id="@+id/languages_radio_grp"
         android:layout_width="101dp"
         android:layout_height="145dp"
+        android:layout_marginStart="164dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="146dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/text_langues"
-        tools:layout_editor_absoluteX="164dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_langues">
 
         <RadioButton
             android:id="@+id/ar"

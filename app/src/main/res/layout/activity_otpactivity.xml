@@ -11,13 +11,12 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/forgotpass"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/fontnew2bold"
+        android:text="@string/forgotpass"
         android:textColor="@color/titlePage"
-        android:textSize="30sp"
-        android:layout_marginTop="35dp"
-        />
+        android:textSize="30sp" />
 
     <EditText
         android:id="@+id/phoneNumber"

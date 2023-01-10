@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import static com.example.picallti.login_page.PREFS_NAME;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,15 +19,28 @@ import com.google.android.material.navigation.NavigationView;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import adapters.CommentsAdapter;
 import adapters.NotificationAdapter;
+import data.Commentaire;
 import data.Notification;
 import data.User;
+import retrofit.NotificationApi;
+import retrofit.RetrofitService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NotificationsHistory extends AppCompatActivity {
 
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerView;
+    RetrofitService retrofitService = new RetrofitService();
+    NotificationApi notificationApi = retrofitService.getRetrofit().create(NotificationApi.class);
+
     BottomBarFragment frag = new BottomBarFragment();
     //The function that implements the sidebar
     public void Sidebar(){
@@ -85,21 +99,33 @@ public class NotificationsHistory extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container,frag).commit();
 
         recyclerView = findViewById(R.id.view_holder_notification);
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-
         recyclerView.setLayoutManager(linearLayoutManager);
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
 
-        User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
+        notificationApi.getNotificationByUser(connectedUser.getId())
+                .enqueue(new Callback<Collection<Notification>>() {
+                    @Override
+                    public void onResponse(Call<Collection<Notification>> call, Response<Collection<Notification>> response) {
+                        if ( response.body() != null){
+                            System.out.println("working");
+                            ArrayList<Notification> notifications =new ArrayList<>();
+                            notifications = new ArrayList<Notification>(response.body());
+                            System.out.println("-------------------------------------");
+                            System.out.println(notifications);
+                            System.out.println("-------------------------------------");
+                            adapter = new NotificationAdapter(getApplicationContext(), notifications);
+                            recyclerView.setAdapter(adapter);
+                        }
+                    }
 
-        ArrayList<Notification> notifications =new ArrayList<>();
-        notifications.add(new Notification("Bicycle VTT", "Mehdi Safi commented your post",R.drawable.bicycle,LocalTime.now(), LocalDate.now(),user));
-       // notifications.add(new Notification("Motor lahuma barik", "Swinga jaya mn asfi chi haja lahuma barik akhay diali", Date.valueOf("2015-03-31"), "motorcycle"));
-        //notifications.add(new Notification("Boukchlita lhrba", "Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi", Date.valueOf("2015-03-31"), "bicycle"));
-        //notifications.add(new Notification("Motor makaynch fhalu juj", "Had lmotor dor so9 kaml la l9iti bhalu aji dfl elia", Date.valueOf("2015-03-31"), "motorcycle"));
+                    @Override
+                    public void onFailure(Call<Collection<Notification>> call, Throwable t) {
+                        System.out.println("Exception");
+                        Logger.getLogger(NotificationsHistory.class.getName()).log(Level.SEVERE, "Error Occured", t);
 
-        adapter=new NotificationAdapter(notifications);
-        recyclerView.setAdapter(adapter);
+                    }
+                });
 
         //Sidebar implementation
         Sidebar();

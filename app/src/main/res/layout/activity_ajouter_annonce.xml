@@ -20,8 +20,8 @@
 
         <ImageButton
             android:id="@+id/sidebar_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="55dp"
+            android:layout_height="45dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/ic_baseline_menu_24"
@@ -30,14 +30,14 @@
 
         <TextView
             android:id="@+id/Title"
-            android:layout_width="243dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:fontFamily="@font/fontnew2bold"
             android:text="@string/titreAjouterOffre"
             android:textColor="@color/titlePage"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

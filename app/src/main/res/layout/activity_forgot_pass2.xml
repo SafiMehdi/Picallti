@@ -12,6 +12,7 @@
         android:layout_width="295dp"
         android:layout_height="210dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
         android:src="@drawable/reset_password_illustration" />
     <TextView
         android:id="@+id/title"

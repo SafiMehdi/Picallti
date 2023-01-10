@@ -2,7 +2,6 @@ package adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import data.Offre;
 import com.example.picallti.R;
@@ -49,7 +46,7 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
 
         }
         else {
-             drawableResourceId = offres.get(position).getImageId();
+            drawableResourceId = offres.get(position).getImageId();
         }
 
         final Offre offre =offres.get(position);
@@ -60,22 +57,22 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
             public void onClick(View v) {
                 int photo;
                 if (offre.getUrl() != null){
-                     photo = holder.itemView.getContext().getResources().getIdentifier(offre.getUrl(), "drawable", holder.itemView.getContext().getPackageName());
+                    photo = holder.itemView.getContext().getResources().getIdentifier(offre.getUrl(), "drawable", holder.itemView.getContext().getPackageName());
                 }
                 else {
-                     photo = offre.getImageId();
+                    photo = offre.getImageId();
                 }
                 Intent intent = new Intent(v.getContext(), SingleOffreActivity.class);
                 String time = "";
                 if(offre.getLocalDateTime() != null & offre.getTime()!= null){
-                     time =   offre.getLocalDateTime() +  " "+offre.getTime().substring(0,5);
+                    time =   offre.getLocalDateTime() +  " "+offre.getTime().substring(0,5);
                 }
                 else {
                     if(offre.getTime()!= null){
-                         time =   offre.getLocalDateTime() ;
+                        time =   offre.getLocalDateTime() ;
                     }
                     if(offre.getLocalDateTime()!= null){
-                         time =   offre.getLocalDateTime();
+                        time =   offre.getLocalDateTime();
                     }
                 }
                 intent.putExtra("photo",photo);
@@ -87,7 +84,6 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
                 }
                 intent.putExtra("date", date);
                 intent.putExtra("id", offre.getId());
-                intent.putExtra("id_user",offre.getUser().getId());
                 intent.putExtra("operation", offre.getOperation());
                 intent.putExtra("localisation", offre.getLocalisation());
                 intent.putExtra("description",offre.getDescription());
@@ -104,12 +100,7 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
                 if(offre.getVehicule() != null){
                     marque = offre.getVehicule().getMarque();
                 }
-                intent.putExtra("vehicule", (Serializable) offre.getVehicule());
-                System.out.println("----------------------------sdslkhqlkdq");
-                System.out.println(offre.getVehicule());
-                System.out.println(offre.getVehicule().getClass().getSimpleName());
-                System.out.println("----------------------------sdslkhqlkdq");
-
+                intent.putExtra("vehicule", marque);
                 v.getContext().startActivity(intent);
 
             }

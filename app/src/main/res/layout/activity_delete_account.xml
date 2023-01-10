@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView15"
         app:lineHeight="20dp" />
 
-    <ImageView
+    <!--ImageView
         android:id="@+id/imageView16"
         android:layout_width="72dp"
         android:layout_height="72dp"
@@ -65,7 +65,7 @@
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/textView17" /-->
 
 
 
@@ -74,14 +74,15 @@
         android:layout_width="173dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:drawableRight="@drawable/ic_baseline_send_24"
         android:backgroundTint="@color/button"
         android:padding="5dp"
         android:text="@string/deleteAccount"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toEndOf="@+id/imageView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
         tools:ignore="MissingConstraints"
         android:width="300dp"
         android:textColor="@color/textBoutton"

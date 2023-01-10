@@ -203,14 +203,16 @@ public class OffrePageActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Offre>>() {
             @Override
             public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
-                assert response.body() != null;
-                //System.out.println(response.body().toString() );
-                System.out.println("working");
-                ArrayList<Offre> offres =new ArrayList<>();
-                offres = new ArrayList<Offre>(response.body());
-                System.out.println(offres);
-                adapter = new OffresAdapter(getApplicationContext(), offres);
-                recyclerView.setAdapter(adapter);
+                if(response.body() != null){
+                    //System.out.println(response.body().toString() );
+                    System.out.println("working");
+                    ArrayList<Offre> offres =new ArrayList<>();
+                    offres = new ArrayList<Offre>(response.body());
+                    System.out.println(offres);
+                    adapter = new OffresAdapter(getApplicationContext(), offres);
+                    recyclerView.setAdapter(adapter);
+                }
+
 
         //Sidebar implementation
         Sidebar();

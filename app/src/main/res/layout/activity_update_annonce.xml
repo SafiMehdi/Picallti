@@ -32,18 +32,18 @@
                 android:id="@+id/Title"
                 android:layout_width="243dp"
                 android:layout_height="48dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/fontnew2bold"
                 android:text="Modifier Annonce"
                 android:textColor="@color/black"
                 android:textSize="30dp"
                 android:textStyle="bold"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
+            <!--LinearLayout
                 android:id="@+id/pictures"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -109,14 +109,55 @@
                         android:textSize="10dp" />
                 </RelativeLayout>
 
-            </LinearLayout>
+            </LinearLayout-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profile_picture1"
+                android:layout_width="155dp"
+                android:layout_height="155dp"
+                android:layout_marginTop="55dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:cardCornerRadius="250dp"
+                app:cardBackgroundColor="@color/white">
 
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    app:cardCornerRadius="250dp"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:id="@+id/OffreImage"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/background_profile_picutre"
+                        android:scaleType="centerCrop"/>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.cardview.widget.CardView>
+
+            <android.widget.Button
+                android:id="@+id/chargePictureBtn"
+                android:layout_width="110dp"
+                app:layout_constraintBottom_toBottomOf="@+id/profile_picture1"
+                android:backgroundTint="@color/hint"
+                android:layout_height="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/background_btn"
+                android:drawableLeft="@drawable/background_btn_pdp"
+                android:text="ADD"
+                android:textColor="@color/textBoutton"
+                android:fontFamily="@font/fontnew2"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/TitreOffre"
                 android:layout_width="260dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_corners_edittext"
                 android:drawableLeft="@drawable/title_icon"
                 android:drawablePadding="12dp"
@@ -127,12 +168,12 @@
                 android:paddingStart="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pictures" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_picture1" />
             <EditText
                 android:id="@+id/Marque"
                 android:layout_width="260dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/rounded_corners_edittext"
                 android:drawableLeft="@drawable/marque_icon"
                 android:drawablePadding="12dp"
@@ -169,7 +210,7 @@
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
                 android:elevation="2dp"
                 android:spinnerMode="dropdown"
@@ -193,7 +234,7 @@
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
                 android:elevation="2dp"
                 android:spinnerMode="dropdown"
@@ -216,7 +257,7 @@
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
                 android:elevation="2dp"
                 android:spinnerMode="dropdown"
@@ -237,8 +278,8 @@
             <EditText
                 android:id="@+id/Prix"
                 android:layout_width="260dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/rounded_corners_edittext"
                 android:drawableLeft="@drawable/money_icon"
                 android:drawablePadding="12dp"
@@ -254,7 +295,7 @@
                 android:id="@+id/button"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/custom_btn_shape"
                 android:drawableLeft="@drawable/add_icon"

@@ -5,16 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.io.IOException;
+
+import butterknife.BindView;
 import data.User;
+import okhttp3.ResponseBody;
 import retrofit.RetrofitService;
 import retrofit.UserApi;
 import retrofit2.Call;
@@ -44,36 +51,37 @@ public class DeleteAccount extends AppCompatActivity {
         UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
 
         User connectedUser = getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME, "connectedUser", User.class);
+        if(connectedUser != null){
+            Integer id = connectedUser.getId();
+            supprCompte.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-
-        supprCompte.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(connectedUser != null){
-                    Integer id = connectedUser.getId();
-                    userApi.removeUser(id).enqueue(new Callback() {
-                            @Override
-                            public void onResponse(Call call, Response response) {
-                                if(response.isSuccessful()){
-                                    Toast.makeText(DeleteAccount.this,"L'utilisateur a bien été supprimé !",Toast.LENGTH_LONG).show();
-                                }
+                    userApi.deleteUserById(id).enqueue(new Callback() {
+                        @Override
+                        public void onResponse(Call call, Response response) {
+                            if(response.isSuccessful()){
+                                Toast.makeText( DeleteAccount.this, "Your Account has been Deleted !",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(DeleteAccount.this, login_page.class));
+                            }else {
+                                Toast.makeText( DeleteAccount.this, "Your can't be Deleted !",Toast.LENGTH_SHORT).show();
                             }
+                        }
 
-                            @Override
-                            public void onFailure(Call call, Throwable t) {
-                                Log.e("Opération échouée",t.getMessage());
+                        @Override
+                        public void onFailure(Call call, Throwable t) {
+                            Log.e("Opération échouée",t.getMessage());
 
-                            }
-                        });
-                        Intent intent = new Intent(DeleteAccount.this, login_page.class);
-                        startActivity(intent);
 
-                    }
-                    Toast.makeText( DeleteAccount.this, "Your Account has been Deleted !",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(DeleteAccount.this, login_page.class));
+                        }
+                    });
+
                 }
 
-        });
+
+            });}
+
+
 
         ImageView back = (ImageView)findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {

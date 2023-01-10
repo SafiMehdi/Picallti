@@ -37,6 +37,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Scanner;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import data.Offre;
 import data.User;
@@ -57,6 +58,10 @@ import android.os.Bundle;
 
 public class updateActivity extends AppCompatActivity {
 
+    @BindView(R.id.OffreImage)
+            ImageView offreImage;
+    @BindView(R.id.chargePictureBtn)
+            Button Chargerimage;
     EditText titreEdit, descEdit, prixEdit, marqueEdit;
     ImageView imgEdit;
 

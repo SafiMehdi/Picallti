@@ -85,7 +85,8 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
                 intent.putExtra("date", date);
                 intent.putExtra("id", offre.getId());
                 intent.putExtra("operation", offre.getOperation());
-                intent.putExtra("localisation", offre.getLocalisation());
+                intent.putExtra("ville", offre.getVille());
+                intent.putExtra("operation", offre.getOperation());
                 intent.putExtra("description",offre.getDescription());
                 intent.putExtra("time",time);
                 String username = "";

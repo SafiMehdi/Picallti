@@ -210,7 +210,7 @@
                         android:layout_toRightOf="@id/ville">
 
                         <androidx.appcompat.widget.AppCompatSpinner
-                            android:id="@+id/Operation"
+                            android:id="@+id/villeSpinner"
                             android:layout_width="match_parent"
                             android:layout_height="20dp"
                             android:paddingStart="15dp"

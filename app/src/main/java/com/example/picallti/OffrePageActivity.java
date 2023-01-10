@@ -6,14 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +27,6 @@ import com.google.android.material.navigation.NavigationView;
 
 import com.google.gson.Gson;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -36,16 +36,14 @@ import java.util.logging.Logger;
 
 import adapters.OffresAdapter;
 import adapters.VehiculeTypesAdapter;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import data.Offre;
 import data.User;
 import data.Vehicule;
 import data.VehiculeType;
-import okhttp3.ResponseBody;
-import retrofit.ImageDataApi;
 import retrofit.OffreApi;
 import retrofit.RetrofitService;
-import retrofit.UserApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -57,10 +55,13 @@ public class OffrePageActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView recyclerViewCat;
     private TextView title;
+    private ArrayList<Offre> offres = new ArrayList<>();
+
+
     BottomBarFragment frag = new BottomBarFragment();
 
     //The function that implements the sidebar
-    public void Sidebar(){
+    public void Sidebar() {
         NavigationView navView = findViewById(R.id.sidebar_view);
         navView.inflateMenu(R.menu.sidebar_menu);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -108,6 +109,7 @@ public class OffrePageActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,43 +117,14 @@ public class OffrePageActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.bottom_bar_container, frag).commit();
 
         //function to retrieve connected user
-        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(), PREFS_NAME, "connectedUser", User.class);
 
         //setting title name
         title = findViewById(R.id.textView7);
-        if(connectedUser != null) {
+        if (connectedUser != null) {
             String Nom = connectedUser.getNom();
             title.setText(Nom);
-            int id = connectedUser.getId();
-            String email = connectedUser.getEmail();
-
-            ImageView pp = (ImageView) findViewById(R.id.imageView2);
-            RetrofitService retrofitService = new RetrofitService();
-            UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
-            userApi.downloadImage(id).enqueue(new Callback<ResponseBody>() {
-                @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    if(response.isSuccessful()){
-                        byte[] r;
-                        try {
-                            r = response.body().bytes();
-                            Bitmap bitmap = BitmapFactory.decodeByteArray(r, 0, r.length);
-                            pp.setImageBitmap(bitmap);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
-
-                }
-            });
         }
-
-
 
         ImageView img = (ImageView) findViewById(R.id.filter);
         img.setOnClickListener(new View.OnClickListener() {
@@ -170,60 +143,199 @@ public class OffrePageActivity extends AppCompatActivity {
         recyclerViewCat.setLayoutManager(linearLayoutManager2);
 
         ArrayList<VehiculeType> cat = new ArrayList<>();
-        //cat.add(new VehiculeType("Bike"));
-        //cat.add(new VehiculeType("Electric Bike"));
-        //cat.add(new VehiculeType("Scooter"));
-        //cat.add(new VehiculeType("Motorcycle"));
-
         adapter2 = new VehiculeTypesAdapter(cat);
         recyclerViewCat.setAdapter(adapter2);
-
-
-
-
-
-        /*VehiculeType vehiculeType = new VehiculeType("typeV");
-       // db.vehiculeTypeDbHelper.insertVehiculeType(vehiculeType);
-        Vehicule vehicule = new Vehicule("marque",vehiculeType);
-        User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
-        offres.add(  new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, "LocalTime.now()","vente",user,vehicule,  LocalDate.of(2020, 1, 8)));
-        ArrayList<Offre> offres =new ArrayList<>();
-        offres.add(new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, LocalTime.now(),"vente",user,vehicule,  LocalDate.of(2020, 1, 8)));
-        offres.add(new Offre("Bicycle VTT", "Vente",12,"A perfectly working bicycle, available starting from now ",  "bicycle",user,vehicule));
-        //offres.add(new Offre("Motor lahuma barik", "Vente",50,"Swinga jaya mn asfi chi haja lahuma barik akhay diali",  "motorcycle",user,vehicule));
-        //offres.add(new Offre("Boukchlita lhrba", "Vente",10,"Hadi bla mandwi eliha , sl3a kadwi ela rasha asahbi",  "bicycle",user,vehicule));
-        //offres.add(new Offre("Motor makaynch fhalu juj", "Vente",60,"Had lmotor dor so9 kaml la l9iti bhalu aji dfl elia", "motorcycle",user,vehicule));
-
-        adapter=new OffresAdapter(getApplicationContext(),offres);
-        recyclerView.setAdapter(adapter);
-*/
         RetrofitService retrofitService = new RetrofitService();
         OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
-        Call<List<Offre>> call = offreApi.getOffers();
-        call.enqueue(new Callback<List<Offre>>() {
-            @Override
-            public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
-                if(response.body() != null){
-                    //System.out.println(response.body().toString() );
-                    System.out.println("working");
-                    ArrayList<Offre> offres =new ArrayList<>();
-                    offres = new ArrayList<Offre>(response.body());
-                    System.out.println(offres);
-                    adapter = new OffresAdapter(getApplicationContext(), offres);
-                    recyclerView.setAdapter(adapter);
+        Bundle extras = getIntent().getExtras();
+        String type = "Home";
+        if(extras != null){
+            if(extras.containsKey("type")){
+                type = extras.getString("type");
+            }
+        }
+        System.out.println("************");
+        System.out.println(type);
+        System.out.println("************");
+        switch (type){
+            case "vehiculeType":
+                System.out.println("************Tyyyyyyyyyyyype");
+                switch (extras.getString("value")){
+                    case "Vélo":
+                        offreApi.getOffersByVehiculeType("Vélo").enqueue(new Callback<List<Offre>>() {
+                            @Override
+                            public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
+
+                                offres = new ArrayList<Offre>(response.body());
+                                System.out.println(offres);
+                                adapter = new OffresAdapter(getApplicationContext(), offres);
+                                recyclerView.setAdapter(adapter);
+                            }
+
+                            @Override
+                            public void onFailure(Call<List<Offre>> call, Throwable t) {
+                                System.out.println("can't get Vélo offers");
+                            }
+                        });
+                        break;
+                    case "Vélo_electrique":
+                        offreApi.getOffersByVehiculeType("Vélo électrique").enqueue(new Callback<List<Offre>>() {
+                            @Override
+                            public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
+
+                                offres = new ArrayList<Offre>(response.body());
+                                System.out.println(offres);
+                                adapter = new OffresAdapter(getApplicationContext(), offres);
+                                recyclerView.setAdapter(adapter);
+                            }
+
+                            @Override
+                            public void onFailure(Call<List<Offre>> call, Throwable t) {
+                                System.out.println("can't get Vélo offers");
+                            }
+                        });
+                        break;
+                    case "Moto":
+                        offreApi.getOffersByVehiculeType("Moto").enqueue(new Callback<List<Offre>>() {
+                            @Override
+                            public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
+                                offres = new ArrayList<Offre>(response.body());
+                                System.out.println(offres);
+                                adapter = new OffresAdapter(getApplicationContext(), offres);
+                                recyclerView.setAdapter(adapter);
+                            }
+                            @Override
+                            public void onFailure(Call<List<Offre>> call, Throwable t) {
+                                System.out.println("can't get Vélo offers");
+                            }
+                        });
+                        break;
+                    case "Scooter":
+                        offreApi.getOffersByVehiculeType("Scooter").enqueue(new Callback<List<Offre>>() {
+                            @Override
+                            public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
+
+                                offres = new ArrayList<Offre>(response.body());
+                                System.out.println(offres);
+                                adapter = new OffresAdapter(getApplicationContext(), offres);
+                                recyclerView.setAdapter(adapter);
+                            }
+
+                            @Override
+                            public void onFailure(Call<List<Offre>> call, Throwable t) {
+                                System.out.println("can't get Vélo offers");
+                            }
+                        });
+                        break;
                 }
+                break;
+            case "price":
+                float min = extras.getFloat("min");
+                float max = extras.getFloat("max");
+                offreApi.filterOffresByPrix(min,max).enqueue(new Callback<List<Offre>>() {
+                    @Override
+                    public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
+                        offres = new ArrayList<Offre>(response.body());
+                        System.out.println(offres);
+                        adapter = new OffresAdapter(getApplicationContext(), offres);
+                        recyclerView.setAdapter(adapter);
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Offre>> call, Throwable t) {
+                        System.out.println("can't get offers by price");
+                    }
+                });
+                break;
+            case "city":
+                String ville = extras.getString("ville");
+                offreApi.getOffreByVille(ville).enqueue(new Callback<List<Offre>>() {
+                    @Override
+                    public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
+                        offres = new ArrayList<Offre>(response.body());
+                        System.out.println(offres);
+                        adapter = new OffresAdapter(getApplicationContext(), offres);
+                        recyclerView.setAdapter(adapter);
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Offre>> call, Throwable t) {
+                        System.out.println("can't get offers by city");
+                    }
+                });
+                break;
+            case "date":
+                offreApi.getOffreByDateDesc().enqueue(new Callback<List<Offre>>() {
+                    @Override
+                    public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
+                        offres = new ArrayList<Offre>(response.body());
+                        System.out.println(offres);
+                        adapter = new OffresAdapter(getApplicationContext(), offres);
+                        recyclerView.setAdapter(adapter);
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Offre>> call, Throwable t) {
+                        System.out.println("can't get recent offers");
+
+                    }
+                });
+                break;
+            case "Home":
+                System.out.println("************");
+                System.out.println("Hooooooooooooome");
+                System.out.println("************");
+                Call<List<Offre>> call = offreApi.getOffers();
+                call.enqueue(new Callback<List<Offre>>() {
+                        @Override
+                        public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
+                            assert response.body() != null;
+                            //System.out.println(response.body().toString() );
+                            System.out.println("working");
+                            offres = new ArrayList<Offre>(response.body());
+                            System.out.println(offres);
+                            adapter = new OffresAdapter(getApplicationContext(), offres);
+                            recyclerView.setAdapter(adapter);
+
+                            //Sidebar implementation
+                            Sidebar();
+                    }
 
 
-        //Sidebar implementation
-        Sidebar();
-    }
+                    @Override
+                    public void onFailure(Call<List<Offre>> call, Throwable t) {
+                        System.out.println("exceeeption");
+                        Logger.getLogger(SingUp.class.getName()).log(Level.SEVERE, "Error Occured", t);
+                    }
+                });
+        }
+
+        EditText search = findViewById(R.id.editTextTextPersonName2);
+        search.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onFailure(Call<List<Offre>> call, Throwable t) {
-                System.out.println("exceeeption");
-                Logger.getLogger(SingUp.class.getName()).log(Level.SEVERE, "Error Occured", t);
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    offreApi.searchTitleContaining(search.getText().toString()).enqueue(new Callback<List<Offre>>() {
+                        @Override
+                        public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
+                            offres = new ArrayList<Offre>(response.body());
+                            System.out.println(offres);
+                            adapter = new OffresAdapter(getApplicationContext(), offres);
+                            recyclerView.setAdapter(adapter);
+                        }
 
+                        @Override
+                        public void onFailure(Call<List<Offre>> call, Throwable t) {
+
+                        }
+                    });
+                    return true;
+                }
+                return false;
             }
         });
+
 
 
     }

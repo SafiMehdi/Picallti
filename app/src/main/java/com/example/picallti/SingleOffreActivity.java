@@ -243,12 +243,13 @@ public class SingleOffreActivity extends AppCompatActivity {
                         Toast.makeText(SingleOffreActivity.this, "Comment created !",Toast.LENGTH_SHORT).show();
                         Bundle extras = getIntent().getExtras();
                         User user1 = offre.getUser();
-                        user1.setId(extras.getInt("id_user"));
-
+                        //user1.setId(extras.getInt("id_user"));
+                        System.out.println("the id is : " + user1.getId());
                         commentaires.add(commentaire);
                         adapter.notifyDataSetChanged();
 
                         data.Notification notification = new data.Notification(user1.getNom()+" has commented",commentaire.getCommentaire(),LocalDate.now().toString(),LocalTime.now().toString(),offre.getUser());
+                        System.out.println(" the ids offer is : "+ offre.toString());
                         NotificationApi notificationApi =retrofitService.getRetrofit().create(NotificationApi.class);
                         notificationApi.addNotification(notification).enqueue(new Callback<Void>() {
                             @Override

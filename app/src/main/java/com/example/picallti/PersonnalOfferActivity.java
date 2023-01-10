@@ -1,5 +1,7 @@
 package com.example.picallti;
 
+import static com.example.picallti.login_page.PREFS_NAME;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -114,8 +116,10 @@ public class PersonnalOfferActivity extends AppCompatActivity {
         VehiculeType vehiculeType = new VehiculeType("typeV");
 
         Vehicule vehicule = new Vehicule("marque",vehiculeType);
+
+        User connectedUser = login_page.getSavedObjectFromPreference(getApplicationContext(),PREFS_NAME,"connectedUser",User.class);
+
         //User user = new User("nom","prenom","M","testttt@test.com",78,"pass",78,"bio","admin");
-        User user = login_page.getSavedObjectFromPreference(getApplicationContext(),login_page.PREFS_NAME,"connectedUser",User.class);
         //offres.add(  new Offre(R.drawable.motorcycle,"Motorcycle","A perfectly working Motorcycle, available starting from now ","localisation",67, "LocalTime.now()","vente",user,vehicule,  "LocalDate.of(2020, 1, 8)","kenitra"));
         //offres.add(new Offre("Bicycle VTT", "Vente",12,"A perfectly working bicycle, available starting from now ",  "bicycle",user,vehicule,"kenitra"));
         //offres.add(new data.Offre("Motor lahuma barik", "Swinga jaya mn asfi chi haja lahuma barik akhay diali", 50, "motorcycle"));
@@ -141,7 +145,7 @@ public class PersonnalOfferActivity extends AppCompatActivity {
         OffreApi offreApi = retrofitService.getRetrofit().create(OffreApi.class);
 
         //Call<List<Offre>> call = offreApi.getOffersByUser(user.getId());
-        offreApi.getOffersByUser(user.getId()).enqueue(new Callback<List<Offre>>() {
+        offreApi.getAllOffersByUser(connectedUser.getId()).enqueue(new Callback<List<Offre>>() {
             @Override
             public void onResponse(Call<List<Offre>> call, Response<List<Offre>> response) {
                  //response.body() != null;
@@ -153,11 +157,15 @@ public class PersonnalOfferActivity extends AppCompatActivity {
                     adapter =  new MyOffersAdapter(getApplicationContext(), offres);
                     recyclerView.setAdapter(adapter);
                 }
+                else {
+                    System.out.println("Response null");
+                }
             }
 
             @Override
             public void onFailure(Call<List<Offre>> call, Throwable t) {
                 Logger.getLogger(PersonnalOfferActivity.class.getName()).log(Level.SEVERE, "Error Occured", t);
+                System.out.println("Failure in my offers");
             }
         });
 

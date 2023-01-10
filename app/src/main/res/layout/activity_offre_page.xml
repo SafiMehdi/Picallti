@@ -23,35 +23,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/imageView"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            app:cardCornerRadius="250dp"
-            app:cardBackgroundColor="@color/white">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                app:cardCornerRadius="250dp"
-                android:layout_gravity="center">
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/background_profile_picutre"
-                    android:scaleType="centerCrop"/>
-
-            </androidx.cardview.widget.CardView>
-
-        </androidx.cardview.widget.CardView>
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageView2"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginTop="60dp"
@@ -65,14 +38,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
             android:text="@string/hiUsernameText"
             android:textColor="@color/NoChange"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/sidebar_button"
-            app:layout_constraintTop_toTopOf="@+id/imageView3"
             app:layout_constraintStart_toEndOf="@+id/sidebar_button"
-            app:layout_constraintTop_toBottomOf="@+id/sidebar_button" />
+            app:layout_constraintStart_toStartOf="@id/sidebar_button"
+            app:layout_constraintTop_toBottomOf="@+id/sidebar_button"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
         <TextView
             android:id="@+id/textView8"
@@ -82,15 +56,16 @@
             android:textColor="@color/NoChange"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
-            android:layout_width="159dp"
+            android:layout_width="wrap_content"
             android:layout_height="51dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
             android:background="@drawable/background_outline_white"
             android:backgroundTint="@color/button"
             android:drawableLeft="@drawable/search_icon"
@@ -101,7 +76,10 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toStartOf="@id/filter"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            />
 
         <ImageButton
             android:id="@+id/filter"
@@ -135,15 +113,8 @@
                 android:text="Category"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/view_holder_vehicule_type"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:paddingStart="32dp"
-                />
+                android:textStyle="bold"
+                tools:textAlignment="center" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -151,28 +122,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Most Viewed"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#000000"/>
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="See All"
-                    android:textSize="18sp"
-                    android:textColor="#6446b9"
-                    android:textAlignment="viewEnd"/>
-            </LinearLayout>
+                android:orientation="horizontal"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/view_holder_offers"

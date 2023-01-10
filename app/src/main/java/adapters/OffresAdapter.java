@@ -101,7 +101,7 @@ public class OffresAdapter extends RecyclerView.Adapter<OffresAdapter.ViewHolder
                 if(offre.getVehicule() != null){
                     marque = offre.getVehicule().getMarque();
                 }
-                intent.putExtra("vehicule", marque);
+                intent.putExtra("vehicule", (Serializable) offre.getVehicule());
                 v.getContext().startActivity(intent);
 
             }

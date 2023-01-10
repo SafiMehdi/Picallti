@@ -68,7 +68,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView17" /-->
 
 
-
     <android.widget.Button
         android:id="@+id/deleteAccountButton"
         android:layout_width="173dp"
@@ -78,7 +77,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:drawableRight="@drawable/ic_baseline_send_24"
-        android:backgroundTint="@color/button"
+        android:backgroundTint="@color/textBoutton"
         android:padding="5dp"
         android:text="@string/deleteAccount"
         app:layout_constraintHorizontal_bias="0.496"

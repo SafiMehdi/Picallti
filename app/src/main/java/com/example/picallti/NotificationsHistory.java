@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
-import static com.example.picallti.login_page.PREFS_NAME;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
